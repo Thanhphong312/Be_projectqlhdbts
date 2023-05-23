@@ -3,15 +3,49 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Http\Request;
 
-class Authenticate extends Middleware
+use Closure;
+use Illuminate\Contracts\Auth\Guard;
+
+class Authenticate
 {
-    /**
-     * Get the path the user should be redirected to when they are not authenticated.
+/**
+     * The Guard implementation.
+     *
+     * @var Guard
      */
-    protected function redirectTo(Request $request): ?string
+    protected $auth;
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct(Guard $auth)
     {
-        return $request->expectsJson() ? null : route('login');
+        $this->auth = $auth;
     }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        // dd($this->auth->guest());
+        if ($this->auth->guest()) {
+            if ($request->ajax() || $request->wantsJson()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->route('login');
+            }
+        }
+
+        return $next($request);
+    }
+    
 }
