@@ -26,7 +26,7 @@
               <span class="input-group-text">
                 <i class="fa fa-lock "></i>
               </span>
-              <input type="text" id="Password" name="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              <input type="password" id="Password" name="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="form-check mb-3 d-grid align-items-center justify-content-center">
@@ -34,7 +34,7 @@
             <input class="form-check-input" type="checkbox" name="remember" id="remember" value="1">Nhớ tài khoản</label>
           </div>
           <div class="d-grid gap-2 col-12 mx-auto">
-            <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Submit</button>
+            <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Đăng nhập</button>
           </div>
           <div class="d-grid align-items-center justify-content-center ">
             <a href="#" class="text-danger text-decoration-none">Quên mật khẩu</a>
