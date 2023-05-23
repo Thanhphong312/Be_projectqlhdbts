@@ -37,7 +37,7 @@
             <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Đăng nhập</button>
           </div>
           <div class="d-grid align-items-center justify-content-center ">
-            <a href="#" style="color: #000!important" class="text-danger text-decoration-none">Quên mật khẩu</a>
+            <a href="#" style="color: #0000!important" class="text-danger text-decoration-none">Quên mật khẩu</a>
           </div>
         </div>
       </form>
