@@ -18,7 +18,7 @@
               <span class="input-group-text">
                 <i class="fa fa-user "></i>
               </span>
-              <input type="text" id="Email" name="Email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+              <input type="text" id="Email" name="Email" style="text-align: left;" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="mb-3 mt-3">
@@ -26,7 +26,7 @@
               <span class="input-group-text">
                 <i class="fa fa-lock "></i>
               </span>
-              <input type="password" id="Password" name="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              <input type="password" id="Password" name="Password" style="text-align: left;" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="form-check mb-3 d-grid align-items-center justify-content-center">
@@ -37,7 +37,7 @@
             <button type="submit" class="btn btn-primary-login mb-3  form-rounded-1">Đăng nhập</button>
           </div>
           <div class="d-grid align-items-center justify-content-center ">
-            <a href="#" class="text-danger text-decoration-none">Quên mật khẩu</a>
+            <a href="#" style="color: #000!important" class="text-danger text-decoration-none">Quên mật khẩu</a>
           </div>
         </div>
       </form>
