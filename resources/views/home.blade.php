@@ -7,7 +7,7 @@
 @include('partials.messages')
 @endsection
 
-@section('content') 
+@section('content')
 <div class="content-main">
   <!-- start search -->
   <div class="content-search">
@@ -64,5 +64,5 @@
     </div>
   </div>
   <!-- end slide bar -->
-</div> 
+</div>
 @endsection
