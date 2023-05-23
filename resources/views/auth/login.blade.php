@@ -22,11 +22,14 @@
             </div>
           </div>
           <div class="mb-3 mt-3">
-            <div class="input-group form-rounded-1">
+            <div class="input-group form-rounded-1" id="show_hide_password">
               <span class="input-group-text">
                 <i class="fa fa-lock "></i>
               </span>
               <input type="password" id="Password" name="Password" style="text-align: left;" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              <span class="input-group-text">
+                <a href=""><i class="fa fa-eye-slash" id="show_hide_eye"></i></a>
+              </span>            
             </div>
           </div>
           <div class="form-check mb-3 d-grid align-items-center justify-content-center">
