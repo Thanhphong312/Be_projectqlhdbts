@@ -69,4 +69,8 @@ class LoginController extends Controller
             'password' => $request->Password
         ];
     }
+    public function forgotpassword(){
+        $title = 'Forgot password';
+        return view('auth.forgotpassword',compact('title'));
+    }
 }

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 //router login
 Route::get('/login', [LoginController::class,'getLogin'])->name('login');;
 Route::post('/login', [LoginController::class,'postLogin'])->name('post-login');
+Route::get('/forgotpassword', [LoginController::class,'forgotpassword'])->name('forgot-password');
 
 //check user auth login
 Route::group(['middleware' => 'auth'], function () {

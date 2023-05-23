@@ -79,6 +79,19 @@ body {
     align-self: stretch;
 }
 
+.box-forgot-password {
+    align-self: center;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 320px;
+    height: 240px;
+    background-color: #cff1ff;
+    border-radius: 10%;
+}
+.box-forgot-password>*:first-child {
+    align-self: stretch;
+}
 h3 {
     margin: 0;
     text-align: center;
@@ -93,6 +106,14 @@ h3 {
     width: 88%;
     height: 78%;
     border-radius: 10%;
+    background-color: #155cbe;
+}
+
+.form-forgot-password {
+    align-self: center;
+    width: 88%;
+    height: 60%;
+    border-radius: 4%;
     background-color: #155cbe;
 }
 
