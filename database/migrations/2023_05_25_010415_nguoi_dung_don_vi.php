@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('Nguoi_Dung_Don_Vi', function (Blueprint $table) {
             $table->id();
-            $table->string('ND_MaND');
+            $table->bigInteger('ND_MaND')->unsigned();
+            $table->foreign('ND_MaND')->references('id')->on('users');
             $table->string('DV_MaDV');
-            $table->foreign('ND_MaND')->references('ND_MaND')->on('Nguoi_Dung');
             $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
             $table->timestamps();
 

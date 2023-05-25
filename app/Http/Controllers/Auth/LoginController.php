@@ -50,10 +50,10 @@ class LoginController extends Controller
     $credentials = $this->getCredentials($request);
 
     $user = Auth::getProvider()->retrieveByCredentials($credentials);
-    // dd($user);
+    // dd($user->password);
 
     // Authenticate the user
-    if (Auth::attempt(['email'=>'admin@gmail.com','password'=>$request->Password],$request->get('remember'))) {
+    if (Auth::attempt(['email'=>$user->email,'password'=>$request->Password],$request->get('remember'))) {
         return redirect()->route('home');
     } else {
         return redirect()->to('login')

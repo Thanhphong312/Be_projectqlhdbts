@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('Hop_Dong', function (Blueprint $table) {
             $table->string('HD_MaHD')->primary();
-            $table->string('ND_MaND');
-            $table->foreign('ND_MaND')->references('ND_MaND')->on('Nguoi_Dung');
+            $table->bigInteger('ND_MaND')->unsigned();
+            $table->foreign('ND_MaND')->references('id')->on('users');
             $table->string('T_MaTram');
             $table->foreign('T_MaTram')->references('T_MaTram')->on('Tram');
             $table->string('DV_MaDV');
