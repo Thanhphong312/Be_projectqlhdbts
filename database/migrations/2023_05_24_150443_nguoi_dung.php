@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ND_MaDV');
             $table->string('ND_HoTen');
             $table->string('ND_GioiTinh');
-            $table->string('T_DiaChi');
+            $table->string('ND_DiaChi');
             $table->string('ND_Email')->unique();
             $table->string('ND_MatKhau');
             $table->string('ND_SDT')->unique();
