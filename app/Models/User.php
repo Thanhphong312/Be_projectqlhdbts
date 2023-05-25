@@ -14,10 +14,10 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $primarykey = 'maND'; 
+    protected $primarykey = 'id'; 
 
     protected $fillable = [
-        'email', 'password',
+        'maDV', 'hoTen', 'gioiTinh', 'diaChi', 'email','password', 'sdt', 
     ];
     public $timestamps = true;
 
@@ -30,5 +30,10 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+    public function nguoidungs()
+    {
+        return $this->hasMany(QuyenNguoiDung::class, 'maND');
     }
 }
