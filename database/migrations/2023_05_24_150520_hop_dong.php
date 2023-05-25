@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('Hop_Dong', function (Blueprint $table) {
             $table->string('HD_MaHD')->primary();
-            // $table->string('ND_MaND');
-            $table->foreignId('ND_MaND')->constrained('Nguoi_Dung');
-            // $table->string('T_MaTram');
-            $table->foreignId('T_MaTram')->constrained('Tram');
+            $table->string('ND_MaND');
+            $table->foreign('ND_MaND')->references('ND_MaND')->on('Nguoi_Dung');
+            $table->string('T_MaTram');
+            $table->foreign('T_MaTram')->references('T_MaTram')->on('Tram');
             // $table->string('DV_MaDV');
             $table->foreignId('DV_MaDV')->constrained('Don_Vi');
             // $table->string('CSHT_MaCSHT');
