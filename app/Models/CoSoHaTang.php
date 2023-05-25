@@ -14,7 +14,8 @@ class CoSoHaTang extends Model
     protected $primarykey = 'maCSHT'; 
 
     protected $fillable = [
-        'maCSHT', 'tenCSHT',
+        'maCSHT',
+        'tenCSHT'
     ];
     public $timestamps = false;
 

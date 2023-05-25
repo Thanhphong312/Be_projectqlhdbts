@@ -14,7 +14,8 @@ class Quyen extends Model
     protected $primarykey = 'maQ'; 
 
     protected $fillable = [
-        'maQ', 'tenQ',
+        'maQ', 
+        'tenQ'
     ];
     public $timestamps = false;
 
