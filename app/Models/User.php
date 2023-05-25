@@ -45,6 +45,9 @@ class User extends Authenticatable
 
     public function nguoidungs()
     {
-        return $this->hasMany(QuyenNguoiDung::class, 'maND');
+        return $this->hasMany(QuyenNguoiDung::class, 'id');
+    }
+    public function hopdongs(){
+        return $this->hasMany(HopDong::class, 'maND');
     }
 }

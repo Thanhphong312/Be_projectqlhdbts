@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     // router home 
     Route::get('/', [HomeController::class,'index'])->name('home');
     Route::get('/logout',[LogoutController::class,'getLogout'])->name('logout');
+    Route::get('/test',[testController::class,'test'])->name('test');
 
     // --------------
 });

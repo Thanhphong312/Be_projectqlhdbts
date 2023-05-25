@@ -13,7 +13,11 @@ class Tram extends Model
     protected $primarykey = 'maTram'; 
 
     protected $fillable = [
-        'maCSHT', 'tenCSHT',
+        'maCSHT', 'tenTram', 'diaChi', 'tinhTrang'
     ];
     public $timestamps = false;
+    public function hopdongs()
+    {
+        return $this->hasMany(HopDong::class, 'maTram');
+    }
 }
