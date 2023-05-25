@@ -13,7 +13,11 @@ class QuyenNguoiDung extends Model
     protected $primarykey = 'id'; 
 
     protected $fillable = [
-        'id', 'Q_MaQ', 'ND_MaND', 'created_at', 'updated_at'
+        'id',
+        'Q_MaQ',
+        'ND_MaND',
+        'created_at',
+        'updated_at'
     ];
     public $timestamps = true;
 
