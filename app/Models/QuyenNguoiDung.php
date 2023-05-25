@@ -20,4 +20,5 @@ class QuyenNguoiDung extends Model
     public function nguoidung(){
         return $this->hasOne(HopDong::class);
     }
+    
 }
