@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'nguoi_dung';
+    protected $table = 'users';
 
     protected $fillable = [
         'email', 'password',
