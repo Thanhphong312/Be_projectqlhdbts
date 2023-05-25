@@ -51,8 +51,8 @@
           <a href="#">Giới thiệu</a>
         </li>
       </ul>
-       <div class="d-flex justify-content-end btn-logout m-3">
-            <a href="{{route('logout')}}"> 
+       <div class="d-flex justify-content-end btn-logout">
+            <a href=""> 
                 <div class="input-group">
                     <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
                     <span class="input-group-text">

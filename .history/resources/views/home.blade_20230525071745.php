@@ -52,11 +52,11 @@
         </li>
       </ul>
        <div class="d-flex justify-content-end btn-logout m-3">
-            <a href="{{route('logout')}}"> 
+            <a href=""> 
                 <div class="input-group">
-                    <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
+                    <input type="button" class="form-control btn-lg btn-light" value="Đăng xuất">
                     <span class="input-group-text">
-                        <i class="fa fa-arrow-left"></i>
+                        <i class="fa fa-arrow-right"></i>
                     </span>
             </div>
           </a>
