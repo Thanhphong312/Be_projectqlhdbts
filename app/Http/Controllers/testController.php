@@ -10,6 +10,12 @@ class testController extends Controller
 {
     public function test()
     {
-        User::where(1)->nguoidungs();
+        $user = User::where('id', 1)->first();
+        if ($user) {
+            dd($user->quyennguoidungs);
+        } else {
+            dd('User not found');
+        }
     }
+    
 }
