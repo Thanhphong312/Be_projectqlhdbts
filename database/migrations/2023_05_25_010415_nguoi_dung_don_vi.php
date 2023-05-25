@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('DV_MaDV');
             $table->foreign('ND_MaND')->references('ND_MaND')->on('Nguoi_Dung');
             $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
+            $table->timestamps();
+
         });
     }
 

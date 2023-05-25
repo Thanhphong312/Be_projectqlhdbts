@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('Don_Vi', function (Blueprint $table) {
             $table->string('DV_MaDV')->primary();
             $table->string('DV_TenDV');
+            $table->timestamps();
+
         });
     }
 

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('Quyen', function (Blueprint $table) {
             $table->string('Q_MaQ')->primary();
             $table->string('Q_TenQ');
+            $table->timestamps();
+
         });
     }
 

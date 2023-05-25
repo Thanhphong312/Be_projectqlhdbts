@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('F_Loai');
             $table->string('F_NgayTao');
             $table->string('F_NgaySua');
+            $table->timestamps();
+
         });
     }
 

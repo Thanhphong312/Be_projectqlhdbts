@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('Co_So_Ha_Tang', function (Blueprint $table) {
             $table->string('CSHT_MaCSHT')->primary();
             $table->string('CSHT_TenCSHT');
+            $table->timestamps();
+
         });
     }
 
