@@ -43,9 +43,9 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function nguoidungs()
+    public function quyennguoidungs()
     {
-        return $this->hasMany(QuyenNguoiDung::class, 'id');
+        return $this->hasMany(QuyenNguoiDung::class,'ND_MaND','id');
     }
     public function hopdongs(){
         return $this->hasMany(HopDong::class, 'maND');
