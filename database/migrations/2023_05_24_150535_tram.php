@@ -15,10 +15,8 @@ return new class extends Migration
             $table->string('T_MaTram')->primary();
             // $table->string('CSHT_MaCSHT');
             $table->foreignId('CSHT_MaCSHT')->constrained('Co_So_Ha_Tang');
-            // $table->string('T_MaCSHT');
-            $table->foreignId('T_MaCSHT')->constrained('Tram');
-            // $table->string('HD_TenTram');
-            $table->foreignId('HD_TenTram')->constrained('Hop_Dong');
+            $table->string('T_MaCSHT');
+            $table->string('T_TenTram');
             $table->string('T_DiaChi');
             $table->string('T_TinhTrang');
         });

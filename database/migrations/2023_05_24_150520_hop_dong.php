@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string('ND_MaND');
             $table->foreign('ND_MaND')->references('ND_MaND')->on('Nguoi_Dung');
             $table->string('T_MaTram');
-            $table->foreign('T_MaTram')->references('T_MaTram')->on('Tram');
-            // $table->string('DV_MaDV');
-            $table->foreignId('DV_MaDV')->constrained('Don_Vi');
-            // $table->string('CSHT_MaCSHT');
-            $table->foreignId('CSHT_MaCSHT')->constrained('Co_So_Ha_Tang');
+            $table->foreign('T_MaTram')->references('HD_MaTram')->on('Tram');
+            $table->string('DV_MaDV');
+            $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
+            $table->string('CSHT_MaCSHT');
+            $table->foreign('CSHT_MaCSHT')->references('CSHT_MaCSHT')->on('Co_So_Ha_Tang');
             $table->string('HD_MaND');
             $table->string('HD_MaCSHT');
             $table->string('HD_MaDV');
