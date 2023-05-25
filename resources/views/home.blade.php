@@ -51,16 +51,16 @@
           <a href="#">Giới thiệu</a>
         </li>
       </ul>
-       <div class="d-flex justify-content-end btn-logout m-3">
-            <a href="{{route('logout')}}"> 
-                <div class="input-group">
-                    <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
-                    <span class="input-group-text">
-                        <i class="fa fa-arrow-left"></i>
-                    </span>
-            </div>
-          </a>
-        </div>
+      <div class="d-flex justify-content-end btn-logout m-3">
+        <a href="{{route('logout')}}">
+          <div class="input-group">
+            <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
+            <span class="input-group-text">
+              <i class="fa fa-arrow-left"></i>
+            </span>
+          </div>
+        </a>
+      </div>
     </nav>
     <!-- Page Content  -->
     <div id="content">
