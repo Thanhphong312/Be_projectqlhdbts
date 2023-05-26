@@ -29,7 +29,7 @@
               <input type="password" id="Password" name="Password" style="text-align: left;" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
               <span class="input-group-text">
                 <a href=""><i class="fa fa-eye-slash" id="show_hide_eye"></i></a>
-              </span>            
+              </span>
             </div>
           </div>
           <div class="form-check mb-3 d-grid align-items-center justify-content-center">

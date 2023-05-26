@@ -40,29 +40,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    public function getLogin(){
+    public function getLogin()
+    {
         $title = 'login';
-        return view('auth.login',compact('title'));
+        return view('auth.login', compact('title'));
     }
 
     public function postLogin(Request $request)
-{
-    $credentials = $this->getCredentials($request);
+    {
+        $credentials = $this->getCredentials($request);
 
-    $user = Auth::getProvider()->retrieveByCredentials($credentials);
-    $email = "";
-    // dd($user->password);
-    if($user){   
-        $email = $user->email;
-    }
-    // Authenticate the user
-    if (Auth::attempt(['email'=>$email,'password'=>$request->Password],$request->get('remember'))) {
-        return redirect()->route('home');
-    } else {
-        return redirect()->to('login')
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+        $email = "";
+        // dd($user->password);
+        if ($user) {
+            $email = $user->email;
+        }
+        // Authenticate the user
+        if (Auth::attempt(['email' => $email, 'password' => $request->Password], $request->get('remember'))) {
+            return redirect()->route('home');
+        } else {
+            return redirect()->to('login')
                 ->withErrors(trans('app.login-false'));
+        }
     }
-}
 
 
     public function getCredentials(Request $request)
@@ -72,8 +73,9 @@ class LoginController extends Controller
             'password' => $request->Password
         ];
     }
-    public function forgotpassword(){
+    public function forgotpassword()
+    {
         $title = 'Forgot password';
-        return view('auth.forgotpassword',compact('title'));
+        return view('auth.forgotpassword', compact('title'));
     }
 }

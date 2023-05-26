@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\User;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,15 +15,15 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'ND_MaND'=>'ND_01',
-            'ND_MaQ'=>'admin', 
-            'ND_MaDV'=>'', 
-            'name'=>'admin', 
-            'ND_GioiTinh'=> 'name', 
-            'ND_DiaChi'=>'can tho', 
-            'ND_SDT'=>'123123', 
-            'email'=>'admin@gmail.com', 
-            'password'=>'123123', 
+            'ND_MaND' => 'ND_01',
+            'ND_MaQ' => 'admin',
+            'ND_MaDV' => 'VT - HG',
+            'name' => 'admin',
+            'ND_GioiTinh' => 'name',
+            'ND_DiaChi' => 'can tho',
+            'ND_SDT' => '123123',
+            'email' => 'admin@gmail.com',
+            'password' => '123123',
         ]);
     }
 }
