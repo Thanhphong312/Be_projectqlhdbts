@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $title = 'home';
+        $title = 'Trang Chủ';
         return view('home',compact('title'));
     }
 }
