@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 02:56 PM
+-- Generation Time: May 26, 2023 at 03:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -296,7 +296,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ND_MaND`, `ND_MaQ`, `ND_MaDV`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `ND_SDT`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ND_01', 'admin', '', 'admin', 'name', 'can tho', '123123', 'admin@gmail.com', NULL, '$2y$10$/BosiXfHxDHK.E.U7ULBlOkRAnCkCzTHpqnw.jr32xHbEBKP6a0pW', NULL, '2023-05-25 05:51:30', '2023-05-25 05:51:30');
+(1, 'ND_01', 'admin', '', 'admin', 'name', 'can tho', '123123', 'admin@gmail.com', NULL, '$2y$10$MXiOxY2SYScN.wSRIOM5K.gYgkGlAJRZs2QswDysXiktWknU3eCBC', NULL, '2023-05-25 17:58:54', '2023-05-25 17:58:54');
 
 --
 -- Indexes for dumped tables
