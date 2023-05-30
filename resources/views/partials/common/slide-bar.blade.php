@@ -8,7 +8,7 @@
             <a href="#pageSubmenu" data-toggle="collapse">Trạm</a>
         </li>
         <li>
-            <a href="#">Hợp đồng</a>
+            <a href="hop">Hợp đồng</a>
         </li>
         <li>
             <a href="#">Cơ sở hạ tầng</a>
@@ -17,7 +17,7 @@
             <a href="#">Tài khoản</a>
         </li>
         <li>
-            <a href="#">Thống kê</a>
+            <a href="thongke">Thống kê</a>
         </li>
         <li>
             <div class="justify-content-start btn-logout">
