@@ -17,7 +17,9 @@
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
+
         <!-- Page Content  -->
+        
         
     </div>
     <!-- end slide bar -->

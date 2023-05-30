@@ -1,4 +1,3 @@
-
 <nav id="sidebar" class="show-window hide-mobile">
     <ul class="list-unstyled components">
         <li class="active">

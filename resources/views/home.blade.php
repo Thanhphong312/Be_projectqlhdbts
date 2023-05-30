@@ -36,7 +36,6 @@
             </ol>
           </nav>
           <!-- page show in mobile -->
-
           @include('partials.common.mobile-menu')
 
         </div>
