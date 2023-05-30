@@ -1,23 +1,23 @@
 
-<nav id="sidebar">
+<nav id="sidebar" class="show-window hide-mobile">
     <ul class="list-unstyled components">
         <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Trang chủ</a>
+            <a href="{{route('home')}}">Trang chủ</a>
         </li>
         <li>
-            <a href="#pageSubmenu" data-toggle="collapse">Trạm</a>
+            <a href="{{route('tram')}}">Trạm</a>
         </li>
         <li>
-            <a href="hop">Hợp đồng</a>
+            <a href="{{route('hopdong')}}">Hợp đồng</a>
         </li>
         <li>
-            <a href="#">Cơ sở hạ tầng</a>
+            <a href="{{route('csht')}}">Cơ sở hạ tầng</a>
         </li>
         <li>
-            <a href="#">Tài khoản</a>
+            <a href="{{route('taikhoan')}}">Tài khoản</a>
         </li>
         <li>
-            <a href="thongke">Thống kê</a>
+            <a href="{{route('thongke')}}">Thống kê</a>
         </li>
         <li>
             <div class="justify-content-start btn-logout">

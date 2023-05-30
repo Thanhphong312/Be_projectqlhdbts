@@ -9,16 +9,7 @@
 
 @section('content')
 <div class="content-main">
-  <!-- start search -->
-  <div class="content-search">
-    <div class="d-flex align-items-center justify-content-center flex-column ">
-      <form class="form-search">
-        <input type="search" placeholder="Search..." class="btn-submit">
-        <button type="submit" class="bt-search">Search</button>
-      </form>
-    </div>
-  </div>
-  <!-- end search  -->
+  @include('partials.common.search')
   <!--  start slide bar  -->
   <div class="wrapper">
     <!-- Sidebar  -->
@@ -43,24 +34,7 @@
           </nav>
           <!-- page show in mobile -->
 
-          <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <div class="hidden-window show-mobile">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          @include('partials.common.mobile-menu')
 
         </div>
       </nav>

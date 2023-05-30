@@ -280,6 +280,9 @@ input.nosubmit {
     display: none !important;
 }
 
+.show-window{
+    display:block!important;
+}
 .nav .active {
     color: white;
 }
