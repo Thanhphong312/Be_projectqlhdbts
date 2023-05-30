@@ -54,55 +54,49 @@
                     <form class="form-search">
                         <input type="search" placeholder="Search..." class="btn-submit">
                         <button type="submit" class="bt-search">Search</button>
-                    </form>
+                      </form>
                 </div>
             </div>
             <!-- end search  -->
-            <!--  start slide bar  -->
-            <div class="wrapper">
+           <!--  start slide bar  -->
+           <div class="wrapper">
                 <!-- Sidebar  -->
                 <nav id="sidebar">
                     <ul class="list-unstyled components">
-                        <li class="active">
-                            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Trang chủ</a>
-                        </li>
-                        <li>
-                            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
-                                class="dropdown-toggle">Trang</a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu">
-                                <li>
-                                    <a href="#">Page 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Page 2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Page 3</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Hỗ trợ</a>
-                        </li>
-                        <li>
-                            <a href="#">Liên hệ</a>
-                        </li>
-                        <li>
-                            <a href="#">Giới thiệu</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex justify-content-end btn-logout m-3">
-                        <a href="{{route('logout')}}">
-                            <div class="input-group">
-                                <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
-                                <span class="input-group-text">
-                                    <i class="fa fa-arrow-left"></i>
-                                </span>
+                      <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Trang chủ</a>
+                      </li>
+                      <li>
+                        <a href="#pageSubmenu" data-toggle="collapse">Trạm</a>
+                      </li>
+                      <li>
+                        <a href="#">Hợp đồng</a>
+                      </li>
+                      <li>
+                        <a href="#">Cơ sở hạ tầng</a>
+                      </li>
+                      <li>
+                        <a href="#">Tài khoản</a>
+                      </li>
+                      <li>
+                        <a href="#">Thống kê</a>
+                      </li>
+                      <li>
+                        <div class="justify-content-start btn-logout">
+                          <a href=""> 
+                              <div class="input-group">
+                                  <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
+                                  <span class="input-group-text">
+                                      <i class="fa fa-arrow-left"></i>
+                                  </span>
                             </div>
-                        </a>
-                    </div>
-                </nav>
-
+                          </a>
+                          
+                      </div>
+                      </li>
+                    </ul>
+                  </nav>
+        
                 <!-- Page Content  -->
                 <div id="content">
                     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -111,44 +105,41 @@
                                 <i class="fas fa-align-left"></i>
                             </button>
                             <!-- page show in mobile -->
-                            <button class="btn btn-dark d-inline-block d-lg-none ml-auto m-2 hidden-window"
-                                type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                                aria-controls="navbarSupportedContent" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <i class="fas fa-align-justify"></i>
+                            <button class="btn btn-dark d-inline-block d-lg-none ml-auto m-2 hidden-window" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                              <i class="fas fa-align-justify"></i>
                             </button>
                             <nav aria-label="breadcrumb " style="height:25px">
-                                <ol class="breadcrumb ">
-                                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                                    <li class="breadcrumb-item active"><a href="#">Thống kê</a></li>
-                                </ol>
+                              <ol class="breadcrumb ">
+                                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                                
+                              </ol>
                             </nav>
                             <!-- page show in mobile -->
-
-                            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            
+                              <div class="collapse navbar-collapse " id="navbarSupportedContent">
                                 <div class="hidden-window show-mobile">
-                                    <ul class="nav navbar-nav ml-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="#">Page</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Page</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Page</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Page</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <ul class="nav navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Page</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Page</a>
+                                    </li>
+                                </ul>
+                              </div> 
                             </div>
-
+                                              
                         </div>
                     </nav>
-
+                    
                     <div class="container text-center ">
-                        <div class="row align-items-center p-2 gx-2  row-item-home">
+                        <div class="row align-items-center p-2 gx-2  row-item-home"  >
                             <div class="col-6 col-md-4 rounded-3 border border-dark">
                                 <div class="item-home d-flex align-items-center justify-content-center">
                                     <div>
@@ -201,8 +192,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- end slide bar -->
+            </div>  
+           <!-- end slide bar -->
         </div>
     </main>
     <!-- end main -->
