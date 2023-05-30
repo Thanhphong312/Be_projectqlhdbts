@@ -3,6 +3,7 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -18,13 +19,14 @@ p {
 
 a,
 a:focus {
-    color: inherit!important;
-    text-decoration: none!important;
+    color: inherit !important;
+    text-decoration: none !important;
     transition: all 0.3s;
 }
-a:hover{
-    color: black!important;
-    text-decoration: none!important;
+
+a:hover {
+    color: black !important;
+    text-decoration: none !important;
     transition: all 0.3s;
 }
 
@@ -58,8 +60,8 @@ a:hover{
     display: flex;
     width: 100%;
     align-items: stretch;
-    padding-top:10px;
-    
+    padding-top: 10px;
+
 }
 
 #sidebar {
@@ -68,7 +70,7 @@ a:hover{
     background: #1050aa;
     color: #fff;
     transition: all 0.3s;
-    height:350px;
+    height: 350px;
 }
 
 #sidebar.active {
@@ -155,7 +157,7 @@ a.article:hover {
     width: 100%;
     padding: 2px;
     transition: all 0.3s;
-    margin-bottom:100px;
+    margin-bottom: 100px;
 }
 
 /* ---------------------------------------------------
@@ -166,10 +168,23 @@ a.article:hover {
     #sidebar {
         margin-left: -250px;
     }
+
     #sidebar.active {
         margin-left: 0;
     }
+
     #sidebarCollapse span {
         display: none;
     }
+}
+
+/* Add */
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li .btn-logout a:hover {
+    color: #7386D5;
+    background: #1050aa !important;
 }

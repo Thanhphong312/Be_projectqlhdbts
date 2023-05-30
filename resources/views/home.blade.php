@@ -30,10 +30,11 @@
             <i class="fas fa-align-justify"></i>
           </button>
           <nav aria-label="breadcrumb " style="height:25px">
-            <ol class="breadcrumb ">
-              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+            <!-- <ol class="breadcrumb ">
+              <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
 
-            </ol>
+            </ol> -->
+            @include('partials.common.breadcrumb')
           </nav>
           <!-- page show in mobile -->
           @include('partials.common.mobile-menu')

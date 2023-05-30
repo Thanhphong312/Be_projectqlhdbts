@@ -1,22 +1,22 @@
 <nav id="sidebar" class="show-window hide-mobile">
     <ul class="list-unstyled components">
         <li class="active">
-            <a href="{{route('home')}}">Trang chủ</a>
+            <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         <li>
             <a href="{{route('tram')}}">Trạm</a>
         </li>
         <li>
-            <a href="{{route('hopdong')}}">Hợp đồng</a>
+            <a href="{{route('hopdong')}}">Hợp Đồng</a>
         </li>
         <li>
-            <a href="{{route('csht')}}">Cơ sở hạ tầng</a>
+            <a href="{{route('csht')}}">Cơ Sở Hạ Tầng</a>
         </li>
         <li>
-            <a href="{{route('taikhoan')}}">Tài khoản</a>
+            <a href="{{route('taikhoan')}}">Tài Khoản</a>
         </li>
         <li>
-            <a href="{{route('thongke')}}">Thống kê</a>
+            <a href="{{route('thongke')}}">Thống Kê</a>
         </li>
         <li>
             <div class="justify-content-start btn-logout">
