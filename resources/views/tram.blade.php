@@ -43,7 +43,57 @@
             </nav>
 
             <!-- Content -->
+            <!-- Add trạm-->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
+                    <i class="fas fa-plus"></i> Thêm</button>
+            </div>
 
+            <!-- Table show trạm  -->
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th scope="col-6 col-md-4">STT</th>
+                        <th scope="col-6 col-md-4">Mã trạm</th>
+                        <th scope="col-6 col-md-4">Tên trạm</th>
+                        <th scope="col-6 col-md-4">Địa chỉ</th>
+                        <th scope="col-6 col-md-4">Tình trạng</th>
+                        <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>TLM001</td>
+                        <td>Long_Binh_HUG</td>
+                        <td>Long Binh_Hau Giang</td>
+                        <td><input type="checkbox" name="tinhtrang" checked></td>
+                        <td>
+                            <button class="btn btn-primary me-md-3">
+                                <i class="fas fa-edit"></i> Sửa
+                            </button>
+                            <button class="btn btn-danger me-md-3">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>TLM002</td>
+                        <td>Vi_Thuy_HUG</td>
+                        <td>Vi Thuy_Hau Giang</td>
+                        <td><input type="checkbox" name="tinhtrang"></td>
+                        <td>
+                            <button class="btn btn-primary me-md-3">
+                                <i class="fas fa-edit"></i> Sửa
+                            </button>
+                            <button class="btn btn-danger me-md-3">
+                                <i class="fas fa-trash-alt"></i> Xóa
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
     </div>
