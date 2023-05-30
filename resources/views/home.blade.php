@@ -43,24 +43,7 @@
           </nav>
           <!-- page show in mobile -->
 
-          <div class="collapse navbar-collapse " id="navbarSupportedContent">
-            <div class="hidden-window show-mobile">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Page</a>
-                </li>
-              </ul>
-            </div>
-          </div>
+          @include('partials.common.mobile-menu')
 
         </div>
       </nav>

@@ -40,27 +40,8 @@
                             <li class="breadcrumb-item active"><a href="#">Thống kê</a></li>
                         </ol>
                     </nav>
-                    <!-- page show in mobile -->
-
-                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                        <div class="hidden-window show-mobile">
-                            <ul class="nav navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Page</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                    <!-- menu in mobile -->
+                    @include('partials.common.mobile-menu')
                 </div>
             </nav>
             <!-- start filter -->
@@ -150,11 +131,11 @@
 
 @section('JS')
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#sidebarCollapse').on('click', function() {
-            $('#sidebar').toggleClass('active');
-        });
-    });
+    // $(document).ready(function() {
+    //     $('#sidebarCollapse').on('click', function() {
+    //         $('#sidebar').toggleClass('active');
+    //     });
+    // });
     var options = {
         chart: {
             height: 300,
