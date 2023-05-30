@@ -13,13 +13,11 @@ return new class extends Migration
     {
         Schema::create('Nguoi_Dung', function (Blueprint $table) {
             $table->string('ND_MaND')->primary();
-            $table->string('ND_MaQ');
-            $table->string('ND_MaDV');
-            $table->string('ND_HoTen');
+            $table->string('name');
             $table->string('ND_GioiTinh');
             $table->string('ND_DiaChi');
             $table->string('ND_Email')->unique();
-            $table->string('ND_MatKhau');
+            $table->string('password');
             $table->string('ND_SDT')->unique();
             $table->timestamps();
         });

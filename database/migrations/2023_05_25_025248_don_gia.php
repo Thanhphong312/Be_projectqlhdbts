@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Don_Gia', function (Blueprint $table) {
-            $table->string('DG_MaDon')->primary();
+            $table->string('DG_MaDG')->primary();
             $table->string('HD_MaHD');
             $table->foreign('HD_MaHD')->references('HD_MaHD')->on('Hop_Dong');
-            $table->string('DG_MaHD');
             $table->string('DG_Thang');
             $table->string('DG_Nam');
             $table->string('DG_Gia');

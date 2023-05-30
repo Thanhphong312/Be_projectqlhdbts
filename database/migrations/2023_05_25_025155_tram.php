@@ -15,9 +15,8 @@ return new class extends Migration
             $table->string('T_MaTram')->primary();
             $table->string('CSHT_MaCSHT');
             $table->foreign('CSHT_MaCSHT')->references('CSHT_MaCSHT')->on('Co_So_Ha_Tang');
-            $table->string('T_MaCSHT');
             $table->string('T_TenTram');
-            $table->string('T_DiaChi');
+            $table->string('T_DiaChiTram');
             $table->string('T_TinhTrang');
             $table->timestamps();
         });

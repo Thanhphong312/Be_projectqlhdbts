@@ -11,16 +11,16 @@ class Quyen extends Model
 
     protected $table = 'quyen';
     
-    protected $primarykey = 'maQ'; 
+    protected $primarykey = 'Q_MaQ'; 
 
     protected $fillable = [
-        'maQ', 
-        'tenQ'
+        'Q_MaQ', 
+        'Q_TenQ'
     ];
     public $timestamps = false;
 
     public function quyennguoidungs()
     {
-        return $this->hasMany(QuyenNguoiDung::class, 'maQ');
+        return $this->hasMany(QuyenNguoiDung::class, 'Q_MaQ', 'Q_MaQ');
     }
 }

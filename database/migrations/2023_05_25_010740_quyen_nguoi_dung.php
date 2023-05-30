@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('Quyen_Nguoi_Dung', function (Blueprint $table) {
             $table->id();
             $table->string('Q_MaQ');
-            $table->bigInteger('ND_MaND')->unsigned();
             $table->foreign('Q_MaQ')->references('Q_MaQ')->on('Quyen');
+            $table->bigInteger('ND_MaND')->unsigned();
             $table->foreign('ND_MaND')->references('id')->on('users');
             $table->timestamps();
         });

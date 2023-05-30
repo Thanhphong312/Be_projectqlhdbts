@@ -9,18 +9,19 @@ class CoSoHaTang extends Model
 {
     use HasFactory;
 
-    protected $table = 'cosohatang';
+    protected $table = 'co_so_ha_tang';
     
-    protected $primarykey = 'maCSHT'; 
+    protected $primarykey = 'CSHT_MaCSHT'; 
 
     protected $fillable = [
-        'maCSHT',
-        'tenCSHT'
+        'CSHT_MaCSHT',
+        'CSHT_TenCSHT'
     ];
+    
     public $timestamps = false;
 
     public function trams()
     {
-        return $this->hasMany(Tram::class, 'maCSHT');
+        return $this->hasMany(Tram::class, 'CSHT_MaCSHT');
     }
 }

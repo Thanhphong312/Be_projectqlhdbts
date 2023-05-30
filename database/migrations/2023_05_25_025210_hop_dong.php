@@ -19,12 +19,7 @@ return new class extends Migration
             $table->foreign('T_MaTram')->references('T_MaTram')->on('Tram');
             $table->string('DV_MaDV');
             $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
-            $table->string('CSHT_MaCSHT');
-            $table->foreign('CSHT_MaCSHT')->references('CSHT_MaCSHT')->on('Co_So_Ha_Tang');
-            // $table->string('HD_MaND');
             $table->string('HD_MaCSHT');
-            $table->string('HD_MaDV');
-            $table->string('HD_MaTram');
             $table->string('T_TenTram');
             $table->string('HD_NgayDangKy');
             $table->string('HD_NgayHetHan');
