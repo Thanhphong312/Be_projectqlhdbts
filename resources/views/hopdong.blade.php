@@ -12,12 +12,13 @@
     <!-- start search -->
     @include('partials.common.search')
     <!-- end search  -->
+    
     <!--  start slide bar  -->
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
         <!-- Page Content  -->
-        
+
         
     </div>
     <!-- end slide bar -->

@@ -29,7 +29,6 @@
                         </span>
                     </div>
                 </a>
-
             </div>
         </li>
     </ul>
