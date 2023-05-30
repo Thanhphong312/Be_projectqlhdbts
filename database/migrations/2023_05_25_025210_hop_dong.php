@@ -21,9 +21,9 @@ return new class extends Migration
             $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
             $table->string('HD_MaCSHT');
             $table->string('T_TenTram');
-            $table->string('HD_NgayDangKy');
-            $table->string('HD_NgayHetHan');
-            $table->string('HD_NgayPhuLuc');
+            $table->date('HD_NgayDangKy');
+            $table->date('HD_NgayHetHan');
+            $table->date('HD_NgayPhuLuc');
             $table->string('HD_GiaGoc');
             $table->string('HD_GiaHienTai');
             $table->string('HD_SoTaiKhoan');

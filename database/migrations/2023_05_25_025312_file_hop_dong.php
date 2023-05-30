@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('HD_MaHD');
             $table->foreign('HD_MaHD')->references('HD_MaHD')->on('Hop_Dong');
             $table->string('F_Loai');
-            $table->string('F_NgayTao');
-            $table->string('F_NgaySua');
+            $table->date('F_NgayTao');
+            $table->date('F_NgaySua');
             $table->timestamps();
         });
     }

@@ -16,14 +16,12 @@ class UserSeeder extends Seeder
     {
         User::create([
             'ND_MaND' => 'ND_01',
-            'ND_MaQ' => 'admin',
-            'ND_MaDV' => 'VT - HG',
             'name' => 'admin',
             'ND_GioiTinh' => 'name',
             'ND_DiaChi' => 'Can Tho',
-            'ND_SDT' => '123123',
             'email' => 'admin@gmail.com',
             'password' => '123123',
+            'ND_SDT' => '123123',
         ]);
     }
 }
