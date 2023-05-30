@@ -23,5 +23,4 @@ class testController extends Controller
         //     dd('User not found');
         // }
     }
-    
 }
