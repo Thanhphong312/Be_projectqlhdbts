@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
+    protected $webNamespace = 'Vanguard\Http\Controllers\Web';
+
     /**
      * The path to your application's "home" route.
      *

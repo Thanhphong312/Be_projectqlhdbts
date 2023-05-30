@@ -9,7 +9,7 @@ class HopDong extends Model
 {
     use HasFactory;
 
-    protected $table = 'hopdong';
+    protected $table = 'hop_dong';
 
     protected $primarykey = 'HD_MaHD';
 
@@ -45,7 +45,6 @@ class HopDong extends Model
     public function donvi(){
         return $this->hasOne(DonVi::class, 'DV_MaDV', 'DV_MaDV');
     }
-
     public function tram(){
         return $this->hasOne(Tram::class, 'T_MaTram', 'T_MaTram');
     }

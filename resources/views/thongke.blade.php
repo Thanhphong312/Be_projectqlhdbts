@@ -22,48 +22,7 @@
     <!--  start slide bar  -->
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
-            <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Trang chủ</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Trang</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Hỗ trợ</a>
-                </li>
-                <li>
-                    <a href="#">Liên hệ</a>
-                </li>
-                <li>
-                    <a href="#">Giới thiệu</a>
-                </li>
-            </ul>
-            <div class="d-flex justify-content-end btn-logout m-3">
-                <a href="">
-                    <div class="input-group">
-                        <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
-                        <span class="input-group-text">
-                            <i class="fa fa-arrow-left"></i>
-                        </span>
-                    </div>
-                </a>
-
-            </div>
-        </nav>
-
+        @include('partials.common.slide-bar')
         <!-- Page Content  -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-primary">
