@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2023 at 03:00 AM
+-- Generation Time: May 30, 2023 at 04:23 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -34,6 +34,13 @@ CREATE TABLE `co_so_ha_tang` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `co_so_ha_tang`
+--
+
+INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updated_at`) VALUES
+('CSHT_HUG_00118', 'HUG001', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -41,9 +48,8 @@ CREATE TABLE `co_so_ha_tang` (
 --
 
 CREATE TABLE `don_gia` (
-  `DG_MaDon` varchar(255) NOT NULL,
+  `DG_MaDG` varchar(255) NOT NULL,
   `HD_MaHD` varchar(255) NOT NULL,
-  `DG_MaHD` varchar(255) NOT NULL,
   `DG_Thang` varchar(255) NOT NULL,
   `DG_Nam` varchar(255) NOT NULL,
   `DG_Gia` varchar(255) NOT NULL,
@@ -63,6 +69,13 @@ CREATE TABLE `don_vi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `don_vi`
+--
+
+INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
+('DV1', 'TTVT1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,15 +100,21 @@ CREATE TABLE `failed_jobs` (
 --
 
 CREATE TABLE `file_hop_dong` (
-  `F_File` varchar(255) NOT NULL,
+  `F_MaFile` varchar(255) NOT NULL,
   `HD_MaHD` varchar(255) NOT NULL,
-  `F_MaND` varchar(255) NOT NULL,
   `F_Loai` varchar(255) NOT NULL,
-  `F_NgayTao` varchar(255) NOT NULL,
-  `F_NgaySua` varchar(255) NOT NULL,
+  `F_NgayTao` date NOT NULL,
+  `F_NgaySua` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `file_hop_dong`
+--
+
+INSERT INTO `file_hop_dong` (`F_MaFile`, `HD_MaHD`, `F_Loai`, `F_NgayTao`, `F_NgaySua`, `created_at`, `updated_at`) VALUES
+('F1', 'HD1', 'PDF', '2023-05-30', '2023-05-30', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -108,14 +127,11 @@ CREATE TABLE `hop_dong` (
   `ND_MaND` bigint(20) UNSIGNED NOT NULL,
   `T_MaTram` varchar(255) NOT NULL,
   `DV_MaDV` varchar(255) NOT NULL,
-  `CSHT_MaCSHT` varchar(255) NOT NULL,
   `HD_MaCSHT` varchar(255) NOT NULL,
-  `HD_MaDV` varchar(255) NOT NULL,
-  `HD_MaTram` varchar(255) NOT NULL,
   `T_TenTram` varchar(255) NOT NULL,
-  `HD_NgayDangKy` varchar(255) NOT NULL,
-  `HD_NgayHetHan` varchar(255) NOT NULL,
-  `HD_NgayPhuLuc` varchar(255) NOT NULL,
+  `HD_NgayDangKy` date NOT NULL,
+  `HD_NgayHetHan` date NOT NULL,
+  `HD_NgayPhuLuc` date NOT NULL,
   `HD_GiaGoc` varchar(255) NOT NULL,
   `HD_GiaHienTai` varchar(255) NOT NULL,
   `HD_SoTaiKhoan` varchar(255) NOT NULL,
@@ -126,6 +142,13 @@ CREATE TABLE `hop_dong` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hop_dong`
+--
+
+INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
+('HD1', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-05-30', '1000000', '1200000', '954868888', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,34 +173,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2023_05_24_150331_co_so_ha_tang', 1),
 (6, '2023_05_24_150415_quyen', 1),
-(7, '2023_05_24_150443_nguoi_dung', 1),
-(8, '2023_05_24_150501_don_vi', 1),
-(9, '2023_05_25_010415_nguoi_dung_don_vi', 1),
-(10, '2023_05_25_010740_quyen_nguoi_dung', 1),
-(11, '2023_05_25_025155_tram', 1),
-(12, '2023_05_25_025210_hop_dong', 1),
-(13, '2023_05_25_025248_don_gia', 1),
-(14, '2023_05_25_025312_file_hop_dong', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nguoi_dung`
---
-
-CREATE TABLE `nguoi_dung` (
-  `ND_MaND` varchar(255) NOT NULL,
-  `ND_MaQ` varchar(255) NOT NULL,
-  `ND_MaDV` varchar(255) NOT NULL,
-  `ND_HoTen` varchar(255) NOT NULL,
-  `ND_GioiTinh` varchar(255) NOT NULL,
-  `ND_DiaChi` varchar(255) NOT NULL,
-  `ND_Email` varchar(255) NOT NULL,
-  `ND_MatKhau` varchar(255) NOT NULL,
-  `ND_SDT` varchar(255) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(7, '2023_05_24_150501_don_vi', 1),
+(8, '2023_05_25_010415_nguoi_dung_don_vi', 1),
+(9, '2023_05_25_010740_quyen_nguoi_dung', 1),
+(10, '2023_05_25_025155_tram', 1),
+(11, '2023_05_25_025210_hop_dong', 1),
+(12, '2023_05_25_025248_don_gia', 1),
+(13, '2023_05_25_025312_file_hop_dong', 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +194,13 @@ CREATE TABLE `nguoi_dung_don_vi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `nguoi_dung_don_vi`
+--
+
+INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
+(1, 1, 'DV1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -237,6 +246,13 @@ CREATE TABLE `quyen` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `quyen`
+--
+
+INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
+('Q1', 'Them', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -251,6 +267,13 @@ CREATE TABLE `quyen_nguoi_dung` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `quyen_nguoi_dung`
+--
+
+INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
+(1, 'Q1', 1, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -260,13 +283,19 @@ CREATE TABLE `quyen_nguoi_dung` (
 CREATE TABLE `tram` (
   `T_MaTram` varchar(255) NOT NULL,
   `CSHT_MaCSHT` varchar(255) NOT NULL,
-  `T_MaCSHT` varchar(255) NOT NULL,
   `T_TenTram` varchar(255) NOT NULL,
-  `T_DiaChi` varchar(255) NOT NULL,
+  `T_DiaChiTram` varchar(255) NOT NULL,
   `T_TinhTrang` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tram`
+--
+
+INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `created_at`, `updated_at`) VALUES
+('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -277,15 +306,13 @@ CREATE TABLE `tram` (
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `ND_MaND` varchar(255) NOT NULL,
-  `ND_MaQ` varchar(255) NOT NULL,
-  `ND_MaDV` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `ND_GioiTinh` varchar(255) NOT NULL,
   `ND_DiaChi` varchar(255) NOT NULL,
-  `ND_SDT` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `ND_SDT` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -295,8 +322,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `ND_MaND`, `ND_MaQ`, `ND_MaDV`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `ND_SDT`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ND_01', 'admin', '', 'admin', 'name', 'can tho', '123123', 'admin@gmail.com', NULL, '$2y$10$MXiOxY2SYScN.wSRIOM5K.gYgkGlAJRZs2QswDysXiktWknU3eCBC', NULL, '2023-05-25 17:58:54', '2023-05-25 17:58:54');
+INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'ND_01', 'admin', 'name', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', NULL, '2023-05-29 19:12:57', '2023-05-29 19:12:57');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +339,7 @@ ALTER TABLE `co_so_ha_tang`
 -- Indexes for table `don_gia`
 --
 ALTER TABLE `don_gia`
-  ADD PRIMARY KEY (`DG_MaDon`),
+  ADD PRIMARY KEY (`DG_MaDG`),
   ADD KEY `don_gia_hd_mahd_foreign` (`HD_MaHD`);
 
 --
@@ -332,7 +359,7 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `file_hop_dong`
 --
 ALTER TABLE `file_hop_dong`
-  ADD PRIMARY KEY (`F_File`),
+  ADD PRIMARY KEY (`F_MaFile`),
   ADD KEY `file_hop_dong_hd_mahd_foreign` (`HD_MaHD`);
 
 --
@@ -342,22 +369,13 @@ ALTER TABLE `hop_dong`
   ADD PRIMARY KEY (`HD_MaHD`),
   ADD KEY `hop_dong_nd_mand_foreign` (`ND_MaND`),
   ADD KEY `hop_dong_t_matram_foreign` (`T_MaTram`),
-  ADD KEY `hop_dong_dv_madv_foreign` (`DV_MaDV`),
-  ADD KEY `hop_dong_csht_macsht_foreign` (`CSHT_MaCSHT`);
+  ADD KEY `hop_dong_dv_madv_foreign` (`DV_MaDV`);
 
 --
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `nguoi_dung`
---
-ALTER TABLE `nguoi_dung`
-  ADD PRIMARY KEY (`ND_MaND`),
-  ADD UNIQUE KEY `nguoi_dung_nd_email_unique` (`ND_Email`),
-  ADD UNIQUE KEY `nguoi_dung_nd_sdt_unique` (`ND_SDT`);
 
 --
 -- Indexes for table `nguoi_dung_don_vi`
@@ -407,8 +425,8 @@ ALTER TABLE `tram`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_nd_sdt_unique` (`ND_SDT`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD UNIQUE KEY `users_nd_sdt_unique` (`ND_SDT`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -424,13 +442,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -442,7 +460,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -470,7 +488,6 @@ ALTER TABLE `file_hop_dong`
 -- Constraints for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
-  ADD CONSTRAINT `hop_dong_csht_macsht_foreign` FOREIGN KEY (`CSHT_MaCSHT`) REFERENCES `co_so_ha_tang` (`CSHT_MaCSHT`),
   ADD CONSTRAINT `hop_dong_dv_madv_foreign` FOREIGN KEY (`DV_MaDV`) REFERENCES `don_vi` (`DV_MaDV`),
   ADD CONSTRAINT `hop_dong_nd_mand_foreign` FOREIGN KEY (`ND_MaND`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `hop_dong_t_matram_foreign` FOREIGN KEY (`T_MaTram`) REFERENCES `tram` (`T_MaTram`);
