@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreign('Q_MaQ')->references('Q_MaQ')->on('Quyen');
             $table->foreign('ND_MaND')->references('id')->on('users');
             $table->timestamps();
-
         });
     }
 

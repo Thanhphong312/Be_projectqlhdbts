@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('DV_MaDV');
             $table->foreign('DV_MaDV')->references('DV_MaDV')->on('Don_Vi');
             $table->timestamps();
-
         });
     }
 

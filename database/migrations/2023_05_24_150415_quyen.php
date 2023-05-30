@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('Q_MaQ')->primary();
             $table->string('Q_TenQ');
             $table->timestamps();
-
         });
     }
 

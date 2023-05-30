@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('T_DiaChi');
             $table->string('T_TinhTrang');
             $table->timestamps();
-
         });
     }
 

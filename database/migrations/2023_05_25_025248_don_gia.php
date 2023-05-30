@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('DG_Nam');
             $table->string('DG_Gia');
             $table->timestamps();
-
         });
     }
 
