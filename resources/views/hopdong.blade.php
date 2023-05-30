@@ -18,6 +18,7 @@
         @include('partials.common.slide-bar')
         <!-- Page Content  -->
         
+        
     </div>
     <!-- end slide bar -->
 </div>
