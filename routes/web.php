@@ -39,5 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tram', [TramController::class, 'index'])->name('tram');
     Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
     Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
-    // --------------
+    // -------------- Hop Dong
+    Route::post('/export-csv', [HopDongController::class, 'export'])->name('export-csv');
+    Route::post('/import-csv', [HopDongController::class, 'inport'])->name('import-csv');
 });

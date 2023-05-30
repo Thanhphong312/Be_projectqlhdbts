@@ -10,6 +10,14 @@ class HopDongController extends Controller
     public function index(){
         $title = 'Hợp Đồng';
         
-        return view('hopdong',compact('title'));
+        return view('hopdong', compact('title'));
+    }
+
+    public function import(){
+        
+    }
+
+    public function export(){
+        
     }
 }
