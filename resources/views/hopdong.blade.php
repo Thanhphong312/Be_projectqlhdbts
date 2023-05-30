@@ -11,15 +11,16 @@
 <div class="content-main">
     <!-- start search -->
     @include('partials.common.search')
-    <!-- end search  -->
-
+    <!-- end    
+    <!--
     <!--  start slide bar  -->
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
 
-        <!-- Page Content  -->
+Page Content  -->
 
+Page Content          -->
         
     </div>
     <!-- end slide bar -->
@@ -27,4 +28,4 @@
 @endsection
 
 @section('JS')
-@endsection
+@endsectionection
