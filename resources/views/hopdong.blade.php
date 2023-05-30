@@ -63,76 +63,78 @@
             </div>
 
             <!-- Table show hợp đồng -->
-            <div class="container">
-                <div class="table-responsive">
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th scope="col-6 col-md-4">STT</th>
-                                <th scope="col-6 col-md-4">Tên tài khoản</th>
-                                <th scope="col-6 col-md-4">Số tài khoản</th>
-                                <th scope="col-6 col-md-4">Tại ngân hàng</th>
-                                <th scope="col-6 col-md-4">Ngày ký HĐ</th>
-                                <th scope="col-6 col-md-4">Ngày hết hạn</th>
-                                <th scope="col-6 col-md-4">Giá thuê</th>
-                                <th scope="col-6 col-md-4">Mã trạm theo HĐ</th>
-                                <th scope="col-6 col-md-4">Tên trạm</th>
-                                <th scope="col-6 col-md-4">Mã CSHT</th>
-                                <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
-                                <th scope="col-6 col-md-4">Hợp đồng</th>
-                                <th scope="col-6 col-md-4">Ngày phụ lục</th>
-                                <th scope="col-6 col-md-4">Tùy chỉnh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Nguyễn Thị Huỳnh Cẩm</td>
-                                <td>954868888</td>
-                                <td>ACB CN Hậu Giang</td>
-                                <td><input type="date" name="" id=""></td>
-                                <td><input type="date" name="" id=""></td>
-                                <td>5.400.000 VNĐ</td>
-                                <td>TLM001</td>
-                                <td>Long-Binh_HUG</td>
-                                <td>CSHT_HUG_00118</td>
-                                <td>Nguyễn Thị Huỳnh Cẩm</td>
-                                <td>Scan HĐ, BBNT, PL</td>
-                                <td><input type="date" name="" id=""></td>
-                                <td>
-                                    <button class="btn btn-primary me-md-3">
-                                        <i class="fas fa-edit"></i> Chi tiết
-                                    </button>
-                                    <button class="btn btn-secondary me-md-3">
-                                        <i class="fas fa-download"></i> Tải về
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Châu Thanh Nhã</td>
-                                <td>954867777</td>
-                                <td>ACB CN Cần Thơ</td>
-                                <td><input type="date" name="" id=""></td>
-                                <td><input type="date" name="" id=""></td>
-                                <td>15.400.000 VNĐ</td>
-                                <td>TLM002</td>
-                                <td>Vi-Thuy_HUG</td>
-                                <td>CSHT_HUG_00218</td>
-                                <td>Châu Thanh Nhã</td>
-                                <td>Scan HĐ, BBNT, PL</td>
-                                <td><input type="date" name="" id=""></td>
-                                <td>
-                                    <button class="btn btn-primary me-md-3">
-                                        <i class="fas fa-edit"></i> Chi tiết
-                                    </button>
-                                    <button class="btn btn-secondary me-md-3">
-                                        <i class="fas fa-download"></i> Tải về
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="container" style="max-width: 1200px;">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col-6 col-md-4">STT</th>
+                                    <th scope="col-6 col-md-4">Tên tài khoản</th>
+                                    <th scope="col-6 col-md-4">Số tài khoản</th>
+                                    <th scope="col-6 col-md-4">Tại ngân hàng</th>
+                                    <th scope="col-6 col-md-4">Ngày ký HĐ</th>
+                                    <th scope="col-6 col-md-4">Ngày hết hạn</th>
+                                    <th scope="col-6 col-md-4">Giá thuê</th>
+                                    <th scope="col-6 col-md-4">Mã trạm theo HĐ</th>
+                                    <th scope="col-6 col-md-4">Tên trạm</th>
+                                    <th scope="col-6 col-md-4">Mã CSHT</th>
+                                    <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
+                                    <th scope="col-6 col-md-4">Hợp đồng</th>
+                                    <th scope="col-6 col-md-4">Ngày phụ lục</th>
+                                    <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Nguyễn Thị Huỳnh Cẩm</td>
+                                    <td>954868888</td>
+                                    <td>ACB CN Hậu Giang</td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td>5.400.000 VNĐ</td>
+                                    <td>TLM001</td>
+                                    <td>Long-Binh_HUG</td>
+                                    <td>CSHT_HUG_00118</td>
+                                    <td>Nguyễn Thị Huỳnh Cẩm</td>
+                                    <td>Scan HĐ, BBNT, PL</td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td>
+                                        <button class="btn btn-primary me-md-3">
+                                            <i class="fas fa-edit"></i> Chi tiết
+                                        </button>
+                                        <button class="btn btn-secondary me-md-3">
+                                            <i class="fas fa-download"></i> Tải về
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Châu Thanh Nhã</td>
+                                    <td>954867777</td>
+                                    <td>ACB CN Cần Thơ</td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td>15.400.000 VNĐ</td>
+                                    <td>TLM002</td>
+                                    <td>Vi-Thuy_HUG</td>
+                                    <td>CSHT_HUG_00218</td>
+                                    <td>Châu Thanh Nhã</td>
+                                    <td>Scan HĐ, BBNT, PL</td>
+                                    <td><input type="date" name="" id=""></td>
+                                    <td>
+                                        <button class="btn btn-primary me-md-3">
+                                            <i class="fas fa-edit"></i> Chi tiết
+                                        </button>
+                                        <button class="btn btn-secondary me-md-3">
+                                            <i class="fas fa-download"></i> Tải về
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -143,12 +145,5 @@
 @endsection
 
 @section('JS')
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#dtHorizontalExample').DataTable({
-            "scrollX": true
-        });
-        $('.dataTables_length').addClass('bs-select');
-    });
-</script>
+
 @endsection
