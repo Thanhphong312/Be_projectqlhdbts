@@ -50,44 +50,46 @@
             </div>
 
             <!-- Table_show_CSHT  -->
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th scope="col-6 col-md-4">STT</th>
-                        <th scope="col-6 col-md-4">Mã CSHT</th>
-                        <th scope="col-6 col-md-4">Tên CSHT</th>
-                        <th scope="col-6 col-md-4">Tùy chỉnh</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>MH001</td>
-                        <td>Hậu Giang</td>
-                        <td>
-                            <button class="btn btn-primary me-md-3">
-                                <i class="fas fa-edit"></i> Sửa
-                            </button>
-                            <button class="btn btn-danger me-md-3">
-                                <i class="fas fa-trash-alt"></i> Xóa
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>MH002</td>
-                        <td>Hậu Giang</td>
-                        <td>
-                            <button class="btn btn-primary me-md-3">
-                                <i class="fas fa-edit"></i> Sửa
-                            </button>
-                            <button class="btn btn-danger me-md-3">
-                                <i class="fas fa-trash-alt"></i> Xóa
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="container">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col-6 col-md-4">STT</th>
+                            <th scope="col-6 col-md-4">Mã CSHT</th>
+                            <th scope="col-6 col-md-4">Tên CSHT</th>
+                            <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>MH001</td>
+                            <td>Hậu Giang</td>
+                            <td>
+                                <button class="btn btn-primary me-md-3">
+                                    <i class="fas fa-edit"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger me-md-3">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>MH002</td>
+                            <td>Hậu Giang</td>
+                            <td>
+                                <button class="btn btn-primary me-md-3">
+                                    <i class="fas fa-edit"></i> Sửa
+                                </button>
+                                <button class="btn btn-danger me-md-3">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>

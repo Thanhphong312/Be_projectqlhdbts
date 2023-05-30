@@ -50,47 +50,49 @@
             </div>
 
             <!-- Table show tài khoản  -->
-            <table class="table table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th scope="col-6 col-md-3">STT</th>
-                        <th scope="col-6 col-md-3">Tên người dùng</th>
-                        <th scope="col-6 col-md-3">Email</th>
-                        <th scope="col-6 col-md-3">Mật khẩu</th>
-                        <th scope="col-6 col-md-3">Tùy chọn</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Nguyễn Văn A</td>
-                        <td>aaaa@gmail.com</td>
-                        <td>12345678</td>
-                        <td>
-                            <button class="btn btn-primary me-md-3">
-                                <i class="fas fa-eye"></i> Xem
-                            </button>
-                            <button class="btn btn-danger me-md-3">
-                                <i class="fas fa-trash-alt"></i> Xóa
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Trần Văn B</td>
-                        <td>bbbb@gmail.com</td>
-                        <td>abc12345</td>
-                        <td>
-                            <button class="btn btn-primary me-md-3">
-                                <i class="fas fa-eye"></i> Xem
-                            </button>
-                            <button class="btn btn-danger me-md-3">
-                                <i class="fas fa-trash-alt"></i> Xóa
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="container">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col-6 col-md-3">STT</th>
+                            <th scope="col-6 col-md-3">Tên người dùng</th>
+                            <th scope="col-6 col-md-3">Email</th>
+                            <th scope="col-6 col-md-3">Mật khẩu</th>
+                            <th scope="col-6 col-md-3">Tùy chọn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Nguyễn Văn A</td>
+                            <td>aaaa@gmail.com</td>
+                            <td>12345678</td>
+                            <td>
+                                <button class="btn btn-primary me-md-3">
+                                    <i class="fas fa-eye"></i> Xem
+                                </button>
+                                <button class="btn btn-danger me-md-3">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Trần Văn B</td>
+                            <td>bbbb@gmail.com</td>
+                            <td>abc12345</td>
+                            <td>
+                                <button class="btn btn-primary me-md-3">
+                                    <i class="fas fa-eye"></i> Xem
+                                </button>
+                                <button class="btn btn-danger me-md-3">
+                                    <i class="fas fa-trash-alt"></i> Xóa
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
