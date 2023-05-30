@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('CSHT_MaCSHT')->primary();
             $table->string('CSHT_TenCSHT');
             $table->timestamps();
-
         });
     }
 

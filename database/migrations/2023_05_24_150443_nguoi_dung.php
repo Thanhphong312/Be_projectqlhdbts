@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('ND_MatKhau');
             $table->string('ND_SDT')->unique();
             $table->timestamps();
-
         });
     }
 

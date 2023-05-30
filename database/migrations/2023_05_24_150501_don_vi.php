@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('DV_MaDV')->primary();
             $table->string('DV_TenDV');
             $table->timestamps();
-
         });
     }
 

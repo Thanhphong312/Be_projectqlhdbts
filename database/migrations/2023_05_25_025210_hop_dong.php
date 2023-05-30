@@ -37,7 +37,6 @@ return new class extends Migration
             $table->string('HD_TenChuDauTu');
             $table->string('HD_HDScan');
             $table->timestamps();
-
         });
     }
 
