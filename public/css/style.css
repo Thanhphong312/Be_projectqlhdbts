@@ -303,12 +303,16 @@ input.nosubmit {
 .breadcrumb-item+.breadcrumb-item::before {
     color: #ffffff !important;
 }
-
+.show-window-menu{
+    margin-left: 0px;
+} 
 @media (max-width: 768px) {
     .hidden-mobile {
         display: none !important;
     }
-
+    #sidebar.active {
+        margin-left: -250px!important;
+    }
     .show-mobile {
         display: block !important;
     }

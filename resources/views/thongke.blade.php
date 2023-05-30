@@ -12,11 +12,12 @@
     <!-- start search -->
     @include('partials.common.search')
     <!-- end search  -->
-    
-    <!--  start slide bar  -->
+
+    <!-- start body -->
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
+        
         <!-- Page Content  -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -67,7 +68,7 @@
                             </div>
                         </div>
                         <div class="col-sm-2 p-2">
-                            <button type="submit" class="btn btn-primary">thống kê</button>
+                            <button type="submit" class="btn btn-primary">Thống kê</button>
                         </div>
                     </div>
                 </form>
@@ -119,7 +120,7 @@
 
         </div>
     </div>
-    <!-- end slide bar -->
+    <!-- end body -->
 </div>
 @endsection
 
