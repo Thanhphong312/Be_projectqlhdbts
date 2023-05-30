@@ -31,5 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [LogoutController::class, 'getLogout'])->name('logout');
     Route::get('/test', [testController::class, 'test'])->name('test');
     Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
+    Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
+    Route::get('/tram', [TramController::class, 'index'])->name('tram');
+    Route::get('/taikoan', [TaiKhoanController::class, 'index'])->name('taikoan');
     // --------------
 });

@@ -31,13 +31,19 @@
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Trang</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
-              <a href="#">Page 1</a>
+              <a href="hopdong">Hợp Đồng</a>
             </li>
             <li>
-              <a href="#">Page 2</a>
+              <a href="tram">Trạm</a>
             </li>
             <li>
-              <a href="#">Page 3</a>
+              <a href="cosohatang">Cơ Sở Hạ Tầng</a>
+            </li>
+            <li>
+              <a href="taikhoan">Tài Khoản</a>
+            </li>
+            <li>
+              <a href="thongke">Thống Kê</a>
             </li>
           </ul>
         </li>
