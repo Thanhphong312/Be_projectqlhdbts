@@ -59,7 +59,7 @@
             <!-- Add hợp đồng -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
-                    <i class="fas fa-plus"></i> Cập nhật</button>
+                    <i class="fas fa-upload"></i> Cập nhật hợp đồng</button>
             </div>
 
             <!-- Table show hợp đồng -->
@@ -68,8 +68,9 @@
                     <tr>
                         <th scope="col-6 col-md-4">STT</th>
                         <th scope="col-6 col-md-4">Tên tài khoản</th>
-                        <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
-                        <th scope="col-6 col-md-4">Ngày ký</th>
+                        <th scope="col-6 col-md-4">Số tài khoản</th>
+                        <th scope="col-6 col-md-4">Tại ngân hàng</th>
+                        <th scope="col-6 col-md-4">Ngày ký HĐ</th>
                         <th scope="col-6 col-md-4">Ngày hết hạn</th>
                         <th scope="col-6 col-md-4">Giá thuê</th>
                         <th scope="col-6 col-md-4">Tùy chỉnh</th>
@@ -78,8 +79,9 @@
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>ACB CN Hậu Giang</td>
                         <td>Nguyễn Thị Huỳnh Cầm</td>
+                        <td>954868888</td>
+                        <td>ACB CN Hậu Giang</td>
                         <td><input type="date" name="" id=""></td>
                         <td><input type="date" name="" id=""></td>
                         <td>1.000.000VNĐ</td>
@@ -94,8 +96,9 @@
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>ACB CN Hậu Giang</td>
                         <td>Châu Thanh Nhã</td>
+                        <td>954867777</td>
+                        <td>ACB CN Cần Thơ</td>
                         <td><input type="date" name="" id=""></td>
                         <td><input type="date" name="" id=""></td>
                         <td>2.000.000VNĐ</td>
