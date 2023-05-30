@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'ND_MaDV' => 'VT - HG',
             'name' => 'admin',
             'ND_GioiTinh' => 'name',
-            'ND_DiaChi' => 'can tho',
+            'ND_DiaChi' => 'Can Tho',
             'ND_SDT' => '123123',
             'email' => 'admin@gmail.com',
             'password' => '123123',
