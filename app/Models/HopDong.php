@@ -45,4 +45,8 @@ class HopDong extends Model
     public function donvi(){
         return $this->hasOne(DonVi::class, 'DV_MaDV', 'DV_MaDV');
     }
+
+    public function tram(){
+        return $this->hasOne(Tram::class, 'T_MaTram', 'T_MaTram');
+    }
 }
