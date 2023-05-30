@@ -63,7 +63,7 @@
             </div>
 
             <!-- Table show hợp đồng -->
-            <div class="container" style="max-width: 1200px;">
+            <div class="container" style="max-width: 1270px;">
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
