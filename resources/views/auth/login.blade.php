@@ -18,7 +18,7 @@
               <span class="input-group-text">
                 <i class="fa fa-user "></i>
               </span>
-              <input type="text" id="Email" name="Email" style="text-align: left;" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+              <input type="text" required id="Email" name="Email" style="text-align: left;" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="mb-3 mt-3">
@@ -26,7 +26,7 @@
               <span class="input-group-text">
                 <i class="fa fa-lock "></i>
               </span>
-              <input type="password" id="Password" name="Password" style="text-align: left;" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              <input type="password" required id="Password" name="Password" style="text-align: left;" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
               <span class="input-group-text">
                 <a href=""><i class="fa fa-eye-slash" id="show_hide_eye"></i></a>
               </span>
