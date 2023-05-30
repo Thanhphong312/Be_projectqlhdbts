@@ -1,4 +1,4 @@
-<nav id="sidebar" class="show-window-menu hide-mobile-menu">
+<nav id="sidebar" class="show-window hide-mobile">
     <ul class="list-unstyled components">
         <li class="active">
             <a href="{{route('home')}}">Trang chủ</a>
