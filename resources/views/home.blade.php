@@ -9,16 +9,7 @@
 
 @section('content')
 <div class="content-main">
-  <!-- start search -->
-  <div class="content-search">
-    <div class="d-flex align-items-center justify-content-center flex-column ">
-      <form class="form-search">
-        <input type="search" placeholder="Search..." class="btn-submit">
-        <button type="submit" class="bt-search">Search</button>
-      </form>
-    </div>
-  </div>
-  <!-- end search  -->
+  @include('partials.common.search')
   <!--  start slide bar  -->
   <div class="wrapper">
     <!-- Sidebar  -->

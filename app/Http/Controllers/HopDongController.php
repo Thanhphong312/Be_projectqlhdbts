@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ThongKeController extends Controller
+class HopDongController extends Controller
 {
     public function index(){
-        $title = 'Thống Kê';
+        $title = 'Hợp Đồng';
         
-        return view('thongke',compact('title'));
+        return view('hopdong',compact('title'));
     }
 }

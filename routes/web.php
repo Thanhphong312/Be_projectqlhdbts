@@ -5,6 +5,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\testController;
 use App\Http\Controllers\ThongKeController;
+use App\Http\Controllers\CSHTController;
+use App\Http\Controllers\HopDongController;
+use App\Http\Controllers\TramController;
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -33,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
     Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
     Route::get('/tram', [TramController::class, 'index'])->name('tram');
-    Route::get('/taikoan', [TaiKhoanController::class, 'index'])->name('taikoan');
+    Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
+    Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
     // --------------
 });
