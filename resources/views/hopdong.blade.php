@@ -52,4 +52,4 @@
 @endsection
 
 @section('JS')
-@endsection
+@endsectionection
