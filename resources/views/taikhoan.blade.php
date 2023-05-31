@@ -62,11 +62,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $stt=1 ?>
+                        @foreach($taikhoan as $row)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Nguyễn Văn A</td>
-                            <td>aaaa@gmail.com</td>
-                            <td>12345678</td>
+                            <th scope="row"><?= $stt++ ?></th>
+                            <td>{{$row->name}}</td>
+                            <td>{{$row->email}}</td>
+                            <td>{{$row->password}}</td>
                             <td>
                                 <button class="btn btn-primary me-md-3">
                                     <i class="fas fa-eye"></i> Xem
@@ -76,20 +78,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Trần Văn B</td>
-                            <td>bbbb@gmail.com</td>
-                            <td>abc12345</td>
-                            <td>
-                                <button class="btn btn-primary me-md-3">
-                                    <i class="fas fa-eye"></i> Xem
-                                </button>
-                                <button class="btn btn-danger me-md-3">
-                                    <i class="fas fa-trash-alt"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

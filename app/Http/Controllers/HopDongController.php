@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HopDongController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $title = 'Hợp Đồng';
-        
-        return view('hopdong', compact('title'));
+
+        $hopdong['hopdong'] = DB::table('hop_dong')->get()->toArray();
+
+        return view('hopdong', compact('title'), $hopdong);
     }
 
-    public function import(){
-        
+    public function import()
+    {
     }
 
-    public function export(){
-        
+    public function export()
+    {
     }
 }

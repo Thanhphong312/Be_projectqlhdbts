@@ -61,10 +61,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $stt=1 ?>
+                        @foreach($csht as $row)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>MH001</td>
-                            <td>Hậu Giang</td>
+                            <th scope="row"><?= $stt++ ?></th>
+                            <td>{{$row->CSHT_MaCSHT}}</td>
+                            <td>{{$row->CSHT_TenCSHT}}</td>
                             <td>
                                 <button class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa
@@ -74,19 +76,7 @@
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>MH002</td>
-                            <td>Hậu Giang</td>
-                            <td>
-                                <button class="btn btn-primary me-md-3">
-                                    <i class="fas fa-edit"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger me-md-3">
-                                    <i class="fas fa-trash-alt"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

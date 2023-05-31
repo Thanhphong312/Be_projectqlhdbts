@@ -73,19 +73,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $stt=1 ?>
+                                @foreach($hopdong as $row)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Nguyễn Thị Huỳnh Cẩm</td>
-                                    <td>954868888</td>
-                                    <td>ACB CN Hậu Giang</td>
-                                    <td><input type="date" name="" id=""></td>
-                                    <td><input type="date" name="" id=""></td>
-                                    <td>5.400.000 VNĐ</td>
-                                    <td>TLM001</td>
-                                    <td>Long-Binh_HUG</td>
-                                    <td>CSHT_HUG_00118</td>
-                                    <td>Nguyễn Thị Huỳnh Cẩm</td>
-                                    <td>Scan HĐ, BBNT, PL</td>
+                                    <th scope="row"><?= $stt++ ?></th>
+                                    <td>{{$row->HD_TenCTK}}</td>
+                                    <td>{{$row->HD_SoTaiKhoan}}</td>
+                                    <td>{{$row->HD_TenNH}}</td>
+                                    <td>{{$row->HD_NgayDangKy}}</td>
+                                    <td>{{$row->HD_NgayHetHan}}</td>
+                                    <td>{{$row->HD_GiaHienTai}} VNĐ</td>
+                                    <td>{{$row->T_MaTram}}</td>
+                                    <td>{{$row->T_TenTram}}</td>
+                                    <td>{{$row->HD_MaCSHT}}</td>
+                                    <td>{{$row->HD_TenChuDauTu}}</td>
+                                    <td>{{$row->HD_HDScan}}</td>
                                     <td><input type="date" name="" id=""></td>
                                     <td>
                                         <button class="btn btn-primary me-md-3">
@@ -96,29 +98,7 @@
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Châu Thanh Nhã</td>
-                                    <td>954867777</td>
-                                    <td>ACB CN Cần Thơ</td>
-                                    <td><input type="date" name="" id=""></td>
-                                    <td><input type="date" name="" id=""></td>
-                                    <td>15.400.000 VNĐ</td>
-                                    <td>TLM002</td>
-                                    <td>Vi-Thuy_HUG</td>
-                                    <td>CSHT_HUG_00218</td>
-                                    <td>Châu Thanh Nhã</td>
-                                    <td>Scan HĐ, BBNT, PL</td>
-                                    <td><input type="date" name="" id=""></td>
-                                    <td>
-                                        <button class="btn btn-primary me-md-3">
-                                            <i class="fas fa-edit"></i> Chi tiết
-                                        </button>
-                                        <button class="btn btn-secondary me-md-3">
-                                            <i class="fas fa-download"></i> Tải về
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -126,16 +106,16 @@
             </div>
 
             <!-- import data -->
-            <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
+            <!-- <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
             @csrf 
                 <input type="file" name="file" accept=".xlsx"><br>
                 <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
-            </form>
+            </form> -->
             <!-- export data -->
-            <form action="{{url('export')}}" method="GET">
+            <!-- <form action="{{url('export')}}" method="GET">
             @csrf 
                 <input type="submit" value="Export File Excel" name="export" class="btn btn-success">
-            </form>
+            </form> -->
         </div>
     </div>
     <!-- end body -->

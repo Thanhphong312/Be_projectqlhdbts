@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class ThongKeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $title = 'Thống Kê';
-        
-        return view('thongke',compact('title'));
+
+        return view('thongke', compact('title'));
     }
 }

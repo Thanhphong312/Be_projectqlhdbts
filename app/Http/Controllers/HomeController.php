@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $title = 'Trang Chủ';
-        
-        return view('home',compact('title'));
+
+        return view('home', compact('title'));
     }
 }

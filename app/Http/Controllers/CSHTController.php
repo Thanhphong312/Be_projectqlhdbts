@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CSHTController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $title = 'Cơ Sở Hạ Tầng';
-        
-        return view('csht',compact('title'));
+
+        $csht['csht'] = DB::table('co_so_ha_tang')->get()->toArray();
+
+        return view('csht', compact('title'), $csht);
     }
 }

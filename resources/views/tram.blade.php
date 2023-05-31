@@ -63,26 +63,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $stt=1 ?>
+                        @foreach($tram as $row)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>TLM001</td>
-                            <td>Long_Binh_HUG</td>
-                            <td>Long Binh_Hau Giang</td>
-                            <td><input type="checkbox" name="tinhtrang" checked></td>
-                            <td>
-                                <button class="btn btn-primary me-md-3">
-                                    <i class="fas fa-edit"></i> Sửa
-                                </button>
-                                <button class="btn btn-danger me-md-3">
-                                    <i class="fas fa-trash-alt"></i> Xóa
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>TLM002</td>
-                            <td>Vi_Thuy_HUG</td>
-                            <td>Vi Thuy_Hau Giang</td>
+                            <th scope="row"><?= $stt++ ?></th>
+                            <td>{{$row->T_MaTram}}</td>
+                            <td>{{$row->T_TenTram}}</td>
+                            <td>{{$row->T_DiaChiTram}}</td>
                             <td><input type="checkbox" name="tinhtrang"></td>
                             <td>
                                 <button class="btn btn-primary me-md-3">
@@ -93,6 +80,7 @@
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
