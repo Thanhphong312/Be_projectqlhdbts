@@ -43,14 +43,11 @@
             </nav>
 
             <!-- Content -->
-            <!-- Add trạm-->
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
-                    <i class="fas fa-plus"></i> Thêm</button>
-            </div>
-
-            <!-- Table show trạm  -->
             <div class="container">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
+                        <i class="fas fa-plus"></i> Thêm</button>
+                </div>
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>
@@ -63,7 +60,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $stt=1 ?>
+                        <?php $stt = 1 ?>
                         @foreach($tram as $row)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
@@ -83,6 +80,32 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Them tram -->
+            <div class="container col-md-5 mt-2">
+                <div class="alert alert-primary">
+                    <form>
+                        <div class="row justify-content-center">
+                            <h5 class="text-center" style="font-weight: bold;" id="">THÊM TRẠM</h5>
+                        </div>
+                        <div class="mb-3 text-left">
+                            <label class="form-label">Mã trạm
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập mã trạm!">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên trạm
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên trạm!">
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-success col-md-5" id="">Thêm</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 

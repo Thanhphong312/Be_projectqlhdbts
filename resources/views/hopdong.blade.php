@@ -43,14 +43,11 @@
             </nav>
 
             <!-- Content -->
-            <!-- Add hợp đồng -->
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
-                    <i class="fas fa-upload"></i> Cập nhật hợp đồng</button>
-            </div>
-
-            <!-- Table show hợp đồng -->
             <div class="container" style="max-width: 1280px;">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
+                        <i class="fas fa-upload"></i> Cập nhật hợp đồng</button>
+                </div>
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
@@ -73,7 +70,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $stt=1 ?>
+                                <?php $stt = 1 ?>
                                 @foreach($hopdong as $row)
                                 <tr>
                                     <th scope="row"><?= $stt++ ?></th>
@@ -102,6 +99,50 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+
+            <!-- Cap nhat hop dong -->
+            <div class="container col-md-5 mt-2">
+                <div class="alert alert-primary">
+                    <form>
+                        <div class="row justify-content-center">
+                            <h5 class="text-center" style="font-weight: bold;" id="">CẬP NHẬT HỢP ĐỒNG</h5>
+                        </div>
+                        <div class="mb-3 text-left">
+                            <label class="form-label">Tên tài khoản
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên tài khoản">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Số tài khoản
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập số tài khoản">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên ngân hàng
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên ngân hàng">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên trạm
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên trạm">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Giá
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="text" placeholder="Vui lòng nhập giá">
+                        </div>
+                        <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-success col-md-5" id="">Cập nhật</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
