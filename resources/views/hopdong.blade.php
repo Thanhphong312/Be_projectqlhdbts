@@ -43,19 +43,6 @@
             </nav>
 
             <!-- Content -->
-            <!-- import data -->
-            <!-- <form action="{{url('import-csv')}}" method="POST" enctype="multipart/form-data">
-            @csrf 
-                <input type="file" name="file" accept=".xlsx"><br>
-                <input type="submit" value="Import File Excel" name="import_csv" class="btn btn-warning">
-            </form> -->
-
-            <!-- export data -->
-            <!-- <form action="{{url('export-csv')}}" method="POST">
-            @csrf 
-                <input type="submit" value="Export File Excel" name="export_csv" class="btn btn-success">
-            </form> -->
-
             <!-- Add hợp đồng -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
@@ -137,8 +124,20 @@
                     </div>
                 </div>
             </div>
-        </div>
 
+            <!-- import data -->
+            <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
+            @csrf 
+                <input type="file" name="file" accept=".xlsx"><br>
+                <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
+            </form>
+
+            <!-- export data -->
+            <form action="{{url('export')}}" method="GET">
+            @csrf 
+                <input type="submit" value="Export File Excel" name="export" class="btn btn-success">
+            </form>
+        </div>
     </div>
     <!-- end body -->
 </div>

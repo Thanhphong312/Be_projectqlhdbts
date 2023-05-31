@@ -40,6 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
     Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
     // -------------- Hop Dong
-    Route::get('/export-csv', [HopDongController::class, 'export'])->name('export-csv');
-    Route::post('/import-csv', [HopDongController::class, 'inport'])->name('import-csv');
+    Route::post('/import', [HopDongController::class, 'inport'])->name('import');
+    Route::get('/export', [HopDongController::class, 'export'])->name('export');
 });

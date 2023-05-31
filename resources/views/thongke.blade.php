@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4  p-2">
+                        <div class="col-md-4 p-2">
                             <div class="row form-group">
                                 <label for="inputPassword" class="col-sm-3 col-form-label">Đơn vị</label>
                                 <div class="col-sm-8">
@@ -79,7 +79,7 @@
             <!-- start thong ke -->
             <div class="container text-center ">
                 <div class="row d-flex justify-content-center p-2 gx-2">
-                    <div class="col-2 col-md-2 m-2 rounded-3 border border-dark" style="background-color: #b53f3f;">
+                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #b53f3f;">
                         <div class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-broadcast-tower"></i>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2 col-md-2 m-2 rounded-3 border border-dark " style="background-color: #b39839;">
+                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark " style="background-color: #b39839;">
                         <div class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-file-alt"></i>
@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2 col-md-2 m-2 rounded-3 border border-dark" style="background-color: #155cbe;">
+                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #155cbe;">
                         <div class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-users"></i>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-2 col-md-2 m-2 rounded-3 border border-dark" style="background-color: #41b53f;">
+                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #41b53f;">
                         <div class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-dollar-sign"></i>
