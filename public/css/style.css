@@ -26,8 +26,18 @@ body {
 
 .main-logo {
     width: 100%;
-    background-color: #1050aa;
-    /* height: 20%; */
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    background: #1050aa;
+}
+
+.main-logo a {
+    max-width: 1000px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .title-logo {
@@ -38,8 +48,7 @@ body {
     color: white;
     padding-top: 5px;
     padding-bottom: 5px;
-
-    /* background-color: aqua; */
+    background-color: #1050aa;
 }
 
 .content-main {
