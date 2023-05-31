@@ -131,7 +131,6 @@
                 <input type="file" name="file" accept=".xlsx"><br>
                 <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
             </form>
-
             <!-- export data -->
             <form action="{{url('export')}}" method="GET">
             @csrf 

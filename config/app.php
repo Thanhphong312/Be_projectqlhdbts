@@ -168,7 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // add
+        // add - Su dung lenh nay de cai: composer require maatwebsite/excel --with-all-dependencies
         // Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
@@ -185,7 +185,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        // add
+        // add - Su dung lenh nay de cai: composer require maatwebsite/excel --with-all-dependencies
         // 'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 

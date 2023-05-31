@@ -29,13 +29,11 @@
           <button class="btn btn-dark d-inline-block d-lg-none ml-auto m-2 hidden-window" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-align-justify"></i>
           </button>
-          <nav aria-label="breadcrumb " style="height:25px">
-            <!-- <ol class="breadcrumb ">
-              <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
 
-            </ol> -->
+          <nav aria-label="breadcrumb " style="height:25px">
             @include('partials.common.breadcrumb')
           </nav>
+          
           <!-- page show in mobile -->
           @include('partials.common.mobile-menu')
 

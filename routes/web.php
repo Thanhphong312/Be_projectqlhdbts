@@ -28,18 +28,18 @@ Route::get('/forgotpassword', [LoginController::class, 'forgotpassword'])->name(
 
 //check user auth login
 Route::group(['middleware' => 'auth'], function () {
-    //code in this
-
     // router home 
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/logout', [LogoutController::class, 'getLogout'])->name('logout');
-    Route::get('/test', [testController::class, 'test'])->name('test');
-    Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
-    Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
-    Route::get('/tram', [TramController::class, 'index'])->name('tram');
-    Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
-    Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
-    // -------------- Hop Dong
-    Route::post('/import', [HopDongController::class, 'inport'])->name('import');
-    Route::get('/export', [HopDongController::class, 'export'])->name('export');
 });
+
+Route::get('/test', [testController::class, 'test'])->name('test');
+Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
+Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
+Route::get('/tram', [TramController::class, 'index'])->name('tram');
+Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
+Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
+
+// -------------- Hop Dong
+Route::post('/import', [HopDongController::class, 'inport'])->name('import');
+Route::get('/export', [HopDongController::class, 'export'])->name('export');
