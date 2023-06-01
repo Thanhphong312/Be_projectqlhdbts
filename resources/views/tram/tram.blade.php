@@ -42,7 +42,7 @@
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($tram as $row)
+                        @foreach($trams as $row)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
                             <td>{{$row->T_MaTram}}</td>
