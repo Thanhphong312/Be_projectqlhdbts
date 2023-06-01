@@ -37,6 +37,7 @@ Route::get('/test', [testController::class, 'test'])->name('test');
 Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
 Route::get('/tram', [TramController::class, 'index'])->name('tram');
 Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');
+Route::post('/tram/them', [TramController::class, 'store'])->name('tram-store');
 Route::get('/tram/chinhsua', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
 Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
