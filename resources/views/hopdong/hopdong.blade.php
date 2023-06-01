@@ -77,9 +77,9 @@
                                     <td>{{$row->HD_HDScan}}</td>
                                     <td><input type="date" name="" id=""></td>
                                     <td>
-                                        <button class="btn btn-primary me-md-3">
-                                            <i class="fas fa-edit"></i> Chi tiết
-                                        </button>
+                                        <a href="{{route('hopdong-capnhat')}}" class="btn btn-primary me-md-3">
+                                            <i class="fas fa-edit"></i> Cập nhật
+                                        </a>
                                         <button class="btn btn-secondary me-md-3">
                                             <i class="fas fa-download"></i> Tải về
                                         </button>
