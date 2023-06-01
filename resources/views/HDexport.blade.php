@@ -12,6 +12,7 @@
             <th >Ngày Phụ Lục</th>
             <th >Gía Gốc</th>
             <th >Gía Hiện Tại</th>
+            <th >Số tài khoản</th>
             <th >Tên Chủ Tài Khoản</th>
             <th >Tên Ngân Hàng</th>
             <th >Tên Chủ Đầu Tư</th>
@@ -33,6 +34,7 @@
             <td>{{ $HopDong->HD_NgayPhuLuc }}</td>
             <td>{{ $HopDong->HD_GiaGoc }}</td>
             <td>{{ $HopDong->HD_GiaHienTai }}</td>
+            <td>{{ $HopDong->HD_SoTaiKhoan }}</td>
             <td>{{ $HopDong->HD_TenCTK }}</td>
             <td>{{ $HopDong->HD_TenNH }}</td>
             <td>{{ $HopDong->HD_TenChuDauTu }}</td>

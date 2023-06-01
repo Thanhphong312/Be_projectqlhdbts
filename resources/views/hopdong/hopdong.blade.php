@@ -25,17 +25,17 @@
             
             <!-- Content -->
             <div class="container" style="max-width: 1090px;">
-                <form class="form" method="POST" enctype="multipart/form-data">
+                <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--import-->
-                    <a href="{{route('import')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <input type="file" name="file" class="btn btn-success me-md-2 mt-1 mb-1" />
+                    <a class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
                     </a>
-                    <!--Export-->
-                    <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
-
+                    
                 </form>
+                <!--Export-->
+                <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
