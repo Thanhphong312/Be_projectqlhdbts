@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 05:07 PM
+-- Generation Time: Jun 01, 2023 at 08:10 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -264,8 +264,10 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
-('Q1', 'Them', NULL, NULL),
-('Q2', 'Sua', NULL, NULL);
+('Q1', 'Thêm', NULL, NULL),
+('Q2', 'Sửa', NULL, NULL),
+('Q3', 'Xem', NULL, NULL),
+('Q4', 'Xóa', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -287,7 +289,9 @@ CREATE TABLE `quyen_nguoi_dung` (
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
 (1, 'Q1', 1, NULL, NULL),
-(2, 'Q2', 2, NULL, NULL);
+(2, 'Q2', 1, NULL, NULL),
+(3, 'Q3', 1, NULL, NULL),
+(4, 'Q4', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -311,7 +315,11 @@ CREATE TABLE `tram` (
 
 INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `created_at`, `updated_at`) VALUES
 ('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL),
-('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL);
+('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL),
+('TLM003', 'CSHT_HUG_00118', 'Nhà tui', 'Hậu Giang', '1', NULL, NULL),
+('TLM004', 'CSHT_HUG_00118', 'Nhà tao', 'HG', '1', NULL, NULL),
+('TLM005', 'CSHT_HUG_00118', 'a', 'a', '1', NULL, NULL),
+('TLM006', 'CSHT_HUG_00118', 'abc', 'aaa', '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -477,7 +485,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
