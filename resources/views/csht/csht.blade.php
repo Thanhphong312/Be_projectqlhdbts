@@ -33,7 +33,7 @@
                     <nav aria-label="breadcrumb " style="height:25px">
                         <!-- <ol class="breadcrumb ">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Trang chủ</a></li>
-                            <li class="breadcrumb-item active"><a href="#">Trạm</a></li>
+                            <li class="breadcrumb-item active"><a href="#">Cơ sở hạ tầng</a></li>
                         </ol> -->
                         @include('partials.common.breadcrumb')
                     </nav>
@@ -52,22 +52,18 @@
                     <thead>
                         <tr>
                             <th scope="col-6 col-md-4">STT</th>
-                            <th scope="col-6 col-md-4">Mã trạm</th>
-                            <th scope="col-6 col-md-4">Tên trạm</th>
-                            <th scope="col-6 col-md-4">Địa chỉ</th>
-                            <th scope="col-6 col-md-4">Tình trạng</th>
+                            <th scope="col-6 col-md-4">Mã CSHT</th>
+                            <th scope="col-6 col-md-4">Tên CSHT</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($tram as $row)
+                        @foreach($csht as $row)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
-                            <td>{{$row->T_MaTram}}</td>
-                            <td>{{$row->T_TenTram}}</td>
-                            <td>{{$row->T_DiaChiTram}}</td>
-                            <td><input type="checkbox" name="tinhtrang"></td>
+                            <td>{{$row->CSHT_MaCSHT}}</td>
+                            <td>{{$row->CSHT_TenCSHT}}</td>
                             <td>
                                 <button class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa
@@ -81,34 +77,6 @@
                     </tbody>
                 </table>
             </div>
-
-            <!-- Them tram -->
-            <div class="container col-md-5 mt-2">
-                <div class="alert alert-primary">
-                    <form>
-                        <div class="row justify-content-center">
-                            <h5 class="text-center" id="side12">THÊM TRẠM</h5>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mã trạm
-                                <span id="colorIcon">*</span>
-                            </label>
-                            <input class="form-control" type="text" placeholder="Vui lòng nhập mã trạm!">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tên trạm
-                                <span id="colorIcon">*</span>
-                            </label>
-                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên trạm!">
-                        </div>
-                        <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
     </div>
     <!-- end body -->
 </div>

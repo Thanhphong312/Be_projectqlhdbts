@@ -14,7 +14,12 @@ class HopDongController extends Controller
 
         $hopdong['hopdong'] = DB::table('hop_dong')->get()->toArray();
 
-        return view('hopdong', compact('title'), $hopdong);
+        return view('hopdong/hopdong', compact('title'), $hopdong);
+    }
+
+    public function capnhat() {
+        $title = 'Hợp Đồng';
+        return view('hopdong/capnhat', compact('title'));
     }
 
     public function import()

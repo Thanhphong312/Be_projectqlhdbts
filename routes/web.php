@@ -35,10 +35,14 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/test', [testController::class, 'test'])->name('test');
 Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
-Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/tram', [TramController::class, 'index'])->name('tram');
-Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
+Route::get('/tram/them', [TramController::class, 'them'])->name('them');
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
+Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('capnhat');
+Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
+Route::get('/csht/them', [CSHTController::class, 'them'])->name('them');
+Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('chinhsua');
+Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 
 // -------------- Hop Dong
 Route::post('/import', [HopDongController::class, 'inport'])->name('import');
