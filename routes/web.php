@@ -46,10 +46,12 @@ Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hop
 // csht 
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
+Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
 Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
 // tai khoan 
 Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
+Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
 Route::get('/taikhoan/hienthi', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
 
 // -------------- Hop Dong
