@@ -35,7 +35,7 @@
                             <label class="form-label">Mã người dùng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="maND" placeholder="Vui lòng nhập mã người dùng 00x">
+                            <input class="form-control" type="text" name="maND" placeholder="Vui lòng nhập mã người dùng">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên người dùng

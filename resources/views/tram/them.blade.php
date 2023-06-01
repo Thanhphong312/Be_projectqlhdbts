@@ -35,7 +35,7 @@
                             <label class="form-label">Mã trạm
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="maTram" placeholder="Vui lòng nhập mã trạm 00x">
+                            <input class="form-control" type="text" name="maTram" placeholder="Vui lòng nhập mã trạm">
                         </div>
                         <div class="mb-3 option-csht">
                             <label class="form-label">CSHT

@@ -45,6 +45,6 @@ class TaiKhoanController extends Controller
 
         $addtaikhoan->save();
 
-        return redirect()->route('taikhoan')->with('success', 'Insert thành công');
+        return redirect()->route('taikhoan')->with('success', 'Thêm thành công');
     }
 }
