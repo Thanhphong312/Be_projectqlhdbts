@@ -21,4 +21,9 @@ class TramController extends Controller
         $title = 'Trạm';
         return view('tram/them', compact('title'));
     }
+
+    public function chinhsua() {
+        $title = 'Trạm';
+        return view('tram/chinhsua', compact('title'));
+    }
 }
