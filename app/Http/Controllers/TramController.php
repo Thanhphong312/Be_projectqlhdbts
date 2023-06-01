@@ -27,7 +27,9 @@ class TramController extends Controller
 
     public function chinhsua() {
         $title = 'Trạm';
-        return view('tram/chinhsua', compact('title'));
+        $breadcrumbs = ['Trạm','Chỉnh sửa'];
+
+        return view('tram/chinhsua', compact('title', 'breadcrumbs'));
     }
 
 

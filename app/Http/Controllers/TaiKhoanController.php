@@ -27,7 +27,7 @@ class TaiKhoanController extends Controller
 
     public function hienthi() {
         $title = 'Tài Khoản';
-        $breadcrumbs = ['Tài khoản','Thông tin'];
+        $breadcrumbs = ['Tài khoản','Chi tiết'];
         return view('taikhoan/hienthi', compact('title','breadcrumbs'));
     }
 }

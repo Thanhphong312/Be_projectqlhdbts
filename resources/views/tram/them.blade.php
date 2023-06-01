@@ -27,7 +27,6 @@
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
                     <form method="POST" action="{{route('tram-store')}}">
-                        @csrf
                         <div class="row justify-content-center">
                             <h5 class="text-center" id="side12">THÊM TRẠM</h5>
                         </div>

@@ -13,6 +13,9 @@
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
+                <li>
+                    <a href="{{route('tram-chinhsua')}}">Chỉnh sửa</a>
+                </li>
             </ul>
         </li>
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
@@ -44,7 +47,10 @@
             <a href="#pageTaiKhoan" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tài khoản</a>
             <ul class="collapse list-unstyled" id="pageTaiKhoan">
                 <li>
-                    <a href="{{route('taikhoan')}}">Thông tin</a>
+                    <a href="{{route('taikhoan')}}">Tài khoản</a>
+                </li>
+                <li>
+                    <a href="{{route('taikhoan-hienthi')}}">Chi tiết</a>
                 </li>
                 <li>
                     <a href="{{route('taikhoan-them')}}">Thêm</a>
