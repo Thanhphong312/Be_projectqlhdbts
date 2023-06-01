@@ -32,15 +32,10 @@
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
                     </a>
-<<<<<<< HEAD
-                    
-=======
                     <!--Export-->
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
                     </a>
-
->>>>>>> fdfc39acb1700bd6d51ae18a5509287b032e938c
                 </form>
                 <!--Export-->
                 <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
