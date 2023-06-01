@@ -40,15 +40,15 @@
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($csht as $row)
+                        @foreach($cshts as $csht)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
-                            <td>{{$row->CSHT_MaCSHT}}</td>
-                            <td>{{$row->CSHT_TenCSHT}}</td>
+                            <td>{{$csht->CSHT_MaCSHT}}</td>
+                            <td>{{$csht->CSHT_TenCSHT}}</td>
                             <td>
-                                <a href="{{route('csht-chinhsua')}}" class="btn btn-primary me-md-3">
+                                <button class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa
-                                </a>
+                                </button>
                                 <button class="btn btn-danger me-md-3">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>

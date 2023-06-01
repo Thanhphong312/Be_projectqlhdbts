@@ -39,6 +39,10 @@ body {
     margin: 0 auto;
     padding: 0;
 }
+.main-logo a img{
+    height:75px;
+    width: 1000px;
+}
 
 .title-logo {
     width: 100%;
@@ -343,9 +347,12 @@ input.nosubmit {
     }
 
     header {
-        height: 16% !important;
+        height: 12% !important;
     }
-
+    .main-logo a img {
+        height: 45px;
+        width: 400px;
+    }
     .box-login {
         width: 250px;
         height: 290px;

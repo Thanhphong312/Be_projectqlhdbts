@@ -5,26 +5,28 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\CoSoHaTang;
 class CSHTController extends Controller
 {
     public function index()
     {
         $title = 'Cơ Sở Hạ Tầng';
-
-        $csht['csht'] = DB::table('co_so_ha_tang')->get()->toArray();
-
-        return view('csht/csht', compact('title'), $csht);
+        $breadcrumbs = ['Cơ sở hạ tầng'];
+        $cshts = CoSoHaTang::get();
+        // dd($cshts);
+        return view('csht/csht', compact('title','cshts','breadcrumbs'));
     }
 
     public function them() {
         $title = 'Cơ Sở Hạ Tầng';
-        return view('csht/them', compact('title'));
+        $breadcrumbs = ['Cơ sở hạ tầng','them'];
+        return view('csht/them', compact('title','breadcrumbs'));
     }
 
     public function chinhsua() {
         $title = 'Cơ Sở Hạ Tầng';
-        return view('csht/chinhsua', compact('title'));
+        $breadcrumbs = ['Cơ sở hạ tầng','them'];
+        return view('csht/chinhsua', compact('title','breadcrumbs'));
     }
 
 }

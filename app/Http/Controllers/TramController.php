@@ -12,16 +12,22 @@ class TramController extends Controller
     public function index()
     {
         $title = 'Trạm';
-
+        $breadcrumbs = ['Trạm'];
         $tram['tram'] = DB::table('tram')->get()->toArray();
 
-        return view('tram/tram', compact('title'), $tram);
+        return view('tram/tram', compact('title','breadcrumbs'), $tram);
     }
 
     public function them() {
         $title = 'Trạm';
+<<<<<<< HEAD
 
         return view('tram/them', compact('title'));
+=======
+        $breadcrumbs = ['Trạm','Thêm'];
+
+        return view('tram/them', compact('title','breadcrumbs'));
+>>>>>>> ea9ba7a16c8795847b954017a01415a034202cd2
     }
 
     public function chinhsua() {
