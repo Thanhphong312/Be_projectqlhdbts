@@ -87,9 +87,9 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="side12">THÊM TRẠM</h5>
+                            <h5 class="text-center" id="side12">THÊM TRẠM</h5>
                         </div>
-                        <div class="mb-3 text-left">
+                        <div class="mb-3">
                             <label class="form-label">Mã trạm
                                 <span id="colorIcon">*</span>
                             </label>

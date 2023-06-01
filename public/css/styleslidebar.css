@@ -191,6 +191,11 @@ a.article:hover {
 
 #side12 {
     font-size: 24px;
+    font-weight: bold;
+}
+
+.form-control {
+    text-align: left!important;
 }
 
 #side123 {

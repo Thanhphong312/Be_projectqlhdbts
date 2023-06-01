@@ -107,7 +107,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="side12">CẬP NHẬT HỢP ĐỒNG</h5>
+                            <h5 class="text-center" id="side12">CẬP NHẬT HỢP ĐỒNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên tài khoản

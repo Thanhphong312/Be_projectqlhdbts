@@ -83,7 +83,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row">
-                            <h5 class="text-center" style="font-weight: bold;" id="side12">THÊM CƠ SỞ HẠ TẦNG</h5>
+                            <h5 class="text-center" id="side12">THÊM CƠ SỞ HẠ TẦNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã CSHT
@@ -109,7 +109,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
+                            <h5 class="text-center" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã CSHT

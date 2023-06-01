@@ -84,7 +84,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center mb-2">
-                            <h5 class="text-center" style="font-weight: bold;" id="">THÔNG TIN TÀI KHOẢN</h5>
+                            <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
 
                             <div class="container">
                                 <div class="row mb-2">
