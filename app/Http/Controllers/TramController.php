@@ -20,14 +20,9 @@ class TramController extends Controller
 
     public function them() {
         $title = 'Trạm';
-<<<<<<< HEAD
-
-        return view('tram/them', compact('title'));
-=======
         $breadcrumbs = ['Trạm','Thêm'];
 
         return view('tram/them', compact('title','breadcrumbs'));
->>>>>>> ea9ba7a16c8795847b954017a01415a034202cd2
     }
 
     public function chinhsua() {
@@ -36,14 +31,14 @@ class TramController extends Controller
     }
 
 
-    public function store(Request $request) {
-        $add = new Tram();
-        $add->T_MaTram = $request->input('maTram');
-        $add->T_TenTram = $request->input('tenTram');
-        $add->T_DiaChiTram = $request->input('diaChi');
+    // public function store(Request $request) {
+    //     $add = new Tram();
+    //     $add->T_MaTram = $request->input('maTram');
+    //     $add->T_TenTram = $request->input('tenTram');
+    //     $add->T_DiaChiTram = $request->input('diaChi');
 
-        $add->save();
+    //     $add->save();
 
-        return redirect('add')->with('status', 'Insert thành công');
-    }
+    //     return redirect('add')->with('status', 'Insert thành công');
+    // }
 }
