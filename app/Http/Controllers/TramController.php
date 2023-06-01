@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\CoSoHaTang;
 use App\Models\Tram;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,16 +14,15 @@ class TramController extends Controller
     {
         $title = 'Trạm';
         $breadcrumbs = ['Trạm'];
-        $tram['tram'] = DB::table('tram')->get()->toArray();
-
-        return view('tram/tram', compact('title','breadcrumbs'), $tram);
+        $trams = Tram::get();
+        return view('tram/tram', compact('title','breadcrumbs','trams'));
     }
 
     public function them() {
         $title = 'Trạm';
         $breadcrumbs = ['Trạm','Thêm'];
-
-        return view('tram/them', compact('title','breadcrumbs'));
+        $cshts = CoSoHaTang::get();
+        return view('tram/them', compact('title','breadcrumbs','cshts'));
     }
 
     public function chinhsua() {
@@ -33,14 +33,16 @@ class TramController extends Controller
     }
 
 
-    // public function store(Request $request) {
-    //     $add = new Tram();
-    //     $add->T_MaTram = $request->input('maTram');
-    //     $add->T_TenTram = $request->input('tenTram');
-    //     $add->T_DiaChiTram = $request->input('diaChi');
+    public function store(Request $request) {
+        $addtram = new Tram();
+        $addtram->CSHT_MaCSHT = $request->csht;
+        $addtram->T_MaTram = "TLM".$request->input('maTram');
+        $addtram->T_TenTram = $request->input('tenTram');
+        $addtram->T_DiaChiTram = $request->input('diaChi');
+        $addtram->T_TinhTrang = $request->tt;
 
-    //     $add->save();
+        $addtram->save();
 
-    //     return redirect('add')->with('status', 'Insert thành công');
-    // }
+        return redirect()->route('tram-them')->with('success', 'Insert thành công');
+    }
 }
