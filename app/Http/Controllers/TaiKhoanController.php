@@ -11,19 +11,23 @@ class TaiKhoanController extends Controller
     public function index()
     {
         $title = 'Tài Khoản';
+        $breadcrumbs = ['Tài khoản'];
 
         $taikhoan['taikhoan'] = DB::table('users')->get()->toArray();
 
-        return view('taikhoan/taikhoan', compact('title'), $taikhoan);
+        return view('taikhoan/taikhoan', compact('title','breadcrumbs'), $taikhoan);
     }
 
     public function them() {
         $title = 'Tài Khoản';
-        return view('taikhoan/them', compact('title'));
+        $breadcrumbs = ['Tài khoản','Thêm'];
+
+        return view('taikhoan/them', compact('title','breadcrumbs'));
     }
 
     public function hienthi() {
         $title = 'Tài Khoản';
-        return view('taikhoan/hienthi', compact('title'));
+        $breadcrumbs = ['Tài khoản','Hiển thị'];
+        return view('taikhoan/hienthi', compact('title','breadcrumbs'));
     }
 }

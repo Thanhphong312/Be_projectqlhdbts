@@ -9,8 +9,8 @@ class ThongKeController extends Controller
 {
     public function index()
     {
-        $title = 'Thống Kê';
-
-        return view('thongke', compact('title'));
+        $title = 'Thống kê';
+        $breadcrumbs = ['Thống kê'];
+        return view('thongke', compact('title','breadcrumbs'));
     }
 }

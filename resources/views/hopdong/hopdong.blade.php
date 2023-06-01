@@ -24,7 +24,7 @@
             @include('partials.common.tieude')
             
             <!-- Content -->
-            <div class="container" style="max-width: 1280px;">
+            <div class="container" style="max-width: 1090px;">
                 <a href="{{route('hopdong-capnhat')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-upload"></i> Cập nhật hợp đồng</button>
