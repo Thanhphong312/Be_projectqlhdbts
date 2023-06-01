@@ -1,7 +1,6 @@
 <nav id="sidebar" class="show-window hide-mobile">
     <ul class="list-unstyled components">
         @php 
-
             $roles = auth()->user()->quyennguoidungs;
             $allrole = [];
             foreach($roles as $role){
@@ -41,10 +40,10 @@
             </ul>
         </li>
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">
-            <a href="#pageCSHT" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cơ Sở Hạ Tầng</a>
+            <a href="#pageCSHT" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cơ sở hạ tầng</a>
             <ul class="collapse list-unstyled" id="pageCSHT">
                 <li>
-                    <a href="{{route('csht')}}">Cơ Sở Hạ Tầng</a>
+                    <a href="{{route('csht')}}">Cơ sở hạ tầng</a>
                 </li>
                 @if(count($allrole)==4)
                 <li>
@@ -74,7 +73,7 @@
         </li>
         @if(count($allrole)==4)
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
-            <a href="{{route('thongke')}}">Thống Kê</a>
+            <a href="{{route('thongke')}}">Thống kê</a>
         </li>
         @endif
         <li>

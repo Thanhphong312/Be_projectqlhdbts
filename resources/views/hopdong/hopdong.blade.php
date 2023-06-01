@@ -36,9 +36,11 @@
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
                     </a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 69f5c3058296a542ae398a189a3a67b5aa78e60d
                 </form>
-                <!--Export-->
-                <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
