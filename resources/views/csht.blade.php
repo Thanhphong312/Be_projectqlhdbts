@@ -82,8 +82,8 @@
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
                     <form>
-                        <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="">THÊM CƠ SỞ HẠ TẦNG</h5>
+                        <div class="row">
+                            <h5 class="text-center" style="font-weight: bold;" id="side12">THÊM CƠ SỞ HẠ TẦNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã CSHT
@@ -98,7 +98,7 @@
                             <input class="form-control" type="text" placeholder="Vui lòng nhập tên CSHT!">
                         </div>
                         <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-success col-md-5" id="">Thêm</button>
+                            <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
                         </div>
                     </form>
                 </div>
@@ -109,7 +109,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
+                            <h5 class="text-center" style="font-weight: bold;" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã CSHT
@@ -124,7 +124,7 @@
                             <input class="form-control" type="text" placeholder="Vui lòng nhập tên CSHT">
                         </div>
                         <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-success col-md-5" id="">Chỉnh sửa</button>
+                            <button type="submit" class="btn btn-success col-md-5" id="side123">Chỉnh sửa</button>
                         </div>
                     </form>
                 </div>

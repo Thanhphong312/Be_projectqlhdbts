@@ -87,7 +87,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="">THÊM TRẠM</h5>
+                            <h5 class="text-center" style="font-weight: bold;" id="side12">THÊM TRẠM</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã trạm
@@ -102,7 +102,7 @@
                             <input class="form-control" type="text" placeholder="Vui lòng nhập tên trạm!">
                         </div>
                         <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-success col-md-5" id="">Thêm</button>
+                            <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
                         </div>
                     </form>
                 </div>

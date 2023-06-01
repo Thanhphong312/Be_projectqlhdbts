@@ -188,3 +188,18 @@ a.article:hover {
     color: #7386D5;
     background: #1050aa !important;
 }
+
+#side12 {
+    font-size: 24px;
+}
+
+#side123 {
+    font-size: 20px;
+    background: #1050aa;
+    color: #fff;
+    border-radius: 8px;
+}
+
+#colorIcon {
+    color: red;
+}
