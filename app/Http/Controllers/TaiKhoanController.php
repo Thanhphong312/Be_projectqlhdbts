@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\HopDong;
+use App\Models\NguoiDungDonVi;
+use App\Models\QuyenNguoiDung;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class TaiKhoanController extends Controller
 {
@@ -49,24 +53,39 @@ class TaiKhoanController extends Controller
         return redirect()->route('taikhoan')->with('success', 'Thêm thành công');
     }
     public function xoa(Request $request){
+        $user = User::find($request->id);
+        $quyennguoidungs = QuyenNguoiDung::where('ND_MaND', $user->id)->get();
+        // dd($quyennguoidungs);
+        if(!empty($quyennguoidungs)){
+            foreach ($quyennguoidungs as $quyennguoidung) {
+                $quyennguoidung->delete();
+            }
+        }
         
-        // $validator = $request->validate([
-        //     'id' => 'exists:App\Models\HopDong,id',
-        //     ],
-        // );
-        $validator = Validator::make($request->all(), [
-            'id' => 'exists:hop_dong,id'
-        ]);
-        dd($validator->validated());
-        // if ($validator) {
-        //     // The foreign key does not exist
-        //     dd($request);
-        // }
-        // $user = User::find($request->id);
-        // dd($user->hopdongs);
-        // $user->delete();
 
-        // return redirect()->route('taikhoan')->with('success', 'Xóa thành công');
-
+        $nguoidungdonvis = NguoiDungDonVi::where('ND_MaND', $user->id)->get();
+        if(!empty($nguoidungdonvis)){
+            foreach ($nguoidungdonvis as $nguoidungdonvi) {
+                $nguoidungdonvi->delete();
+            }
+        }
+        $hopdongs = HopDong::where('ND_MaND', $user->id)->get();
+        
+        if(!empty($hopdongs)){
+            foreach ($hopdongs as $hopdong) {
+                $dongias = $hopdong->dongias;
+                foreach($dongias as $dongia){
+                    $dongia->whereNotNull('DG_MaDG')->delete();
+                }
+                $files = $hopdong->filehopdongs;
+                foreach($files as $file){
+                    $file->whereNotNull('F_MaFile')->delete();
+                }
+                // dd($dongias);
+                $hopdong->whereNotNull('HD_MaHD')->delete();
+            }
+        }
+        $user->delete();
+        return redirect()->route('taikhoan')->with('success', 'xóa thành công');
     }
 }
