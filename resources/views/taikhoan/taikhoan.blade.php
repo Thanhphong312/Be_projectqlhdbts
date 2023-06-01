@@ -33,9 +33,11 @@
                     <thead>
                         <tr>
                             <th scope="col-6 col-md-3">STT</th>
+                            <th scope="col-6 col-md-3">Mã người dùng</th>
                             <th scope="col-6 col-md-3">Tên người dùng</th>
+                            <th scope="col-6 col-md-3">Địa chỉ</th>
                             <th scope="col-6 col-md-3">Email</th>
-                            <th scope="col-6 col-md-3">Mật khẩu</th>
+                            <th scope="col-6 col-md-3">SĐT</th>
                             <th scope="col-6 col-md-3">Tùy chọn</th>
                         </tr>
                     </thead>
@@ -44,9 +46,11 @@
                         @foreach($taikhoan as $row)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
+                            <td>{{$row->ND_MaND}}</td>
                             <td>{{$row->name}}</td>
+                            <td>{{$row->ND_DiaChi}}</td>
                             <td>{{$row->email}}</td>
-                            <td>{{$row->password}}</td>
+                            <td>{{$row->ND_SDT}}</td>
                             <td>
                                 <a href="{{route('taikhoan-hienthi')}}" class="btn btn-primary me-md-3">
                                     <i class="fas fa-eye"></i> Xem

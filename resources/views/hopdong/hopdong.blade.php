@@ -22,7 +22,7 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
-            
+
             <!-- Content -->
             <div class="container" style="max-width: 1090px;">
                 <form class="form" method="POST" enctype="multipart/form-data">
@@ -33,7 +33,9 @@
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
                     </a>
                     <!--Export-->
-                    <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
+                    <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
+                    </a>
 
                 </form>
                 <div class="col-12">
