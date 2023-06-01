@@ -87,7 +87,7 @@
                 <div class="alert alert-primary">
                     <form>
                         <div class="row justify-content-center">
-                            <h5 class="text-center" style="font-weight: bold;" id="">CẬP NHẬT HỢP ĐỒNG</h5>
+                            <h5 class="text-center" id="side12">CẬP NHẬT HỢP ĐỒNG</h5>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên tài khoản
@@ -120,7 +120,7 @@
                             <input class="form-control" type="text" placeholder="Vui lòng nhập giá">
                         </div>
                         <div class="row justify-content-center">
-                            <button type="submit" class="btn btn-success col-md-5" id="">Cập nhật</button>
+                            <button type="submit" class="btn btn-success col-md-5" id="side123">Cập nhật</button>
                         </div>
                     </form>
                 </div>

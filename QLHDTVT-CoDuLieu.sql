@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 04:55 AM
+-- Generation Time: May 31, 2023 at 05:07 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,7 +39,8 @@ CREATE TABLE `co_so_ha_tang` (
 --
 
 INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updated_at`) VALUES
-('CSHT_HUG_00118', 'HUG001', NULL, NULL);
+('CSHT_HUG_00118', 'HUG001', NULL, NULL),
+('CSHT_HUG_00119', 'HUG002', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -56,6 +57,14 @@ CREATE TABLE `don_gia` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `don_gia`
+--
+
+INSERT INTO `don_gia` (`DG_MaDG`, `HD_MaHD`, `DG_Thang`, `DG_Nam`, `DG_Gia`, `created_at`, `updated_at`) VALUES
+('DG1', 'HD1', 'DG_Thang_1', 'DG_Nam_1', '12000000', NULL, NULL),
+('DG2', 'HD2', 'DG_Thang_2', 'DG_Nam_2', '5000000', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -75,7 +84,8 @@ CREATE TABLE `don_vi` (
 --
 
 INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
-('DV1', 'TTVT1', NULL, NULL);
+('DV1', 'TTVT1', NULL, NULL),
+('DV2', 'TTVT2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -114,7 +124,8 @@ CREATE TABLE `file_hop_dong` (
 --
 
 INSERT INTO `file_hop_dong` (`F_MaFile`, `HD_MaHD`, `F_Loai`, `F_NgayTao`, `F_NgaySua`, `created_at`, `updated_at`) VALUES
-('F1', 'HD1', 'PDF', '2023-05-30', '2023-05-30', NULL, NULL);
+('F1', 'HD1', 'PDF', '2023-05-30', '2023-05-30', NULL, NULL),
+('F2', 'HD2', 'PDF', '2023-05-31', '2023-05-31', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,7 +159,8 @@ CREATE TABLE `hop_dong` (
 --
 
 INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
-('HD1', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-05-30', '1000000', '1200000', '954868888', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan', NULL, NULL);
+('HD1', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-05-30', '1000000', '1200000', '954868888', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', NULL, NULL),
+('HD2', 2, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-05-23', '20000000', '22000000', '12345678', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +212,8 @@ CREATE TABLE `nguoi_dung_don_vi` (
 --
 
 INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
-(1, 1, 'DV1', NULL, NULL);
+(1, 1, 'DV1', NULL, NULL),
+(2, 2, 'DV2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -251,7 +264,8 @@ CREATE TABLE `quyen` (
 --
 
 INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
-('Q1', 'Them', NULL, NULL);
+('Q1', 'Them', NULL, NULL),
+('Q2', 'Sua', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -272,7 +286,8 @@ CREATE TABLE `quyen_nguoi_dung` (
 --
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
-(1, 'Q1', 1, NULL, NULL);
+(1, 'Q1', 1, NULL, NULL),
+(2, 'Q2', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -295,7 +310,8 @@ CREATE TABLE `tram` (
 --
 
 INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `created_at`, `updated_at`) VALUES
-('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL);
+('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL),
+('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -323,7 +339,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ND_01', 'admin', 'name', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', 'tWqvygQoAMltKPeu6cEC3ElryVb0wBsF1QDN7qAOWWvSZlrSbyGTDd1741wb', '2023-05-29 19:12:57', '2023-05-29 19:12:57');
+(1, 'ND_01', 'admin', 'name', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', 'Pm4HVddedNjSozbeDeG8nLhHNftoZVIofGubJrbRBNjkraRhZuUu7thG6tzf', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
+(2, 'ND_02', 'user', 'Nam', 'Vinh Long', 'user@gmail.com', NULL, 'caf1a3dfb505ffed0d024130f58c5cfa', '321', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -448,7 +465,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -460,13 +477,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
