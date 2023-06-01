@@ -1,6 +1,7 @@
 <table>
     <thead>
         <tr>
+<<<<<<< HEAD
             <th >Mã Hợp Đồng</th>
             <th >Mã Người Dùng</th>
             <th >Mã Trạm</th>
@@ -17,6 +18,23 @@
             <th >Tên Ngân Hàng</th>
             <th >Tên Chủ Đầu Tư</th>
             <th >Hợp Đồng</th>
+=======
+            <th>Mã Hợp Đồng</th>
+            <th>Mã Người Dùng</th>
+            <th>Mã Trạm</th>
+            <th>Mã Đơn Vị</th>
+            <th>Mã CSHT</th>
+            <th>Tên Trạm</th>
+            <th>Ngày Đăng Ký</th>
+            <th>Ngày Hết Hạn</th>
+            <th>Ngày Phụ Lục</th>
+            <th>Giá Gốc</th>
+            <th>Giá Hiện Tại</th>
+            <th>Tên Chủ Tài Khoản</th>
+            <th>Tên Ngân Hàng</th>
+            <th>Tên Chủ Đầu Tư</th>
+            <th>Hợp Đồng</th>
+>>>>>>> fdfc39acb1700bd6d51ae18a5509287b032e938c
 
         </tr>
     </thead>

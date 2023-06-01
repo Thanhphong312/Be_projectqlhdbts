@@ -12,7 +12,7 @@ class HDExport implements FromView
 {
     public function view(): View
     {
-        $HopDong = HopDong::latest('HD_MaHD')->get();
+        $HopDong = HopDong::get();
         return view('HDexport', [
             'HopDong' => $HopDong
         ]);

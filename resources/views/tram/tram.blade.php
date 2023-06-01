@@ -42,13 +42,13 @@
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($tram as $row)
+                        @foreach($trams as $row)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
                             <td>{{$row->T_MaTram}}</td>
                             <td>{{$row->T_TenTram}}</td>
                             <td>{{$row->T_DiaChiTram}}</td>
-                            <td><input type="checkbox" name="tinhtrang"></td>
+                            <td>{{$row->T_TinhTrang}}</td>
                             <td>
                                 <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa

@@ -22,7 +22,7 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
-            
+
             <!-- Content -->
             <div class="container" style="max-width: 1090px;">
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
@@ -32,7 +32,15 @@
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
                     </a>
+<<<<<<< HEAD
                     
+=======
+                    <!--Export-->
+                    <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
+                    </a>
+
+>>>>>>> fdfc39acb1700bd6d51ae18a5509287b032e938c
                 </form>
                 <!--Export-->
                 <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">Export</a>
@@ -75,9 +83,9 @@
                                     <td>{{$row->HD_HDScan}}</td>
                                     <td><input type="date" name="" id=""></td>
                                     <td>
-                                        <button class="btn btn-primary me-md-3">
-                                            <i class="fas fa-edit"></i> Chi tiết
-                                        </button>
+                                        <a href="{{route('hopdong-capnhat')}}" class="btn btn-primary me-md-3">
+                                            <i class="fas fa-edit"></i> Cập nhật
+                                        </a>
                                         <button class="btn btn-secondary me-md-3">
                                             <i class="fas fa-download"></i> Tải về
                                         </button>
