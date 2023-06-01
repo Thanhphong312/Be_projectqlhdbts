@@ -35,13 +35,13 @@
                             <label class="form-label">Mã người dùng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="maND" placeholder="Vui lòng nhập mã người dùng 00x!">
+                            <input class="form-control" type="text" name="maND" placeholder="Vui lòng nhập mã người dùng 00x">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên người dùng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="name" placeholder="Vui lòng nhập tên người dùng!">
+                            <input class="form-control" type="text" name="name" placeholder="Vui lòng nhập tên người dùng">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Giới tính
@@ -56,25 +56,25 @@
                             <label class="form-label">Địa chỉ
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ!">
+                            <input class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="email" placeholder="Vui lòng nhập email!">
+                            <input class="form-control" type="text" name="email" placeholder="Vui lòng nhập email">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mật khẩu
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="password" name="password" placeholder="Vui lòng nhập mật khẩu!">
+                            <input class="form-control" type="password" name="password" placeholder="Vui lòng nhập mật khẩu">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">SĐT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="sdt" placeholder="Vui lòng nhập số điện thoại!">
+                            <input class="form-control" type="text" name="sdt" placeholder="Vui lòng nhập số điện thoại">
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>

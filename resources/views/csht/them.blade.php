@@ -35,13 +35,13 @@
                             <label class="form-label">Mã CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="maCSHT" placeholder="Vui lòng nhập mã CSHT!">
+                            <input class="form-control" type="text" name="maCSHT" placeholder="Vui lòng nhập mã CSHT">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tên CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="tenCSHT" placeholder="Vui lòng nhập tên CSHT!">
+                            <input class="form-control" type="text" name="tenCSHT" placeholder="Vui lòng nhập tên CSHT">
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
