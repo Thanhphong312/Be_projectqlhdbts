@@ -22,12 +22,13 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
+            
             <!-- Content -->
             <div class="container" style="max-width: 1280px;">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{route('hopdong-capnhat')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-upload"></i> Cập nhật hợp đồng</button>
-                </div>
+                </a>
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">

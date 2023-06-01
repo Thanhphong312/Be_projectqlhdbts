@@ -14,6 +14,16 @@ class TaiKhoanController extends Controller
 
         $taikhoan['taikhoan'] = DB::table('users')->get()->toArray();
 
-        return view('taikhoan', compact('title'), $taikhoan);
+        return view('taikhoan/taikhoan', compact('title'), $taikhoan);
+    }
+
+    public function them() {
+        $title = 'Tài Khoản';
+        return view('taikhoan/them', compact('title'));
+    }
+
+    public function hienthi() {
+        $title = 'Tài Khoản';
+        return view('taikhoan/hienthi', compact('title'));
     }
 }

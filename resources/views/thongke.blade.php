@@ -21,6 +21,7 @@
         <!-- Page Content  -->
         <div id="content">
         @include('partials.common.tieude')
+        
             <!-- start filter -->
             <div class="fillter-statistic">
                 <form>

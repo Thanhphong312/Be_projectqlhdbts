@@ -24,10 +24,10 @@
             @include('partials.common.tieude')
             <!-- Content -->
             <div class="container">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{route('tram-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
-                </div>
+                </a>
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>
