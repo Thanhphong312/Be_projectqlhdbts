@@ -33,30 +33,30 @@
                             <div class="container">
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Họ và tên:</div>
-                                    <div class="col-6 col-sm-6">Bùi Phương Thảo</div>
+                                    <div class="col-6 col-sm-6">{{auth()->user()->name}}</div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Giới tính:</div>
                                     <div class="col-6 col-sm-6">
-                                        <label><input type="checkbox" name="html" value="html"> Nam</label>
-                                        <label><input type="checkbox" name="html" value="html" checked> Nữ</label><br />
+                                        <label><input type="checkbox" name="html" value="html" {{(mb_strtolower(auth()->user()->ND_GioiTinh)=='nam')?'checked':''}}> Nam</label>
+                                        <label><input type="checkbox" name="html" value="html" {{(mb_strtolower(auth()->user()->ND_GioiTinh)=='nu')?'checked':''}}> Nữ</label><br />
                                     </div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Địa chỉ:</div>
-                                    <div class="col-6 col-sm-6"> Ninh Kiều - Cần Thơ</div>
+                                    <div class="col-6 col-sm-6"> {{auth()->user()->ND_DiaChi}}</div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Email:</div>
-                                    <div class="col-6 col-sm-6">bpthao1234@gmail.com</div>
+                                    <div class="col-6 col-sm-6">{{auth()->user()->email}}</div>
                                 </div>
 
                                 <div class="row mb-2">
-                                    <div class="col-6 col-sm-6"> Mật khẩu:</div>
-                                    <div class="col-6 col-sm-6">********</div>
+                                    <div class="col-6 col-sm-6">Số điện thoại:</div>
+                                    <div class="col-6 col-sm-6">{{auth()->user()->ND_SDT}}</div>
                                 </div>
                             </div>
                         </div>

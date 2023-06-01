@@ -45,6 +45,6 @@ class TramController extends Controller
 
         $addtram->save();
 
-        return redirect()->route('tram')->with('success', 'Insert thành công');
+        return redirect()->route('tram')->with('success', 'Thêm thành công');
     }
 }

@@ -40,6 +40,6 @@ class CSHTController extends Controller
 
         $addcsht->save();
 
-        return redirect()->route('csht')->with('success', 'Insert thành công');
+        return redirect()->route('csht')->with('success', 'Thêm thành công');
     }
 }
