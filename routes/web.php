@@ -35,15 +35,19 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/test', [testController::class, 'test'])->name('test');
 Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
+//tram
 Route::get('/tram', [TramController::class, 'index'])->name('tram');
 Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');
 Route::post('/tram/them', [TramController::class, 'store'])->name('tram-store');
 Route::get('/tram/chinhsua', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
+// hop dong 
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
 Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
+// csht 
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
+// tai khoan 
 Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
 Route::get('/taikhoan/hienthi', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');

@@ -14,19 +14,18 @@ class CSHTController extends Controller
         $breadcrumbs = ['Cơ sở hạ tầng'];
         $cshts = CoSoHaTang::get();
         // dd($cshts);
-        return view('csht/csht', compact('title','cshts','breadcrumbs'));
+        return view('csht.csht', compact('title','cshts','breadcrumbs'));
     }
 
     public function them() {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng','them'];
-        return view('csht/them', compact('title','breadcrumbs'));
+        return view('csht.them', compact('title','breadcrumbs'));
     }
 
     public function chinhsua() {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng','them'];
-        return view('csht/chinhsua', compact('title','breadcrumbs'));
+        return view('csht.chinhsua', compact('title','breadcrumbs'));
     }
-
 }
