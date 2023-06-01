@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\HDExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,5 +31,6 @@ class HopDongController extends Controller
 
     public function export()
     {
+        return Excel::download(new HDExport, 'HD.xlsx');
     }
 }

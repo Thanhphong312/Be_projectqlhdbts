@@ -4,14 +4,17 @@ namespace App\Exports;
 
 use App\Models\HopDong;
 use Maatwebsite\Excel\Concerns\FromCollection;
-
-class HDExport implements FromCollection
+use App\Invoice;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+use Illuminate\Support\Facades\DB;
+class HDExport implements FromView
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    public function view(): View
     {
-        return HopDong::all();
+        $HopDong = HopDong::latest('HD_MaHD')->get();
+        return view('HDexport', [
+            'HopDong' => $HopDong
+        ]);
     }
 }
