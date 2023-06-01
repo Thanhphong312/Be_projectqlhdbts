@@ -48,4 +48,8 @@ class HopDong extends Model
     public function tram(){
         return $this->hasOne(Tram::class, 'T_MaTram', 'T_MaTram');
     }
+    public function nguoidung()
+    {
+        return $this->hasOne(nguoidung::class, 'id', 'ND_MaND');
+    }
 }
