@@ -46,9 +46,9 @@
                             <td>{{$csht->CSHT_MaCSHT}}</td>
                             <td>{{$csht->CSHT_TenCSHT}}</td>
                             <td>
-                                <button class="btn btn-primary me-md-3">
+                                <a href="{{route('csht-chinhsua')}}" class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa
-                                </button>
+                                </a>
                                 <button class="btn btn-danger me-md-3">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>

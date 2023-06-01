@@ -44,7 +44,7 @@
             <a href="#pageTaiKhoan" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tài khoản</a>
             <ul class="collapse list-unstyled" id="pageTaiKhoan">
                 <li>
-                    <a href="{{route('taikhoan')}}">Hiển thị</a>
+                    <a href="{{route('taikhoan')}}">Thông tin</a>
                 </li>
                 <li>
                     <a href="{{route('taikhoan-them')}}">Thêm</a>
