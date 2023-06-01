@@ -57,5 +57,6 @@ Route::get('/taikhoan/xoa/{id}', [TaiKhoanController::class, 'xoa'])->name('taik
 
 
 // -------------- Hop Dong
-Route::post('/import', [HopDongController::class, 'inport'])->name('import');
+Route::get('/import', [HopDongController::class, 'index'])->name('import');
 Route::get('/export', [HopDongController::class, 'export'])->name('export');
+Route::post('/start-import', [HopDongController::class, 'import'])->name('start-import');
