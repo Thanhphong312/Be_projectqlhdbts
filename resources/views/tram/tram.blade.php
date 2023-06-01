@@ -22,6 +22,7 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
+
             <!-- Content -->
             <div class="container">
                 <a href="{{route('tram-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -49,9 +50,9 @@
                             <td>{{$row->T_DiaChiTram}}</td>
                             <td><input type="checkbox" name="tinhtrang"></td>
                             <td>
-                                <button class="btn btn-primary me-md-3">
+                                <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
                                     <i class="fas fa-edit"></i> Sửa
-                                </button>
+                                </a>
                                 <button class="btn btn-danger me-md-3">
                                     <i class="fas fa-trash-alt"></i> Xóa
                                 </button>
@@ -62,7 +63,6 @@
                 </table>
             </div>
         </div>
-
     </div>
     <!-- end body -->
 </div>
