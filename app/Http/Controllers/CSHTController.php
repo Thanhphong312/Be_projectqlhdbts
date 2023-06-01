@@ -19,13 +19,13 @@ class CSHTController extends Controller
 
     public function them() {
         $title = 'Cơ Sở Hạ Tầng';
-        $breadcrumbs = ['Cơ sở hạ tầng','them'];
-        return view('csht.them', compact('title','breadcrumbs'));
+        $breadcrumbs = ['Cơ sở hạ tầng','Thêm'];
+        return view('csht/them', compact('title','breadcrumbs'));
     }
 
     public function chinhsua() {
         $title = 'Cơ Sở Hạ Tầng';
-        $breadcrumbs = ['Cơ sở hạ tầng','them'];
-        return view('csht.chinhsua', compact('title','breadcrumbs'));
+        $breadcrumbs = ['Cơ sở hạ tầng','Chỉnh sửa'];
+        return view('csht/chinhsua', compact('title','breadcrumbs'));
     }
 }

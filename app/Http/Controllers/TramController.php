@@ -27,12 +27,13 @@ class TramController extends Controller
 
     public function chinhsua() {
         $title = 'Trạm';
-        return view('tram/chinhsua', compact('title'));
+        $breadcrumbs = ['Trạm','Chỉnh sửa'];
+
+        return view('tram/chinhsua', compact('title', 'breadcrumbs'));
     }
 
 
     public function store(Request $request) {
-        // dd($id);
         $addtram = new Tram();
         $addtram->CSHT_MaCSHT = $request->csht;
         $addtram->T_MaTram = "TLM".$request->input('maTram');
