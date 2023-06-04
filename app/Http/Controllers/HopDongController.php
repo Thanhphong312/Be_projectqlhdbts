@@ -31,16 +31,20 @@ class HopDongController extends Controller
 
     public function import(Request $request) 
     {
-        
+        // dd($request);
+
         $validator = Validator::make($request->all(),[
             'file' => 'required'
         ]);
         if($validator->passes()){
+            
             $file = $request->file;
             $ext = $file->getClientOriginalExtension();
             $fileName = time().'.'.$ext;
             $file->move(public_path().'/uploads',$fileName);
             $path = public_path().'/uploads/'.$fileName;
+            // dd('a');
+
             Excel::import(new HDImport, $path);
             return redirect(route('import'))->with('success', 'import thành công');
         }else{

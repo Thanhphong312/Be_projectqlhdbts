@@ -28,10 +28,10 @@
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--import-->
-                    <a class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
-                    </a>
+                    </div>
                     <!--Export-->
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
@@ -74,7 +74,7 @@
                                     <td>{{$row->HD_MaCSHT}}</td>
                                     <td>{{$row->HD_TenChuDauTu}}</td>
                                     <td>{{$row->HD_HDScan}}</td>
-                                    <td><input type="date" name="" id=""></td>
+                                    <td><input type="date" name="" id="" value={{$row->HD_NgayPhuLuc}}></td>
                                     <td>
                                         <a href="{{route('hopdong-capnhat')}}" class="btn btn-primary me-md-3">
                                             <i class="fas fa-edit"></i> Cập nhật

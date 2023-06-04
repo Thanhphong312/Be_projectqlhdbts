@@ -39,8 +39,7 @@
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Giới tính:</div>
                                     <div class="col-6 col-sm-6">
-                                        <label><input type="checkbox" name="html" value="html" {{(mb_strtolower(auth()->user()->ND_GioiTinh)=='nam')?'checked':''}}> Nam</label>
-                                        <label><input type="checkbox" name="html" value="html" {{(mb_strtolower(auth()->user()->ND_GioiTinh)=='nu')?'checked':''}}> Nữ</label><br />
+                                        {{ strtolower(auth()->user()->ND_GioiTinh)}}
                                     </div>
                                 </div>
 

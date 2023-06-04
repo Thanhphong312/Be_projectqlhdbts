@@ -35,10 +35,6 @@ class TaiKhoanController extends Controller
         $title = 'Tài Khoản';
         $breadcrumbs = ['Tài khoản','Chi tiết'];
         return view('taikhoan/hienthi', compact('title','breadcrumbs'));
-
-        $taikhoan = User::where('id', '=' , $id)->select('*')->first();
-        $des = html_entity_decode($taikhoan->description);
-        return view('taikhoan/hienthi', compact('taikhoan', 'des'));
     }
 
     public function store(Request $request)
