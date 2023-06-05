@@ -47,13 +47,4 @@ class TramController extends Controller
 
         return redirect()->route('tram')->with('success', 'Thêm thành công');
     }
-
-    public function xoa(Request $request)
-    {
-        $tram = Tram::find($request->T_MaTram);
-
-        $tram->delete();
-
-        return redirect()->route('tram')->with('success', 'Xóa thành công');
-    }
 }

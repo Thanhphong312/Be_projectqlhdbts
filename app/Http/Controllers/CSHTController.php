@@ -42,21 +42,4 @@ class CSHTController extends Controller
 
         return redirect()->route('csht')->with('success', 'Thêm thành công');
     }
-
-    public function xoa(Request $request)
-    {
-        $csht = CoSoHaTang::find($request->CSHT_MaCSHT);
-
-        $tram = Tram::where('CSHT_MaCSHT', $csht->CSHT_MaCSHT)->get();
-        // print_r($tram);
-        if (!empty($trams)) {
-            foreach ($trams as $tram) {
-                $tram->delete();
-            }
-        }
-
-        $csht->delete();
-        
-        return redirect()->route('csht')->with('success', 'Xóa thành công');
-    }
 }
