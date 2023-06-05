@@ -46,22 +46,24 @@
                             <td>{{$csht->CSHT_MaCSHT}}</td>
                             <td>{{$csht->CSHT_TenCSHT}}</td>
                             <td>
-                                <a href="{{route('csht-chinhsua')}}" class="btn btn-primary me-md-3">
-                                    <i class="fas fa-edit"></i> Sửa
-                                </a>
-                                <button class="btn btn-danger me-md-3">
-                                    <i class="fas fa-trash-alt"></i> Xóa
-                                </button>
+                                <form action="{{route('csht-xoa', $csht->CSHT_MaCSHT)}}" method="get">
+                                    <a href="{{route('csht-chinhsua')}}" class="btn btn-primary me-md-3">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </a>
+                                    <button type="submit" class="btn btn-danger me-md-3">
+                                        <i class="fas fa-trash-alt"></i> Xóa
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+        </div>
+        <!-- end body -->
     </div>
-    <!-- end body -->
-</div>
-@endsection
+    @endsection
 
-@section('JS')
-@endsection
+    @section('JS')
+    @endsection

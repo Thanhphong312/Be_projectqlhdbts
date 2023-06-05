@@ -50,12 +50,14 @@
                             <td>{{$row->T_DiaChiTram}}</td>
                             <td>{{$row->T_TinhTrang}}</td>
                             <td>
-                                <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
-                                    <i class="fas fa-edit"></i> Sửa
-                                </a>
-                                <button class="btn btn-danger me-md-3">
-                                    <i class="fas fa-trash-alt"></i> Xóa
-                                </button>
+                                <form action="{{route('tram-xoa', $row->T_MaTram)}}" method="get">
+                                    <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </a>
+                                    <button type="submit" class="btn btn-danger me-md-3">
+                                        <i class="fas fa-trash-alt"></i> Xóa
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
