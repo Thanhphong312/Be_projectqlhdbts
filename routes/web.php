@@ -41,6 +41,7 @@ Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');
 Route::post('/tram/them', [TramController::class, 'store'])->name('tram-store');
 Route::get('/tram/chinhsua', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
 Route::get('/tram/xoa/{T_MaTram}', [TramController::class, 'xoa'])->name('tram-xoa');
+
 // hop dong 
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
 Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
@@ -50,6 +51,7 @@ Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
 Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
 Route::get('/csht/xoa/{maCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
+
 // tai khoan 
 Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
