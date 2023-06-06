@@ -81,8 +81,8 @@
                                 <span id="colorIcon">*</span>
                             </label>
                             <select required class="form-control" aria-label="Default select example" id="tt" name="loaiND">
-                                <option value="1">Quản lý</option>
-                                <option value="0">Đơn vị</option>
+                                <option value="1">Đơn vị</option>
+                                <option value="2">Quản lý</option>
                             </select>
                         </div>
                         <div class="row justify-content-center">
