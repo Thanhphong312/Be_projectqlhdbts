@@ -30,7 +30,7 @@
                     <!--import-->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
-                        <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Submit</button>
+                        <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
                     </div>
                     <!--Export-->
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
