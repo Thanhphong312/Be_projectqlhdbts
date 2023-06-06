@@ -26,40 +26,44 @@
             <!-- Content -->
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
-                    <form>
+                    <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
+                    @foreach($hienthitaikhoan as $hienthi)
+                    <form method="post" action="{{route('taikhoan-view', $hienthi->id)}}">
+                        @csrf
                         <div class="row justify-content-center mb-2">
-                            <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
-
                             <div class="container">
                                 <div class="row mb-2">
-                                    <div class="col-6 col-sm-6">Họ và tên:</div>
-                                    <div class="col-6 col-sm-6">{{auth()->user()->name}}</div>
+                                    <div class="col-6 col-sm-6">Mã người dùng:</div>
+                                    <label name="ND_MaND" class="col-6 col-sm-6">{{$hienthi->ND_MaND}}</label>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-6 col-sm-6">Tên người dùng:</div>
+                                    <label name="name" class="col-6 col-sm-6">{{$hienthi->name}}</label>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Giới tính:</div>
-                                    <div class="col-6 col-sm-6">
-                                        {{ strtolower(auth()->user()->ND_GioiTinh)}}
-                                    </div>
+                                    <label name="ND_GioiTinh" class="col-6 col-sm-6">{{$hienthi->ND_GioiTinh}}</label>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Địa chỉ:</div>
-                                    <div class="col-6 col-sm-6"> {{auth()->user()->ND_DiaChi}}</div>
+                                    <label name="ND_DiaChi" class="col-6 col-sm-6">{{$hienthi->ND_DiaChi}}</label>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Email:</div>
-                                    <div class="col-6 col-sm-6">{{auth()->user()->email}}</div>
+                                    <label name="email" class="col-6 col-sm-6">{{$hienthi->email}}</label>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Số điện thoại:</div>
-                                    <div class="col-6 col-sm-6">{{auth()->user()->ND_SDT}}</div>
+                                    <label name="ND_SDT" class="col-6 col-sm-6">{{$hienthi->ND_SDT}}</label>
                                 </div>
                             </div>
                         </div>
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -47,10 +47,10 @@
                             <td>{{$csht->CSHT_TenCSHT}}</td>
                             <td>
                                 <form action="{{route('csht-xoa', $csht->CSHT_MaCSHT)}}" method="get">
-                                    <a href="{{route('csht-chinhsua')}}" class="btn btn-primary me-md-3">
+                                    <a href="{{route('csht-chinhsua', $csht->CSHT_MaCSHT)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-edit"></i> Sửa
                                     </a>
-                                    <button type="submit" class="btn btn-danger me-md-3">
+                                    <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
                                 </form>
