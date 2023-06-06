@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         User::create([
             'ND_MaND' => 'ND_01',
             'name' => 'admin',
-            'ND_GioiTinh' => 'name',
+            'ND_GioiTinh' => 'Nam',
             'ND_DiaChi' => 'Can Tho',
             'email' => 'admin@gmail.com',
             'password' => '123123',
