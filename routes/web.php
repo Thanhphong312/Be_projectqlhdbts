@@ -9,6 +9,7 @@ use App\Http\Controllers\CSHTController;
 use App\Http\Controllers\HopDongController;
 use App\Http\Controllers\TramController;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\TimkiemController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -45,6 +46,7 @@ Route::get('/tram/xoa/{T_MaTram}', [TramController::class, 'xoa'])->name('tram-x
 // hop dong 
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
 Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
+Route::get('/hopdong/timkiem', [TimkiemController::class, 'timkiem'])->name('hopdong-timkiem');
 // csht 
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
