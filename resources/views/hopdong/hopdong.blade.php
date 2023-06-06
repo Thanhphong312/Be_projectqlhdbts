@@ -43,6 +43,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col-6 col-md-4">STT</th>
+                                    <th scope="col-6 col-md-4">Mã HĐ</th>
                                     <th scope="col-6 col-md-4">Tên tài khoản</th>
                                     <th scope="col-6 col-md-4">Số tài khoản</th>
                                     <th scope="col-6 col-md-4">Tại ngân hàng</th>
@@ -63,6 +64,7 @@
                                 @foreach($hopdong as $row)
                                 <tr>
                                     <th scope="row"><?= $stt++ ?></th>
+                                    <td>{{$row->HD_MaHD}}</td>
                                     <td>{{$row->HD_TenCTK}}</td>
                                     <td>{{$row->HD_SoTaiKhoan}}</td>
                                     <td>{{$row->HD_TenNH}}</td>

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CoSoHaTang;
 use App\Models\Tram;
-use App\Models\HopDong;
 
 class CSHTController extends Controller
 {
@@ -14,6 +13,7 @@ class CSHTController extends Controller
     {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng'];
+
         $cshts = CoSoHaTang::get();
         // dd($cshts);
         return view('csht.csht', compact('title', 'cshts', 'breadcrumbs'));
@@ -23,6 +23,7 @@ class CSHTController extends Controller
     {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng', 'Thêm'];
+
         return view('csht/them', compact('title', 'breadcrumbs'));
     }
 
@@ -47,7 +48,7 @@ class CSHTController extends Controller
             return redirect()->route('csht')->with('success', 'Sửa thành công');
         }
 
-        return redirect()->route('csht')->with('success', 'Sửa không thành công');
+        return redirect()->route('csht')->with('success', 'Sửa không thành công, không được chỉnh sửa mã cơ sở hạ tầng');
     }
 
     public function store(Request $request)

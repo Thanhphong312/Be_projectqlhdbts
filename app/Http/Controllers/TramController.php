@@ -25,14 +25,32 @@ class TramController extends Controller
         return view('tram/them', compact('title', 'breadcrumbs', 'cshts'));
     }
 
-    public function chinhsua()
+    public function chinhsua(Request $request)
     {
         $title = 'Trạm';
         $breadcrumbs = ['Trạm', 'Chỉnh sửa'];
 
-        return view('tram/chinhsua', compact('title', 'breadcrumbs'));
+        $suatram = Tram::where('T_MaTram', $request->T_MaTram)->get();
+
+        return view('tram/chinhsua', compact('title', 'suatram' , 'breadcrumbs'));
     }
 
+    public function update(Request $request)
+    {
+        // dd($request);
+        $suatram = Tram::where('T_MaTram', $request->T_MaTram)->update([
+            'T_MaTram' => $request->T_MaTram,
+            // 'CSHT_MaCSHT',
+            'T_TenTram' => $request->T_TenTram,
+            'T_DiaChiTram' => $request->T_DiaChiTram,
+            'T_TinhTrang' => $request->T_TinhTrang
+        ]);
+        if ($suatram) {
+            return redirect()->route('tram')->with('success', 'Sửa thành công');
+        }
+
+        return redirect()->route('tram')->with('success', 'Sửa không thành công, không được chỉnh sửa mã trạm');
+    }
 
     public function store(Request $request)
     {

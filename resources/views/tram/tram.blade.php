@@ -42,16 +42,16 @@
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($trams as $row)
+                        @foreach($trams as $tram)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
-                            <td>{{$row->T_MaTram}}</td>
-                            <td>{{$row->T_TenTram}}</td>
-                            <td>{{$row->T_DiaChiTram}}</td>
-                            <td>{{$row->T_TinhTrang}}</td>
+                            <td>{{$tram->T_MaTram}}</td>
+                            <td>{{$tram->T_TenTram}}</td>
+                            <td>{{$tram->T_DiaChiTram}}</td>
+                            <td>{{$tram->T_TinhTrang}}</td>
                             <td>
-                                <form action="{{route('tram-xoa', $row->T_MaTram)}}" method="get">
-                                    <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
+                                <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
+                                    <a href="{{route('tram-chinhsua', $tram->T_MaTram)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-edit"></i> Sửa
                                     </a>
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
