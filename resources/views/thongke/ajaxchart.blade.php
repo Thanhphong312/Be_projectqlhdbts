@@ -1,4 +1,3 @@
-
 <div id="chart">
 </div>
 <script type="text/javascript">
@@ -11,9 +10,18 @@
         dataLabels: {
             enabled: false
         },
-        colors: ["#b53f3f", "#b39839", "#155cbe","#41b53f"],
-        series: [@php foreach($thongkes as $thongke){ $data = implode(',',$thongke['data']); echo "{"; echo'name:"'.$thongke['name'].'",'; echo"data:[".$data."]";  echo "},"; } @endphp]
-        ,
+        colors: ["#b53f3f", "#b39839", "#155cbe", "#41b53f"],
+        series: [@php foreach($thongkes as $thongke) {
+                $data = implode(',', $thongke['data']);
+                echo "{";
+                echo 'name:"'.$thongke['name'].
+                '",';
+                echo "data:[".$data.
+                "]";
+                echo "},";
+            }
+            @endphp
+        ],
         stroke: {
             width: [4, 4]
         },
@@ -23,7 +31,12 @@
             }
         },
         xaxis: {
-            categories: [@php foreach($months as $month){echo $month.",";} @endphp]
+            categories: [@php foreach($months as $month) {
+                    echo $month.
+                    ",";
+                }
+                @endphp
+            ]
         },
         yaxis: [{
             axisTicks: {
