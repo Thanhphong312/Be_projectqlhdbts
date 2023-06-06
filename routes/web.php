@@ -35,6 +35,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/test', [testController::class, 'test'])->name('test');
 Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
+Route::get('/thongke/ajaxchart', [ThongKeController::class, 'ajax'])->name('ajaxthongke');
+
 //tram
 Route::get('/tram', [TramController::class, 'index'])->name('tram');
 Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');

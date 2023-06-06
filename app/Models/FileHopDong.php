@@ -21,7 +21,7 @@ class FileHopDong extends Model
         'F_NgaySua'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function hopdong()
     {

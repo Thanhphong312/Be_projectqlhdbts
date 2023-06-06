@@ -29,10 +29,12 @@ class HopDong extends Model
         'HD_TenCTK',
         'HD_TenNH',
         'HD_TenChuDauTu',
-        'HD_HDScan'
+        'HD_HDScan',
+        'created_at',
+        'updated_at'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function dongias(){
         return $this->hasMany(DonGia::class, 'HD_MaHD', 'HD_MaHD');
