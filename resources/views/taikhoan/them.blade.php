@@ -47,7 +47,7 @@
                             <label class="form-label">Giới tính
                                 <span id="colorIcon">*</span>
                             </label>
-                            <select required class="form-control" aria-label="Default select example" id="tt" name="gioiTinh">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tt" name="gioiTinh">
                                 <option value="1">Nam</option>
                                 <option value="0">Nữ</option>
                             </select>

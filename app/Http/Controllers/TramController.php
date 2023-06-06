@@ -40,7 +40,6 @@ class TramController extends Controller
         // dd($request);
         $suatram = Tram::where('T_MaTram', $request->T_MaTram)->update([
             'T_MaTram' => $request->T_MaTram,
-            // 'CSHT_MaCSHT',
             'T_TenTram' => $request->T_TenTram,
             'T_DiaChiTram' => $request->T_DiaChiTram,
             'T_TinhTrang' => $request->T_TinhTrang

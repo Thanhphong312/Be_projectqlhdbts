@@ -41,13 +41,13 @@
                             <label class="form-label">Tên trạm
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input value="{{$sua->T_TenTram}}" name="T_TenTram" class="form-control" type="text" placeholder="Vui lòng nhập tên trạm">
+                            <input required value="{{$sua->T_TenTram}}" name="T_TenTram" class="form-control" type="text" placeholder="Vui lòng nhập tên trạm">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Địa chỉ
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input value="{{$sua->T_DiaChiTram}}" name="T_DiaChiTram" class="form-control" type="text" placeholder="Vui lòng nhập địa chỉ">
+                            <input required value="{{$sua->T_DiaChiTram}}" name="T_DiaChiTram" class="form-control" type="text" placeholder="Vui lòng nhập địa chỉ">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tình trạng</label>
