@@ -2,10 +2,14 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 06, 2023 lúc 02:04 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Jun 06, 2023 at 08:31 AM
+=======
+-- Generation Time: Jun 06, 2023 at 09:16 AM
+>>>>>>> 631f82d5e0b487a8751a04186cc0e18c7602ec88
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +22,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlhdtvt`
+-- Database: `qlhdtvt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `co_so_ha_tang`
+-- Table structure for table `co_so_ha_tang`
 --
 
 CREATE TABLE `co_so_ha_tang` (
@@ -35,17 +39,18 @@ CREATE TABLE `co_so_ha_tang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `co_so_ha_tang`
+-- Dumping data for table `co_so_ha_tang`
 --
 
 INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updated_at`) VALUES
 ('CSHT_HUG_00118', 'HUG001', NULL, NULL),
-('CSHT_HUG_00119', 'HUG002', NULL, NULL);
+('CSHT_HUG_00119', 'HUG002', NULL, NULL),
+('CSHT_HUG_00120', 'HUG003', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_gia`
+-- Table structure for table `don_gia`
 --
 
 CREATE TABLE `don_gia` (
@@ -59,7 +64,7 @@ CREATE TABLE `don_gia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `don_gia`
+-- Dumping data for table `don_gia`
 --
 
 INSERT INTO `don_gia` (`DG_MaDG`, `HD_MaHD`, `DG_Thang`, `DG_Nam`, `DG_Gia`, `created_at`, `updated_at`) VALUES
@@ -69,7 +74,7 @@ INSERT INTO `don_gia` (`DG_MaDG`, `HD_MaHD`, `DG_Thang`, `DG_Nam`, `DG_Gia`, `cr
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_vi`
+-- Table structure for table `don_vi`
 --
 
 CREATE TABLE `don_vi` (
@@ -80,7 +85,7 @@ CREATE TABLE `don_vi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `don_vi`
+-- Dumping data for table `don_vi`
 --
 
 INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
@@ -90,7 +95,7 @@ INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -106,7 +111,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `file_hop_dong`
+-- Table structure for table `file_hop_dong`
 --
 
 CREATE TABLE `file_hop_dong` (
@@ -120,7 +125,7 @@ CREATE TABLE `file_hop_dong` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `file_hop_dong`
+-- Dumping data for table `file_hop_dong`
 --
 
 INSERT INTO `file_hop_dong` (`F_MaFile`, `HD_MaHD`, `F_Loai`, `F_NgayTao`, `F_NgaySua`, `created_at`, `updated_at`) VALUES
@@ -130,7 +135,7 @@ INSERT INTO `file_hop_dong` (`F_MaFile`, `HD_MaHD`, `F_Loai`, `F_NgayTao`, `F_Ng
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hop_dong`
+-- Table structure for table `hop_dong`
 --
 
 CREATE TABLE `hop_dong` (
@@ -155,7 +160,7 @@ CREATE TABLE `hop_dong` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hop_dong`
+-- Dumping data for table `hop_dong`
 --
 
 INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
@@ -165,7 +170,7 @@ INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -175,7 +180,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -196,7 +201,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nguoi_dung_don_vi`
+-- Table structure for table `nguoi_dung_don_vi`
 --
 
 CREATE TABLE `nguoi_dung_don_vi` (
@@ -208,17 +213,16 @@ CREATE TABLE `nguoi_dung_don_vi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nguoi_dung_don_vi`
+-- Dumping data for table `nguoi_dung_don_vi`
 --
 
 INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
-(1, 1, 'DV1', NULL, NULL),
-(2, 2, 'DV2', NULL, NULL);
+(1, 1, 'DV1', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_reset_tokens`
+-- Table structure for table `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
@@ -230,7 +234,7 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -249,7 +253,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quyen`
+-- Table structure for table `quyen`
 --
 
 CREATE TABLE `quyen` (
@@ -260,7 +264,7 @@ CREATE TABLE `quyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quyen`
+-- Dumping data for table `quyen`
 --
 
 INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
@@ -270,7 +274,7 @@ INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quyen_nguoi_dung`
+-- Table structure for table `quyen_nguoi_dung`
 --
 
 CREATE TABLE `quyen_nguoi_dung` (
@@ -282,17 +286,16 @@ CREATE TABLE `quyen_nguoi_dung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quyen_nguoi_dung`
+-- Dumping data for table `quyen_nguoi_dung`
 --
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
-(1, 'Q1', 1, NULL, NULL),
-(2, 'Q2', 2, NULL, NULL);
+(1, 'Q1', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tram`
+-- Table structure for table `tram`
 --
 
 CREATE TABLE `tram` (
@@ -306,17 +309,18 @@ CREATE TABLE `tram` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tram`
+-- Dumping data for table `tram`
 --
 
 INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `created_at`, `updated_at`) VALUES
 ('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL),
-('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL);
+('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL),
+('TLM003', 'CSHT_HUG_00120', 'Long_My_HUG', 'Long My_HUG', '0', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -329,58 +333,59 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `ND_SDT` varchar(255) NOT NULL,
+  `ND_LoaiND` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'ND_01', 'admin', 'name', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', 'Pm4HVddedNjSozbeDeG8nLhHNftoZVIofGubJrbRBNjkraRhZuUu7thG6tzf', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
-(2, 'ND_02', 'user', 'Nam', 'Vinh Long', 'user@gmail.com', NULL, 'caf1a3dfb505ffed0d024130f58c5cfa', '321', NULL, NULL, NULL);
+(2, 'ND_02', 'user', 'Nam', 'Vinh Long', 'user@gmail.com', NULL, 'caf1a3dfb505ffed0d024130f58c5cfa', '321', NULL, NULL, NULL),
+(3, 'ND_03', 'user2', 'nu', 'Vĩnh Long', 'user2@gmail.com', NULL, '$2y$10$SnwtHOUx5AtH7W3WTQw6DOzNNhNF5ezPneVl//.JhBfwosq8D8i16', '2', NULL, '2023-06-05 22:56:03', '2023-06-05 22:56:03');
+--
+-- Indexes for dumped tables
+--
 
 --
--- Chỉ mục cho các bảng đã đổ
---
-
---
--- Chỉ mục cho bảng `co_so_ha_tang`
+-- Indexes for table `co_so_ha_tang`
 --
 ALTER TABLE `co_so_ha_tang`
   ADD PRIMARY KEY (`CSHT_MaCSHT`);
 
 --
--- Chỉ mục cho bảng `don_gia`
+-- Indexes for table `don_gia`
 --
 ALTER TABLE `don_gia`
   ADD PRIMARY KEY (`DG_MaDG`),
   ADD KEY `don_gia_hd_mahd_foreign` (`HD_MaHD`);
 
 --
--- Chỉ mục cho bảng `don_vi`
+-- Indexes for table `don_vi`
 --
 ALTER TABLE `don_vi`
   ADD PRIMARY KEY (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Chỉ mục cho bảng `file_hop_dong`
+-- Indexes for table `file_hop_dong`
 --
 ALTER TABLE `file_hop_dong`
   ADD PRIMARY KEY (`F_MaFile`),
   ADD KEY `file_hop_dong_hd_mahd_foreign` (`HD_MaHD`);
 
 --
--- Chỉ mục cho bảng `hop_dong`
+-- Indexes for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
   ADD PRIMARY KEY (`HD_MaHD`),
@@ -389,13 +394,13 @@ ALTER TABLE `hop_dong`
   ADD KEY `hop_dong_dv_madv_foreign` (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `nguoi_dung_don_vi`
+-- Indexes for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
   ADD PRIMARY KEY (`id`),
@@ -403,13 +408,13 @@ ALTER TABLE `nguoi_dung_don_vi`
   ADD KEY `nguoi_dung_don_vi_dv_madv_foreign` (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `password_reset_tokens`
+-- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Chỉ mục cho bảng `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -417,13 +422,13 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Chỉ mục cho bảng `quyen`
+-- Indexes for table `quyen`
 --
 ALTER TABLE `quyen`
   ADD PRIMARY KEY (`Q_MaQ`);
 
 --
--- Chỉ mục cho bảng `quyen_nguoi_dung`
+-- Indexes for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
   ADD PRIMARY KEY (`id`),
@@ -431,14 +436,14 @@ ALTER TABLE `quyen_nguoi_dung`
   ADD KEY `quyen_nguoi_dung_nd_mand_foreign` (`ND_MaND`);
 
 --
--- Chỉ mục cho bảng `tram`
+-- Indexes for table `tram`
 --
 ALTER TABLE `tram`
   ADD PRIMARY KEY (`T_MaTram`),
   ADD KEY `tram_csht_macsht_foreign` (`CSHT_MaCSHT`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -446,63 +451,67 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_nd_sdt_unique` (`ND_SDT`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT cho bảng `nguoi_dung_don_vi`
+-- AUTO_INCREMENT for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `quyen_nguoi_dung`
+-- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+<<<<<<< HEAD
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> 631f82d5e0b487a8751a04186cc0e18c7602ec88
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `don_gia`
+-- Constraints for table `don_gia`
 --
 ALTER TABLE `don_gia`
   ADD CONSTRAINT `don_gia_hd_mahd_foreign` FOREIGN KEY (`HD_MaHD`) REFERENCES `hop_dong` (`HD_MaHD`);
 
 --
--- Các ràng buộc cho bảng `file_hop_dong`
+-- Constraints for table `file_hop_dong`
 --
 ALTER TABLE `file_hop_dong`
   ADD CONSTRAINT `file_hop_dong_hd_mahd_foreign` FOREIGN KEY (`HD_MaHD`) REFERENCES `hop_dong` (`HD_MaHD`);
 
 --
--- Các ràng buộc cho bảng `hop_dong`
+-- Constraints for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
   ADD CONSTRAINT `hop_dong_dv_madv_foreign` FOREIGN KEY (`DV_MaDV`) REFERENCES `don_vi` (`DV_MaDV`),
@@ -510,21 +519,21 @@ ALTER TABLE `hop_dong`
   ADD CONSTRAINT `hop_dong_t_matram_foreign` FOREIGN KEY (`T_MaTram`) REFERENCES `tram` (`T_MaTram`);
 
 --
--- Các ràng buộc cho bảng `nguoi_dung_don_vi`
+-- Constraints for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
   ADD CONSTRAINT `nguoi_dung_don_vi_dv_madv_foreign` FOREIGN KEY (`DV_MaDV`) REFERENCES `don_vi` (`DV_MaDV`),
   ADD CONSTRAINT `nguoi_dung_don_vi_nd_mand_foreign` FOREIGN KEY (`ND_MaND`) REFERENCES `users` (`id`);
 
 --
--- Các ràng buộc cho bảng `quyen_nguoi_dung`
+-- Constraints for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
   ADD CONSTRAINT `quyen_nguoi_dung_nd_mand_foreign` FOREIGN KEY (`ND_MaND`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `quyen_nguoi_dung_q_maq_foreign` FOREIGN KEY (`Q_MaQ`) REFERENCES `quyen` (`Q_MaQ`);
 
 --
--- Các ràng buộc cho bảng `tram`
+-- Constraints for table `tram`
 --
 ALTER TABLE `tram`
   ADD CONSTRAINT `tram_csht_macsht_foreign` FOREIGN KEY (`CSHT_MaCSHT`) REFERENCES `co_so_ha_tang` (`CSHT_MaCSHT`);

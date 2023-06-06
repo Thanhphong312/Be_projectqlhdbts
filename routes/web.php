@@ -55,8 +55,7 @@ Route::get('/hopdong/timkiem', [TimkiemController::class, 'timkiem'])->name('hop
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
-Route::get('/csht/chinhsua/{CSHT_MaCSHT}', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
-Route::post('/csht/update/{CSHT_MaCSHT}', [CSHTController::class, 'update'])->name('csht-update');
+Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
 Route::get('/csht/xoa/{CSHT_MaCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
 
 // tai khoan 

@@ -35,7 +35,7 @@
                             <label class="form-label">Mã trạm
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="maTram" placeholder="Vui lòng nhập mã trạm">
+                            <input required class="form-control" type="text" name="maTram" placeholder="Vui lòng nhập mã trạm">
                         </div>
                         <div class="mb-3 option-csht">
                             <label class="form-label">CSHT
@@ -51,13 +51,13 @@
                             <label class="form-label">Tên trạm
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="tenTram" placeholder="Vui lòng nhập tên trạm">
+                            <input required class="form-control" type="text" name="tenTram" placeholder="Vui lòng nhập tên trạm">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Địa chỉ
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
+                            <input required class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tình trạng

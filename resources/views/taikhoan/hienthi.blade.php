@@ -59,6 +59,10 @@
                                     <div class="col-6 col-sm-6">Số điện thoại:</div>
                                     <input name="ND_SDT" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->ND_SDT}}"></input>
                                 </div>
+                                <div class="row mb-2">
+                                    <div class="col-6 col-sm-6">Loại người dùng:</div>
+                                    <label name="ND_LoaiND" class="col-6 col-sm-6">{{$hienthi->ND_LoaiND}}</label>
+                                </div>
                             </div>
                         </div>
                     </form>

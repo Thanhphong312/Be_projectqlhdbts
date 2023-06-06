@@ -19,7 +19,7 @@ class TimkiemController extends Controller
         $search = [];
         $rs = $request['search'] ?? "";
         if ($search != "") {
-            $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "%$rs%")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
+            $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
                 ->orwhere('T_TenTram', 'LIKE', "%$rs%")
                 ->orwhere('T_MaTram', 'LIKE', "%$rs%")->get();
             return view('hopdong/timkiem', compact('title', 'breadcrumbs'), $search);
