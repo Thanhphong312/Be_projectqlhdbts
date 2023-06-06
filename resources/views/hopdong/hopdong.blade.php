@@ -73,7 +73,7 @@
                                     <td>{{$row->T_TenTram}}</td>
                                     <td>{{$row->HD_MaCSHT}}</td>
                                     <td>{{$row->HD_TenChuDauTu}}</td>
-                                    <td>{{$row->HD_HDScan}}</td>
+                                    <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                     <td><input type="date" name="" id="" value={{$row->HD_NgayPhuLuc}}></td>
                                     <td>
                                         <a href="{{route('hopdong-capnhat')}}" class="btn btn-primary me-md-3">
