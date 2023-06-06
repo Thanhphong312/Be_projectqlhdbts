@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Exports\HDExport;
 use App\Models\HopDong;
 use App\Imports\HDImport;
@@ -21,35 +20,34 @@ class HopDongController extends Controller
         $breadcrumbs = ['Hợp đồng'];
         $hopdong['hopdong'] = DB::table('hop_dong')->get()->toArray();
 
-        return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+        return view('hopdong/hopdong', compact('title','breadcrumbs'), $hopdong);
     }
 
-    public function capnhat()
-    {
+    public function capnhat() {
         $title = 'Hợp Đồng';
-        $breadcrumbs = ['Hợp đồng', 'Cập nhật'];
-        return view('hopdong/capnhat', compact('title', 'breadcrumbs'));
+        $breadcrumbs = ['Hợp đồng','Cập nhật'];
+        return view('hopdong/capnhat', compact('title','breadcrumbs'));
     }
 
-    public function import(Request $request)
+    public function import(Request $request) 
     {
         // dd($request);
 
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(),[
             'file' => 'required'
         ]);
-        if ($validator->passes()) {
-
+        if($validator->passes()){
+            
             $file = $request->file;
             $ext = $file->getClientOriginalExtension();
-            $fileName = time() . '.' . $ext;
-            $file->move(public_path() . '/uploads', $fileName);
-            $path = public_path() . '/uploads/' . $fileName;
+            $fileName = time().'.'.$ext;
+            $file->move(public_path().'/uploads',$fileName);
+            $path = public_path().'/uploads/'.$fileName;
             // dd('a');
 
             Excel::import(new HDImport, $path);
             return redirect(route('import'))->with('success', 'import thành công');
-        } else {
+        }else{
             return redirect()->back()->withErrors($validator);
         }
     }
