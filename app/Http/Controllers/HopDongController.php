@@ -58,10 +58,10 @@ class HopDongController extends Controller
             'HD_HDScan' => $request->HD_HDScan,
         ]);
         if ($capnhathopdong) {
-            return redirect()->route('hopdong')->with('success', 'Sửa thành công');
+            return redirect()->route('hopdong')->with('success', 'Cập nhật thành công');
         }
 
-        return redirect()->route('hopdong')->with('success', 'Sửa không thành công, không được chỉnh sửa mã hợp đồng');
+        return redirect()->route('hopdong')->with('success', 'Cập nhật không thành công, không được chỉnh sửa mã hợp đồng');
     }
 
     public function import(Request $request)
