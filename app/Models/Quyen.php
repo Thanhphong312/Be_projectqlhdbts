@@ -17,7 +17,7 @@ class Quyen extends Model
         'Q_MaQ', 
         'Q_TenQ'
     ];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function quyennguoidungs()
     {

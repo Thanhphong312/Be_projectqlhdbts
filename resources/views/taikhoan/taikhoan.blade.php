@@ -35,25 +35,29 @@
                             <th scope="col-6 col-md-3">STT</th>
                             <th scope="col-6 col-md-3">Mã người dùng</th>
                             <th scope="col-6 col-md-3">Tên người dùng</th>
+                            <th scope="col-6 col-md-3">Giới tính</th>
                             <th scope="col-6 col-md-3">Địa chỉ</th>
                             <th scope="col-6 col-md-3">Email</th>
                             <th scope="col-6 col-md-3">SĐT</th>
+                            <th scope="col-6 col-md-3">Loại người dùng</th>
                             <th scope="col-6 col-md-3">Tùy chọn</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $stt = 1 ?>
-                        @foreach($taikhoan as $row)
+                        @foreach($taikhoans as $taikhoan)
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
-                            <td>{{$row->ND_MaND}}</td>
-                            <td>{{$row->name}}</td>
-                            <td>{{$row->ND_DiaChi}}</td>
-                            <td>{{$row->email}}</td>
-                            <td>{{$row->ND_SDT}}</td>
+                            <td>{{$taikhoan->ND_MaND}}</td>
+                            <td>{{$taikhoan->name}}</td>
+                            <td>{{$taikhoan->ND_GioiTinh}}</td>
+                            <td>{{$taikhoan->ND_DiaChi}}</td>
+                            <td>{{$taikhoan->email}}</td>
+                            <td>{{$taikhoan->ND_SDT}}</td>
+                            <td>{{$taikhoan->ND_LoaiND}}</td>
                             <td>
-                                <form action="{{route('taikhoan-xoa',$row->id)}}" method="get">
-                                    <a href="{{route('taikhoan-hienthi')}}" class="btn btn-primary me-md-3">
+                                <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
+                                    <a href="{{route('taikhoan-sua', $taikhoan->id)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">

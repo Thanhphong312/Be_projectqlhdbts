@@ -20,9 +20,9 @@ class TaiKhoanController extends Controller
         $title = 'Tài Khoản';
         $breadcrumbs = ['Tài khoản'];
 
-        $taikhoan['taikhoan'] = DB::table('users')->get()->toArray();
+        $taikhoans = User::get();
 
-        return view('taikhoan/taikhoan', compact('title', 'breadcrumbs'), $taikhoan);
+        return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs'));
     }
 
     public function them()
@@ -33,23 +33,37 @@ class TaiKhoanController extends Controller
         return view('taikhoan/them', compact('title', 'breadcrumbs'));
     }
 
-    public function hienthi()
+    public function hienthi(Request $request)
     {
         $title = 'Tài Khoản';
         $breadcrumbs = ['Tài khoản', 'Chi tiết'];
-        return view('taikhoan/hienthi', compact('title', 'breadcrumbs'));
+
+        $hienthitaikhoan = User::where('id', $request->id)->get();
+
+        return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
+    }
+
+    public function sua(Request $request)
+    {
+        // dd($request);
+        $title = 'Sửa tài Khoản ';
+        $hienthitaikhoan = User::where('id', $request->id)->first();
+        $breadcrumbs = ['Tài khoản', 'Chi tiết'];
+        // dd($hienthitaikhoan);
+        return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 
     public function store(Request $request)
     {
         $addtaikhoan = new User();
-        $addtaikhoan->ND_MaND = "ND_" . $request->input('maND');
+        $addtaikhoan->ND_MaND = $request->input('maND');
         $addtaikhoan->name = $request->input('name');
-        $addtaikhoan->ND_GioiTinh = ($request->input('gioiTinh') == 1) ? 'nam' : 'nu';
+        $addtaikhoan->ND_GioiTinh = ($request->input('gioiTinh') == 1) ? 'Nam' : 'Nu';
         $addtaikhoan->ND_DiaChi = $request->input('diaChi');
         $addtaikhoan->email = $request->input('email');
         $addtaikhoan->password = $request->input('password');
         $addtaikhoan->ND_SDT = $request->input('sdt');
+        $addtaikhoan->ND_LoaiND = $request->input('loaiND');
 
         $addtaikhoan->save();
 

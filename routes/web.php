@@ -36,11 +36,15 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/test', [testController::class, 'test'])->name('test');
 Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
+Route::get('/thongke/ajaxchart', [ThongKeController::class, 'ajax'])->name('ajaxthongke');
+
 //tram
 Route::get('/tram', [TramController::class, 'index'])->name('tram');
 Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');
 Route::post('/tram/them', [TramController::class, 'store'])->name('tram-store');
-Route::get('/tram/chinhsua', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
+Route::get('/tram/chinhsua/{T_MaTram}', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
+Route::get('/tram/chinhsua/{T_MaTram}', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
+Route::post('/tram/update/{T_MaTram}', [TramController::class, 'update'])->name('tram-update');
 Route::get('/tram/xoa/{T_MaTram}', [TramController::class, 'xoa'])->name('tram-xoa');
 
 // hop dong 
@@ -59,6 +63,8 @@ Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
 Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
 Route::get('/taikhoan/hienthi', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
+Route::get('/taikhoan/sua/{id}', [TaiKhoanController::class, 'sua'])->name('taikhoan-sua');
+Route::post('/taikhoan/sua/{id}', [TaiKhoanController::class, 'sua'])->name('taikhoan-sua');
 Route::get('/taikhoan/xoa/{id}', [TaiKhoanController::class, 'xoa'])->name('taikhoan-xoa');
 
 

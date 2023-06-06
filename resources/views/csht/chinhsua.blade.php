@@ -33,11 +33,9 @@
                             <h5 class="text-center" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
                         </div>
                         <div class="mb-3 text-left">
-                            <label class="form-label">Mã CSHT
-                                <span id="colorIcon">*</span>
-                            </label>
-                            <input value="{{$sua->CSHT_MaCSHT}}" name="CSHT_MaCSHT" class="form-control" type="text" placeholder="Vui lòng nhập mã CSHT">
-                        </div>
+                            <label class="form-label">Mã CSHT</label>
+                            <label name="CSHT_MaCSHT" class="form-control">{{$sua->CSHT_MaCSHT}}</label>
+                        </label>
                         <div class="mb-3">
                             <label class="form-label">Tên CSHT
                                 <span id="colorIcon">*</span>

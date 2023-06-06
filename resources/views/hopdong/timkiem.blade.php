@@ -90,17 +90,6 @@
                     </div>
                 </div>
             </div>
-            <!-- import data -->
-            <!-- <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
-            @csrf 
-                <input type="file" name="file" accept=".xlsx"><br>
-                <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
-            </form> -->
-            <!-- export data -->
-            <!-- <form action="{{url('export')}}" method="GET">
-            @csrf 
-                <input type="submit" value="Export File Excel" name="export" class="btn btn-success">
-            </form> -->
         </div>
     </div>
     <!-- end body -->

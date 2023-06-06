@@ -12,17 +12,17 @@ use App\Models\Tram;
 
 class TimkiemController extends Controller
 {
-    public function timkiem (Request $request)
+    public function timkiem(Request $request)
     {
         $title = 'Hợp Đồng';
-        $breadcrumbs = ['Hợp đồng', 'Tim kiem'];
-        $search =[];
+        $breadcrumbs = ['Hợp đồng', 'Tìm kiếm'];
+        $search = [];
         $rs = $request['search'] ?? "";
-        if ($search != ""){
-            $search['hopdong'] = HopDong::where('HD_MaHD','LIKE',"%$rs%")->orwhere('HD_MaCSHT','LIKE',"%$rs%")
-            ->orwhere('T_TenTram','LIKE',"%$rs%")
-            ->orwhere('T_MaTram','LIKE',"%$rs%")->get();
-        return view('hopdong/timkiem', compact('title','breadcrumbs'), $search);
+        if ($search != "") {
+            $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "%$rs%")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
+                ->orwhere('T_TenTram', 'LIKE', "%$rs%")
+                ->orwhere('T_MaTram', 'LIKE', "%$rs%")->get();
+            return view('hopdong/timkiem', compact('title', 'breadcrumbs'), $search);
         }
     }
 }
