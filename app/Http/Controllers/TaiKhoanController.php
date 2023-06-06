@@ -43,12 +43,13 @@ class TaiKhoanController extends Controller
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 
-    public function view(Request $request)
+    public function sua(Request $request)
     {
         // dd($request);
+        $title = 'Sửa tài Khoản ';
         $hienthitaikhoan = User::where('id', $request->id)->first();
-        
-
+        $breadcrumbs = ['Tài khoản', 'Chi tiết'];
+        // dd($hienthitaikhoan);
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 

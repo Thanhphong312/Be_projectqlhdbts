@@ -27,43 +27,41 @@
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
                     <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
-                    @foreach($hienthitaikhoan as $hienthi)
-                    <form method="post" action="{{route('taikhoan-view', $hienthi->id)}}">
+                    <form method="post" action="{{route('taikhoan-sua', $hienthitaikhoan->id)}}">
                         @csrf
                         <div class="row justify-content-center mb-2">
                             <div class="container">
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Mã người dùng:</div>
-                                    <label name="ND_MaND" class="col-6 col-sm-6">{{$hienthi->ND_MaND}}</label>
+                                    <input name="ND_MaND" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->ND_MaND}}"></input>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Tên người dùng:</div>
-                                    <label name="name" class="col-6 col-sm-6">{{$hienthi->name}}</label>
+                                    <input name="name" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->name}}"></input>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Giới tính:</div>
-                                    <label name="ND_GioiTinh" class="col-6 col-sm-6">{{$hienthi->ND_GioiTinh}}</label>
+                                    <input name="ND_GioiTinh" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->ND_GioiTinh}}"></input>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Địa chỉ:</div>
-                                    <label name="ND_DiaChi" class="col-6 col-sm-6">{{$hienthi->ND_DiaChi}}</label>
+                                    <input name="ND_DiaChi" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->ND_DiaChi}}"></input>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Email:</div>
-                                    <label name="email" class="col-6 col-sm-6">{{$hienthi->email}}</label>
+                                    <input name="email" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->email}}"></input>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-6 col-sm-6">Số điện thoại:</div>
-                                    <label name="ND_SDT" class="col-6 col-sm-6">{{$hienthi->ND_SDT}}</label>
+                                    <input name="ND_SDT" class="col-6 col-sm-6 btn " value="{{$hienthitaikhoan->ND_SDT}}"></input>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    @endforeach
                 </div>
             </div>
         </div>
