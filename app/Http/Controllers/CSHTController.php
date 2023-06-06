@@ -26,11 +26,28 @@ class CSHTController extends Controller
         return view('csht/them', compact('title', 'breadcrumbs'));
     }
 
-    public function chinhsua()
+    public function chinhsua(Request $request)
     {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng', 'Chỉnh sửa'];
-        return view('csht/chinhsua', compact('title', 'breadcrumbs'));
+
+        $suacsht = CoSoHaTang::where('CSHT_MaCSHT', $request->CSHT_MaCSHT)->get();
+
+        return view('csht/chinhsua', compact('title', 'suacsht', 'breadcrumbs'));
+    }
+
+    public function update(Request $request)
+    {
+        // dd($request);
+        $suacsht = CoSoHaTang::where('CSHT_MaCSHT', $request->CSHT_MaCSHT)->update([
+            'CSHT_MaCSHT' => $request->CSHT_MaCSHT,
+            'CSHT_TenCSHT' => $request->CSHT_TenCSHT
+        ]);
+        if ($suacsht) {
+            return redirect()->route('csht')->with('success', 'Sửa thành công');
+        }
+
+        return redirect()->route('csht')->with('success', 'Sửa không thành công');
     }
 
     public function store(Request $request)

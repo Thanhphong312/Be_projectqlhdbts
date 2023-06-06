@@ -56,7 +56,7 @@
                                     <a href="{{route('taikhoan-hienthi')}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
-                                    <button type="submit" class="btn btn-danger me-md-3">
+                                    <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
                                 </form>

@@ -22,11 +22,13 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
-            
+
             <!-- Content -->
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
-                    <form>
+                    @foreach($suacsht as $sua)
+                    <form method="post" action="{{route('csht-update', $sua->CSHT_MaCSHT)}}">
+                        @csrf
                         <div class="row justify-content-center">
                             <h5 class="text-center" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
                         </div>
@@ -34,18 +36,19 @@
                             <label class="form-label">Mã CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" placeholder="Vui lòng nhập mã CSHT">
+                            <input value="{{$sua->CSHT_MaCSHT}}" name="CSHT_MaCSHT" class="form-control" type="text" placeholder="Vui lòng nhập mã CSHT">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tên CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input class="form-control" type="text" placeholder="Vui lòng nhập tên CSHT">
+                            <input value="{{$sua->CSHT_TenCSHT}}" name="CSHT_TenCSHT" class="form-control" type="text" placeholder="Vui lòng nhập tên CSHT">
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Chỉnh sửa</button>
                         </div>
                     </form>
+                    @endforeach
                 </div>
             </div>
         </div>

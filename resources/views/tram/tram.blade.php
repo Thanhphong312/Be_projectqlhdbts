@@ -54,7 +54,7 @@
                                     <a href="{{route('tram-chinhsua')}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-edit"></i> Sửa
                                     </a>
-                                    <button type="submit" class="btn btn-danger me-md-3">
+                                    <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
                                 </form>
