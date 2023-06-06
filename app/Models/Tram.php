@@ -21,7 +21,7 @@ class Tram extends Model
         'T_TinhTrang'
     ];
     
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function hopdongs()
     {

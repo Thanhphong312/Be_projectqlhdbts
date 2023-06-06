@@ -21,7 +21,7 @@ class DonGia extends Model
         'DG_Gia'
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function hopdong()
     {

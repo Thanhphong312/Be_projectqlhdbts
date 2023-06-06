@@ -57,7 +57,7 @@
                             <td>{{$taikhoan->ND_LoaiND}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
-                                    <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
+                                    <a href="{{route('taikhoan-sua', $taikhoan->id)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">

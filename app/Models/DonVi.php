@@ -18,7 +18,7 @@ class DonVi extends Model
         'DV_TenDV',
     ];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function hopdongs()
     {
