@@ -1,27 +1,26 @@
 <table>
     <thead>
         <tr>
-            <th >Mã Hợp Đồng</th>
-            <th >Mã Người Dùng</th>
-            <th >Mã Trạm</th>
-            <th >Mã Đơn Vị</th>
-            <th >Mã CSHT</th>
-            <th >Tên Trạm</th>
-            <th >Ngày Đăng Ký</th>
-            <th >Ngày Hết Hạn</th>
-            <th >Ngày Phụ Lục</th>
-            <th >Gía Gốc</th>
-            <th >Gía Hiện Tại</th>
-            <th >Số tài khoản</th>
-            <th >Tên Chủ Tài Khoản</th>
-            <th >Tên Ngân Hàng</th>
-            <th >Tên Chủ Đầu Tư</th>
-            <th >Hợp Đồng</th>
-
+            <th>Mã Hợp Đồng</th>
+            <th>Mã Người Dùng</th>
+            <th>Mã Trạm</th>
+            <th>Mã Đơn Vị</th>
+            <th>Mã CSHT</th>
+            <th>Tên Trạm</th>
+            <th>Ngày Đăng Ký</th>
+            <th>Ngày Hết Hạn</th>
+            <th>Ngày Phụ Lục</th>
+            <th>Giá Gốc</th>
+            <th>Giá Hiện Tại</th>
+            <th>Số tài khoản</th>
+            <th>Tên Chủ Tài Khoản</th>
+            <th>Tên Ngân Hàng</th>
+            <th>Tên Chủ Đầu Tư</th>
+            <th>Hợp Đồng</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($HopDong as $HopDong)
+        @foreach($HopDong as $HopDong)
         <tr>
             <td>{{ $HopDong->HD_MaHD }}</td>
             <td>{{ $HopDong->ND_MaND }}</td>
@@ -40,6 +39,6 @@
             <td>{{ $HopDong->HD_TenChuDauTu }}</td>
             <td>{{ $HopDong->HD_HDScan }}</td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>
