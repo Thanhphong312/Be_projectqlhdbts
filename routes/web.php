@@ -9,6 +9,7 @@ use App\Http\Controllers\CSHTController;
 use App\Http\Controllers\HopDongController;
 use App\Http\Controllers\TramController;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\TimkiemController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -45,12 +46,13 @@ Route::get('/tram/xoa/{T_MaTram}', [TramController::class, 'xoa'])->name('tram-x
 // hop dong 
 Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
 Route::get('/hopdong/capnhat', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
+Route::get('/hopdong/timkiem', [TimkiemController::class, 'timkiem'])->name('hopdong-timkiem');
 // csht 
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
 Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
-Route::get('/csht/xoa/{maCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
+Route::get('/csht/xoa/{CSHT_MaCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
 
 // tai khoan 
 Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');

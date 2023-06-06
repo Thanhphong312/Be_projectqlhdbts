@@ -242,6 +242,18 @@ a.go-to-top {
     width: 90%;
 }
 
+.btn-search {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    border: 1px solid transparent;
+    border-radius: inherit;
+    width: 90%;
+}
+
 input[type="search"]::placeholder {
     color: #bbb;
 }
