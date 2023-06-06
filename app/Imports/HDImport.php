@@ -43,7 +43,7 @@ class HDImport implements ToCollection, WithHeadingRow
                 $newhopdong['HD_TenNH'] = $row["ten_ngan_hang"];
                 $newhopdong['HD_TenChuDauTu'] =  $row["ten_chu_dau_tu"];
                 $newhopdong['HD_HDScan'] =  $row["hop_dong"];
-                // print_r($newhopdong);
+                // dd($newhopdong);
                 // dd('a');
                 Log::info($hopdong->HD_MaHD);
 
@@ -66,6 +66,8 @@ class HDImport implements ToCollection, WithHeadingRow
                 $hopdong->HD_TenNH = $row["ten_ngan_hang"];
                 $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
                 $hopdong->HD_HDScan =  $row["hop_dong"];
+                // dd($hopdong);
+
                 $hopdong->save();
             }
         }

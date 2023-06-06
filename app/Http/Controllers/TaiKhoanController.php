@@ -43,12 +43,13 @@ class TaiKhoanController extends Controller
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 
-    public function view(Request $request)
+    public function sua(Request $request)
     {
         // dd($request);
+        $title = 'Sửa tài Khoản ';
         $hienthitaikhoan = User::where('id', $request->id)->first();
-        
-
+        $breadcrumbs = ['Tài khoản', 'Chi tiết'];
+        // dd($hienthitaikhoan);
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 
@@ -57,11 +58,12 @@ class TaiKhoanController extends Controller
         $addtaikhoan = new User();
         $addtaikhoan->ND_MaND = $request->input('maND');
         $addtaikhoan->name = $request->input('name');
-        $addtaikhoan->ND_GioiTinh = ($request->input('gioiTinh') == 1) ? 'nam' : 'nu';
+        $addtaikhoan->ND_GioiTinh = ($request->input('gioiTinh') == 1) ? 'Nam' : 'Nu';
         $addtaikhoan->ND_DiaChi = $request->input('diaChi');
         $addtaikhoan->email = $request->input('email');
         $addtaikhoan->password = $request->input('password');
         $addtaikhoan->ND_SDT = $request->input('sdt');
+        $addtaikhoan->ND_LoaiND = $request->input('loaiND');
 
         $addtaikhoan->save();
 

@@ -18,7 +18,7 @@ class CoSoHaTang extends Model
         'CSHT_TenCSHT'
     ];
     
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function trams()
     {

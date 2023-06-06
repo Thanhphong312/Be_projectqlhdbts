@@ -20,9 +20,6 @@
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
-                <li>
-                    <a href="{{route('tram-chinhsua')}}">Chỉnh sửa</a>
-                </li>
                 @endif
             </ul>
         </li>
@@ -48,9 +45,6 @@
                 @if(count($allrole)==4)
                 <li>
                     <a href="{{route('csht-them')}}">Thêm</a>
-                </li>
-                <li>
-                    <a href="{{route('csht-chinhsua')}}">Chỉnh sửa</a>
                 </li>
                 @endif
             </ul>

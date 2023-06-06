@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Jun 06, 2023 at 08:31 AM
+=======
+-- Generation Time: Jun 06, 2023 at 09:16 AM
+>>>>>>> 631f82d5e0b487a8751a04186cc0e18c7602ec88
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -213,8 +217,7 @@ CREATE TABLE `nguoi_dung_don_vi` (
 --
 
 INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
-(1, 1, 'DV1', NULL, NULL),
-(2, 2, 'DV2', NULL, NULL);
+(1, 1, 'DV1', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -287,8 +290,7 @@ CREATE TABLE `quyen_nguoi_dung` (
 --
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
-(1, 'Q1', 1, NULL, NULL),
-(2, 'Q2', 2, NULL, NULL);
+(1, 'Q1', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -331,6 +333,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `ND_SDT` varchar(255) NOT NULL,
+  `ND_LoaiND` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -340,10 +343,17 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+<<<<<<< HEAD
 INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'ND_01', 'admin', 'name', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', 'Pm4HVddedNjSozbeDeG8nLhHNftoZVIofGubJrbRBNjkraRhZuUu7thG6tzf', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
 (2, 'ND_02', 'user', 'Nam', 'Vinh Long', 'user@gmail.com', NULL, 'caf1a3dfb505ffed0d024130f58c5cfa', '321', NULL, NULL, NULL),
 (3, 'ND_03', 'user2', 'nu', 'Vĩnh Long', 'user2@gmail.com', NULL, '$2y$10$SnwtHOUx5AtH7W3WTQw6DOzNNhNF5ezPneVl//.JhBfwosq8D8i16', '2', NULL, '2023-06-05 22:56:03', '2023-06-05 22:56:03');
+=======
+INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `ND_LoaiND`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'ND_01', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', '1', 'Pm4HVddedNjSozbeDeG8nLhHNftoZVIofGubJrbRBNjkraRhZuUu7thG6tzf', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
+(6, 'ND_02', 'user1', 'Nam', 'Cao Bằng', 'user1@gmail.com', NULL, '$2y$10$27MLcBUyJjaIh1bR2Y13Lex.9LzwoCq19alvSbF/38l4PQhTYknfa', '1', '1', NULL, '2023-06-06 00:11:15', '2023-06-06 00:11:15'),
+(7, 'ND_03', 'user2', 'Nu', 'Cần Thơ', 'user2@gmail.com', NULL, '$2y$10$u9DISgazlaDazCzZwzp0eOdR30gjynIiaDlV5imOojkFj23TVc4JW', '2', '0', NULL, '2023-06-06 00:11:55', '2023-06-06 00:11:55');
+>>>>>>> 631f82d5e0b487a8751a04186cc0e18c7602ec88
 
 --
 -- Indexes for dumped tables
@@ -486,7 +496,11 @@ ALTER TABLE `quyen_nguoi_dung`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+=======
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> 631f82d5e0b487a8751a04186cc0e18c7602ec88
 
 --
 -- Constraints for dumped tables
