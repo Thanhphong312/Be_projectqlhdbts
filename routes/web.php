@@ -56,7 +56,7 @@ Route::get('/hopdong/timkiem', [TimkiemController::class, 'timkiem'])->name('hop
 Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
-Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
+Route::get('/csht/chinhsua/{CSHT_MaCSHT}', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
 Route::post('/csht/update/{CSHT_MaCSHT}', [CSHTController::class, 'update'])->name('csht-update');
 Route::get('/csht/xoa/{CSHT_MaCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
 
@@ -64,9 +64,8 @@ Route::get('/csht/xoa/{CSHT_MaCSHT}', [CSHTController::class, 'xoa'])->name('csh
 Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
 Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
-Route::get('/taikhoan/hienthi', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
-Route::get('/taikhoan/sua/{id}', [TaiKhoanController::class, 'sua'])->name('taikhoan-sua');
-Route::post('/taikhoan/sua/{id}', [TaiKhoanController::class, 'sua'])->name('taikhoan-sua');
+Route::get('/taikhoan/hienthi/{id}', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
+Route::post('/taikhoan/update/{id}', [TaiKhoanController::class, 'update'])->name('taikhoan-update');
 Route::get('/taikhoan/xoa/{id}', [TaiKhoanController::class, 'xoa'])->name('taikhoan-xoa');
 
 

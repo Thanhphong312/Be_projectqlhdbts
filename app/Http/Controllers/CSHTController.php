@@ -39,7 +39,7 @@ class CSHTController extends Controller
 
     public function update(Request $request)
     {
-        dd($request);
+        // dd($request);
         $suacsht = CoSoHaTang::where('CSHT_MaCSHT', $request->CSHT_MaCSHT)->update([
             'CSHT_MaCSHT' => $request->CSHT_MaCSHT,
             'CSHT_TenCSHT' => $request->CSHT_TenCSHT
