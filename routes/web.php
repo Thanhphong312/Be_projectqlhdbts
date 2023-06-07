@@ -43,7 +43,6 @@ Route::get('/tram', [TramController::class, 'index'])->name('tram');
 Route::get('/tram/them', [TramController::class, 'them'])->name('tram-them');
 Route::post('/tram/them', [TramController::class, 'store'])->name('tram-store');
 Route::get('/tram/chinhsua/{T_MaTram}', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
-Route::get('/tram/chinhsua/{T_MaTram}', [TramController::class, 'chinhsua'])->name('tram-chinhsua');
 Route::post('/tram/update/{T_MaTram}', [TramController::class, 'update'])->name('tram-update');
 Route::get('/tram/xoa/{T_MaTram}', [TramController::class, 'xoa'])->name('tram-xoa');
 
@@ -58,6 +57,7 @@ Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
 Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
 Route::post('/csht/them', [CSHTController::class, 'store'])->name('csht-store');
 Route::get('/csht/chinhsua', [CSHTController::class, 'chinhsua'])->name('csht-chinhsua');
+Route::post('/csht/update/{CSHT_MaCSHT}', [CSHTController::class, 'update'])->name('csht-update');
 Route::get('/csht/xoa/{CSHT_MaCSHT}', [CSHTController::class, 'xoa'])->name('csht-xoa');
 
 // tai khoan 
