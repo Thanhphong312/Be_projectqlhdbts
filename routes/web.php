@@ -65,7 +65,7 @@ Route::get('/taikhoan', [TaiKhoanController::class, 'index'])->name('taikhoan');
 Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
 Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
 Route::get('/taikhoan/hienthi/{id}', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
-Route::post('/taikhoan/update/{id}', [TaiKhoanController::class, 'update'])->name('taikhoan-update');
+// Route::post('/taikhoan/view/{id}', [TaiKhoanController::class, 'view'])->name('taikhoan-view');
 Route::get('/taikhoan/xoa/{id}', [TaiKhoanController::class, 'xoa'])->name('taikhoan-xoa');
 
 
