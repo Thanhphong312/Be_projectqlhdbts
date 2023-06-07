@@ -40,7 +40,7 @@
                             <label class="form-label">Tên CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input required value="{{$sua->CSHT_TenCSHT}}" name="CSHT_TenCSHT" class="form-control" type="text">
+                            <input required value="{{$sua->CSHT_TenCSHT}}" name="CSHT_TenCSHT" class="form-control" type="text" placeholder="Vui lòng nhập tên cơ sở hạ tầng">
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Chỉnh sửa</button>
