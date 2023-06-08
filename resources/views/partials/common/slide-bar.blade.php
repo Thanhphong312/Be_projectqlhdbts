@@ -58,9 +58,6 @@
                     <li>
                         <a href="{{route('hopdong')}}">Hợp đồng</a>
                     </li>
-                    <li>
-                        <a href="{{route('hopdong-capnhat')}}">Cập nhật</a>
-                    </li>
                 </ul>
         </li>
         @endif
