@@ -54,7 +54,14 @@
                             <td>{{$taikhoan->ND_DiaChi}}</td>
                             <td>{{$taikhoan->email}}</td>
                             <td>{{$taikhoan->ND_SDT}}</td>
-                            <td>{{$taikhoan->quyennguoidungs()->first()->quyen()->first()->Q_TenQ}}</td>
+                            @php
+                            $qnd = $taikhoan->quyennguoidungs()->first();
+                            if($qnd){
+                                $q = $qnd->quyen()->first();
+                                $quyen = ($q)?$q->Q_TenQ:'';
+                            }
+                            @endphp
+                            <td>{{$quyen}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
                                     <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
