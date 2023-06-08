@@ -25,15 +25,20 @@
 
             <!-- Content -->
             <?php $stt = 1 ?>
-            @if ($hopdong->count() > 0)
+                @if ($hopdong->count() > 0)
             <div class="container" style="max-width: 1090px;">
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--import-->
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <?php
+                           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q1')->first();                                   
+                    ?>
+                    @if($quyens)
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
-                    </div>
+                        </div>
+                    @endif
                     <!--Export-->
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
@@ -42,8 +47,9 @@
                 <div class="col-12">
                     <div class="table-responsive">
                         <table class="table table-bordered text-center">
+                            
                             <div>
-                                <thead>
+                                <thead> 
                                     <tr>
                                         <th scope="col-6 col-md-4">STT</th>
                                         <th scope="col-6 col-md-4">Mã HĐ</th>
@@ -65,7 +71,7 @@
                                 <tbody>
                                     @foreach($hopdong as $row)
                                     <tr>
-                                        <th scope="row"><?= $stt++ ?></th>
+                                        <th scope="row" ><?= $stt++ ?></th>
                                         <td>{{$row->HD_MaHD}}</td>
                                         <td>{{$row->HD_TenCTK}}</td>
                                         <td>{{$row->HD_SoTaiKhoan}}</td>
@@ -97,6 +103,17 @@
                     </div>
                 </div>
             </div>
+            <!-- import data -->
+            <!-- <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
+            @csrf 
+                <input type="file" name="file" accept=".xlsx"><br>
+                <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
+            </form> -->
+            <!-- export data -->
+            <!-- <form action="{{url('export')}}" method="GET">
+            @csrf 
+                <input type="submit" value="Export File Excel" name="export" class="btn btn-success">
+            </form> -->
         </div>
     </div>
     <!-- end body -->
