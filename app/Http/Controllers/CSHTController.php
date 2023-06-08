@@ -13,10 +13,9 @@ class CSHTController extends Controller
     {
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng'];
-
         $cshts = CoSoHaTang::get();
         // dd($cshts);
-        return view('csht.csht', compact('title', 'cshts', 'breadcrumbs'));
+        return view('csht/csht', compact('title', 'cshts', 'breadcrumbs'));
     }
 
     public function them()
@@ -32,6 +31,7 @@ class CSHTController extends Controller
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = ['Cơ sở hạ tầng', 'Chỉnh sửa'];
 
+        // dd($request);
         $suacsht = CoSoHaTang::where('CSHT_MaCSHT', $request->CSHT_MaCSHT)->get();
 
         return view('csht/chinhsua', compact('title', 'suacsht', 'breadcrumbs'));

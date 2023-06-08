@@ -29,13 +29,13 @@
                     @csrf
                     <!--import-->
                     <?php
-                           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q1')->first();                                   
+                    $quyens = auth()->user()->quyennguoidungs()->where('Q_MaQ', 'Q1')->first();
                     ?>
                     @if($quyens)
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
-                        </div>
+                    </div>
                     @endif
                     <!--Export-->
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
@@ -49,7 +49,7 @@
                                 <tr>
                                     <th scope="col-6 col-md-4">STT</th>
                                     <th scope="col-6 col-md-4">Mã HĐ</th>
-                                    <th scope="col-6 col-md-4">Tên tài khoản</th>
+                                    <th scope="col-6 col-md-4">Tên chủ tài khoản</th>
                                     <th scope="col-6 col-md-4">Số tài khoản</th>
                                     <th scope="col-6 col-md-4">Tại ngân hàng</th>
                                     <th scope="col-6 col-md-4">Ngày ký HĐ</th>
@@ -83,7 +83,7 @@
                                     <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                     <td><input type="date" name="" id="" value={{$row->HD_NgayPhuLuc}}></td>
                                     <td>
-                                        <a href="{{route('hopdong-capnhat')}}" class="btn btn-primary me-md-3">
+                                        <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">
                                             <i class="fas fa-edit"></i> Cập nhật
                                         </a>
                                         <button class="btn btn-secondary me-md-3">
@@ -97,17 +97,6 @@
                     </div>
                 </div>
             </div>
-            <!-- import data -->
-            <!-- <form action="{{url('import')}}" method="POST" enctype="multipart/form-data">
-            @csrf 
-                <input type="file" name="file" accept=".xlsx"><br>
-                <input type="submit" value="Import File Excel" name="import" class="btn btn-warning">
-            </form> -->
-            <!-- export data -->
-            <!-- <form action="{{url('export')}}" method="GET">
-            @csrf 
-                <input type="submit" value="Export File Excel" name="export" class="btn btn-success">
-            </form> -->
         </div>
     </div>
     <!-- end body -->

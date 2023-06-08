@@ -32,22 +32,21 @@
                         <div class="row justify-content-center">
                             <h5 class="text-center" id="side12">CHỈNH SỬA TRẠM</h5>
                         </div>
-                        <div class="mb-3 text-left">
+                        <div class="mb-3">
                             <label class="form-label">Mã trạm</label>
                             <label name="T_MaTram" class="form-control">{{$sua->T_MaTram}}</label>
-                            <!-- <input class="form-control" type="text" placeholder="Vui lòng nhập mã trạm"> -->
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 text-left">
                             <label class="form-label">Tên trạm
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input value="{{$sua->T_TenTram}}" name="T_TenTram" class="form-control" type="text" placeholder="Vui lòng nhập tên trạm">
+                            <input required value="{{$sua->T_TenTram}}" name="T_TenTram" class="form-control" type="text" placeholder="Vui lòng nhập tên trạm">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 text-left">
                             <label class="form-label">Địa chỉ
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input value="{{$sua->T_DiaChiTram}}" name="T_DiaChiTram" class="form-control" type="text" placeholder="Vui lòng nhập địa chỉ">
+                            <input required value="{{$sua->T_DiaChiTram}}" name="T_DiaChiTram" class="form-control" type="text" placeholder="Vui lòng nhập địa chỉ trạm">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tình trạng</label>

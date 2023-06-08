@@ -22,5 +22,6 @@ class testController extends Controller
         // } else {
         //     dd('User not found');
         // }
+        echo 'Không làm mà đòi có ăn';
     }
 }

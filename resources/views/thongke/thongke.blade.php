@@ -31,16 +31,19 @@
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Thời gian</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" aria-label="Default select example" id="month" name="month">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                        <option value="all">All</option>   
+                                        <option value="1" {{($request->month==1)?'selected':''}}>1</option>
+                                        <option value="2" {{($request->month==2)?'selected':''}}>2</option>
+                                        <option value="3" {{($request->month==3)?'selected':''}}>3</option>
+                                        <option value="4" {{($request->month==4)?'selected':''}}>4</option>
+                                        <option value="5" {{($request->month==5)?'selected':''}}>5</option>
+                                        <option value="6" {{($request->month==6)?'selected':''}}>6</option>
+                                        <option value="7" {{($request->month==7)?'selected':''}}>7</option>
+                                        <option value="8" {{($request->month==8)?'selected':''}}>8</option>
+                                        <option value="9" {{($request->month==9)?'selected':''}}>9</option>
+                                        <option value="10" {{($request->month==10)?'selected':''}}>10</option>
+                                        <option value="11" {{($request->month==11)?'selected':''}}>11</option>
+                                        <option value="12" {{($request->month==12)?'selected':''}}>12</option>
                                     </select>
                                 </div>
                             </div>
@@ -50,8 +53,9 @@
                                 <label for="inputPassword" class="col-sm-3 col-form-label">Đơn vị</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" aria-label="Default select example" id="don_vi" name="don_vi">
+                                        <option value="all">All</option>
                                         @foreach($donvis as $donvi)
-                                            <option value="{{$donvi->DV_MaDV}}">{{$donvi->DV_TenDV}}</option>
+                                            <option value="{{$donvi->DV_MaDV}}" {{($request->don_vi==$donvi->DV_MaDV)?'selected':''}}>{{$donvi->DV_TenDV}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -114,9 +118,9 @@
             type: "get",
             url: '{{route("ajaxthongke")}}',
             data:{
-                month:"{{($months=='all')?'all':$months}}",
+                month:"{{($request->month=='all')?'all':$request->month}}",
                 type:"{{($type=='all')?'all':$type}}",
-                donvi:"{{($donvi=='all')?'all':$donvi}}"
+                don_vi:"{{($request->don_vi=='all')?'all':$request->don_vi}}"
             },
             success: function(data){
                 console.log(data);
@@ -129,9 +133,9 @@
             type: "get",
             url: '{{route("ajaxthongke")}}',
             data:{
-                month:"{{($months=='all')?'all':$months}}",
+                month:"{{($request->month=='all')?'all':$request->month}}",
                 type:thongke,
-                donvi:"{{($donvi=='all')?'all':$donvi}}"
+                don_vi:"{{($request->don_vi=='all')?'all':$request->don_vi}}"
             },
             success: function(data){
                 console.log(data);

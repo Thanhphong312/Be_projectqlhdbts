@@ -31,12 +31,7 @@
             }
         },
         xaxis: {
-            categories: [@php foreach($months as $month) {
-                    echo $month.
-                    ",";
-                }
-                @endphp
-            ]
+            categories: [@php foreach($categories as $categorie){echo $categorie.",";} @endphp]
         },
         yaxis: [{
             axisTicks: {
@@ -52,7 +47,7 @@
                 }
             },
             title: {
-                text: "Series A",
+                text: "{{$name}}",
                 style: {
                     color: "black"
                 }

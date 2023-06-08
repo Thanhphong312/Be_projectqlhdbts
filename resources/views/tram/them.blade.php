@@ -41,7 +41,7 @@
                             <label class="form-label">CSHT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <select class="form-control" aria-label="Default select example" id="csht" name="csht">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="csht" name="csht">
                                 @foreach($cshts as $csht)
                                 <option value="{{$csht->CSHT_MaCSHT}}">{{$csht->CSHT_TenCSHT}}</option>
                                 @endforeach
