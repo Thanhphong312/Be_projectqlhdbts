@@ -11,8 +11,7 @@
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         <?php
-           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q0')
-           ->first();                                   
+           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q0')->first();                                   
         ?>
         @if($quyens)
 
@@ -22,11 +21,9 @@
                 <li>
                     <a href="{{route('tram')}}">Trạm</a>
                 </li>
-                @if(count($allrole)==4)
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
-                @endif
             </ul>
         </li>           
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">
@@ -35,11 +32,9 @@
                 <li>
                     <a href="{{route('csht')}}">Cơ sở hạ tầng</a>
                 </li>
-                @if(count($allrole)==4)
                 <li>
                     <a href="{{route('csht-them')}}">Thêm</a>
                 </li>
-                @endif
             </ul>
         </li>
         <li class="{{mb_strtolower($title)=='tài khoản'?'active':''}}">
@@ -48,18 +43,14 @@
                 <li>
                     <a href="{{route('taikhoan')}}">Tài khoản</a>
                 </li>
-                @if(count($allrole)==4)
                 <li>
                     <a href="{{route('taikhoan-them')}}">Thêm</a>
                 </li>
-                @endif
             </ul>
         </li>
-        @if(count($allrole)==4)
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
             <a href="{{route('thongke')}}">Thống kê</a>
         </li>
-        @endif
         @else
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
             <a href="#pageHopdong" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hợp đồng</a>
@@ -67,13 +58,11 @@
                     <li>
                         <a href="{{route('hopdong')}}">Hợp đồng</a>
                     </li>
-                    @if(count($allrole)==4)
                     <li>
                         <a href="{{route('hopdong-capnhat')}}">Cập nhật</a>
                     </li>
-                            @endif
-                        </ul>
-                    </li>
+                </ul>
+        </li>
         @endif
         <li>
             <div class="justify-content-start btn-logout">
