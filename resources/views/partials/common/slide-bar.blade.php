@@ -4,8 +4,7 @@
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         <?php
-           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q0')
-           ->first();                                   
+           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q0')->first();                                   
         ?>
         @if($quyens)
 
@@ -52,13 +51,9 @@
                     <li>
                         <a href="{{route('hopdong')}}">Hợp đồng</a>
                     </li>
-                    <li>
-                        <a href="{{route('hopdong-capnhat')}}">Cập nhật</a>
-                    </li>
-                        </ul>
-                    </li>
+                </ul>
+        </li>
         @endif
-        <li>
             <div class="justify-content-start btn-logout">
                 <a href="{{route('logout')}}">
                     <div class="input-group">
