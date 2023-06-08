@@ -30,6 +30,8 @@ class HopDong extends Model
         'HD_TenNH',
         'HD_TenChuDauTu',
         'HD_HDScan',
+        'Nguoiky',
+        'Khachhang',
         'created_at',
         'updated_at'
     ];

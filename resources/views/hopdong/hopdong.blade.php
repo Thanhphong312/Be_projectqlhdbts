@@ -61,6 +61,8 @@
                                     <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
                                     <th scope="col-6 col-md-4">Hợp đồng</th>
                                     <th scope="col-6 col-md-4">Ngày phụ lục</th>
+                                    <th scope="col-6 col-md-4">Người ký</th>
+                                    <th scope="col-6 col-md-4">Khánh hàng ký</th>
                                     <th scope="col-6 col-md-4">Tùy chỉnh</th>
                                 </tr>
                             </thead>
@@ -82,6 +84,8 @@
                                     <td>{{$row->HD_TenChuDauTu}}</td>
                                     <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                     <td><input type="date" name="" id="" value={{$row->HD_NgayPhuLuc}}></td>
+                                    <td>{{$row->Nguoiky}}</td>
+                                    <td>{{$row->Khachhang}}</td>
                                     <td>
                                     @if($quyens)
                                         <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">

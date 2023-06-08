@@ -118,6 +118,18 @@
                             </label>
                             <input style="cursor: pointer;" required value="{{$capnhat->HD_NgayPhuLuc}}" name="HD_NgayPhuLuc" class="form-control" type="date">
                         </div>
+                        <div class="mb-3 text-left">
+                            <label class="form-label">Người ký
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input style="cursor: pointer;" required value="{{$capnhat->Nguoiky}}" name="HD_Nguoiky" class="form-control" type="text">
+                        </div>
+                        <div class="mb-3 text-left">
+                            <label class="form-label">Khách hàng
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input style="cursor: pointer;" required value="{{$capnhat->Khachhang}}" name="HD_Khachhang" class="form-control" type="text">
+                        </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Cập nhật</button>
                         </div>

@@ -54,6 +54,7 @@
                 </ul>
         </li>
         @endif
+        <li>
             <div class="justify-content-start btn-logout">
                 <a href="{{route('logout')}}">
                     <div class="input-group">

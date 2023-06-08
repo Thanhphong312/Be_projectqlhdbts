@@ -58,6 +58,8 @@ class HopDongController extends Controller
             'HD_MaCSHT' => $request->CSHT_MaCSHT,
             'HD_TenChuDauTu' => $request->HD_TenChuDauTu,
             'HD_NgayPhuLuc' => $request->HD_NgayPhuLuc,
+            'Nguoiky' => $request->HD_Nguoiky,
+            'Khachhang' => $request->HD_Khachhang,
             'HD_HDScan' => $request->HD_HDScan,
         ]);
         if ($capnhathopdong) {
