@@ -65,8 +65,6 @@ class ThongKeController extends Controller
                     array_push($categories, $firstmonth);
                     $firstmonth++;
                 }
-
-                // dd($thongkes);
             }else{
                 $categories = $months;
                 foreach($months as $month){
@@ -130,7 +128,7 @@ class ThongKeController extends Controller
             }
         }else  if($request->type=='taikhoan'){
             $thongkes[0]['data'] = [1,2,1,1,1,1,1,1,1,1,1,1];
-            $name = "Doanh thu ".((count($months)>1)?'năm':'tháng '.$months[0]).' '.((!empty($request->don_vi))?'của đơn vị '.$request->don_vi:'')."theo trạm";
+            $name = "Doanh thu ".((count($months)>1)?'năm':'tháng '.$months[0]).' '.((!empty($request->don_vi))?'của đơn vị '.$request->don_vi:'')."theo tài khoản";
             $thongkes[0]['name'] = "Tài khoản";
             $thongkes[0]['data'] = [];
             if(count($months)==1){
