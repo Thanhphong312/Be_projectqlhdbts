@@ -18,7 +18,9 @@ class Tram extends Model
         'CSHT_MaCSHT',
         'T_TenTram',
         'T_DiaChiTram',
-        'T_TinhTrang'
+        'T_TinhTrang',
+        'toado',
+        'Ma_DVQL'
     ];
     
     public $timestamps = true;
@@ -31,5 +33,9 @@ class Tram extends Model
     public function cosohatang()
     {
         return $this->hasOne(CoSoHaTang::class, 'CSHT_MaCSHT', 'CSHT_MaCSHT');
+    }
+    public function dvqltram()
+    {
+        return $this->hasOne(DonViQLTram::class, 'id', 'Ma_DVQL');
     }
 }

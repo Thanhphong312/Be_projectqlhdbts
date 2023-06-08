@@ -4,21 +4,26 @@
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         <?php
-           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q0')->first();                                   
+           $quyens=auth()->user()->quyennguoidungs()->first();   
         ?>
-        @if($quyens)
-
+        @if($quyens->Q_MaQ=='Q0'||$quyens->Q_MaQ=='Q1')
         <li class="{{mb_strtolower($title)=='trạm'?'active':''}}">
             <a href="#pageTram" data-toggle="collapse" class="dropdown-toggle">Trạm</a>
             <ul class="collapse list-unstyled" id="pageTram">
                 <li>
                     <a href="{{route('tram')}}">Trạm</a>
                 </li>
+                @if($quyens->Q_MaQ=='Q0')
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
+                @endif
             </ul>
-        </li>           
+        </li> 
+        @endif    
+        @if($quyens->Q_MaQ=='Q0')
+
+              
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">
             <a href="#pageCSHT" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cơ sở hạ tầng</a>
             <ul class="collapse list-unstyled" id="pageCSHT">
@@ -41,10 +46,7 @@
                 </li>
             </ul>
         </li>
-        <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
-            <a href="{{route('thongke')}}">Thống kê</a>
-        </li>
-        @else
+        @else       
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
             <a href="#pageHopdong" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hợp đồng</a>
                 <ul class="collapse list-unstyled" id="pageHopdong">
@@ -54,6 +56,9 @@
                 </ul>
         </li>
         @endif
+        <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
+            <a href="{{route('thongke')}}">Thống kê</a>
+        </li>
         <li>
             <div class="justify-content-start btn-logout">
                 <a href="{{route('logout')}}">

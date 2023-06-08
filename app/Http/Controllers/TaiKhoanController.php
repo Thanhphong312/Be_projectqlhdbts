@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\redirect;
+use App\Models\Quyen;
 
 class TaiKhoanController extends Controller
 {
@@ -29,8 +30,9 @@ class TaiKhoanController extends Controller
     {
         $title = 'Tài Khoản';
         $breadcrumbs = ['Tài khoản', 'Thêm'];
+        $quyens = Quyen::get();
 
-        return view('taikhoan/them', compact('title', 'breadcrumbs'));
+        return view('taikhoan/them', compact('title', 'breadcrumbs','quyens'));
     }
 
     public function hienthi(Request $request)
@@ -62,10 +64,12 @@ class TaiKhoanController extends Controller
         $addtaikhoan->email = $request->input('email');
         $addtaikhoan->password = $request->input('password');
         $addtaikhoan->ND_SDT = $request->input('sdt');
-        $addtaikhoan->ND_LoaiND = $request->input('loaiND');
-
         $addtaikhoan->save();
 
+        $addquyennguoidung = new QuyenNguoiDung();
+        $addquyennguoidung->Q_MaQ = $request->input('Ma_Q');
+        $addquyennguoidung->ND_MaND = User::where('ND_MaND',$request->input('maND'))->first()->id;
+        $addquyennguoidung->save();
         return redirect()->route('taikhoan')->with('success', 'Thêm thành công');
     }
 

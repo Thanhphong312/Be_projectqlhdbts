@@ -37,6 +37,7 @@
                             <th scope="col-6 col-md-4">Tên trạm</th>
                             <th scope="col-6 col-md-4">Địa chỉ</th>
                             <th scope="col-6 col-md-4">Tình trạng</th>
+                            <th scope="col-6 col-md-4">Đơn vị quản lý Trạm</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
                     </thead>
@@ -49,6 +50,8 @@
                             <td>{{$tram->T_TenTram}}</td>
                             <td>{{$tram->T_DiaChiTram}}</td>
                             <td>{{$tram->T_TinhTrang}}</td>
+                            <td><textarea cols="40" rows="5" disabled>{{$tram->toado}}</textarea> </td>
+                            <td>{{$tram->Ma_DVQL}}</td>
                             <td>
                                 <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
                                     <a href="{{route('tram-chinhsua', $tram->T_MaTram)}}" class="btn btn-primary me-md-3">

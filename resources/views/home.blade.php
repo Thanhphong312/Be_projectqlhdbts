@@ -21,9 +21,12 @@
     <!-- Page Content  -->
     <div id="content">
     @include('partials.common.tieude')
-
+        <?php
+           $quyens=auth()->user()->quyennguoidungs()->first();   
+        ?>
       <div class="container text-center p-2">
         <div class="row align-items-center gx-2  row-item-home">
+          @if($quyens->Q_MaQ!='Q2')
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="{{route('tram')}}" class="item-home d-flex align-items-center justify-content-center">
               <div>
@@ -32,7 +35,8 @@
               </div>
             </a>
           </div>
-
+          @endif
+          @if($quyens->Q_MaQ!='Q0')
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="{{route('hopdong')}}" class="item-home d-flex align-items-center justify-content-center">
               <div>
@@ -41,7 +45,8 @@
               </div>
             </a>
           </div>
-
+          @endif
+        @if($quyens->Q_MaQ=='Q0')
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="{{route('csht')}}" class="item-home d-flex align-items-center justify-content-center">
               <div>
@@ -59,7 +64,7 @@
               </div>
             </a>
           </div>
-
+          @endif
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="thongke" class="item-home d-flex align-items-center justify-content-center">
               <div>
@@ -68,9 +73,9 @@
               </div>
             </a>
           </div>
-
+       
           <div class="col-6 col-md-4 rounded-3 border border-dark">
-            <a href="http://haugiang.vnpt.vn/" target="_blank" class="item-home d-flex align-items-center justify-content-center">
+            <a href="http://haugiang.vnpt.vn/view/p2/63" target="_blank" class="item-home d-flex align-items-center justify-content-center">
               <div>
                 <i class="fas fa-broadcast-tower"></i>
                 <h4>Giới thiệu</h4>

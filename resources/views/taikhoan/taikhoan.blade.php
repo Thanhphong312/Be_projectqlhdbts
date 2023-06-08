@@ -39,7 +39,7 @@
                             <th scope="col-6 col-md-3">Địa chỉ</th>
                             <th scope="col-6 col-md-3">Email</th>
                             <th scope="col-6 col-md-3">SĐT</th>
-                            <th scope="col-6 col-md-3">Loại người dùng</th>
+                            <th scope="col-6 col-md-3">Quyền người dùng</th>
                             <th scope="col-6 col-md-3">Tùy chọn</th>
                         </tr>
                     </thead>
@@ -54,7 +54,7 @@
                             <td>{{$taikhoan->ND_DiaChi}}</td>
                             <td>{{$taikhoan->email}}</td>
                             <td>{{$taikhoan->ND_SDT}}</td>
-                            <td>{{$taikhoan->ND_LoaiND}}</td>
+                            <td>{{$taikhoan->quyennguoidungs()->first()->quyen()->first()->Q_TenQ}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
                                     <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
