@@ -63,7 +63,7 @@
                             <label class="form-label">Tình trạng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <select class="form-control" aria-label="Default select example" id="tt" name="tt">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tt" name="tt">
                                 <option value="1">Hoạt động</option>
                                 <option value="0">Ngưng hoạt động</option>
                             </select>

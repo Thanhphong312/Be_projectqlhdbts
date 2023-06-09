@@ -30,7 +30,7 @@
                             <div class="row form-group">
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Thời gian</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" aria-label="Default select example" id="month" name="month">
+                                    <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="month" name="month">
                                         <option value="all">All</option>   
                                         <option value="1" {{($request->month==1)?'selected':''}}>1</option>
                                         <option value="2" {{($request->month==2)?'selected':''}}>2</option>
@@ -52,7 +52,7 @@
                             <div class="row form-group">
                                 <label for="inputPassword" class="col-sm-3 col-form-label">Đơn vị</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" aria-label="Default select example" id="don_vi" name="don_vi">
+                                    <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="don_vi" name="don_vi">
                                         <option value="all">All</option>
                                         @foreach($donvis as $donvi)
                                             <option value="{{$donvi->DV_MaDV}}" {{($request->don_vi==$donvi->DV_MaDV)?'selected':''}}>{{$donvi->DV_TenDV}}</option>
@@ -74,7 +74,7 @@
                 <div class="row d-flex justify-content-center p-2 gx-2">
                     
                     <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #b53f3f;" onclick=option('tram')>
-                        <div class="item-home d-flex align-items-center justify-content-center">
+                        <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-broadcast-tower"></i>
                                 <h4>Trạm</h4>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="col-2 col-md-2 m-4 rounded-3 border border-dark " style="background-color: #b39839;" onclick=option('hopdong')>
-                        <div class="item-home d-flex align-items-center justify-content-center">
+                        <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-file-alt"></i>
                                 <h4>Hợp đồng</h4>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                     <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #155cbe;" onclick=option('taikhoan')>
-                        <div class="item-home d-flex align-items-center justify-content-center">
+                        <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-users"></i>
                                 <h4>Tài khoản</h4>
