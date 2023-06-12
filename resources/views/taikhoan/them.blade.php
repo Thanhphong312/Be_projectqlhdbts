@@ -87,7 +87,7 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Đon Vị
+                            <label class="form-label">Đơn Vị
                                 <span id="colorIcon">*</span>
                             </label>  
                             <select required class="form-control" aria-label="Default select example" id="secondSelect" name="Ma_DV" style="display: none;">

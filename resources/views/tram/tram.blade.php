@@ -28,10 +28,10 @@
                 @php
                 $quyen=null;
                 if(auth()->user()->quyennguoidungs()){
-                $quyen = auth()->user()->quyennguoidungs()->first();
+                    $quyen = auth()->user()->quyennguoidungs()->first();
                 }
                 @endphp
-                @if($quyen=='Q0')
+                @if($quyen->Q_MaQ=='Q0')
                 <a href="{{route('tram-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-plus"></i> Thêm</button>

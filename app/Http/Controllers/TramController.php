@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\CoSoHaTang;
+use App\Models\DonViQLTram;
 use App\Models\Tram;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,9 @@ class TramController extends Controller
                 'link'=>'/tram/them'
             ]
         ];
+        $donviquanlis = DonViQLTram::get();
         $cshts = CoSoHaTang::get();
-        return view('tram/them', compact('title', 'breadcrumbs', 'cshts'));
+        return view('tram/them', compact('title', 'breadcrumbs', 'cshts','donviquanlis'));
     }
 
     public function chinhsua(Request $request)
@@ -51,9 +53,11 @@ class TramController extends Controller
                 'link'=>'/tram/chinhsua/'.$request->T_MaTram
             ]
         ];
+        $donviquanlis = DonViQLTram::get();
+
         $suatram = Tram::where('T_MaTram', $request->T_MaTram)->get();
 
-        return view('tram/chinhsua', compact('title', 'suatram' , 'breadcrumbs'));
+        return view('tram/chinhsua', compact('title', 'suatram','donviquanlis' , 'breadcrumbs'));
     }
 
     public function update(Request $request)
@@ -63,7 +67,9 @@ class TramController extends Controller
             'T_MaTram' => $request->T_MaTram,
             'T_TenTram' => $request->T_TenTram,
             'T_DiaChiTram' => $request->T_DiaChiTram,
-            'T_TinhTrang' => $request->T_TinhTrang
+            'T_TinhTrang' => $request->T_TinhTrang,
+            'toado' => $request->toado,
+            'Ma_DVQL' =>$request->donviquanly,
         ]);
         if ($suatram) {
             return redirect()->route('tram')->with('success', 'Sửa thành công');
@@ -79,6 +85,8 @@ class TramController extends Controller
         $addtram->T_MaTram = $request->input('maTram');
         $addtram->T_TenTram = $request->input('tenTram');
         $addtram->T_DiaChiTram = $request->input('diaChi');
+        $addtram->toado = $request->input('toado');
+        $addtram->Ma_DVQL= $request->input('donviquanly');
         $addtram->T_TinhTrang = $request->tt;
 
         $addtram->save();

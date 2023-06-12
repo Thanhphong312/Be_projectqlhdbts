@@ -1,6 +1,13 @@
 .container{
     max-width: 1095px!important;
 }
+.user{
+    width:100%;
+}
+.user a:hover{
+    /* background-color:#e9ecef; */
+    color: white!important;
+}
 header {
     width: 100%;
     height: 18%;

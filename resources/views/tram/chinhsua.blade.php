@@ -48,6 +48,22 @@
                             </label>
                             <input required value="{{$sua->T_DiaChiTram}}" name="T_DiaChiTram" class="form-control" type="text" placeholder="Vui lòng nhập địa chỉ trạm">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Đơn vị quản lý
+                                <span id="colorIcon">*</span>
+                            </label>  
+                            <select required class="form-control" aria-label="Default select example" name="donviquanly">
+                                @foreach($donviquanlis as $donviquanli)
+                                    <option value="{{$donviquanli->id}}" {{($sua->Ma_DVQL==$donviquanli->id)?'selected':''}}>{{$donviquanli->Ten_DV}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tọa độ
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input required value="{{$sua->toado}}" class="form-control" type="text" name="toado" >
+                        </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tình trạng</label>
                             <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="T_TinhTrang" name="T_TinhTrang">

@@ -59,11 +59,22 @@
                             </label>
                             <input required class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
                         </div>
+                       
                         <div class="mb-3">
-                            <label class="form-label">Địa chỉ
+                            <label class="form-label">Đơn vị quản lý
+                                <span id="colorIcon">*</span>
+                            </label>  
+                            <select required class="form-control" aria-label="Default select example" name="donviquanly">
+                                @foreach($donviquanlis as $donviquanli)
+                                    <option value="{{$donviquanli->id}}">{{$donviquanli->Ten_DV}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tọa độ
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input required class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
+                            <input required class="form-control" type="text" name="toado" placeholder="Vui lòng nhập tọa độ">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tình trạng

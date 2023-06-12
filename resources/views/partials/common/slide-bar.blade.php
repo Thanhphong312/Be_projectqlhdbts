@@ -1,13 +1,22 @@
 <nav id="sidebar" class="show-window hide-mobile">
+    <div class="user mt-3 d-flex justify-content-center">
+        <a href="{{route('logout')}}">
+            <div class="input-group" style="align-items: center;">
+                <img src="./avatar/5a5c98777ae294bccdf3.jpg" alt="" width="32" height="32" class="rounded-circle">
+                <span class="p-2">{{auth()->user()->name}}</span>
+            </div>
+        </a>
+    </div>
+    <hr>
     <ul class="list-unstyled components">
         <li class="{{mb_strtolower($title)=='trang chủ'?'active':''}}">
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
         @php
-           $quyen=null;   
-           if(auth()->user()->quyennguoidungs()){
-              $quyen = auth()->user()->quyennguoidungs()->first();
-           }
+        $quyen=null;
+        if(auth()->user()->quyennguoidungs()){
+        $quyen = auth()->user()->quyennguoidungs()->first();
+        }
         @endphp
         @if($quyen->Q_MaQ=='Q0'||$quyen->Q_MaQ=='Q1')
         <li class="{{mb_strtolower($title)=='trạm'?'active':''}}">
@@ -22,11 +31,11 @@
                 </li>
                 @endif
             </ul>
-        </li> 
-        @endif    
+        </li>
+        @endif
         @if($quyen->Q_MaQ=='Q0')
 
-              
+
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">
             <a href="#pageCSHT" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Cơ sở hạ tầng</a>
             <ul class="collapse list-unstyled" id="pageCSHT">
@@ -49,14 +58,14 @@
                 </li>
             </ul>
         </li>
-        @else       
+        @else
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
             <a href="#pageHopdong" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hợp đồng</a>
-                <ul class="collapse list-unstyled" id="pageHopdong">
-                    <li>
-                        <a href="{{route('hopdong')}}">Hợp đồng</a>
-                    </li>
-                </ul>
+            <ul class="collapse list-unstyled" id="pageHopdong">
+                <li>
+                    <a href="{{route('hopdong')}}">Hợp đồng</a>
+                </li>
+            </ul>
         </li>
         @endif
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
