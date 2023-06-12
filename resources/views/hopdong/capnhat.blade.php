@@ -34,7 +34,7 @@
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã hợp đồng</label>
-                            <label name="HD_MaHD" class="form-control">{{$capnhat->HD_MaHD}}</label>
+                            <label style="cursor: not-allowed;" name="HD_MaHD" class="form-control">{{$capnhat->HD_MaHD}}</label>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên chủ tài khoản
@@ -122,13 +122,13 @@
                             <label class="form-label">Người ký
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input style="cursor: pointer;" required value="{{$capnhat->Nguoiky}}" name="HD_Nguoiky" class="form-control" type="text">
+                            <input required value="{{$capnhat->Nguoiky}}" name="HD_Nguoiky" class="form-control" type="text">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Khách hàng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input style="cursor: pointer;" required value="{{$capnhat->Khachhang}}" name="HD_Khachhang" class="form-control" type="text">
+                            <input required value="{{$capnhat->Khachhang}}" name="HD_Khachhang" class="form-control" type="text">
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Cập nhật</button>

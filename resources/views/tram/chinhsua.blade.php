@@ -34,7 +34,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mã trạm</label>
-                            <label name="T_MaTram" class="form-control">{{$sua->T_MaTram}}</label>
+                            <label style="cursor: not-allowed;" name="T_MaTram" class="form-control">{{$sua->T_MaTram}}</label>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên trạm
@@ -50,7 +50,7 @@
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tình trạng</label>
-                            <select class="form-control" aria-label="Default select example" id="T_TinhTrang" name="T_TinhTrang">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="T_TinhTrang" name="T_TinhTrang">
                                 <option value="1">Hoạt động</option>
                                 <option value="0">Ngưng hoạt động</option>
                             </select>

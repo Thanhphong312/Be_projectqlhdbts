@@ -34,7 +34,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Mã CSHT</label>
-                            <label name="CSHT_MaCSHT" class="form-control">{{$sua->CSHT_MaCSHT}}</label>
+                            <label style="cursor: not-allowed;" name="CSHT_MaCSHT" class="form-control">{{$sua->CSHT_MaCSHT}}</label>
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên CSHT

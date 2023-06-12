@@ -24,7 +24,7 @@
             @include('partials.common.tieude')
 
             <!-- Content -->
-            <div class="container" style="max-width: 1090px;">
+            <div class="container" >
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--import-->

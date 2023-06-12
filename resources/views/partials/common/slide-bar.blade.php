@@ -3,17 +3,20 @@
         <li class="{{mb_strtolower($title)=='trang chủ'?'active':''}}">
             <a href="{{route('home')}}">Trang Chủ</a>
         </li>
-        <?php
-           $quyens=auth()->user()->quyennguoidungs()->first();   
-        ?>
-        @if($quyens->Q_MaQ=='Q0'||$quyens->Q_MaQ=='Q1')
+        @php
+           $quyen=null;   
+           if(auth()->user()->quyennguoidungs()){
+              $quyen = auth()->user()->quyennguoidungs()->first();
+           }
+        @endphp
+        @if($quyen->Q_MaQ=='Q0'||$quyen->Q_MaQ=='Q1')
         <li class="{{mb_strtolower($title)=='trạm'?'active':''}}">
             <a href="#pageTram" data-toggle="collapse" class="dropdown-toggle">Trạm</a>
             <ul class="collapse list-unstyled" id="pageTram">
                 <li>
                     <a href="{{route('tram')}}">Trạm</a>
                 </li>
-                @if($quyens->Q_MaQ=='Q0')
+                @if($quyen->Q_MaQ=='Q0')
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
@@ -21,7 +24,7 @@
             </ul>
         </li> 
         @endif    
-        @if($quyens->Q_MaQ=='Q0')
+        @if($quyen->Q_MaQ=='Q0')
 
               
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">

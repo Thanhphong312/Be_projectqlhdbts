@@ -12,7 +12,12 @@ class CSHTController extends Controller
     public function index()
     {
         $title = 'Cơ Sở Hạ Tầng';
-        $breadcrumbs = ['Cơ sở hạ tầng'];
+        $breadcrumbs = [
+            [
+                'name'=>'Cơ sở hạ tầng',
+                'link'=>'/csht'
+            ]
+        ];
         $cshts = CoSoHaTang::get();
         // dd($cshts);
         return view('csht/csht', compact('title', 'cshts', 'breadcrumbs'));
@@ -21,16 +26,30 @@ class CSHTController extends Controller
     public function them()
     {
         $title = 'Cơ Sở Hạ Tầng';
-        $breadcrumbs = ['Cơ sở hạ tầng', 'Thêm'];
-
+        $breadcrumbs = [
+            [
+                'name'=>'Cơ sở hạ tầng',
+                'link'=>'/csht'
+            ],[
+                'name'=>'Thêm',
+                'link'=>'/csht/them'
+            ]
+        ];
         return view('csht/them', compact('title', 'breadcrumbs'));
     }
 
     public function chinhsua(Request $request)
     {
         $title = 'Cơ Sở Hạ Tầng';
-        $breadcrumbs = ['Cơ sở hạ tầng', 'Chỉnh sửa'];
-
+        $breadcrumbs = [
+            [
+                'name'=>'Cơ sở hạ tầng',
+                'link'=>'/csht'
+            ],[
+                'name'=>'Chỉnh sửa',
+                'link'=>'/csht/chinhsua'
+            ]
+        ];
         // dd($request);
         $suacsht = CoSoHaTang::where('CSHT_MaCSHT', $request->CSHT_MaCSHT)->get();
 

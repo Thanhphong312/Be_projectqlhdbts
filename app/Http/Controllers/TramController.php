@@ -12,7 +12,12 @@ class TramController extends Controller
     public function index()
     {
         $title = 'Trạm';
-        $breadcrumbs = ['Trạm'];
+        $breadcrumbs = [
+            [
+                'name'=>'Trạm',
+                'link'=>'/tram'
+            ]
+        ];
         $trams = Tram::get();
         return view('tram/tram', compact('title', 'breadcrumbs', 'trams'));
     }
@@ -20,7 +25,15 @@ class TramController extends Controller
     public function them()
     {
         $title = 'Trạm';
-        $breadcrumbs = ['Trạm', 'Thêm'];
+        $breadcrumbs = [
+            [
+                'name'=>'Trạm',
+                'link'=>'/tram'
+            ],[
+                'name'=>'Thêm',
+                'link'=>'/tram/them'
+            ]
+        ];
         $cshts = CoSoHaTang::get();
         return view('tram/them', compact('title', 'breadcrumbs', 'cshts'));
     }
@@ -29,7 +42,15 @@ class TramController extends Controller
     {
         $title = 'Trạm';
         $breadcrumbs = ['Trạm', 'Chỉnh sửa'];
-
+        $breadcrumbs = [
+            [
+                'name'=>'Trạm',
+                'link'=>'/tram'
+            ],[
+                'name'=>'Chỉnh sửa',
+                'link'=>'/tram/chinhsua/'.$request->T_MaTram
+            ]
+        ];
         $suatram = Tram::where('T_MaTram', $request->T_MaTram)->get();
 
         return view('tram/chinhsua', compact('title', 'suatram' , 'breadcrumbs'));

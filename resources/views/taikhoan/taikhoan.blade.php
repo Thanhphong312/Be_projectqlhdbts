@@ -25,11 +25,19 @@
 
             <!-- Content -->
             <div class="container">
+                @php
+                $quyen=null;
+                if(auth()->user()->quyennguoidungs()){
+                $quyen = auth()->user()->quyennguoidungs()->first();
+                }
+                @endphp
+                @if($quyen=='Q0')
                 <a href="{{route('taikhoan-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
                 </a>
-                <table class="table table-bordered text-center">
+                @endif
+                <table class="table table-bordered text-center p-2">
                     <thead>
                         <tr>
                             <th scope="col-6 col-md-3">STT</th>
@@ -54,7 +62,14 @@
                             <td>{{$taikhoan->ND_DiaChi}}</td>
                             <td>{{$taikhoan->email}}</td>
                             <td>{{$taikhoan->ND_SDT}}</td>
-                            <td>{{$taikhoan->quyennguoidungs()->first()->quyen()->first()->Q_TenQ}}</td>
+                            @php
+                            $qnd = $taikhoan->quyennguoidungs()->first();
+                            if($qnd){
+                            $q = $qnd->quyen()->first();
+                            $quyen = ($q)?$q->Q_TenQ:'';
+                            }
+                            @endphp
+                            <td>{{$quyen}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
                                     <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">

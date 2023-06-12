@@ -15,7 +15,12 @@ class ThongKeController extends Controller
     public function index(Request $request)
     {
         $title = 'Thống kê';
-        $breadcrumbs = ['Thống kê'];
+        $breadcrumbs = [
+            [
+                'name'=>'Thống kê',
+                'link'=>'/thongke'
+            ]
+        ];
         $donvis = DonVi::get();
         $months = 'all';
         $type = 'all';

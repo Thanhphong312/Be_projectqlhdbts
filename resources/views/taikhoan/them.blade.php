@@ -80,17 +80,22 @@
                             <label class="form-label">Loại người dùng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <select required class="form-control" aria-label="Default select example" id="tt" name="Ma_Q">
+                            <select required class="form-control" aria-label="Default select example" id="firstSelect" name="Ma_Q">
                                 @foreach($quyens as $quyen)
                                     <option value="{{$quyen->Q_MaQ}}">{{$quyen->Q_TenQ}}</option>
                                 @endforeach
                             </select>
-                           
-                            <select required class="form-control" aria-label="Default select example" id="tt" name="Ma_Q">
-                                @foreach($quyens as $quyen)
-                                    <option value="{{$quyen->Q_MaQ}}">{{$quyen->Q_TenQ}}</option>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Đon Vị
+                                <span id="colorIcon">*</span>
+                            </label>  
+                            <select required class="form-control" aria-label="Default select example" id="secondSelect" name="Ma_DV" style="display: none;">
+                                @foreach($donvis as $donvi)
+                                    <option value="{{$donvi->DV_MaDV}}">{{$donvi->DV_TenDV}}</option>
                                 @endforeach
                             </select>
+
                         </div>
                         <div class="row justify-content-center">
                             <button type="submit" class="btn btn-success col-md-5" id="side123">Thêm</button>
@@ -106,8 +111,15 @@
 @endsection
 
 @section('JS')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-
+    document.getElementById('firstSelect').addEventListener('change', function() {
+    if (this.value === 'Q1') {
+        document.getElementById('secondSelect').style.display = 'block';
+    }else {
+        document.getElementById('secondSelect').style.display = 'none';
+    }
+}); 
 </script>
 @endsection

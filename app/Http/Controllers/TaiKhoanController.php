@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DonVi;
 use App\Models\HopDong;
 use App\Models\NguoiDungDonVi;
 use App\Models\QuyenNguoiDung;
@@ -19,27 +20,47 @@ class TaiKhoanController extends Controller
     public function index()
     {
         $title = 'Tài Khoản';
-        $breadcrumbs = ['Tài khoản'];
-
+        $breadcrumbs = [
+            [
+                'name'=>'Tài khoản',
+                'link'=>'/taikhoan'
+            ]
+        ];
         $taikhoans = User::get();
-
+        
         return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs'));
     }
 
     public function them()
     {
         $title = 'Tài Khoản';
-        $breadcrumbs = ['Tài khoản', 'Thêm'];
+        $breadcrumbs = [
+            [
+                'name'=>'Tài khoản',
+                'link'=>'/taikhoan'
+            ],[
+                'name'=>'Thêm',
+                'link'=>'/taikhoan/them'
+            ]
+        ];
         $quyens = Quyen::get();
+        $donvis = DonVi::get();
 
-        return view('taikhoan/them', compact('title', 'breadcrumbs','quyens'));
+        return view('taikhoan/them', compact('title', 'breadcrumbs','quyens','donvis'));
     }
 
     public function hienthi(Request $request)
     {
         $title = 'Tài Khoản';
-        $breadcrumbs = ['Tài khoản', 'Chi tiết'];
-
+        $breadcrumbs = [
+            [
+                'name'=>'Tài khoản',
+                'link'=>'/taikhoan'
+            ],[
+                'name'=>'Chi tiết',
+                'link'=>'/taikhoan/hienthi/'.$request->id
+            ]
+        ];
         $hienthitaikhoan = User::where('id', $request->id)->get();
 
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
@@ -70,6 +91,11 @@ class TaiKhoanController extends Controller
         $addquyennguoidung->Q_MaQ = $request->input('Ma_Q');
         $addquyennguoidung->ND_MaND = User::where('ND_MaND',$request->input('maND'))->first()->id;
         $addquyennguoidung->save();
+
+        $addnguoidungdonvi = new NguoiDungDonVi();
+        $addnguoidungdonvi->DV_MaDV = $request->input('Ma_DV');
+        $addnguoidungdonvi->ND_MaND = User::where('ND_MaND',$request->input('maND'))->first()->id;
+        $addnguoidungdonvi->save();
         return redirect()->route('taikhoan')->with('success', 'Thêm thành công');
     }
 

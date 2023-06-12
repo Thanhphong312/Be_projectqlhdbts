@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2023 at 02:51 PM
+-- Generation Time: Jun 08, 2023 at 06:06 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -91,6 +91,28 @@ INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `dvql_tram`
+--
+
+CREATE TABLE `dvql_tram` (
+  `id` int(11) NOT NULL,
+  `Ten_DV` varchar(255) NOT NULL,
+  `Ten_NgQL` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dvql_tram`
+--
+
+INSERT INTO `dvql_tram` (`id`, `Ten_DV`, `Ten_NgQL`, `created_at`, `updated_at`) VALUES
+(1, 'DV_01', 'Trần Thanh Hòa', '2023-06-08 09:56:16', '2023-06-08 09:56:16'),
+(2, 'DV_02', 'Nguyễn Chiến Thắng', '2023-06-08 09:57:16', '2023-06-08 09:57:16');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -151,6 +173,8 @@ CREATE TABLE `hop_dong` (
   `HD_TenNH` varchar(255) NOT NULL,
   `HD_TenChuDauTu` varchar(255) NOT NULL,
   `HD_HDScan` varchar(255) NOT NULL,
+  `Nguoiky` varchar(255) NOT NULL,
+  `Khachhang` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -159,9 +183,9 @@ CREATE TABLE `hop_dong` (
 -- Dumping data for table `hop_dong`
 --
 
-INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
-('HD1', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-01', '1000000', '1200000', '564654546', 'Châu Thanh Nhã', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', NULL, NULL),
-('HD2', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-01', '1000000', '1200000', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 2', NULL, NULL);
+INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `Nguoiky`, `Khachhang`, `created_at`, `updated_at`) VALUES
+('HD1', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-02', '1000000', '1200000', '564654546', 'Châu Thanh Nhã', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', 'Trần Thị Hòa', 'Trần Thị Hòa', NULL, '2023-06-07 20:10:22'),
+('HD2', 1, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-01', '1000000', '1200000', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 2', 'Trần Thanh Hòa', 'Trần Thanh Hòa', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -249,6 +273,24 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phu_luc`
+--
+
+CREATE TABLE `phu_luc` (
+  `id` int(11) NOT NULL,
+  `HD_MaHD` int(11) NOT NULL,
+  `noidung` text NOT NULL,
+  `nguoi_ky` int(11) NOT NULL,
+  `scan_phuluc` varchar(255) NOT NULL,
+  `khanghang` varchar(255) NOT NULL,
+  `PL_TenNH` varchar(255) NOT NULL,
+  `PL_TenCTK` varchar(255) NOT NULL,
+  `PL_SoTaiKhoan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `quyen`
 --
 
@@ -265,8 +307,8 @@ CREATE TABLE `quyen` (
 
 INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
 ('Q0', 'Admin', NULL, NULL),
-('Q1', 'View-Import-Export', NULL, NULL),
-('Q2', 'View-Export', NULL, NULL);
+('Q1', 'Người dùng đơn vị', NULL, NULL),
+('Q2', 'Người dùng quản lí', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -287,9 +329,9 @@ CREATE TABLE `quyen_nguoi_dung` (
 --
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
-(1, 'Q1', 3, NULL, NULL),
-(2, 'Q0', 1, NULL, NULL),
-(3, 'Q2', 2, NULL, NULL);
+(1, 'Q0', 1, NULL, NULL),
+(2, 'Q1', 2, NULL, NULL),
+(3, 'Q2', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -303,6 +345,8 @@ CREATE TABLE `tram` (
   `T_TenTram` varchar(255) NOT NULL,
   `T_DiaChiTram` varchar(255) NOT NULL,
   `T_TinhTrang` varchar(255) NOT NULL,
+  `toado` text NOT NULL,
+  `Ma_DVQL` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -311,10 +355,10 @@ CREATE TABLE `tram` (
 -- Dumping data for table `tram`
 --
 
-INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `created_at`, `updated_at`) VALUES
-('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', NULL, NULL),
-('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', NULL, NULL),
-('TLM003', 'CSHT_HUG_00120', 'Long_My_HUG', 'Long My_HUG', '0', NULL, NULL);
+INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `toado`, `Ma_DVQL`, `created_at`, `updated_at`) VALUES
+('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL),
+('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL),
+('TLM003', 'CSHT_HUG_00120', 'Long_My_HUG', 'Long My_HUG', '0', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -332,7 +376,6 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `ND_SDT` varchar(255) NOT NULL,
-  `ND_LoaiND` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -342,10 +385,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `ND_LoaiND`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ND_01', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', '', 'z5JHGrKzs7qyG6tIT6W8WkinJqEYbTjVD3lOpfGLGRTCwNLN02YKdoFYE6t7', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
-(2, 'ND_02', 'user1', 'Nam', 'Cao Bằng', 'user1@gmail.com', NULL, '$2y$10$27MLcBUyJjaIh1bR2Y13Lex.9LzwoCq19alvSbF/38l4PQhTYknfa', '1', '2', NULL, '2023-06-06 00:11:15', '2023-06-06 00:11:15'),
-(3, 'ND_03', 'user2', 'Nu', 'Cần Thơ', 'user2@gmail.com', NULL, '$2y$10$u9DISgazlaDazCzZwzp0eOdR30gjynIiaDlV5imOojkFj23TVc4JW', '2', '1', NULL, '2023-06-06 00:11:55', '2023-06-06 00:11:55');
+INSERT INTO `users` (`id`, `ND_MaND`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'ND_01', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123123', 'IPhUpjCUxqzZ4HohvaBgimO8WpPDHFase0cFHxzlP0mGrh1SGP3GVR7EVVv2', '2023-05-29 19:12:57', '2023-05-29 19:12:57'),
+(2, 'ND_02', 'user1', 'Nam', 'Cao Bằng', 'user1@gmail.com', NULL, '$2y$10$27MLcBUyJjaIh1bR2Y13Lex.9LzwoCq19alvSbF/38l4PQhTYknfa', '1', NULL, '2023-06-06 00:11:15', '2023-06-06 00:11:15'),
+(3, 'ND_03', 'user2', 'Nu', 'Cần Thơ', 'user2@gmail.com', NULL, '$2y$10$u9DISgazlaDazCzZwzp0eOdR30gjynIiaDlV5imOojkFj23TVc4JW', '2', NULL, '2023-06-06 00:11:55', '2023-06-06 00:11:55'),
+(8, 'ND_04', 'ABC', 'Nam', 'ABC', 'huynphong09@gmail.com', NULL, '$2y$10$Klq/suY3bVw0AZA88C8FPuS0vCAY6UWVO2XRQQNpcb5px5C1fE03e', '123', NULL, '2023-06-07 20:36:25', '2023-06-07 20:36:25');
 
 --
 -- Indexes for dumped tables
@@ -369,6 +413,12 @@ ALTER TABLE `don_gia`
 --
 ALTER TABLE `don_vi`
   ADD PRIMARY KEY (`DV_MaDV`);
+
+--
+-- Indexes for table `dvql_tram`
+--
+ALTER TABLE `dvql_tram`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -422,6 +472,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `phu_luc`
+--
+ALTER TABLE `phu_luc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `quyen`
 --
 ALTER TABLE `quyen`
@@ -440,7 +496,8 @@ ALTER TABLE `quyen_nguoi_dung`
 --
 ALTER TABLE `tram`
   ADD PRIMARY KEY (`T_MaTram`),
-  ADD KEY `tram_csht_macsht_foreign` (`CSHT_MaCSHT`);
+  ADD KEY `tram_csht_macsht_foreign` (`CSHT_MaCSHT`),
+  ADD KEY `tram_dvql_tram_foreign` (`Ma_DVQL`);
 
 --
 -- Indexes for table `users`
@@ -453,6 +510,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `dvql_tram`
+--
+ALTER TABLE `dvql_tram`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -479,16 +542,22 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `phu_luc`
+--
+ALTER TABLE `phu_luc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -532,7 +601,8 @@ ALTER TABLE `quyen_nguoi_dung`
 -- Constraints for table `tram`
 --
 ALTER TABLE `tram`
-  ADD CONSTRAINT `tram_csht_macsht_foreign` FOREIGN KEY (`CSHT_MaCSHT`) REFERENCES `co_so_ha_tang` (`CSHT_MaCSHT`);
+  ADD CONSTRAINT `tram_csht_macsht_foreign` FOREIGN KEY (`CSHT_MaCSHT`) REFERENCES `co_so_ha_tang` (`CSHT_MaCSHT`),
+  ADD CONSTRAINT `tram_dvql_tram_foreign` FOREIGN KEY (`Ma_DVQL`) REFERENCES `dvql_tram` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

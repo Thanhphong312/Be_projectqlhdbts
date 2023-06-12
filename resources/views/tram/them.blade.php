@@ -60,10 +60,16 @@
                             <input required class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
                         </div>
                         <div class="mb-3">
+                            <label class="form-label">Địa chỉ
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input required class="form-control" type="text" name="diaChi" placeholder="Vui lòng nhập địa chỉ">
+                        </div>
+                        <div class="mb-3">
                             <label class="form-label">Tình trạng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <select class="form-control" aria-label="Default select example" id="tt" name="tt">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tt" name="tt">
                                 <option value="1">Hoạt động</option>
                                 <option value="0">Ngưng hoạt động</option>
                             </select>
