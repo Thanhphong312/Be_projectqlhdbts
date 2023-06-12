@@ -26,6 +26,9 @@ class HopDongController extends Controller
             $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV',$dv->DV_MaDV)->get()->toArray();
         else
             $hopdong['hopdong'] = DB::table('hop_dong')->get()->toArray();
+
+
+
         return view('hopdong/hopdong', compact('title','breadcrumbs'), $hopdong);
     }
 

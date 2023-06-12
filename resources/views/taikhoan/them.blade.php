@@ -85,6 +85,7 @@
                                     <option value="{{$quyen->Q_MaQ}}">{{$quyen->Q_TenQ}}</option>
                                 @endforeach
                             </select>
+                           
                             <select required class="form-control" aria-label="Default select example" id="tt" name="Ma_Q">
                                 @foreach($quyens as $quyen)
                                     <option value="{{$quyen->Q_MaQ}}">{{$quyen->Q_TenQ}}</option>
@@ -107,6 +108,6 @@
 @section('JS')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-    
+
 </script>
 @endsection
