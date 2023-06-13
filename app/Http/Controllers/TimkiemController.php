@@ -15,7 +15,13 @@ class TimkiemController extends Controller
     public function timkiem(Request $request)
     {
         $title = 'Hợp Đồng';
-        $breadcrumbs = ['Hợp đồng', 'Tìm kiếm'];
+        $breadcrumbs = [
+            [
+                'name'=>'Hợp đồng',
+                'link'=>'/timkiem'
+            ]
+        ];
+
         $search = [];
         $rs = $request['search'] ?? "";
         if ($search != "") {

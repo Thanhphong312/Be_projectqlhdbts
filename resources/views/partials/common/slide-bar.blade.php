@@ -1,11 +1,11 @@
 <nav id="sidebar" class="show-window hide-mobile">
     <div class="user mt-3 d-flex justify-content-center">
-        <a href="{{route('logout')}}">
+        <div>
             <div class="input-group" style="align-items: center;">
                 <img src="{{url(auth()->user()->avatar)}}" alt="" width="32" height="32" class="rounded-circle">
                 <span class="p-2">{{auth()->user()->name}}</span>
             </div>
-        </a>
+        </div>
     </div>
     <hr>
     <ul class="list-unstyled components">

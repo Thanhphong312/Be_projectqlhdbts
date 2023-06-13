@@ -40,11 +40,11 @@ class HopDongController extends Controller
     public function capnhat(Request $request)
     {
         $title = 'Hợp Đồng';
-        $breadcrumbs = ['Hợp đồng', 'Cập nhật'];
+
         $breadcrumbs = [
             [
                 'name'=>'Hợp đồng',
-                'link'=>'/hopdong'
+                'link'=>'./hopdong'
             ],[
                 'name'=>'Cập nhật',
                 'link'=>'/hopdong/capnhat/'.$request->HD_MaHD

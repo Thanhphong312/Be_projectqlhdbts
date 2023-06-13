@@ -23,7 +23,7 @@ class TaiKhoanController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Tài khoản',
-                'link'=>'/taikhoan'
+                'link'=>'./taikhoan'
             ]
         ];
         $taikhoans = User::get();
@@ -37,10 +37,10 @@ class TaiKhoanController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Tài khoản',
-                'link'=>'/taikhoan'
+                'link'=>'./'
             ],[
                 'name'=>'Thêm',
-                'link'=>'/taikhoan/them'
+                'link'=>'./them'
             ]
         ];
         $quyens = Quyen::get();
@@ -55,10 +55,10 @@ class TaiKhoanController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Tài khoản',
-                'link'=>'/taikhoan'
+                'link'=>'../'
             ],[
                 'name'=>'Chi tiết',
-                'link'=>'/taikhoan/hienthi/'.$request->id
+                'link'=>'./hienthi/'.$request->id
             ]
         ];
         $hienthitaikhoan = User::where('id', $request->id)->get();
