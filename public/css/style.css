@@ -331,7 +331,10 @@ input.nosubmit {
 
 .fillter-statistic {
     width: 100%;
-    padding: 30px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 .fillter-statistic form {

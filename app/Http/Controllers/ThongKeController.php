@@ -25,7 +25,6 @@ class ThongKeController extends Controller
         $months = 'all';
         $type = 'all';
         $donvi = 'all';
-        // dd($request);
         return view('thongke/thongke', compact('title','breadcrumbs','donvis','request','type'));
     }
     public function ajax(Request $request){
