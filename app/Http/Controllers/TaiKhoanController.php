@@ -58,7 +58,7 @@ class TaiKhoanController extends Controller
                 'link'=>'../'
             ],[
                 'name'=>'Chi tiết',
-                'link'=>'./hienthi/'.$request->id
+                'link'=>'./'.$request->id
             ]
         ];
         $hienthitaikhoan = User::where('id', $request->id)->get();

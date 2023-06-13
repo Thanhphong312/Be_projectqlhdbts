@@ -49,7 +49,7 @@ class TramController extends Controller
                 'link'=>'../'
             ],[
                 'name'=>'Chỉnh sửa',
-                'link'=>'./chinhsua/'.$request->T_MaTram
+                'link'=>'./'.$request->T_MaTram
             ]
         ];
         $donviquanlis = DonViQLTram::get();

@@ -47,7 +47,7 @@ class CSHTController extends Controller
                 'link'=>'../'
             ],[
                 'name'=>'Chỉnh sửa',
-                'link'=>'./chinhsua/'.$request->CSHT_MaCSHT
+                'link'=>'./'.$request->CSHT_MaCSHT
             ]
         ];
         // dd($request);

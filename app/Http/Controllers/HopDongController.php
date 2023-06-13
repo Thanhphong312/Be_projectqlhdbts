@@ -23,7 +23,7 @@ class HopDongController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Hợp đồng',
-                'link'=>'/hopdong'
+                'link'=>'./hopdong'
             ]
         ];
         $dv=auth()->user()->nguoidungdonvis()->first();
@@ -44,10 +44,10 @@ class HopDongController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Hợp đồng',
-                'link'=>'./hopdong'
+                'link'=>'../'
             ],[
                 'name'=>'Cập nhật',
-                'link'=>'/hopdong/capnhat/'.$request->HD_MaHD
+                'link'=>'./'.$request->HD_MaHD
             ]
         ];
         $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->get();
