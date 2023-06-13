@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 04:57 AM
+-- Generation Time: Jun 13, 2023 at 05:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -234,7 +234,8 @@ CREATE TABLE `nguoi_dung_don_vi` (
 --
 
 INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
-(5, 15, 'DV2', '2023-06-12 19:05:10', '2023-06-12 19:05:10');
+(5, 15, 'DV2', '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
+(6, 16, 'DV1', '2023-06-12 20:02:42', '2023-06-12 20:02:42');
 
 -- --------------------------------------------------------
 
@@ -328,7 +329,8 @@ CREATE TABLE `quyen_nguoi_dung` (
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
 (8, 'Q0', 13, NULL, NULL),
 (9, 'Q1', 15, '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
-(10, 'Q2', 14, NULL, NULL);
+(10, 'Q2', 14, NULL, NULL),
+(11, 'Q2', 16, '2023-06-12 20:02:42', '2023-06-12 20:02:42');
 
 -- --------------------------------------------------------
 
@@ -384,9 +386,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ND_MaND`, `avatar`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
-(13, 'ND_01', '/avatar/doraemon.png', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123', NULL, NULL, NULL),
-(14, 'ND_02', 'avatar/doraemon.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$1oVwJmpkYcElpKidUQWn2uSe8LZ.LL1QFr6LojNVYicb707GLfSxe', '1', NULL, '2023-06-12 19:03:39', '2023-06-12 19:03:39'),
-(15, 'ND_03', 'avatar/a.png', 'user2', 'Nam', 'CANTHO', 'user2@gmail.com', NULL, '$2y$10$2V79f.5RhaFoSACnEYGa9.1ictokDMCw1ubA.II8v.Rs1ZHaQOOVm', '2', NULL, '2023-06-12 19:05:10', '2023-06-12 19:05:10');
+(13, 'ND_01', '/avatar/admin.png', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123', NULL, NULL, NULL),
+(14, 'ND_02', 'avatar/kha.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$1oVwJmpkYcElpKidUQWn2uSe8LZ.LL1QFr6LojNVYicb707GLfSxe', '1', NULL, '2023-06-12 19:03:39', '2023-06-12 19:03:39'),
+(15, 'ND_03', 'avatar/qpt.png', 'user2', 'Nam', 'CANTHO', 'user2@gmail.com', NULL, '$2y$10$2V79f.5RhaFoSACnEYGa9.1ictokDMCw1ubA.II8v.Rs1ZHaQOOVm', '2', NULL, '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
+(16, 'ND_04', 'avatar/doraemon.png', 'user3', 'Nu', 'Hà Nội', 'user3@gmail.com', NULL, '$2y$10$0wu31Ol1h/CuSyl4LsEsKeI66RNuBY74MRbn7DeYhWp8Pra2BgBPG', '3', NULL, '2023-06-12 20:02:42', '2023-06-12 20:02:42');
 
 --
 -- Indexes for dumped tables
@@ -531,7 +534,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -549,13 +552,13 @@ ALTER TABLE `phu_luc`
 -- AUTO_INCREMENT for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
