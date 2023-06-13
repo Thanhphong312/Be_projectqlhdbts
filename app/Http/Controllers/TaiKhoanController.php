@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\redirect;
 use App\Models\Quyen;
+use Storage;
 
 class TaiKhoanController extends Controller
 {
@@ -77,6 +78,7 @@ class TaiKhoanController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->file('avatar'));
         $addtaikhoan = new User();
         $addtaikhoan->ND_MaND = $request->input('maND');
         $addtaikhoan->name = $request->input('name');
@@ -84,6 +86,18 @@ class TaiKhoanController extends Controller
         $addtaikhoan->ND_DiaChi = $request->input('diaChi');
         $addtaikhoan->email = $request->input('email');
         $addtaikhoan->password = $request->input('password');
+       
+        if ($file = $request->file('avatar')) {
+            // $path = $file->store('public/avatar');
+            $filename = $file->getClientOriginalName();
+
+            // Move the file to the public directory
+            $file->move(public_path('avatar'), $filename);
+        
+            // Get the public URL of the file
+            $publicUrl = asset('avatar/'.$filename);
+            $addtaikhoan->avatar = 'avatar/'.$filename;
+        }
         $addtaikhoan->ND_SDT = $request->input('sdt');
         $addtaikhoan->save();
 

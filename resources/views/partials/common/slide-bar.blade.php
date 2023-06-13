@@ -2,8 +2,8 @@
     <div class="user mt-3 d-flex justify-content-center">
         <a href="{{route('logout')}}">
             <div class="input-group" style="align-items: center;">
-                <img src="{{url(auth()->user()->avatar)}}" alt="" width="32" height="32" class="rounded-circle">
-                <span class="p-2">{{auth()->user()->name}}</span>
+                <img src="{{url((auth()->user()!=null)?auth()->user()->avatar:'')}}" alt="" width="32" height="32" class="rounded-circle">
+                <span class="p-2">{{(auth()->user()!=null)?auth()->user()->name:''}}</span>
             </div>
         </a>
     </div>
@@ -14,18 +14,20 @@
         </li>
         @php
         $quyen=null;
-        if(auth()->user()->quyennguoidungs()){
-        $quyen = auth()->user()->quyennguoidungs()->first();
+        if(auth()->user()){
+            if(auth()->user()->quyennguoidungs()){
+                $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+            }
         }
         @endphp
-        @if($quyen->Q_MaQ=='Q0'||$quyen->Q_MaQ=='Q1')
+        @if($quyen=='Q0'||$quyen=='Q1')
         <li class="{{mb_strtolower($title)=='trạm'?'active':''}}">
             <a href="#pageTram" data-toggle="collapse" class="dropdown-toggle">Trạm</a>
             <ul class="collapse list-unstyled" id="pageTram">
                 <li>
                     <a href="{{route('tram')}}">Trạm</a>
                 </li>
-                @if($quyen->Q_MaQ=='Q0')
+                @if($quyen=='Q0')
                 <li>
                     <a href="{{route('tram-them')}}">Thêm</a>
                 </li>
@@ -33,7 +35,7 @@
             </ul>
         </li>
         @endif
-        @if($quyen->Q_MaQ=='Q0')
+        @if($quyen=='Q0')
 
 
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">

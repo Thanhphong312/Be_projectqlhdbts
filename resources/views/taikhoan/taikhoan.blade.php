@@ -27,8 +27,10 @@
             <div class="container">
                 @php
                 $quyen=null;
-                if(auth()->user()->quyennguoidungs()){
-                $quyen = auth()->user()->quyennguoidungs()->first();
+                if(auth()->user()){
+                    if(auth()->user()->quyennguoidungs()){
+                        $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+                    }
                 }
                 @endphp
                 @if($quyen=='Q0')

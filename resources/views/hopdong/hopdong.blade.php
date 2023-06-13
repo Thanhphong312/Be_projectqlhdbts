@@ -28,9 +28,11 @@
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!--import-->
-                    <?php
-                    $quyens = auth()->user()->quyennguoidungs()->where('Q_MaQ', 'Q1')->first();
-                    ?>
+                    @php
+                        if(auth()->user()){
+                            $quyens = auth()->user()->quyennguoidungs()->where('Q_MaQ', 'Q1')->first();
+                        }
+                    @endphp
                     @if($quyens)
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />

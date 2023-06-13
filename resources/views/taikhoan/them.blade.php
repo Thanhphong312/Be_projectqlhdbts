@@ -26,10 +26,16 @@
             <!-- Content -->
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
-                    <form method="POST" action="{{route('taikhoan-store')}}">
+                    <form method="POST" action="{{route('taikhoan-store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <h5 class="text-center" id="side12">THÊM TÀI KHOẢN</h5>
+                        </div>
+                        <div class="mb-3 text-left">
+                            <label class="form-label">Ảnh đại diện
+                                <span id="colorIcon">*</span>
+                            </label>
+                            <input class="form-control" type="file" name="avatar" placeholder="Vui lòng nhập mã người dùng">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Mã người dùng
