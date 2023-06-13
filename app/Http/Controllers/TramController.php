@@ -16,7 +16,7 @@ class TramController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Trạm',
-                'link'=>'/tram'
+                'link'=>'./tram'
             ]
         ];
         $trams = Tram::get();
@@ -29,10 +29,10 @@ class TramController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Trạm',
-                'link'=>'/tram'
+                'link'=>'./'
             ],[
                 'name'=>'Thêm',
-                'link'=>'/tram/them'
+                'link'=>'./them'
             ]
         ];
         $donviquanlis = DonViQLTram::get();
@@ -43,14 +43,13 @@ class TramController extends Controller
     public function chinhsua(Request $request)
     {
         $title = 'Trạm';
-        $breadcrumbs = ['Trạm', 'Chỉnh sửa'];
         $breadcrumbs = [
             [
                 'name'=>'Trạm',
-                'link'=>'/tram'
+                'link'=>'../'
             ],[
                 'name'=>'Chỉnh sửa',
-                'link'=>'/tram/chinhsua/'.$request->T_MaTram
+                'link'=>'./'.$request->T_MaTram
             ]
         ];
         $donviquanlis = DonViQLTram::get();

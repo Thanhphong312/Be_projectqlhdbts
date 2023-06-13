@@ -41,7 +41,7 @@
                             <label class="form-label">Mã người dùng
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input required class="form-control" type="text" name="maND" placeholder="Vui lòng nhập mã người dùng">
+                            <input required class="form-control" type="text" name="ND_MaND" placeholder="Vui lòng nhập mã người dùng">
                         </div>
                         <div class="mb-3 text-left">
                             <label class="form-label">Tên người dùng
@@ -80,7 +80,7 @@
                             <label class="form-label">SĐT
                                 <span id="colorIcon">*</span>
                             </label>
-                            <input required class="form-control" type="text" name="sdt" placeholder="Vui lòng nhập số điện thoại">
+                            <input required class="form-control" type="text" name="ND_SDT" placeholder="Vui lòng nhập số điện thoại">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Loại người dùng

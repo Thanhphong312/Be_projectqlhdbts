@@ -25,14 +25,16 @@
 
             <!-- Content -->
             <div class="container">
-                @php
-                $quyen=null;
-                if(auth()->user()){
-                    if(auth()->user()->quyennguoidungs()){
+            @php
+            $quyen=null;
+            if(auth()->user()){
+                if(auth()->user()->quyennguoidungs()){
+                    if(auth()->user()->quyennguoidungs()->first()){
                         $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
                     }
                 }
-                @endphp
+            }
+            @endphp
                 @if($quyen=='Q0')
                 <a href="{{route('taikhoan-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
@@ -56,6 +58,20 @@
                     <tbody>
                         <?php $stt = 1 ?>
                         @foreach($taikhoans as $taikhoan)
+                        @php
+                            $qnd = $taikhoan->quyennguoidungs()->first();
+                                if($qnd){
+                                    $q = $qnd->quyen()->first();
+                                    $quyen = ($q)?$q->Q_TenQ:'';
+                                }
+                            if(!empty($role)&&$role->Q_MaQ!='Q0'){
+                                if(!empty($q)){
+                                    if($q->Q_MaQ!=$role->Q_MaQ){
+                                        continue;
+                                    }
+                                }
+                            }
+                        @endphp
                         <tr>
                             <th scope="row"><?= $stt++ ?></th>
                             <td>{{$taikhoan->ND_MaND}}</td>
@@ -64,22 +80,18 @@
                             <td>{{$taikhoan->ND_DiaChi}}</td>
                             <td>{{$taikhoan->email}}</td>
                             <td>{{$taikhoan->ND_SDT}}</td>
-                            @php
-                            $qnd = $taikhoan->quyennguoidungs()->first();
-                            if($qnd){
-                            $q = $qnd->quyen()->first();
-                            $quyen = ($q)?$q->Q_TenQ:'';
-                            }
-                            @endphp
+                           
                             <td>{{$quyen}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
                                     <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
+                                    @if($quyen=='Q0')
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
+                                    @endif
                                 </form>
                             </td>
                         </tr>

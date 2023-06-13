@@ -15,7 +15,7 @@ class CSHTController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Cơ sở hạ tầng',
-                'link'=>'/csht'
+                'link'=>'./csht'
             ]
         ];
         $cshts = CoSoHaTang::get();
@@ -29,10 +29,10 @@ class CSHTController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Cơ sở hạ tầng',
-                'link'=>'/csht'
+                'link'=>'./'
             ],[
                 'name'=>'Thêm',
-                'link'=>'/csht/them'
+                'link'=>'./them'
             ]
         ];
         return view('csht/them', compact('title', 'breadcrumbs'));
@@ -44,10 +44,10 @@ class CSHTController extends Controller
         $breadcrumbs = [
             [
                 'name'=>'Cơ sở hạ tầng',
-                'link'=>'/csht'
+                'link'=>'../'
             ],[
                 'name'=>'Chỉnh sửa',
-                'link'=>'/csht/chinhsua'
+                'link'=>'./'.$request->CSHT_MaCSHT
             ]
         ];
         // dd($request);

@@ -5,6 +5,7 @@ namespace App\Imports;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\HopDong;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Illuminate\Support\Collection;
@@ -26,10 +27,11 @@ class HDImport implements ToCollection, WithHeadingRow
         
         foreach ($rows as $row) {
             $hopdong = HopDong::where('HD_MaHD', $row['ma_hop_dong'])->first();
-
             $newhopdong = [];
             if (isset($hopdong)) {               
                 $newhopdong['T_MaTram'] = $row["ma_tram"];
+                $user = User::where('ND_MaND',$row["ma_nguoi_dung"])->first();
+                $newhopdong['ND_MaND'] = $user->id;
                 $newhopdong['DV_MaDV'] = $row["ma_don_vi"];
                 $newhopdong['HD_MaCSHT'] = $row["ma_csht"];
                 $newhopdong['T_TenTram'] = $row["ten_tram"];
@@ -54,7 +56,8 @@ class HDImport implements ToCollection, WithHeadingRow
             } else {
                 $hopdong = new HopDong;
                 $hopdong->HD_MaHD = $row["ma_hop_dong"];
-                $hopdong->ND_MaND = $row["ma_nguoi_dung"];
+                $user = User::where('ND_MaND',$row["ma_nguoi_dung"])->first();
+                $hopdong->ND_MaND = $user->id;
                 $hopdong->T_MaTram = $row["ma_tram"];
                 $hopdong->DV_MaDV = $row["ma_don_vi"];
                 $hopdong->HD_MaCSHT = $row["ma_csht"];
