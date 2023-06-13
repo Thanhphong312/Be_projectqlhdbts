@@ -2,7 +2,7 @@
     <div class="user mt-3 d-flex justify-content-center">
         <a href="{{route('logout')}}">
             <div class="input-group" style="align-items: center;">
-                <img src="{{auth()->user()->avatar}}" alt="" width="32" height="32" class="rounded-circle">
+                <img src="{{url(auth()->user()->avatar)}}" alt="" width="32" height="32" class="rounded-circle">
                 <span class="p-2">{{auth()->user()->name}}</span>
             </div>
         </a>
