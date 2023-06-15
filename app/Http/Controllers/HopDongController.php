@@ -108,9 +108,9 @@ class HopDongController extends Controller
         }
     }
 
-    public function export()
+    public function export(Request $request)
     {
-        return Excel::download(new HDExport, 'HD.xlsx');
+        return Excel::download(new HDExport($request), 'HD.xlsx');
     }
     public function timkiem(Request $request)
     {
@@ -122,21 +122,24 @@ class HopDongController extends Controller
             ]
         ];
 
-        $search = [];
-        $rs = $request['search'] ?? "";
+        // $search = [];
+        // $rs = $request['search'] ?? "";
         $dv = auth()->user()->nguoidungdonvis()->first();
         if(!empty($dv)){
-            if ($search != "") {
-                $search['hopdong'] = HopDong::where('DV_MaDV', $dv->DV_MaDV)->where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
-                    ->orwhere('T_TenTram', 'LIKE', "%$rs%")
-                    ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
+            if ($request->get('search') != "") {
+                $search['hopdong'] = HopDong::where('DV_MaDV', $dv->DV_MaDV)
+                    ->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
             }
         }else{
-            if ($search != "") {
-                $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
-                    ->orwhere('T_TenTram', 'LIKE', "%$rs%")
-                    ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
+            if ($request->get('search') != "") {
+                $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
+                    ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
             }
         }

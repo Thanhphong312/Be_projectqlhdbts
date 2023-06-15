@@ -42,9 +42,15 @@
                     </div>
                     @endif
                     <!--Export-->
+                    @if(Request::get('search'))
+                    <a href="{{route('export'). '?search='.Request::get('search') }}" class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
+                    </a>
+                    @else
                     <a href="{{route('export')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <div class="btn btn-secondary me-md-2 mt-1 mb-1">Export</div>
                     </a>
+                    @endif
                 </form>
                 <div class="col-12">
                     <div class="table-responsive">
