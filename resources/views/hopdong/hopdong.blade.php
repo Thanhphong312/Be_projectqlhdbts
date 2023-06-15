@@ -49,7 +49,7 @@
                         <table class="table table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th scope="col-6 col-md-4">STT</th>
+                                    <!-- <th scope="col-6 col-md-4">STT</th> -->
                                     <th scope="col-6 col-md-4">Mã HĐ</th>
                                     <th scope="col-6 col-md-4">Tên chủ tài khoản</th>
                                     <th scope="col-6 col-md-4">Số tài khoản</th>
@@ -72,7 +72,7 @@
                                 <?php $stt = 1 ?>
                                 @foreach($hopdong as $row)
                                 <tr>
-                                    <th scope="row"><?= $stt++ ?></th>
+                                    <!-- <th scope="row"><?= $stt++ ?></th> -->
                                     <td>{{$row->HD_MaHD}}</td>
                                     <td>{{$row->HD_TenCTK}}</td>
                                     <td>{{$row->HD_SoTaiKhoan}}</td>
@@ -104,6 +104,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{ $hopdong->links() }}
                 </div>
             </div>
         </div>
