@@ -53,27 +53,27 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Mã người dùng:</div>
-                                    <input name="ND_MaND" class="col-6 col-sm-6 text-view" value="{{$sua->ND_MaND}}"></input>
+                                    <input required name="ND_MaND" class="col-6 col-sm-6 text-view" value="{{$sua->ND_MaND}}"></input>
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Tên người dùng:</div>
-                                    <input name="name" class="col-6 col-sm-6 text-view" value="{{$sua->name}}"></input>
+                                    <input required name="name" class="col-6 col-sm-6 text-view" value="{{$sua->name}}"></input>
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Giới tính:</div>
-                                    <input name="ND_GioiTinh" class="col-6 col-sm-6 text-view" value="{{$sua->ND_GioiTinh}}"></input>
+                                    <input required name="ND_GioiTinh" class="col-6 col-sm-6 text-view" value="{{$sua->ND_GioiTinh}}"></input>
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Địa chỉ:</div>
-                                    <input name="ND_DiaChi" class="col-6 col-sm-6 text-view" value="{{$sua->ND_DiaChi}}"></input>
+                                    <input required name="ND_DiaChi" class="col-6 col-sm-6 text-view" value="{{$sua->ND_DiaChi}}"></input>
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Email:</div>
-                                    <input name="email" class="col-6 col-sm-6 text-view" value="{{$sua->email}}"></input>
+                                    <input required name="email" type="email" class="col-6 col-sm-6 text-view" value="{{$sua->email}}"></input>
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Số điện thoại:</div>
-                                    <input name="ND_SDT" class="col-6 col-sm-6 text-view" value="{{$sua->ND_SDT}}"></input>
+                                    <input required name="ND_SDT" class="col-6 col-sm-6 text-view" value="{{$sua->ND_SDT}}"></input>
                                 </div>
                                 <div class="row justify-content-center m-3">
                                     <button type="submit" class="btn btn-success col-md-5" id="side123">Sửa</button>
