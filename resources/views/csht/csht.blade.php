@@ -32,17 +32,14 @@
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>
-                            <th scope="col-6 col-md-4">STT</th>
                             <th scope="col-6 col-md-4">Mã CSHT</th>
                             <th scope="col-6 col-md-4">Tên CSHT</th>
                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $stt = 1 ?>
                         @foreach($cshts as $csht)
                         <tr>
-                            <th scope="row"><?= $stt++ ?></th>
                             <td>{{$csht->CSHT_MaCSHT}}</td>
                             <td>{{$csht->CSHT_TenCSHT}}</td>
                             <td>
@@ -60,6 +57,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $cshts->links() }}
         </div>
         <!-- end body -->
     </div>

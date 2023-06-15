@@ -43,7 +43,6 @@
                     <table class="table table-bordered text-center ">
                         <thead>
                             <tr>
-                                <th scope="col-6 col-md-4">STT</th>
                                 <th scope="col-6 col-md-4">Mã trạm</th>
                                 <th scope="col-6 col-md-4">Tên trạm</th>
                                 <th scope="col-6 col-md-4">Địa chỉ</th>
@@ -54,10 +53,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $stt = 1 ?>
                             @foreach($trams as $tram)
                             <tr>
-                                <th scope="row"><?= $stt++ ?></th>
                                 <td>{{$tram->T_MaTram}}</td>
                                 <td>{{$tram->T_TenTram}}</td>
                                 <td>{{$tram->T_DiaChiTram}}</td>
@@ -79,6 +76,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $trams->links() }}
             </div>
         </div>
     </div>

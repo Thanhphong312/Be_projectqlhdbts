@@ -108,6 +108,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $taikhoans->links() }}
             </div>
         </div>
 

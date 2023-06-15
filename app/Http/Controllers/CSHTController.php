@@ -18,7 +18,7 @@ class CSHTController extends Controller
                 'link'=>'./csht'
             ]
         ];
-        $cshts = CoSoHaTang::get();
+        $cshts = CoSoHaTang::paginate(2);
         // dd($cshts);
         return view('csht/csht', compact('title', 'cshts', 'breadcrumbs'));
     }
