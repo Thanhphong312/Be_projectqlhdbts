@@ -27,7 +27,7 @@ class HopDongController extends Controller
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();
-        if ($request->get('search') != "") {
+        if ($request->search) {
             if(!empty($dv)){
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)
                         ->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')

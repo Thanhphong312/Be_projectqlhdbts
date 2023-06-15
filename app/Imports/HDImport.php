@@ -26,9 +26,9 @@ class HDImport implements ToCollection, WithHeadingRow
         // dd($rows);
         $hderror = "";
         foreach ($rows as $row) {
-            $hopdong = HopDong::where('HD_MaHD', $row['ma_hop_dong'])->get();
+            $hopdong = HopDong::where('HD_MaHD', $row['ma_hop_dong'])->first();
             $newhopdong = [];
-            if (isset($hopdong)) {
+            if ($hopdong!=null) {
                 // dd($hopdong);
                 $newhopdong['T_MaTram'] = $row["ma_tram"];
                 $user = User::where('ND_MaND', $row["ma_nguoi_dung"])->first();
