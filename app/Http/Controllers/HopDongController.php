@@ -112,6 +112,7 @@ class HopDongController extends Controller
     {
         return Excel::download(new HDExport($request), 'HD.xlsx');
     }
+    
     public function timkiem(Request $request)
     {
         $title = 'Hợp Đồng';

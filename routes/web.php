@@ -70,6 +70,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     // -------------- Hop Dong
     Route::get('/import', [HopDongController::class, 'index'])->name('import');
-    Route::get('/export', [HopDongController::class, 'export'])->name('export');
+    Route::any('/export', [HopDongController::class, 'export'])->name('export');
     Route::post('/start-import', [HopDongController::class, 'import'])->name('start-import');
 });
