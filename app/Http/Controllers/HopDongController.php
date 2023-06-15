@@ -28,9 +28,9 @@ class HopDongController extends Controller
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();
         if (!empty($dv))
-            $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->paginate(5);
+            $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
         else
-            $hopdong['hopdong'] = DB::table('hop_dong')->paginate(5);
+            $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
 
         // dd($hopdong);
 
