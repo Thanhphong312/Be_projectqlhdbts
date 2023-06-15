@@ -49,7 +49,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/hopdong', [HopDongController::class, 'index'])->name('hopdong');
     Route::get('/hopdong/capnhat/{HD_MaHD}', [HopDongController::class, 'capnhat'])->name('hopdong-capnhat');
     Route::post('/hopdong/update/{HD_MaHD}', [HopDongController::class, 'update'])->name('hopdong-update');
-    Route::get('/hopdong/timkiem', [HopDongController::class, 'timkiem'])->name('hopdong-timkiem');
 
     // csht 
     Route::get('/csht', [CSHTController::class, 'index'])->name('csht');

@@ -17,24 +17,42 @@ use Illuminate\Support\Facades\Validator;
 
 class HopDongController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $title = 'Hợp Đồng';
         $breadcrumbs = [
             [
-                'name' => 'Hợp đồng',
-                'link' => './hopdong'
+                'name'=>'Hợp đồng',
+                'link'=>'./'
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();
-        if (!empty($dv))
-            $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
-        else
-            $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
+        if ($request->get('search') != "") {
+            if(!empty($dv)){
+                $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)
+                        ->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
+                    return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+            }else{
+                $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
+                        ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
+                    return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+            }
+
+        }else{
+            if (!empty($dv))
+                $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
+            else
+                $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
 
         // dd($hopdong);
 
         return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+        }
     }
 
     public function capnhat(Request $request)
@@ -112,37 +130,5 @@ class HopDongController extends Controller
     {
         return Excel::download(new HDExport($request), 'HD.xlsx');
     }
-    public function timkiem(Request $request)
-    {
-        $title = 'Hợp Đồng';
-        $breadcrumbs = [
-            [
-                'name'=>'Hợp đồng',
-                'link'=>'./'
-            ]
-        ];
-
-        // $search = [];
-        // $rs = $request['search'] ?? "";
-        $dv = auth()->user()->nguoidungdonvis()->first();
-        if(!empty($dv)){
-            if ($request->get('search') != "") {
-                $search['hopdong'] = HopDong::where('DV_MaDV', $dv->DV_MaDV)
-                    ->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
-            }
-        }else{
-            if ($request->get('search') != "") {
-                $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
-                    ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
-            }
-        }
-
-    }
+    
 }
