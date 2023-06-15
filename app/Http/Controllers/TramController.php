@@ -19,7 +19,8 @@ class TramController extends Controller
                 'link'=>'./tram'
             ]
         ];
-        $trams = Tram::get();
+        $trams = Tram::paginate(2);
+
         return view('tram/tram', compact('title', 'breadcrumbs', 'trams'));
     }
 
