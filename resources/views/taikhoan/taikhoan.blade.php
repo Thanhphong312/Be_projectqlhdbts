@@ -31,7 +31,6 @@
                 if(auth()->user()->quyennguoidungs()){
                     if(auth()->user()->quyennguoidungs()->first()){
                         $quyennd = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
-                        echo $quyennd;
                     }
                 }
             }
@@ -81,14 +80,16 @@
                             <td>{{$taikhoan->ND_DiaChi}}</td>
                             <td>{{$taikhoan->email}}</td>
                             <td>{{$taikhoan->ND_SDT}}</td>
-                           
                             <td>{{$quyen}}</td>
                             <td>
                                 <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
-                                    <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
+                                    <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-info me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
                                     @if($quyennd=='Q0')
+                                    <button type="submit" class="btn btn-primary me-md-3">
+                                        <i class="fas fa-edit"></i> Sửa
+                                    </button>
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
