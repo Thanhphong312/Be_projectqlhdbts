@@ -11,8 +11,6 @@
 header {
     width: 100%;
     height: 18%;
-    /* position: static; */
-    background-color: red;
 }
 
 main {
@@ -359,6 +357,7 @@ input.nosubmit {
     }
 
     .show-mobile {
+        width: 150px;
         display: block !important;
     }
 
@@ -380,7 +379,7 @@ input.nosubmit {
     }
     .box-login {
         width: 250px;
-        height: 290px;
+        height: 350px;
     }
 
     h3 {

@@ -22,8 +22,8 @@
     <div id="content">
     @include('partials.common.tieude')
         @php
-           $quyen=null;   
-           if(auth()->user()){
+          $quyen=null;   
+          if(auth()->user()){
             if(auth()->user()->quyennguoidungs()){
                 if(auth()->user()->quyennguoidungs()->first()){
                     $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
@@ -80,7 +80,6 @@
               </div>
             </a>
           </div>
-       
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="http://haugiang.vnpt.vn/view/p2/63" target="_blank" class="item-home d-flex align-items-center justify-content-center">
               <div>

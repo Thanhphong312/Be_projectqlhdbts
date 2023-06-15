@@ -16,6 +16,18 @@
             <li class="nav-item {{mb_strtolower($title)=='thống kê'?'active':''}}">
                 <a href="{{route('thongke')}}" class="nav-link">Thống Kê</a>
             </li>
+            <li>
+            <div class="justify-content-start btn-logout">
+                <a href="{{route('logout')}}">
+                    <div class="input-group">
+                        <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
+                        <span class="input-group-text">
+                            <i class="fa fa-arrow-left"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </li>
         </ul>
     </div>
 </div>
