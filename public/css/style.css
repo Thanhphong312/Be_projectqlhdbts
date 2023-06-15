@@ -91,7 +91,20 @@ body {
 .box-login > *:first-child {
     align-self: stretch;
 }
+.box-forgot-password {
+    align-self: center;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 320px;
+    height: 390px;
+    background-color: #cff1ff;
+    border-radius: 10%;
+}
 
+.box-forgot-password > *:first-child {
+    align-self: stretch;
+}
 h3 {
     margin: 0;
     text-align: center;
@@ -109,6 +122,8 @@ h3 {
     background-color: #155cbe;
     margin: 10px;
 }
+
+
 
 footer {
     display: block;
@@ -381,7 +396,10 @@ input.nosubmit {
         width: 250px;
         height: 350px;
     }
-
+    .box-forgot-password{
+        width: 250px;
+        height: 350px;
+    }
     h3 {
         font-size: 1rem;
     }
