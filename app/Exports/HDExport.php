@@ -14,10 +14,16 @@ class HDExport implements FromView
     }
     public function view(): View
     {
-        $HopDong = HopDong::latest('HD_MaHD');
-        if ($this->request ->get('search')!=""){
-            $HopDong = $HopDong->where('HD_MaHD', 'LIKE', '%'.$this->request ->get('search').'%');
+        $hd = [];
+        if($this->request->has('exportall')){
+            $HopDong = HopDong::get();
+        }else{
+            foreach($this->request->DH as $value){
+                array_push($hd,$value);
+            }
+            $HopDong = HopDong::wherein('HD_MaHD', $hd)->get();
         }
+        
         return view('HDexport', [
             'HopDong' => $HopDong
         ]);
