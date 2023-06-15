@@ -24,6 +24,8 @@
             @include('partials.common.tieude')
 
             <!-- Content -->
+            <?php $stt = 1 ?>
+                @if ($hopdong->count() > 0)
             <div class="container" >
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -102,6 +104,8 @@
                                 </tr>
                                 @endforeach
                             </tbody>
+                            @else <h3 class="container">Hợp đồng đã tìm kiếm không tồn tại</h3>
+                            @endif
                         </table>
                     </div>
                     {{ $hopdong->links() }}
