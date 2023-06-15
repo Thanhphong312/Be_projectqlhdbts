@@ -82,15 +82,15 @@
                                         <td>{{$row->HD_TenCTK}}</td>
                                         <td>{{$row->HD_SoTaiKhoan}}</td>
                                         <td>{{$row->HD_TenNH}}</td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
+                                        <td>{{$row->HD_NgayDangKy}}</td>
+                                        <td>{{$row->HD_NgayHetHan}}</td>
                                         <td>{{$row->HD_GiaHienTai}} VNĐ</td>
                                         <td>{{$row->T_MaTram}}</td>
                                         <td>{{$row->T_TenTram}}</td>
                                         <td>{{$row->HD_MaCSHT}}</td>
                                         <td>{{$row->HD_TenChuDauTu}}</td>
                                         <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
+                                        <td><input type="date" name="" id="" value={{$row->HD_NgayPhuLuc}}></td>
                                         <td>{{$row->Nguoiky}}</td>
                                         <td>{{$row->Khachhang}}</td>
                                         <td>
@@ -98,6 +98,7 @@
                                             <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">
                                                 <i class="fas fa-edit"></i> Cập nhật
                                             </a>
+
                                             @endif
                                             <button class="btn btn-secondary me-md-3">
                                                 <i class="fas fa-download"></i> Tải về
