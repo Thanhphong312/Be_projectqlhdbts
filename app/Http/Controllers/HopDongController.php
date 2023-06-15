@@ -112,4 +112,23 @@ class HopDongController extends Controller
     {
         return Excel::download(new HDExport, 'HD.xlsx');
     }
+    public function timkiem(Request $request)
+    {
+        $title = 'Hợp Đồng';
+        $breadcrumbs = [
+            [
+                'name'=>'Hợp đồng',
+                'link'=>'./'
+            ]
+        ];
+
+        $search = [];
+        $rs = $request['search'] ?? "";
+        if ($search != "") {
+            $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
+                ->orwhere('T_TenTram', 'LIKE', "%$rs%")
+                ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
+            return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
+        }
+    }
 }
