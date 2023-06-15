@@ -33,6 +33,4 @@ return [
         realpath(storage_path('framework/views'))
     ),
 
-    'pagination' => 'pagination::slider-3',
-
 ];
