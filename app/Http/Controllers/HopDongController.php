@@ -124,11 +124,22 @@ class HopDongController extends Controller
 
         $search = [];
         $rs = $request['search'] ?? "";
-        if ($search != "") {
-            $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
-                ->orwhere('T_TenTram', 'LIKE', "%$rs%")
-                ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
-            return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
+        $dv = auth()->user()->nguoidungdonvis()->first();
+        if(!empty($dv)){
+            if ($search != "") {
+                $search['hopdong'] = HopDong::where('DV_MaDV', $dv->DV_MaDV)->where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
+                    ->orwhere('T_TenTram', 'LIKE', "%$rs%")
+                    ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
+            }
+        }else{
+            if ($search != "") {
+                $search['hopdong'] = HopDong::where('HD_MaHD', 'LIKE', "$rs")->orwhere('HD_MaCSHT', 'LIKE', "%$rs%")
+                    ->orwhere('T_TenTram', 'LIKE', "%$rs%")
+                    ->orwhere('T_MaTram', 'LIKE', "%$rs%")->paginate(5);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $search);
+            }
         }
+
     }
 }
