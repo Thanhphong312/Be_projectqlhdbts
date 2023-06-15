@@ -30,12 +30,13 @@
             if(auth()->user()){
                 if(auth()->user()->quyennguoidungs()){
                     if(auth()->user()->quyennguoidungs()->first()){
-                        $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+                        $quyennd = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+                        echo $quyennd;
                     }
                 }
             }
             @endphp
-                @if($quyen=='Q0')
+                @if($quyennd=='Q0')
                 <a href="{{route('taikhoan-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
                         <i class="fas fa-plus"></i> Thêm</button>
@@ -87,7 +88,7 @@
                                     <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-primary me-md-3">
                                         <i class="fas fa-eye"></i> Xem
                                     </a>
-                                    @if($quyen=='Q0')
+                                    @if($quyennd=='Q0')
                                     <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3">
                                         <i class="fas fa-trash-alt"></i> Xóa
                                     </button>
