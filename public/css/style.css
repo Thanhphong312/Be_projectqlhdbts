@@ -426,3 +426,8 @@ input.nosubmit {
 .table td {
     white-space: nowrap;
 }
+
+.pagination {
+    justify-content: center!important;
+    margin: 10px!important;
+}
