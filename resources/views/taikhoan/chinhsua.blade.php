@@ -49,7 +49,7 @@
                                         <span id="colorIcon">*</span>
                                     </label>
                                     <input class="form-control" type="file" name="avatar" id="avatar" >
-                                    <img src="{{$avatar}}" alt="avatar" width="140" height="200">
+                                    <img src="{{$avatar}}" alt="avatar" width="140" height="140">
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Mã người dùng:</div>
@@ -59,17 +59,14 @@
                                     <div style="cursor: default;" class="col-6 col-sm-6">Tên người dùng:</div>
                                     <input name="name" class="col-6 col-sm-6 text-view" value="{{$sua->name}}"></input>
                                 </div>
-
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Giới tính:</div>
                                     <input name="ND_GioiTinh" class="col-6 col-sm-6 text-view" value="{{$sua->ND_GioiTinh}}"></input>
                                 </div>
-
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Địa chỉ:</div>
                                     <input name="ND_DiaChi" class="col-6 col-sm-6 text-view" value="{{$sua->ND_DiaChi}}"></input>
                                 </div>
-
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Email:</div>
                                     <input name="email" class="col-6 col-sm-6 text-view" value="{{$sua->email}}"></input>

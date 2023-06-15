@@ -31,7 +31,7 @@
                     @csrf
                     <!--import-->
                     <?php
-                           $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q1')->first();                                   
+                        $quyens=auth()->user()->quyennguoidungs()->where('Q_MaQ','Q1')->first();                                   
                     ?>
                     @if($quyens)
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
