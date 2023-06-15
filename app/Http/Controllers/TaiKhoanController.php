@@ -32,8 +32,8 @@ class TaiKhoanController extends Controller
                 'link'=>'./taikhoan'
             ]
         ];
-        $taikhoans = User::get();
-        
+        $taikhoans = User::paginate(10);
+
         return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs','role'));
     }
 
@@ -72,14 +72,45 @@ class TaiKhoanController extends Controller
         return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
     }
 
-    // public function view(Request $request)
-    // {
-    //     // dd($request);
-    //     $hienthitaikhoan = User::where('id', $request->id)->first();
-    //     $breadcrumbs = ['Tài khoản', 'Chi tiết'];
+    public function chinhsua(Request $request)
+    {
+        $title = 'Tài Khoản';
+        $breadcrumbs = [
+            [
+                'name'=>'Tài khoản',
+                'link'=>'../'
+            ],[
+                'name'=>'Sửa',
+                'link'=>'./'.$request->id
+            ]
+        ];
+        $sua = User::where('id', $request->id)->first();
+        $avatar = asset($sua->avatar);
+        if($request->isMethod('post')){
+            $sua->ND_MaND = $request->ND_MaND;
+            // $sua->avatar = $request->avatar;
+            if ($file = $request->file('avatar')) {
 
-    //     return view('taikhoan/hienthi', compact('title', 'hienthitaikhoan', 'breadcrumbs'));
-    // }
+                // $path = $file->store('public/avatar');
+                $filename = $file->getClientOriginalName();
+    
+                // Move the file to the public directory
+                $file->move(public_path('avatar'), $filename);
+            
+                // Get the public URL of the file
+                $publicUrl = asset('avatar/'.$filename);
+                $sua->avatar = 'avatar/'.$filename;
+            }
+            $sua->name = $request->name;
+            $sua->ND_GioiTinh = $request->ND_GioiTinh;
+            $sua->ND_DiaChi = $request->ND_DiaChi;
+            $sua->email = $request->email;
+            $sua->ND_SDT= $request->ND_SDT;
+            $sua->save();
+            return redirect()->route('taikhoan')->with('success', 'sửa thành công');
+        }
+        return view('taikhoan/chinhsua', compact('title', 'sua', 'breadcrumbs','avatar'));
+    }
 
     public function store(Request $request)
     {

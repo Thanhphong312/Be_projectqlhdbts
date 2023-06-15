@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/taikhoan/them', [TaiKhoanController::class, 'them'])->name('taikhoan-them');
     Route::post('/taikhoan/them', [TaiKhoanController::class, 'store'])->name('taikhoan-store');
     Route::get('/taikhoan/hienthi/{id}', [TaiKhoanController::class, 'hienthi'])->name('taikhoan-hienthi');
-    // Route::post('/taikhoan/view/{id}', [TaiKhoanController::class, 'view'])->name('taikhoan-view');
+    Route::any('/taikhoan/chinhsua/{id}', [TaiKhoanController::class, 'chinhsua'])->name('taikhoan-chinhsua');
     Route::get('/taikhoan/xoa/{id}', [TaiKhoanController::class, 'xoa'])->name('taikhoan-xoa');
 
 
