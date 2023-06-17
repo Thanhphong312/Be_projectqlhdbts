@@ -1,12 +1,12 @@
-.container{
-    max-width: 1095px!important;
+.container {
+    max-width: 1095px !important;
 }
-.user{
-    width:100%;
+.user {
+    width: 100%;
 }
-.user a:hover{
+.user a:hover {
     /* background-color:#e9ecef; */
-    color: white!important;
+    color: white !important;
 }
 header {
     width: 100%;
@@ -47,8 +47,8 @@ body {
     margin: 0 auto;
     padding: 0;
 }
-.main-logo a img{
-    height:75px;
+.main-logo a img {
+    height: 75px;
     width: 1000px;
 }
 
@@ -122,8 +122,6 @@ h3 {
     background-color: #155cbe;
     margin: 10px;
 }
-
-
 
 footer {
     display: block;
@@ -347,7 +345,6 @@ input.nosubmit {
     padding-top: 30px;
     padding-left: 30px;
     padding-right: 30px;
-
 }
 
 .fillter-statistic form {
@@ -396,7 +393,7 @@ input.nosubmit {
         width: 250px;
         height: 350px;
     }
-    .box-forgot-password{
+    .box-forgot-password {
         width: 250px;
         height: 350px;
     }
@@ -438,13 +435,13 @@ input.nosubmit {
 /* Add */
 
 .mb-1 {
-    align-items: center!important;
+    align-items: center !important;
 }
 .table td {
     white-space: nowrap;
 }
 
 .pagination {
-    justify-content: center!important;
-    margin: 10px!important;
+    justify-content: center !important;
+    margin: 10px !important;
 }

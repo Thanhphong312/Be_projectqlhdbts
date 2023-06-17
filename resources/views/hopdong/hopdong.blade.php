@@ -36,7 +36,7 @@
                 @endphp
                 @if($quyens)
                 <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
-                     @csrf
+                    @csrf
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                         <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>

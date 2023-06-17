@@ -25,12 +25,12 @@
 
             <!-- Content -->
             <div class="container">
-            @php
+                @php
                 $quyen=null;
                 if(auth()->user()){
-                    if(auth()->user()->quyennguoidungs()){
-                        $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
-                    }
+                if(auth()->user()->quyennguoidungs()){
+                $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+                }
                 }
                 @endphp
                 @if($quyen=='Q0')
@@ -59,7 +59,7 @@
                                 <td>{{$tram->T_TenTram}}</td>
                                 <td>{{$tram->T_DiaChiTram}}</td>
                                 <td>{{$tram->T_TinhTrang}}</td>
-                                <td><textarea cols="40" rows="5" disabled>{{$tram->toado}}</textarea> </td>
+                                <td><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
                                 <td style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_NgQL:""}}</td>
                                 <td>
                                     <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">

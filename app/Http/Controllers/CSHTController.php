@@ -14,11 +14,11 @@ class CSHTController extends Controller
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = [
             [
-                'name'=>'Cơ sở hạ tầng',
-                'link'=>'./csht'
+                'name' => 'Cơ sở hạ tầng',
+                'link' => './csht'
             ]
         ];
-        $cshts = CoSoHaTang::paginate(2);
+        $cshts = CoSoHaTang::paginate(5);
         // dd($cshts);
         return view('csht/csht', compact('title', 'cshts', 'breadcrumbs'));
     }
@@ -28,11 +28,11 @@ class CSHTController extends Controller
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = [
             [
-                'name'=>'Cơ sở hạ tầng',
-                'link'=>'./'
-            ],[
-                'name'=>'Thêm',
-                'link'=>'./them'
+                'name' => 'Cơ sở hạ tầng',
+                'link' => './'
+            ], [
+                'name' => 'Thêm',
+                'link' => './them'
             ]
         ];
         return view('csht/them', compact('title', 'breadcrumbs'));
@@ -43,11 +43,11 @@ class CSHTController extends Controller
         $title = 'Cơ Sở Hạ Tầng';
         $breadcrumbs = [
             [
-                'name'=>'Cơ sở hạ tầng',
-                'link'=>'../'
-            ],[
-                'name'=>'Chỉnh sửa',
-                'link'=>'./'.$request->CSHT_MaCSHT
+                'name' => 'Cơ sở hạ tầng',
+                'link' => '../'
+            ], [
+                'name' => 'Chỉnh sửa',
+                'link' => './' . $request->CSHT_MaCSHT
             ]
         ];
         // dd($request);
