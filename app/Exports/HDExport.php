@@ -56,10 +56,12 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
 
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle($sheet->calculateWorksheetDimension())
+        $sheet->getStyle('A2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
             ->getBorders()
             ->getAllBorders()
             ->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
+
+        return $sheet;
     }
 
     public function registerEvents(): array
