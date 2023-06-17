@@ -23,7 +23,7 @@ class HopDongController extends Controller
         $breadcrumbs = [
             [
                 'name' => 'Hợp đồng',
-                'link' => './'
+                'link' => './hopdong'
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();

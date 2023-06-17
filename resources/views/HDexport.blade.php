@@ -1,6 +1,6 @@
 <p>DANH SÁCH HỢP ĐỒNG</p>
 
-<div id="content">
+<div>
     <table>
         <thead>
             <tr>
@@ -24,21 +24,21 @@
         <tbody>
             @foreach($HopDong as $HopDong)
             <tr>
-                <td>{{ $HopDong->HD_MaHD }}</td>
-                <td>{{ $HopDong->T_MaTram }}</td>
-                <td>{{ $HopDong->DV_MaDV }}</td>
-                <td>{{ $HopDong->HD_MaCSHT }}</td>
-                <td>{{ $HopDong->T_TenTram }}</td>
-                <td>{{ $HopDong->HD_NgayDangKy }}</td>
-                <td>{{ $HopDong->HD_NgayHetHan }}</td>
-                <td>{{ $HopDong->HD_NgayPhuLuc }}</td>
-                <td>{{ $HopDong->HD_GiaGoc }}</td>
-                <td>{{ $HopDong->HD_GiaHienTai }}</td>
-                <td>{{ $HopDong->HD_SoTaiKhoan }}</td>
-                <td>{{ $HopDong->HD_TenCTK }}</td>
-                <td>{{ $HopDong->HD_TenNH }}</td>
-                <td>{{ $HopDong->HD_TenChuDauTu }}</td>
-                <td>{{ $HopDong->HD_HDScan }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_MaHD }}</td>
+                <td style="text-align: center;">{{ $HopDong->T_MaTram }}</td>
+                <td style="text-align: center;">{{ $HopDong->DV_MaDV }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_MaCSHT }}</td>
+                <td style="text-align: center;">{{ $HopDong->T_TenTram }}</td>
+                <td style="text-align: center;">{{\Carbon\Carbon::parse($HopDong->HD_NgayDangKy)->format('d/m/Y')}}</td>
+                <td style="text-align: center;">{{\Carbon\Carbon::parse($HopDong->HD_NgayHetHan)->format('d/m/Y')}}</td>
+                <td style="text-align: center;">{{\Carbon\Carbon::parse($HopDong->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
+                <td style="text-align: center;">{{ number_format($HopDong->HD_GiaGoc) }} VNĐ</td>
+                <td style="text-align: center;">{{ number_format($HopDong->HD_GiaHienTai) }} VNĐ</td>
+                <td style="text-align: center;">{{ $HopDong->HD_SoTaiKhoan }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_TenCTK }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_TenNH }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_TenChuDauTu }}</td>
+                <td style="text-align: center;">{{ $HopDong->HD_HDScan }}</td>
             </tr>
             @endforeach
         </tbody>

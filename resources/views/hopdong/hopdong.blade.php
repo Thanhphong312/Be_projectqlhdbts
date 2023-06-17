@@ -84,7 +84,7 @@
                                         <td>{{$row->HD_TenNH}}</td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
-                                        <td>{{$row->HD_GiaHienTai}} VNĐ</td>
+                                        <td>{{number_format($row->HD_GiaHienTai)}} VNĐ</td>
                                         <td>{{$row->T_MaTram}}</td>
                                         <td>{{$row->T_TenTram}}</td>
                                         <td>{{$row->HD_MaCSHT}}</td>
