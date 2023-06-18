@@ -3,7 +3,6 @@
 namespace App\Exports;
 
 use App\Models\HopDong;
-use DateTime;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Request;
@@ -44,7 +43,7 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
     {
         return [
             'font' => [
-                'name' => 'TimeNewRoman',
+                'name' => 'Time New Roman',
                 'size' => 12
             ],
             'alignment' => [
@@ -61,6 +60,10 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
             ->getAllBorders()
             ->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN);
 
+        $sheet->getStyle('A2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+
         return $sheet;
     }
 
@@ -73,20 +76,17 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
                 $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(40);
 
                 $event->sheet->getDelegate()->getStyle('A1')
-                    ->getFont()
-                    ->setName('TimeNewRoman')
-                    ->setSize(20)
+                    ->getFont()->setName('Time New Roman')
                     ->setBold(true)
-                    ->getColor()
-                    ->setARGB('e31616');
+                    ->setSize(20)
+                    ->getColor()->setARGB('E31616');
 
 
                 $cellRange = 'A2:O2';
                 $event->sheet->getDelegate()->getStyle($cellRange)
-                    ->getFont()
-                    ->setName('TimeNewRoman')
-                    ->setSize(14)
-                    ->setBold(true);
+                    ->getFont()->setName('Time New Roman')
+                    ->setBold(true)
+                    ->setSize(14);
 
                 $event->sheet->getDelegate()->getStyle($cellRange)
                     ->getFill()
