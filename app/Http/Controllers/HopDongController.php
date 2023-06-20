@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\CoSoHaTang;
 use App\Models\Tram;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -19,6 +20,7 @@ class HopDongController extends Controller
 {
     public function index(Request $request)
     {
+        // dd($request);
         $title = 'Hợp Đồng';
         $breadcrumbs = [
             [
@@ -34,13 +36,13 @@ class HopDongController extends Controller
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
             } else {
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
             }
         } else {
             if (!empty($dv))
@@ -48,9 +50,7 @@ class HopDongController extends Controller
             else
                 $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
 
-            // dd($hopdong);
-
-            return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+            return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
         }
     }
 
@@ -127,6 +127,6 @@ class HopDongController extends Controller
 
     public function export(Request $request)
     {
-        return Excel::download(new HDExport($request), 'HD.xlsx');
+        return Excel::download(new HDExport($request), 'HD-'.Carbon::now()->toDateString().'.xlsx');
     }
 }

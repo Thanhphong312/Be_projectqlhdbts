@@ -25,7 +25,9 @@
 
             <!-- Content -->
             <?php $stt = 1 ?>
-            @if ($hopdong->count() > 0)
+            @if (!empty($request->search)&&$hopdong->count() <= 0)
+            <h3 class="container">Hợp đồng đã tìm kiếm không tồn tại</h3>
+            @else
             <div class="container">
                 @csrf
                 <!--import-->
@@ -72,8 +74,6 @@
                                         <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
                                         <th scope="col-6 col-md-4">Hợp đồng</th>
                                         <th scope="col-6 col-md-4">Ngày phụ lục</th>
-                                        <th scope="col-6 col-md-4">Người ký</th>
-                                        <th scope="col-6 col-md-4">Khánh hàng ký</th>
                                         <th scope="col-6 col-md-4">Tùy chỉnh</th>
                                     </tr>
                                 </thead>
@@ -87,15 +87,13 @@
                                         <td>{{$row->HD_TenNH}}</td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
-                                        <td>{{number_format($row->HD_GiaHienTai)}} VNĐ</td>
+                                        <td>{{$row->HD_GiaHienTai}}</td>
                                         <td>{{$row->T_MaTram}}</td>
                                         <td>{{$row->T_TenTram}}</td>
                                         <td>{{$row->HD_MaCSHT}}</td>
                                         <td>{{$row->HD_TenChuDauTu}}</td>
                                         <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
-                                        <td>{{$row->Nguoiky}}</td>
-                                        <td>{{$row->Khachhang}}</td>
                                         <td>
                                             @if($quyens)
                                             <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">
@@ -109,14 +107,13 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
-                                @else <h3 class="container">Hợp đồng đã tìm kiếm không tồn tại</h3>
-                                @endif
                             </table>
                         </div>
                         {{ $hopdong->links() }}
                     </div>
                 </form>
             </div>
+            @endif
         </div>
     </div>
     <!-- end body -->

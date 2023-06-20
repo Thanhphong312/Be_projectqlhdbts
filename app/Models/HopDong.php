@@ -15,7 +15,6 @@ class HopDong extends Model
 
     protected $fillable = [
         'HD_MaHD',
-        'ND_MaND',
         'T_MaTram',
         'DV_MaDV',
         'HD_MaCSHT',
@@ -30,8 +29,6 @@ class HopDong extends Model
         'HD_TenNH',
         'HD_TenChuDauTu',
         'HD_HDScan',
-        'Nguoiky',
-        'Khachhang',
         'created_at',
         'updated_at'
     ];

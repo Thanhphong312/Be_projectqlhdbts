@@ -26,7 +26,7 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
     {
         $hd = [];
         if ($this->request->has('exportall')) {
-            $HopDong = HopDong::get();
+            $HopDong = HopDong::orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->get();
         } else {
             foreach ($this->request->DH as $value) {
                 array_push($hd, $value);

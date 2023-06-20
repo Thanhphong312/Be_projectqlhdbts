@@ -31,8 +31,8 @@
             <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayDangKy)->format('d/m/Y')}}</td>
             <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayHetHan)->format('d/m/Y')}}</td>
             <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
-            <td>{{ number_format($HopDong->HD_GiaGoc) }} VNĐ</td>
-            <td>{{ number_format($HopDong->HD_GiaHienTai) }} VNĐ</td>
+            <td>{{ $HopDong->HD_GiaGoc }} </td>
+            <td>{{ $HopDong->HD_GiaHienTai }} </td>
             <td>{{ $HopDong->HD_SoTaiKhoan }}</td>
             <td>{{ $HopDong->HD_TenCTK }}</td>
             <td>{{ $HopDong->HD_TenNH }}</td>
