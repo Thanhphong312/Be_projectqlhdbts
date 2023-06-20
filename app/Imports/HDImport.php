@@ -46,6 +46,10 @@ class HDImport implements ToCollection, WithHeadingRow
                 $newhopdong['HD_HDScan'] = str_replace('/file/d/', '/uc?export=download&id=', $row["hop_dong"]);
                 $newhopdong['HD_HDScan'] = str_replace('/view?usp=sharing', '',  $newhopdong['HD_HDScan']);
                 $newhopdong['HD_TT'] = 1;
+                $oldhopdong = $hopdong->toArray();
+                echo "<pre>";
+                print_r($newhopdong);
+                dd($oldhopdong);
                 HopDong::where('HD_MaHD', $row['ma_hop_dong'])->update($newhopdong);
             } else {
                 $hopdong = new HopDong;

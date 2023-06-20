@@ -100,9 +100,7 @@
                                                 <i class="fas fa-edit"></i> Cập nhật
                                             </a>
                                             @endif
-                                            <button class="btn btn-secondary me-md-3">
-                                            <a href="{{ $row->HD_HDScan }}">Download PDF</a>
-                                            </button>
+                                            <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">Download PDF</a>
                                         </td>
                                     </tr>
                                     @endforeach
