@@ -99,7 +99,6 @@
                                             <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">
                                                 <i class="fas fa-edit"></i> Cập nhật
                                             </a>
-
                                             @endif
                                             <button class="btn btn-secondary me-md-3">
                                                 <i class="fas fa-download"></i> Tải về
