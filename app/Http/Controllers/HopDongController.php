@@ -127,6 +127,6 @@ class HopDongController extends Controller
 
     public function export(Request $request)
     {
-        return Excel::download(new HDExport($request), 'HD-'.Carbon::now()->toDateString().'.xlsx');
+        return Excel::download(new HDExport($request), 'HD-'.Carbon::now()->format('M j, Y H-i-s').'.xlsx');
     }
 }
