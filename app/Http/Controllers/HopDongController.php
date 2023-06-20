@@ -22,36 +22,35 @@ class HopDongController extends Controller
         $title = 'Hợp Đồng';
         $breadcrumbs = [
             [
-                'name'=>'Hợp đồng',
-                'link'=>'./'
+                'name' => 'Hợp đồng',
+                'link' => './hopdong'
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();
         if ($request->search) {
-            if(!empty($dv)){
+            if (!empty($dv)) {
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)
-                        ->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
-                    return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
-            }else{
-                $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('HD_MaCSHT', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('T_TenTram', 'LIKE', '%'.$request->get('search').'%')
-                        ->orwhere('T_MaTram', 'LIKE', '%'.$request->get('search').'%')->paginate(5);
-                    return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+                    ->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+            } else {
+                $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
             }
-
-        }else{
+        } else {
             if (!empty($dv))
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
             else
                 $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
 
-        // dd($hopdong);
+            // dd($hopdong);
 
-        return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
+            return view('hopdong/hopdong', compact('title', 'breadcrumbs'), $hopdong);
         }
     }
 
@@ -130,5 +129,4 @@ class HopDongController extends Controller
     {
         return Excel::download(new HDExport($request), 'HD.xlsx');
     }
-    
 }

@@ -22,19 +22,19 @@ class TaiKhoanController extends Controller
     public function index()
     {
         $role = null;
-        if(!empty(Auth::user())){
+        if (!empty(Auth::user())) {
             $role = Auth::user()->quyennguoidungs()->first()->quyen()->first();
         }
         $title = 'Tài Khoản';
         $breadcrumbs = [
             [
-                'name'=>'Tài khoản',
-                'link'=>'./taikhoan'
+                'name' => 'Tài khoản',
+                'link' => './taikhoan'
             ]
         ];
-        $taikhoans = User::paginate(2);
+        $taikhoans = User::paginate(5);
 
-        return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs','role'));
+        return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs', 'role'));
     }
 
     public function them()
@@ -42,17 +42,17 @@ class TaiKhoanController extends Controller
         $title = 'Tài Khoản';
         $breadcrumbs = [
             [
-                'name'=>'Tài khoản',
-                'link'=>'./'
-            ],[
-                'name'=>'Thêm',
-                'link'=>'./them'
+                'name' => 'Tài khoản',
+                'link' => './'
+            ], [
+                'name' => 'Thêm',
+                'link' => './them'
             ]
         ];
         $quyens = Quyen::get();
         $donvis = DonVi::get();
 
-        return view('taikhoan/them', compact('title', 'breadcrumbs','quyens','donvis'));
+        return view('taikhoan/them', compact('title', 'breadcrumbs', 'quyens', 'donvis'));
     }
 
     public function hienthi(Request $request)
@@ -60,11 +60,11 @@ class TaiKhoanController extends Controller
         $title = 'Tài Khoản';
         $breadcrumbs = [
             [
-                'name'=>'Tài khoản',
-                'link'=>'../'
-            ],[
-                'name'=>'Chi tiết',
-                'link'=>'./'.$request->id
+                'name' => 'Tài khoản',
+                'link' => '../'
+            ], [
+                'name' => 'Chi tiết',
+                'link' => './' . $request->id
             ]
         ];
         $hienthitaikhoan = User::where('id', $request->id)->get();
@@ -77,39 +77,39 @@ class TaiKhoanController extends Controller
         $title = 'Tài Khoản';
         $breadcrumbs = [
             [
-                'name'=>'Tài khoản',
-                'link'=>'../'
-            ],[
-                'name'=>'Sửa',
-                'link'=>'./'.$request->id
+                'name' => 'Tài khoản',
+                'link' => '../'
+            ], [
+                'name' => 'Sửa',
+                'link' => './' . $request->id
             ]
         ];
         $sua = User::where('id', $request->id)->first();
         $avatar = asset($sua->avatar);
-        if($request->isMethod('post')){
+        if ($request->isMethod('post')) {
             $sua->ND_MaND = $request->ND_MaND;
             // $sua->avatar = $request->avatar;
             if ($file = $request->file('avatar')) {
 
                 // $path = $file->store('public/avatar');
                 $filename = $file->getClientOriginalName();
-    
+
                 // Move the file to the public directory
                 $file->move(public_path('avatar'), $filename);
-            
+
                 // Get the public URL of the file
-                $publicUrl = asset('avatar/'.$filename);
-                $sua->avatar = 'avatar/'.$filename;
+                $publicUrl = asset('avatar/' . $filename);
+                $sua->avatar = 'avatar/' . $filename;
             }
             $sua->name = $request->name;
             $sua->ND_GioiTinh = $request->ND_GioiTinh;
             $sua->ND_DiaChi = $request->ND_DiaChi;
             $sua->email = $request->email;
-            $sua->ND_SDT= $request->ND_SDT;
+            $sua->ND_SDT = $request->ND_SDT;
             $sua->save();
             return redirect()->route('taikhoan')->with('success', 'sửa thành công');
         }
-        return view('taikhoan/chinhsua', compact('title', 'sua', 'breadcrumbs','avatar'));
+        return view('taikhoan/chinhsua', compact('title', 'sua', 'breadcrumbs', 'avatar'));
     }
 
     public function store(Request $request)
@@ -121,7 +121,7 @@ class TaiKhoanController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()->route('taikhoan-them')
-                        ->withErrors($validator);
+                ->withErrors($validator);
         }
         // dd($request->file('avatar'));
         $addtaikhoan = new User();
@@ -131,29 +131,29 @@ class TaiKhoanController extends Controller
         $addtaikhoan->ND_DiaChi = $request->input('diaChi');
         $addtaikhoan->email = $request->input('email');
         $addtaikhoan->password = $request->input('password');
-       
+
         if ($file = $request->file('avatar')) {
             // $path = $file->store('public/avatar');
             $filename = $file->getClientOriginalName();
 
             // Move the file to the public directory
             $file->move(public_path('avatar'), $filename);
-        
+
             // Get the public URL of the file
-            $publicUrl = asset('avatar/'.$filename);
-            $addtaikhoan->avatar = 'avatar/'.$filename;
+            $publicUrl = asset('avatar/' . $filename);
+            $addtaikhoan->avatar = 'avatar/' . $filename;
         }
         $addtaikhoan->ND_SDT = $request->input('ND_SDT');
         $addtaikhoan->save();
 
         $addquyennguoidung = new QuyenNguoiDung();
         $addquyennguoidung->Q_MaQ = $request->input('Ma_Q');
-        $addquyennguoidung->ND_MaND = User::where('ND_MaND',$request->input('ND_MaND'))->first()->id;
+        $addquyennguoidung->ND_MaND = User::where('ND_MaND', $request->input('ND_MaND'))->first()->id;
         $addquyennguoidung->save();
 
         $addnguoidungdonvi = new NguoiDungDonVi();
         $addnguoidungdonvi->DV_MaDV = $request->input('Ma_DV');
-        $addnguoidungdonvi->ND_MaND = User::where('ND_MaND',$request->input('ND_MaND'))->first()->id;
+        $addnguoidungdonvi->ND_MaND = User::where('ND_MaND', $request->input('ND_MaND'))->first()->id;
         $addnguoidungdonvi->save();
         return redirect()->route('taikhoan')->with('success', 'Thêm thành công');
     }

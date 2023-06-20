@@ -15,11 +15,11 @@ class TramController extends Controller
         $title = 'Trạm';
         $breadcrumbs = [
             [
-                'name'=>'Trạm',
-                'link'=>'./tram'
+                'name' => 'Trạm',
+                'link' => './tram'
             ]
         ];
-        $trams = Tram::paginate(2);
+        $trams = Tram::paginate(5);
 
         return view('tram/tram', compact('title', 'breadcrumbs', 'trams'));
     }
@@ -29,16 +29,16 @@ class TramController extends Controller
         $title = 'Trạm';
         $breadcrumbs = [
             [
-                'name'=>'Trạm',
-                'link'=>'./'
-            ],[
-                'name'=>'Thêm',
-                'link'=>'./them'
+                'name' => 'Trạm',
+                'link' => './'
+            ], [
+                'name' => 'Thêm',
+                'link' => './them'
             ]
         ];
         $donviquanlis = DonViQLTram::get();
         $cshts = CoSoHaTang::get();
-        return view('tram/them', compact('title', 'breadcrumbs', 'cshts','donviquanlis'));
+        return view('tram/them', compact('title', 'breadcrumbs', 'cshts', 'donviquanlis'));
     }
 
     public function chinhsua(Request $request)
@@ -46,18 +46,18 @@ class TramController extends Controller
         $title = 'Trạm';
         $breadcrumbs = [
             [
-                'name'=>'Trạm',
-                'link'=>'../'
-            ],[
-                'name'=>'Chỉnh sửa',
-                'link'=>'./'.$request->T_MaTram
+                'name' => 'Trạm',
+                'link' => '../'
+            ], [
+                'name' => 'Chỉnh sửa',
+                'link' => './' . $request->T_MaTram
             ]
         ];
         $donviquanlis = DonViQLTram::get();
 
         $suatram = Tram::where('T_MaTram', $request->T_MaTram)->get();
 
-        return view('tram/chinhsua', compact('title', 'suatram','donviquanlis' , 'breadcrumbs'));
+        return view('tram/chinhsua', compact('title', 'suatram', 'donviquanlis', 'breadcrumbs'));
     }
 
     public function update(Request $request)
@@ -69,7 +69,7 @@ class TramController extends Controller
             'T_DiaChiTram' => $request->T_DiaChiTram,
             'T_TinhTrang' => $request->T_TinhTrang,
             'toado' => $request->toado,
-            'Ma_DVQL' =>$request->donviquanly,
+            'Ma_DVQL' => $request->donviquanly,
         ]);
         if ($suatram) {
             return redirect()->route('tram')->with('success', 'Sửa thành công');
@@ -86,7 +86,7 @@ class TramController extends Controller
         $addtram->T_TenTram = $request->input('tenTram');
         $addtram->T_DiaChiTram = $request->input('diaChi');
         $addtram->toado = $request->input('toado');
-        $addtram->Ma_DVQL= $request->input('donviquanly');
+        $addtram->Ma_DVQL = $request->input('donviquanly');
         $addtram->T_TinhTrang = $request->tt;
 
         $addtram->save();
@@ -97,7 +97,7 @@ class TramController extends Controller
     public function xoa(Request $request)
     {
         $deletetram = Tram::where('T_MaTram', $request->T_MaTram)->first();
-        
+
         $deletetram->where('T_MaTram', $request->T_MaTram)->delete();
 
         return redirect()->route('tram')->with('success', 'Xóa thành công');
