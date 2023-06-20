@@ -80,7 +80,7 @@
                                 <tbody>
                                     @foreach($hopdong as $row)
                                     <tr>
-                                        <input type="hidden" value="{{$row->HD_MaHD}}" name="DH[{{$row->HD_MaHD}}]">
+                                        <input type="hidden" value="{{$row->HD_MaHD}}" name="HD[{{$row->HD_MaHD}}]">
                                         <td>{{$row->HD_MaHD}}</td>
                                         <td>{{$row->HD_TenCTK}}</td>
                                         <td>{{$row->HD_SoTaiKhoan}}</td>
