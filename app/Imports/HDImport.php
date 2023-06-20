@@ -30,13 +30,14 @@ class HDImport implements ToCollection, WithHeadingRow
             $user=auth()->user()->id;
             if ($hopdong != null) {
                 // dd($hopdong);
+                $newhopdong['ND_MaND'] = $user;
                 $newhopdong['T_MaTram'] = $row["ma_tram"];
                 $newhopdong['DV_MaDV'] = $row["ma_don_vi"];
                 $newhopdong['HD_MaCSHT'] = $row["ma_csht"];
                 $newhopdong['T_TenTram'] = $row["ten_tram"];
-                $newhopdong['HD_NgayDangKy'] = Carbon::createFromFormat('d/m/Y',$row["ngay_dang_ky"])->toDateTimeString();
-                $newhopdong['HD_NgayHetHan'] = Carbon::createFromFormat('d/m/Y',$row["ngay_het_han"])->toDateTimeString();
-                $newhopdong['HD_NgayPhuLuc'] = Carbon::now();
+                $newhopdong['HD_NgayDangKy'] = Carbon::createFromFormat('d/m/Y',$row["ngay_dang_ky"])->toDateString();
+                $newhopdong['HD_NgayHetHan'] = Carbon::createFromFormat('d/m/Y',$row["ngay_het_han"])->toDateString();
+                $newhopdong['HD_NgayPhuLuc'] = Carbon::now()->toDateString();
                 $newhopdong['HD_GiaGoc'] = $row["gia_goc"];
                 $newhopdong['HD_GiaHienTai'] = $row["gia_hien_tai"];
                 $newhopdong['HD_SoTaiKhoan'] = $row["so_tai_khoan"];
@@ -49,6 +50,12 @@ class HDImport implements ToCollection, WithHeadingRow
                 $oldhopdong = $hopdong->toArray();
                 echo "<pre>";
                 print_r($newhopdong);
+                $result=array_diff_assoc($newhopdong,$oldhopdong);
+                foreach($result as $key => $value){
+                    // echo $key.'<br>';
+                }
+                print_r($result);
+
                 dd($oldhopdong);
                 HopDong::where('HD_MaHD', $row['ma_hop_dong'])->update($newhopdong);
             } else {
@@ -59,9 +66,9 @@ class HDImport implements ToCollection, WithHeadingRow
                 $hopdong->DV_MaDV = $row["ma_don_vi"];
                 $hopdong->HD_MaCSHT = $row["ma_csht"];
                 $hopdong->T_TenTram = $row["ten_tram"];
-                $hopdong->HD_NgayDangKy = Carbon::createFromFormat('d/m/Y',$row["ngay_dang_ky"])->toDateTimeString();
-                $hopdong->HD_NgayHetHan = Carbon::createFromFormat('d/m/Y',$row["ngay_het_han"])->toDateTimeString();
-                $hopdong->HD_NgayPhuLuc = Carbon::now();
+                $hopdong->HD_NgayDangKy = Carbon::createFromFormat('d/m/Y',$row["ngay_dang_ky"])->toDateString();
+                $hopdong->HD_NgayHetHan = Carbon::createFromFormat('d/m/Y',$row["ngay_het_han"])->toDateString();
+                $hopdong->HD_NgayPhuLuc = Carbon::now()->toDateString();
                 $hopdong->HD_GiaGoc = $row["gia_goc"];
                 $hopdong->HD_GiaHienTai = $row["gia_hien_tai"];
                 $hopdong->HD_SoTaiKhoan = $row["so_tai_khoan"];
