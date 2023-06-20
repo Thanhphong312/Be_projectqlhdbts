@@ -50,6 +50,9 @@
                         <button name="export" class="btn btn-secondary me-md-2 mt-1 mb-1">
                             Export
                         </button>
+                        <button name="exportall" class="btn btn-secondary me-md-2 mt-1 mb-1">
+                            Export All
+                        </button>
                     </div>
                     <div class="col-12">
                         <div class="table-responsive">
