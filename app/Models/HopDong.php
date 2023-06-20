@@ -15,6 +15,7 @@ class HopDong extends Model
 
     protected $fillable = [
         'HD_MaHD',
+        'ND_MaND',
         'T_MaTram',
         'DV_MaDV',
         'HD_MaCSHT',

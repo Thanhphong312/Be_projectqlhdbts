@@ -2,6 +2,7 @@
 
 namespace App\Imports;
 
+use App\Models\PhuLuc;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\HopDong;
@@ -48,15 +49,13 @@ class HDImport implements ToCollection, WithHeadingRow
                 $newhopdong['HD_HDScan'] = str_replace('/view?usp=sharing', '',  $newhopdong['HD_HDScan']);
                 $newhopdong['HD_TT'] = 1;
                 $oldhopdong = $hopdong->toArray();
-                echo "<pre>";
-                print_r($newhopdong);
                 $result=array_diff_assoc($newhopdong,$oldhopdong);
+                $noidung = "Nội dung sửa đổi : ";
                 foreach($result as $key => $value){
-                    // echo $key.'<br>';
+                    $noidung.= $key.",";
                 }
-                print_r($result);
-
-                dd($oldhopdong);
+                $oldhopdong['noidung'] = $noidung;
+               $this->newPhuluc($oldhopdong);
                 HopDong::where('HD_MaHD', $row['ma_hop_dong'])->update($newhopdong);
             } else {
                 $hopdong = new HopDong;
@@ -86,5 +85,25 @@ class HDImport implements ToCollection, WithHeadingRow
     {
         return 2;
     }
-
+    public function newPhuluc($oldhopdong){
+        $phuluc = new PhuLuc();
+        $phuluc->HD_MaHD = $oldhopdong["HD_MaHD"];
+                $phuluc->ND_MaND = $oldhopdong["ND_MaND"];
+                $phuluc->T_MaTram = $oldhopdong["T_MaTram"];
+                $phuluc->DV_MaDV = $oldhopdong["DV_MaDV"];
+                $phuluc->HD_MaCSHT = $oldhopdong["HD_MaCSHT"];
+                $phuluc->T_TenTram = $oldhopdong["T_TenTram"];
+                $phuluc->HD_NgayDangKy = $oldhopdong["HD_NgayDangKy"];
+                $phuluc->HD_NgayHetHan = $oldhopdong["HD_NgayHetHan"];
+                $phuluc->HD_NgayPhuLuc = $oldhopdong["HD_NgayPhuLuc"];
+                $phuluc->HD_GiaGoc = $oldhopdong["HD_GiaGoc"];
+                $phuluc->HD_GiaHienTai = $oldhopdong["HD_GiaHienTai"];
+                $phuluc->HD_SoTaiKhoan = $oldhopdong["HD_SoTaiKhoan"];
+                $phuluc->HD_TenCTK = $oldhopdong["HD_TenCTK"];
+                $phuluc->HD_TenNH = $oldhopdong["HD_TenNH"];
+                $phuluc->HD_TenChuDauTu =  $oldhopdong["HD_TenChuDauTu"];
+                $phuluc->HD_HDScan = $oldhopdong["HD_HDScan"];
+                $phuluc->noidung = $oldhopdong["noidung"];
+        $phuluc->save();
+    }
 }

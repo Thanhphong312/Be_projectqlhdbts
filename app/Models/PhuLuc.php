@@ -16,6 +16,7 @@ class PhuLuc extends Model
     protected $fillable = [
         'id',
         'HD_MaHD',
+        'ND_MaND',
         'noidung',
         'T_MaTram',
         'DV_MaDV',
