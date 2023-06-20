@@ -27,6 +27,7 @@ class HDImport implements ToCollection, WithHeadingRow
         foreach ($rows as $row) {
             $hopdong = HopDong::where('HD_MaHD', $row['ma_hop_dong'])->first();
             $newhopdong = [];
+            $user=auth()->user()->id;
             if ($hopdong != null) {
                 // dd($hopdong);
                 $newhopdong['T_MaTram'] = $row["ma_tram"];
@@ -48,6 +49,7 @@ class HDImport implements ToCollection, WithHeadingRow
             } else {
                 $hopdong = new HopDong;
                 $hopdong->HD_MaHD = $row["ma_hop_dong"];
+                $hopdong->ND_MaND = $user;
                 $hopdong->T_MaTram = $row["ma_tram"];
                 $hopdong->DV_MaDV = $row["ma_don_vi"];
                 $hopdong->HD_MaCSHT = $row["ma_csht"];
@@ -62,8 +64,6 @@ class HDImport implements ToCollection, WithHeadingRow
                 $hopdong->HD_TenNH = $row["ten_ngan_hang"];
                 $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
                 $hopdong->HD_HDScan =  $row["hop_dong"];
-                // $hopdong->Nguoiky = $row["nguoi_ky"];
-                // $hopdong->Khachhang = $row["khach_hang"];
                 $hopdong->HD_TT = 1;
                 $hopdong->save();
             }
