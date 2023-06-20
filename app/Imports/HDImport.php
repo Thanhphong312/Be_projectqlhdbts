@@ -43,7 +43,8 @@ class HDImport implements ToCollection, WithHeadingRow
                 $newhopdong['HD_TenCTK'] = $row["ten_chu_tai_khoan"];
                 $newhopdong['HD_TenNH'] = $row["ten_ngan_hang"];
                 $newhopdong['HD_TenChuDauTu'] =  $row["ten_chu_dau_tu"];
-                $newhopdong['HD_HDScan'] =  $row["hop_dong"];
+                $newhopdong['HD_HDScan'] = str_replace('/file/d/', '/uc?export=download&id=', $row["hop_dong"]);
+                $newhopdong['HD_HDScan'] = str_replace('/view?usp=sharing', '',  $newhopdong['HD_HDScan']);
                 $newhopdong['HD_TT'] = 1;
                 HopDong::where('HD_MaHD', $row['ma_hop_dong'])->update($newhopdong);
             } else {
@@ -63,7 +64,8 @@ class HDImport implements ToCollection, WithHeadingRow
                 $hopdong->HD_TenCTK = $row["ten_chu_tai_khoan"];
                 $hopdong->HD_TenNH = $row["ten_ngan_hang"];
                 $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
-                $hopdong->HD_HDScan =  $row["hop_dong"];
+                $hopdong->HD_HDScan = str_replace('/file/d/', '/uc?export=download&id=',  $row["hop_dong"]);
+                $hopdong->HD_HDScan = str_replace('/view?usp=sharing', '',$hopdong->HD_HDScan);
                 $hopdong->HD_TT = 1;
                 $hopdong->save();
             }
