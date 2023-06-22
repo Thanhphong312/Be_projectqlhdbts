@@ -52,7 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/hopdong/update/{HD_MaHD}', [HopDongController::class, 'update'])->name('hopdong-update');
     //phuluc
     Route::get('/phuluc', [PhuLucController::class, 'index'])->name('phuluc');
-    Route::any('/export', [PhuLucController::class, 'export'])->name('export');
     // csht 
     Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
     Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
