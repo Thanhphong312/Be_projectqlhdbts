@@ -73,13 +73,34 @@
                                         <th scope="col-6 col-md-4">Mã CSHT</th>
                                         <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
                                         <th scope="col-6 col-md-4">Hợp đồng</th>
+                                        <th scope="col-6 col-md-4">Thời hạn</th>
                                         <th scope="col-6 col-md-4">Ngày phụ lục</th>
                                         <th scope="col-6 col-md-4">Tùy chỉnh</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($hopdong as $row)
-                                    <tr>
+                                    @php
+                                            $ngayhethan = \Carbon\Carbon::parse($row->HD_NgayHetHan);
+                                            $now = \Carbon\Carbon::now();
+                                            $diffInDays = 0;
+                                            if($ngayhethan>$now){
+                                                $diffInDays = $now->diffInDays($ngayhethan);
+                                            }else{
+                                                $diffInDays = -$now->diffInDays($ngayhethan);
+                                            }
+                                            $color = "";
+                                            if($diffInDays<=30){ //do
+                                                $color = "red";
+                                            }else if($diffInDays>30){ 
+                                                if($diffInDays>60){ //xanh
+                                                    $color = "black";
+                                                }else{//vang
+                                                    $color = "orange";
+                                                }
+                                            }
+                                    @endphp
+                                    <tr style="color: {{$color}};">
                                         <input type="hidden" value="{{$row->HD_MaHD}}" name="HD[{{$row->HD_MaHD}}]">
                                         <td>{{$row->HD_MaHD}}</td>
                                         <td>{{$row->HD_TenCTK}}</td>
@@ -93,6 +114,7 @@
                                         <td>{{$row->HD_MaCSHT}}</td>
                                         <td>{{$row->HD_TenChuDauTu}}</td>
                                         <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
+                                        <td>{{$diffInDays}}</td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                         <td>
                                             @if($quyens)

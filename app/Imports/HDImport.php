@@ -49,7 +49,6 @@ class HDImport implements ToCollection, WithHeadingRow
                 $newhopdong['HD_TenChuDauTu'] =  $row["ten_chu_dau_tu"];
                 $newhopdong['HD_HDScan'] = str_replace('/file/d/', '/uc?export=download&id=', $row["hop_dong"]);
                 $newhopdong['HD_HDScan'] = str_replace('/view?usp=sharing', '',  $newhopdong['HD_HDScan']);
-                $newhopdong['HD_TT'] = 1;
                 $oldhopdong = $hopdong->toArray();
                 $result = array_diff_assoc($newhopdong, $oldhopdong);
                 // dd($result);
@@ -79,7 +78,6 @@ class HDImport implements ToCollection, WithHeadingRow
                 $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
                 $hopdong->HD_HDScan = str_replace('/file/d/', '/uc?export=download&id=',  $row["hop_dong"]);
                 $hopdong->HD_HDScan = str_replace('/view?usp=sharing', '', $hopdong->HD_HDScan);
-                $hopdong->HD_TT = 1;
                 $hopdong->save();
             }
         }
@@ -107,7 +105,6 @@ class HDImport implements ToCollection, WithHeadingRow
         $phuluc->HD_TenNH = $oldhopdong["HD_TenNH"];
         $phuluc->HD_TenChuDauTu =  $oldhopdong["HD_TenChuDauTu"];
         $phuluc->HD_HDScan = $oldhopdong["HD_HDScan"];
-        $phuluc->HD_TT = $oldhopdong["HD_TT"];
         $phuluc->noidung = $oldhopdong["noidung"];
         $phuluc->save();
     }
