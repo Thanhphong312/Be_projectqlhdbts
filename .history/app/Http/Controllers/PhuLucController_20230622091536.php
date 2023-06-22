@@ -22,11 +22,11 @@ class PhuLucController extends Controller
     public function index(Request $request)
     {
         // dd($request);
-        $title = 'Phụ Lục';
+        $title = 'Hợp Đồng';
         $breadcrumbs = [
             [
-                'name' => 'Phụ Lục',
-                'link' => './phuluc'
+                'name' => 'Hợp đồng',
+                'link' => './hopdong'
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();

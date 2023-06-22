@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Exports\HDExport;
 use App\Models\HopDong;
-use App\Models\PhuLuc;
 use App\Imports\HDImport;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,16 +16,16 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
-class PhuLucController extends Controller
+class HopDongController extends Controller
 {
     public function index(Request $request)
     {
         // dd($request);
-        $title = 'Phụ Lục';
+        $title = 'Hợp Đồng';
         $breadcrumbs = [
             [
-                'name' => 'Phụ Lục',
-                'link' => './phuluc'
+                'name' => 'Hợp đồng',
+                'link' => './hopdong'
             ]
         ];
         $dv = auth()->user()->nguoidungdonvis()->first();

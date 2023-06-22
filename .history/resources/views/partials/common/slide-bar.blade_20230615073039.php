@@ -61,14 +61,6 @@
                 </li>
             </ul>
         </li>
-        <li class="{{mb_strtolower($title)=='phụ lục'?'active':''}}">
-            <a href="#pagePhuLuc" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Phụ Lục</a>
-            <ul class="collapse list-unstyled" id="pagePhuLuc">
-                <li>
-                    <a href="{{route('phuluc')}}">Phụ lục</a>
-                </li>
-            </ul>
-        </li>
         @endif
         <li class="{{mb_strtolower($title)=='tài khoản'?'active':''}}">
             <a href="#pageTaiKhoan" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tài khoản</a>
