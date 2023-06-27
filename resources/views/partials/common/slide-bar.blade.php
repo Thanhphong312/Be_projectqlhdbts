@@ -92,7 +92,7 @@
                     <div class="input-group">
                         <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
                         <span class="input-group-text">
-                            <i class="fa fa-arrow-left"></i>
+                            <i class="fas fa-sign-out-alt"></i>
                         </span>
                     </div>
                 </a>

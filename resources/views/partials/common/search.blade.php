@@ -1,5 +1,5 @@
 <!-- start search -->
-<div class="content-search">
+<div class="content-search p-2">
     <div class="d-flex align-items-center justify-content-center flex-column ">
         <form class="form-search" method="GET">
             @csrf
