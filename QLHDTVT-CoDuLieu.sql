@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 03:56 AM
+-- Generation Time: Jun 26, 2023 at 04:17 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,6 +39,7 @@ CREATE TABLE `co_so_ha_tang` (
 --
 
 INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updated_at`) VALUES
+('ABC', 'ABC', '2023-06-22 06:47:36', '2023-06-22 06:47:36'),
 ('CSHT_HUG_00118', 'HUG001', NULL, NULL),
 ('CSHT_HUG_00119', 'HUG002', NULL, NULL),
 ('CSHT_HUG_00120', 'HUG003', NULL, NULL);
@@ -157,7 +158,6 @@ CREATE TABLE `hop_dong` (
   `HD_TenNH` varchar(255) NOT NULL,
   `HD_TenChuDauTu` varchar(255) NOT NULL,
   `HD_HDScan` varchar(255) NOT NULL,
-  `HD_TT` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -166,21 +166,21 @@ CREATE TABLE `hop_dong` (
 -- Dumping data for table `hop_dong`
 --
 
-INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `HD_TT`, `created_at`, `updated_at`) VALUES
-('HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-09-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14'),
-('HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '1', '2023-06-22 01:36:17', '2023-06-22 01:53:14');
+INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
+('HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-09-01', '2026-07-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-07-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
+('HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-07-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '2023-06-22 06:25:46', '2023-06-22 06:43:27');
 
 -- --------------------------------------------------------
 
@@ -291,7 +291,6 @@ CREATE TABLE `phu_luc` (
   `HD_TenNH` varchar(255) NOT NULL,
   `HD_TenChuDauTu` varchar(255) NOT NULL,
   `HD_HDScan` varchar(255) NOT NULL,
-  `HD_TT` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -300,49 +299,21 @@ CREATE TABLE `phu_luc` (
 -- Dumping data for table `phu_luc`
 --
 
-INSERT INTO `phu_luc` (`id`, `noidung`, `HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `HD_TT`, `created_at`, `updated_at`) VALUES
-(1, 'Nội dung sửa đổi : ', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(2, 'Nội dung sửa đổi : ', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(3, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(4, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(5, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(6, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(7, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(8, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(9, 'Nội dung sửa đổi : ', 'HD9', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(10, 'Nội dung sửa đổi : ', 'HD10', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(11, 'Nội dung sửa đổi : ', 'HD11', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(12, 'Nội dung sửa đổi : ', 'HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(13, 'Nội dung sửa đổi : ', 'HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(14, 'Nội dung sửa đổi : ', 'HD18', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:36:17', '2023-06-22 01:36:17'),
-(15, 'Nội dung sửa đổi : HD_NgayDangKy,', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '1', '2023-06-22 01:38:22', '2023-06-22 01:38:22'),
-(16, 'Nội dung sửa đổi : HD_NgayDangKy,', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:38:22', '2023-06-22 01:38:22'),
-(17, 'Nội dung sửa đổi : HD_NgayDangKy,', 'HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '1', '2023-06-22 01:38:22', '2023-06-22 01:38:22'),
-(18, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(19, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(20, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(21, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(22, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(23, 'Nội dung sửa đổi : DV_MaDV,', 'HD9', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(24, 'Nội dung sửa đổi : DV_MaDV,', 'HD10', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(25, 'Nội dung sửa đổi : DV_MaDV,', 'HD11', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(26, 'Nội dung sửa đổi : ', 'HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(27, 'Nội dung sửa đổi : ', 'HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(28, 'Nội dung sửa đổi : DV_MaDV,', 'HD18', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:38:23', '2023-06-22 01:38:23'),
-(29, 'Nội dung sửa đổi : HD_NgayDangKy', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(30, 'Nội dung sửa đổi : ', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(31, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(32, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(33, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(34, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(35, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(36, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(37, 'Nội dung sửa đổi : ', 'HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(38, 'Nội dung sửa đổi : ', 'HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(39, 'Nội dung sửa đổi : ', 'HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(40, 'Nội dung sửa đổi : ', 'HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(41, 'Nội dung sửa đổi : ', 'HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14'),
-(42, 'Nội dung sửa đổi : ', 'HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '1', '2023-06-22 01:53:14', '2023-06-22 01:53:14');
+INSERT INTO `phu_luc` (`id`, `noidung`, `HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
+(43, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-09-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(44, 'Nội dung sửa đổi : ', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(45, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(46, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(47, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(48, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(49, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(50, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(51, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(52, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(53, 'Nội dung sửa đổi : ', 'HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(54, 'Nội dung sửa đổi : ', 'HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(55, 'Nội dung sửa đổi : ', 'HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
+(56, 'Nội dung sửa đổi : ', 'HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27');
 
 -- --------------------------------------------------------
 
@@ -586,7 +557,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `phu_luc`
 --
 ALTER TABLE `phu_luc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
