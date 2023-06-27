@@ -118,8 +118,14 @@ class HopDongController extends Controller
             $path = public_path() . '/uploads/' . $fileName;
             // dd('a');
 
-            Excel::import(new HDImport, $path);
-            return redirect(route('import'))->with('success', 'import thành công');
+            $import = new HDImport;
+            Excel::import($import, $path);
+            // dd($import);
+            if($import->result){
+                return redirect(route('import'))->with('success', 'import thành công');
+            }   else{
+                return redirect(route('import'))->with('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD)');
+            }
         } else {
             return redirect()->back()->withErrors($validator);
         }

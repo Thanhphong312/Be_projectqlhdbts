@@ -8,7 +8,11 @@
     </ul>
 </div>
 @endif
-
+@if (Session::has('error'))
+    <div class="alert alert-danger">
+        {{ Session::get('error') }}
+    </div>
+@endif
 @if(Session::get('success', false))
 <?php $data = Session::get('success'); ?>
 @if (is_array($data))
