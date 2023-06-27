@@ -35,20 +35,20 @@ class HopDongController extends Controller
                     ->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
-                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
+                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
             } else {
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
-                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(5);
+                    ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
             }
         } else {
             if (!empty($dv))
-                $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
+                $hopdong['hopdong'] = DB::table('hop_dong')->where('DV_MaDV', $dv->DV_MaDV)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(7);
             else
-                $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(5);
+                $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(7);
 
             return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
         }

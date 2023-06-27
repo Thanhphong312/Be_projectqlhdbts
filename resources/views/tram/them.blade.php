@@ -9,10 +9,6 @@
 
 @section('content')
 <div class="content-main">
-    <!-- start search -->
-    @include('partials.common.search')
-    <!-- end search  -->
-
     <!-- start body -->
     <div class="wrapper">
         <!-- Sidebar  -->

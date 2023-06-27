@@ -9,10 +9,6 @@
 
 @section('content')
 <div class="content-main">
-    <!-- start search -->
-    @include('partials.common.search')
-    <!-- end search  -->
-
     <!-- start body -->
     <div class="wrapper">
         <!-- Sidebar  -->
@@ -29,6 +25,9 @@
             <h3 class="container">Hợp đồng đã tìm kiếm không tồn tại</h3>
             @else
             <div class="container">
+                  <!-- start search -->
+  @include('partials.common.search')
+  <!-- end search  -->
                 @csrf
                 <!--import-->
                 @php
@@ -123,7 +122,13 @@
                                         <td>{{$row->HD_MaCSHT}}</td>
                                         <td>{{$row->HD_TenChuDauTu}}</td>
                                         <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
-                                        <td>{{$diffInDays}} {{$unit}}</td>
+                                        <td>
+                                            @if ($diffInDays <= 0)
+                                                Hết hạn
+                                            @else
+                                                {{$diffInDays}} {{$unit}}
+                                            @endif
+                                        </td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                         <td>
                                             @if($quyens)
