@@ -22,27 +22,23 @@ class HDImport implements ToCollection, WithHeadingRow
      * @return \Illuminate\Database\Eloquent\Model|null
      */
     public $result = true;
+    public $dong = 0;
     public function collection(Collection $rows)
     {
-        // dd();
-        // dd($rows);
         DB::beginTransaction();
         try{
 
-            foreach ($rows as $row) {
+            foreach ($rows as $key => $row) {
                 $hopdong = HopDong::where('HD_MaHD', $row["ma_hop_dong"])->first();
                 $newhopdong = [];
                 $user = auth()->user()->id;
-                // dd($hopdong);
                 if(!isset($row["ma_hop_dong"])){
                     DB::rollBack();
                     $this->result = false;
-                    // dd(' ');
-                    // Session::flash('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD)');
+                    $this->dong =$key+3;
                     return ;
                 }
                 if ($hopdong != null) {
-                    // dd($hopdong);
                     $newhopdong['ND_MaND'] = $user;
                     $newhopdong['T_MaTram'] = $row["ma_tram"];
                     $newhopdong['DV_MaDV'] = $row["ma_don_vi"];
@@ -96,6 +92,7 @@ class HDImport implements ToCollection, WithHeadingRow
         }catch(\Exception $e){
             DB::rollBack();
             $this->result = false;
+            $this->dong +=3;
             // Session::flash('error', $e->getMessage());
         }
 

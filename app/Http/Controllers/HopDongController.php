@@ -124,7 +124,7 @@ class HopDongController extends Controller
             if($import->result){
                 return redirect(route('import'))->with('success', 'import thành công');
             }   else{
-                return redirect(route('import'))->with('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD)');
+                return redirect(route('import'))->with('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD) tại dòng '.$import->dong.'.');
             }
         } else {
             return redirect()->back()->withErrors($validator);
