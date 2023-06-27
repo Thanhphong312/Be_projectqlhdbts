@@ -10,6 +10,7 @@
 @section('content')
 <div class="content-main">
     <!-- start body -->
+    
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
@@ -18,7 +19,9 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
-
+             <!-- start search -->
+             @include('partials.common.search')
+            <!-- end search  -->
             <!-- Content -->
             <?php $stt = 1 ?>
             @if (!empty($request->search)&&$phuluc->count() <= 0)
