@@ -47,7 +47,9 @@
                                 </div>
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Nội dung chỉnh sửa:</div>
-                                    <label name="noidung" class="col-6 col-sm-6 text-view">{{$hienthipl->noidung}}</label>
+                                    <label name="noidung" class="col-6 col-sm-6 text-view">
+                                        <textarea disabled="">{{$hienthipl->noidung}}</textarea>
+                                    </label>
                                 </div>
 
                                 <div class="row mb-1">

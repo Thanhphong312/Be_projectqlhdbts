@@ -60,15 +60,18 @@
                             @php
                             $qnd = $taikhoan->quyennguoidungs()->first();
                             if($qnd){
-                            $q = $qnd->quyen()->first();
-                            $quyen = ($q)?$q->Q_TenQ:'';
+                                $q = $qnd->quyen()->first();
+                                $quyen = ($q)?$q->Q_TenQ:'';
                             }
                             if(!empty($role)&&$role->Q_MaQ!='Q0'){
-                            if(!empty($q)){
-                            if($q->Q_MaQ!=$role->Q_MaQ){
-                            continue;
+                                if(!empty($q)){
+                                    if($q->Q_MaQ=='Q0'){
+                                        continue;
+                                    }
+                                }
                             }
-                            }
+                            if(!empty($role)&&$role->Q_MaQ=='Q1'&&$taikhoan->id!=$id){
+                                continue;
                             }
                             @endphp
                             <tr>
