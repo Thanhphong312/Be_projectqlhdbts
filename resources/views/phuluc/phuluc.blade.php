@@ -46,21 +46,21 @@
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th scope="col-6 col-md-4">Mã HĐ</th>
-                                        <th scope="col-6 col-md-4">Nội dung chỉnh sửa</th>
-                                        <th scope="col-6 col-md-4">Tên chủ tài khoản</th>
-                                        <th scope="col-6 col-md-4">Số tài khoản</th>
-                                        <th scope="col-6 col-md-4">Tại ngân hàng</th>
-                                        <th scope="col-6 col-md-4">Ngày ký HĐ</th>
-                                        <th scope="col-6 col-md-4">Ngày hết hạn</th>
-                                        <th scope="col-6 col-md-4">Giá thuê</th>
-                                        <th scope="col-6 col-md-4">Mã trạm theo HĐ</th>
-                                        <th scope="col-6 col-md-4">Tên trạm</th>
-                                        <th scope="col-6 col-md-4">Mã CSHT</th>
-                                        <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
-                                        <th scope="col-6 col-md-4">Hợp đồng</th>
-                                        <th scope="col-6 col-md-4">Ngày phụ lục</th>
-                                        <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Mã HĐ</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Nội dung chỉnh sửa</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 150px;">Tên chủ tài khoản</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Số tài khoản</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Tại ngân hàng</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Ngày ký HĐ</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 150px;">Ngày hết hạn</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 120px;">Giá thuê</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 150px;">Mã trạm theo HĐ</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;" >Tên trạm</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Mã CSHT</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Tên chủ đầu tư</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Hợp đồng</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 150px;">Ngày phụ lục</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Tùy chỉnh</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,7 +68,9 @@
                                     <tr>
                                         <input type="hidden" value="{{$row->HD_MaHD}}" name="HD[{{$row->HD_MaHD}}]">
                                         <td>{{$row->HD_MaHD}}</td>
-                                        <td>{{$row->noidung}}</td>
+                                        <td class="multiline-text">
+                                            {{$row->noidung}}
+                                        </td>
                                         <td>{{$row->HD_TenCTK}}</td>
                                         <td>{{$row->HD_SoTaiKhoan}}</td>
                                         <td>{{$row->HD_TenNH}}</td>

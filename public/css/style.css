@@ -358,7 +358,15 @@ input.nosubmit {
 .show-window-menu {
     margin-left: 0px;
 }
-
+.multiline-text {
+    max-width: 250px; /* Set your desired maximum width */
+    /* word-break: break-word;
+    overflow-wrap: break-word; */
+    -webkit-line-clamp: 3; /* Set the desired number of lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 @media (max-width: 768px) {
     .hidden-mobile {
         display: none !important;

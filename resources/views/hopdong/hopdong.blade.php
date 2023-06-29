@@ -59,20 +59,20 @@
                                 <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th scope="col-6 col-md-4">Mã HĐ</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 100px;">Mã HĐ</th>
                                             <th scope="col-6 col-md-4">Tên chủ tài khoản</th>
                                             <th scope="col-6 col-md-4">Số tài khoản</th>
-                                            <th scope="col-6 col-md-4">Tại ngân hàng</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 120px;">Tại ngân hàng</th>
                                             <th scope="col-6 col-md-4">Ngày ký HĐ</th>
-                                            <th scope="col-6 col-md-4">Ngày hết hạn</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 120px;">Ngày hết hạn</th>
                                             <th scope="col-6 col-md-4">Giá thuê</th>
-                                            <th scope="col-6 col-md-4">Mã trạm theo HĐ</th>
-                                            <th scope="col-6 col-md-4">Tên trạm</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 150px">Mã trạm theo HĐ</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 120px;">Tên trạm</th>
                                             <th scope="col-6 col-md-4">Mã CSHT</th>
                                             <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
                                             <th scope="col-6 col-md-4">Hợp đồng</th>
-                                            <th scope="col-6 col-md-4">Thời hạn</th>
-                                            <th scope="col-6 col-md-4">Ngày phụ lục</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 120px;">Thời hạn</th>
+                                            <th scope="col-6 col-md-4" style="min-width: 120px;">Ngày phụ lục</th>
                                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
                                         </tr>
                                     </thead>
@@ -140,7 +140,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                    <iframe width="100%" height="500px" class="" src="https://docs.google.com/document/d/e/2PACX-1vRWb1Uq5c6C_cjv_ThdRwfrXjXuozhnauS36ba70nUZeGbd_YBpZItZhUjZkG21VXiAsX0a2gRFQi4c/pub?embedded=true" allowfullscreen></iframe>
+                                        <iframe width="100%" height="500px" class="" src="https://docs.google.com/document/d/e/2PACX-1vRWb1Uq5c6C_cjv_ThdRwfrXjXuozhnauS36ba70nUZeGbd_YBpZItZhUjZkG21VXiAsX0a2gRFQi4c/pub?embedded=true" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
