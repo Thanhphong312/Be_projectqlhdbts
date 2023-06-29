@@ -22,6 +22,7 @@ class TaiKhoanController extends Controller
     public function index()
     {
         $role = null;
+        $id = Auth::user()->id;
         if (!empty(Auth::user())) {
             $role = Auth::user()->quyennguoidungs()->first()->quyen()->first();
         }
@@ -34,7 +35,7 @@ class TaiKhoanController extends Controller
         ];
         $taikhoans = User::paginate(5);
 
-        return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs', 'role'));
+        return view('taikhoan/taikhoan', compact('title', 'taikhoans', 'breadcrumbs', 'role','id'));
     }
 
     public function them()
