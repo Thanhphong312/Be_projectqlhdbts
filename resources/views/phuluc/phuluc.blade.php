@@ -49,7 +49,7 @@
                                         <th scope="col-6 col-md-4" style="min-width: 100px;">Mã HĐ</th>
                                         <th scope="col-6 col-md-4" style="min-width: 100px;">Nội dung chỉnh sửa</th>
                                         <th scope="col-6 col-md-4" style="min-width: 150px;">Tên chủ tài khoản</th>
-                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Số tài khoản</th>
+                                        <th scope="col-6 col-md-4" style="min-width: 150px;">Số tài khoản</th>
                                         <th scope="col-6 col-md-4" style="min-width: 100px;">Tại ngân hàng</th>
                                         <th scope="col-6 col-md-4" style="min-width: 100px;">Ngày ký HĐ</th>
                                         <th scope="col-6 col-md-4" style="min-width: 150px;">Ngày hết hạn</th>
