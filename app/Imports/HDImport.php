@@ -3,7 +3,6 @@
 namespace App\Imports;
 
 use App\Models\PhuLuc;
-use App\Models\Tram;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\HopDong;
@@ -23,8 +22,6 @@ class HDImport implements ToCollection, WithHeadingRow
      * @return \Illuminate\Database\Eloquent\Model|null
      */
     public $result = true;
-    public $message;
-
     public $dong = 0;
     public function collection(Collection $rows)
     {
@@ -32,7 +29,6 @@ class HDImport implements ToCollection, WithHeadingRow
         try{
 
             foreach ($rows as $key => $row) {
-                $tram = Tram::where('T_MaTram', $row["ma_tram"])->first();
                 $hopdong = HopDong::where('HD_MaHD', $row["ma_hop_dong"])->first();
                 $newhopdong = [];
                 $user = auth()->user()->id;
@@ -71,7 +67,6 @@ class HDImport implements ToCollection, WithHeadingRow
                     $this->newPhuluc($oldhopdong);
                     HopDong::where('HD_MaHD', $row['ma_hop_dong'])->update($newhopdong);
                 } else {
-                    if ($tram->T_TinhTrang == 0) {
                         
                         // cho phép import hợp đồng mới
                         $hopdong = new HopDong;
@@ -92,21 +87,7 @@ class HDImport implements ToCollection, WithHeadingRow
                         $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
                         $hopdong->HD_HDScan = str_replace('/file/d/', '/uc?export=download&id=',  $row["hop_dong"]);
                         $hopdong->HD_HDScan = str_replace('/view?usp=sharing', '', $hopdong->HD_HDScan);
-                        // cập nhật tình trạng của trạm
-                        Tram::where('T_MaTram', $row["ma_tram"])->update([
-                            'T_TinhTrang'=> 1
-                        ]);
-
                         $hopdong->save();
-                    }else {
-                        // không cho phép import hợp đồng mới
-                        // kết thúc quá trình import và thông báo trạm đã được thuê
-                        DB::rollBack();
-                    $this->result = false;
-                    $this->message = "Trạm đã được thuê";
-                    $this->dong =$key+3;
-                    return ;
-                    }
                 }
             }
             DB::commit();
