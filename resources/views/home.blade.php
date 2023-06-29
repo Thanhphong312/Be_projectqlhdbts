@@ -60,12 +60,21 @@
               </div>
             </a>
           </div>
-
           <div class="col-6 col-md-4 rounded-3 border border-dark">
             <a href="taikhoan" class="item-home d-flex align-items-center justify-content-center">
               <div>
                 <i class="fas fa-users"></i>
                 <h4>Tài khoản</h4>
+              </div>
+            </a>
+          </div>
+          @endif
+          @if($quyen!='Q0')
+          <div class="col-6 col-md-4 rounded-3 border border-dark">
+            <a href="phuluc" class="item-home d-flex align-items-center justify-content-center">
+              <div>
+                <i class="fas fa-sticky-note"></i>
+                <h4>Phụ lục</h4>
               </div>
             </a>
           </div>
