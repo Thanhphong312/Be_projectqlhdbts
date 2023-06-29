@@ -46,7 +46,7 @@
                             <table class="table table-bordered text-center">
                                 <thead>
                                     <tr>
-                                        <th scope="col-6 col-md-4" style="min-width: 100px;">Mã HĐ</th>
+                                    <th scope="col-6 col-md-4" style="min-width: 100px;">Mã HĐ</th>
                                         <th scope="col-6 col-md-4" style="min-width: 100px;">Nội dung chỉnh sửa</th>
                                         <th scope="col-6 col-md-4" style="min-width: 150px;">Tên chủ tài khoản</th>
                                         <th scope="col-6 col-md-4" style="min-width: 150px;">Số tài khoản</th>
@@ -67,22 +67,22 @@
                                     @foreach($phuluc as $row)
                                     <tr>
                                         <input type="hidden" value="{{$row->HD_MaHD}}" name="HD[{{$row->HD_MaHD}}]">
-                                        <td>{{$row->HD_MaHD}}</td>
-                                        <td class="multiline-text">
+                                        <td style="text-align:left">{{$row->HD_MaHD}}</td>
+                                        <td style="text-align:left" class="multiline-text">
                                             {{$row->noidung}}
                                         </td>
-                                        <td>{{$row->HD_TenCTK}}</td>
-                                        <td>{{$row->HD_SoTaiKhoan}}</td>
-                                        <td>{{$row->HD_TenNH}}</td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
-                                        <td>{{$row->HD_GiaHienTai}}</td>
-                                        <td>{{$row->T_MaTram}}</td>
-                                        <td>{{$row->T_TenTram}}</td>
-                                        <td>{{$row->HD_MaCSHT}}</td>
-                                        <td>{{$row->HD_TenChuDauTu}}</td>
-                                        <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
-                                        <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
+                                        <td style="text-align:left">{{$row->HD_TenCTK}}</td>
+                                        <td style="text-align:right">{{$row->HD_SoTaiKhoan}}</td>
+                                        <td style="text-align:left">{{$row->HD_TenNH}}</td>
+                                        <td style="text-align:right">{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
+                                        <td style="text-align:right">{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
+                                        <td style="text-align:right">{{$row->HD_GiaHienTai}}</td>
+                                        <td style="text-align:left">{{$row->T_MaTram}}</td>
+                                        <td style="text-align:left">{{$row->T_TenTram}}</td>
+                                        <td style="text-align:left">{{$row->HD_MaCSHT}}</td>
+                                        <td style="text-align:left">{{$row->HD_TenChuDauTu}}</td>
+                                        <td style="text-align:left"><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
+                                        <td style="text-align:right">{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                         <td>
                                             <a href="{{route('phuluc-hienthi', $row->id)}}" class="btn btn-secondary me-md-3">Chi tiết</a>
                                             <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">Download PDF</a>
