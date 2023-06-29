@@ -59,4 +59,21 @@ class PhuLucController extends Controller
     {
         return Excel::download(new HDExport($request), 'HD-'.Carbon::now()->format('M j, Y H-i-s').'.xlsx');
     }
+
+    public function hienthipl(Request $request)
+    {
+        $title = 'Phụ lục';
+        $breadcrumbs = [
+            [
+                'name' => 'Phụ lục',
+                'link' => '../'
+            ], [
+                'name' => 'Chi tiết',
+                'link' => './' . $request->id
+            ]
+        ];
+        $hienthiphuluc = PhuLuc::where('id', $request->id)->get();
+
+        return view('phuluc/hienthi', compact('title', 'hienthiphuluc', 'breadcrumbs'));
+    }
 }

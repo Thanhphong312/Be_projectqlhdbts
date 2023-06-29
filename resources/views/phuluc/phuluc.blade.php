@@ -82,6 +82,7 @@
                                         <td><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                         <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                         <td>
+                                            <a href="{{route('phuluc-hienthi', $row->id)}}" class="btn btn-secondary me-md-3">Chi tiết</a>
                                             <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">Download PDF</a>
                                         </td>
                                     </tr>

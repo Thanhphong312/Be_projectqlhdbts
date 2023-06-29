@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
     //phuluc
     Route::get('/phuluc', [PhuLucController::class, 'index'])->name('phuluc');
     Route::any('/export', [PhuLucController::class, 'export'])->name('export');
+    Route::get('/phuluc/hienthipl/{id}', [PhulucController::class, 'hienthipl'])->name('phuluc-hienthi');
     // csht 
     Route::get('/csht', [CSHTController::class, 'index'])->name('csht');
     Route::get('/csht/them', [CSHTController::class, 'them'])->name('csht-them');
