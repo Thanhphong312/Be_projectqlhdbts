@@ -109,7 +109,9 @@
 
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Hợp đồng:</div>
-                                    <label name="HD_HDScan" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_HDScan}}</label>
+                                    <label name="HD_HDScan" class="col-6 col-sm-6 text-view">
+                                        <textarea disabled="">{{$hienthipl->HD_HDScan}}</textarea>
+                                    </label>
                                 </div>
 
                                 <div class="row mb-1">
