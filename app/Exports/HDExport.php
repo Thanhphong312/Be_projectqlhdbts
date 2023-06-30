@@ -107,6 +107,7 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
         $sheet->getStyle('O2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
             ->getAlignment()
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
         return $sheet;
     }
 
