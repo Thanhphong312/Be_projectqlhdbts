@@ -84,7 +84,6 @@
                                 <th scope="col-6 col-md-4">Mã trạm</th>
                                 <th scope="col-6 col-md-4">Tên trạm</th>
                                 <th scope="col-6 col-md-4">Địa chỉ</th>
-                                <th scope="col-6 col-md-4">Tình trạng</th>
                                 <th scope="col-6 col-md-4">Tọa độ</th>
                                 <th scope="col-6 col-md-4">Đơn vị quản lý Trạm</th>
                                 <th scope="col-6 col-md-4">Tùy chỉnh</th>
@@ -93,12 +92,11 @@
                         <tbody>
                             @foreach($trams as $tram)
                             <tr>
-                                <td style="text-align:left">{{$tram->T_MaTram}}</td>
-                                <td style="text-align:left">{{$tram->T_TenTram}}</td>
-                                <td style="text-align:left">{{$tram->T_DiaChiTram}}</td>
-                                <td style="text-align:left">{{$tram->T_TinhTrang}}</td>
-                                <td style="text-align:left"><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
-                                <td style="text-align:left" style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
+                                <td>{{$tram->T_MaTram}}</td>
+                                <td>{{$tram->T_TenTram}}</td>
+                                <td>{{$tram->T_DiaChiTram}}</td>
+                                <td><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
+                                <td style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
                                 <td>
                                     <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
                                         <button type="button" onclick=capnhat_tram('{{$tram->T_MaTram}}') class="btn btn-primary me-md-3">
