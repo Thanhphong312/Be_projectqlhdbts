@@ -2,8 +2,7 @@
     <div class="user mt-3 d-flex justify-content-center">
         <div>
             <div class="input-group" style="align-items: center;">
-                <img src="{{url((auth()->user()!=null)?auth()->user()->avatar:'')}}" alt="" width="32" height="32" class="rounded-circle">
-                <span class="p-2">{{(auth()->user()!=null)?auth()->user()->name:''}}</span>
+                <img src=".\avatar\VNPT-Logo.png" alt="" width="150" height="40" class="rounded-circle">
             </div>
         </div>
     </div>
