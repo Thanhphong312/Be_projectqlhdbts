@@ -56,7 +56,7 @@
                                 <td>{{$tram->T_DiaChiTram}}</td>
                                 <td>{{$tram->T_TinhTrang}}</td>
                                 <td><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
-                                <td style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_NgQL:""}}</td>
+                                <td style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
                                 <td>
                                     <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
                                         <a href="{{route('tram-chinhsua', $tram->T_MaTram)}}" class="btn btn-primary me-md-3">
