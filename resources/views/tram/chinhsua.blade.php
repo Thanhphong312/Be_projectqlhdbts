@@ -48,7 +48,7 @@
                             <label class="form-label">Đơn vị quản lý
                                 <span id="colorIcon">*</span>
                             </label>  
-                            <select required class="form-control" aria-label="Default select example" name="donviquanly">
+                            <select style="cursor: pointer;" class="form-control" aria-label="Default select example" name="donviquanly">
                                 @foreach($donviquanlis as $donviquanli)
                                     <option value="{{$donviquanli->id}}" {{($sua->Ma_DVQL==$donviquanli->id)?'selected':''}}>{{$donviquanli->Ten_DV}}</option>
                                 @endforeach
@@ -63,8 +63,8 @@
                         <div class="mb-3 text-left">
                             <label class="form-label">Tình trạng</label>
                             <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="T_TinhTrang" name="T_TinhTrang">
-                                <option value="1">Hoạt động</option>
-                                <option value="0">Ngưng hoạt động</option>
+                                <option value="Hoạt động">Hoạt động</option>
+                                <option value="Ngưng hoạt động">Ngưng hoạt động</option>
                             </select>
                         </div>
                         <div class="row justify-content-center">

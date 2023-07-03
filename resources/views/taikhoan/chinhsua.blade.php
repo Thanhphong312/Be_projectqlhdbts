@@ -44,32 +44,42 @@
                                     <label class="form-label">Ảnh đại diện
                                         <span id="colorIcon">*</span>
                                     </label>
-                                    <input class="form-control" type="file" name="avatar" id="avatar" >
+                                    <input class="form-control" type="file" name="avatar" id="avatar">
                                     <img src="{{$avatar}}" alt="avatar" width="140" height="140">
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Mã người dùng:</div>
-                                    <input required name="ND_MaND" class="col-6 col-sm-6 text-view" value="{{$sua->ND_MaND}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Mã người dùng</label>
+                                    <label style="cursor: not-allowed;" required name="ND_MaND" class="col-6 col-sm-6 form-control">{{$sua->ND_MaND}}</label>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Tên người dùng:</div>
-                                    <input required name="name" class="col-6 col-sm-6 text-view" value="{{$sua->name}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Tên người dùng
+                                        <span id="colorIcon">*</span>
+                                    </label>
+                                    <input required name="name" class="col-6 col-sm-6 form-control" value="{{$sua->name}}"></input>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Giới tính:</div>
-                                    <input required name="ND_GioiTinh" class="col-6 col-sm-6 text-view" value="{{$sua->ND_GioiTinh}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Giới tính
+                                        <span id="colorIcon">*</span>
+                                    </label>
+                                    <input required name="ND_GioiTinh" class="col-6 col-sm-6 form-control" value="{{$sua->ND_GioiTinh}}"></input>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Địa chỉ:</div>
-                                    <input required name="ND_DiaChi" class="col-6 col-sm-6 text-view" value="{{$sua->ND_DiaChi}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Địa chỉ
+                                        <span id="colorIcon">*</span>
+                                    </label>
+                                    <input required name="ND_DiaChi" class="col-6 col-sm-6 form-control" value="{{$sua->ND_DiaChi}}"></input>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Email:</div>
-                                    <input required name="email" type="email" class="col-6 col-sm-6 text-view" value="{{$sua->email}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Email
+                                        <span id="colorIcon">*</span>
+                                    </label>
+                                    <input required name="email" type="email" class="col-6 col-sm-6 form-control" value="{{$sua->email}}"></input>
                                 </div>
-                                <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Số điện thoại:</div>
-                                    <input required name="ND_SDT" class="col-6 col-sm-6 text-view" value="{{$sua->ND_SDT}}"></input>
+                                <div class="mb-3 text-left">
+                                    <label style="cursor: default;" class="form-label">Số điện thoại
+                                        <span id="colorIcon">*</span>
+                                    </label>
+                                    <input required name="ND_SDT" class="col-6 col-sm-6 form-control" value="{{$sua->ND_SDT}}"></input>
                                 </div>
                                 <div class="row justify-content-center m-3">
                                     <button type="submit" class="btn btn-success col-md-5" id="side123">Sửa</button>
