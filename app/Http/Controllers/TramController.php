@@ -7,7 +7,7 @@ use App\Models\CoSoHaTang;
 use App\Models\DonViQLTram;
 use App\Models\Tram;
 use Illuminate\Http\Request;
-
+use Session;
 class TramController extends Controller
 {
     public function index()
@@ -72,7 +72,8 @@ class TramController extends Controller
             'Ma_DVQL' => $request->donviquanly,
         ]);
         if ($suatram) {
-            return redirect()->route('tram')->with('success', 'Sửa thành công');
+            Session::flash('success', 'Cập nhật thành công.');
+            return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
         }
 
         return redirect()->route('tram')->with('success', 'Sửa không thành công, không được chỉnh sửa mã trạm');

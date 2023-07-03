@@ -19,7 +19,49 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
+            <!-- start modal ajax edit, add--->
+            <div class="modal fade" id="editTaiKhoan">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cập Nhật Tài Khoản</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <form id="body_edit" class="form-horizontal" method="post" enctype="multipart/form-data">
+                            </form>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="addTaiKhoan">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thêm Tài Khoản</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <form method="POST" id="body_add" action="{{route('taikhoan-store')}}" enctype="multipart/form-data">
+                                @csrf
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--  end modal ajax edit, add--->
             <!-- Content -->
             <div class="container">
                 @php
@@ -33,10 +75,10 @@
                 }
                 @endphp
                 @if($quyennd=='Q0')
-                <a href="{{route('taikhoan-them')}}" class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-success me-md-2 mt-1 mb-1" type="button">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-success me-md-2 mt-1 mb-1" type="button" onclick=them_taikhoan()>
                         <i class="fas fa-plus"></i> Thêm</button>
-                </a>
+                </div>
                 @endif
                 <div class="table-responsive p-3">
                     <table class="table table-bordered text-center p-2">
@@ -60,18 +102,18 @@
                             @php
                             $qnd = $taikhoan->quyennguoidungs()->first();
                             if($qnd){
-                                $q = $qnd->quyen()->first();
-                                $quyen = ($q)?$q->Q_TenQ:'';
+                            $q = $qnd->quyen()->first();
+                            $quyen = ($q)?$q->Q_TenQ:'';
                             }
                             if(!empty($role)&&$role->Q_MaQ!='Q0'){
-                                if(!empty($q)){
-                                    if($q->Q_MaQ=='Q0'){
-                                        continue;
-                                    }
-                                }
+                            if(!empty($q)){
+                            if($q->Q_MaQ=='Q0'){
+                            continue;
+                            }
+                            }
                             }
                             if(!empty($role)&&$role->Q_MaQ=='Q1'&&$taikhoan->id!=$id){
-                                continue;
+                            continue;
                             }
                             @endphp
                             <tr>
@@ -90,11 +132,9 @@
                                             <i class="fas fa-eye"></i> Xem
                                         </a>
                                         @if($quyennd=='Q0')
-                                        <form action="{{route('taikhoan-chinhsua', $taikhoan->id)}}" method="get">
-                                            <button type="submit" class="btn btn-primary me-md-3 m-1">
-                                                <i class="fas fa-edit"></i> Sửa
-                                            </button>
-                                        </form>
+                                        <button type="submit" onclick=capnhat_taikhoan({{$taikhoan->id}}) class="btn btn-primary me-md-3 m-1">
+                                            <i class="fas fa-edit"></i> Sửa
+                                        </button>
                                         <form action="{{route('taikhoan-xoa', $taikhoan->id)}}" method="get">
                                             <button type="submit" onclick="return confirm('Bạn có đồng ý xóa hay không?')" class="btn btn-danger me-md-3 m-1">
                                                 <i class="fas fa-trash-alt"></i> Xóa
@@ -118,4 +158,49 @@
 @endsection
 
 @section('JS')
+<script>
+    $('.close').click(function() {
+        $('.modal').modal('hide');
+    });
+
+    function capnhat_taikhoan(id) {
+        // $.get('{{Url("/design/edit")}}/' + id, function (data) {
+        $.get('./taikhoan/chinhsua/' + id, function(data) {
+            $("#body_edit").html(data);
+            // console.log(data);
+            // getDesignSuggest(id)
+        });
+        $('#editTaiKhoan').modal('show');
+    }
+
+    function them_taikhoan() {
+        // $.get('{{Url("/design/edit")}}/' + id, function (data) {
+        $.get('./taikhoan/them', function(data) {
+            $("#body_add").html(data);
+            // console.log(data);
+            // getDesignSuggest(id)
+        });
+        $('#addTaiKhoan').modal('show');
+    }
+    $('#body_edit').submit(function(evt) {
+        evt.preventDefault();
+        var formData = new FormData(this);
+        var id = $("#id").val();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            //url: '{{Url("/design/update-post")}}',
+            url: '/taikhoan/chinhsua/' + id,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                var successMessage = data.message;
+                $('#editHopDong').modal('hide');
+                window.location.href = './designs';
+            },
+        });
+    });
+</script>
 @endsection

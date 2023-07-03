@@ -18,7 +18,29 @@
         <div id="content">
             <!-- Tieu de -->
             @include('partials.common.tieude')
+            <!-- start modal ajax edit--->
+            <div class="modal fade" id="editHopDong">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cập Nhật Hợp Đồng</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <form id="body_edit" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                @csrf
+                            </form>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+            <!--  end modal ajax edit--->
             <!-- Content -->
             <?php $stt = 1 ?>
             @if (!empty($request->search)&&$hopdong->count() <= 0) <h3 class="container">Hợp đồng đã tìm kiếm không tồn tại</h3>
@@ -114,7 +136,7 @@
                                                 <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                                 <td>
                                                     @if($quyens)
-                                                    <a href="{{route('hopdong-capnhat', $row->HD_MaHD)}}" class="btn btn-primary me-md-3">
+                                                    <a onclick=capnhat_hopdong('{{$row->HD_MaHD}}') class="btn btn-primary me-md-3">
                                                         <i class="fas fa-edit"></i> Cập nhật
                                                     </a>
                                                     @endif
@@ -128,7 +150,7 @@
                             {{ $hopdong->links() }}
                         </div>
                     </form>
-                    <div class="alert" style="text-align: center;">
+                    <!-- <div class="alert" style="text-align: center;">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Hướng dẫn sử dụng</button>
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
@@ -145,7 +167,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 @endif
         </div>
@@ -155,10 +177,47 @@
 @endsection
 
 @section('JS')
+
 <script>
-    $('#myModal').on('shown.bs.modal', function() {
-        $('#myInput').trigger('focus')
-    })
+    // $('#myModal').on('shown.bs.modal', function() {
+    //     $('#myInput').trigger('focus')
+    // })
+    $('.close').click(function(){
+        $('#editHopDong').modal('hide');
+    });
+    function capnhat_hopdong(HD_MaHD) {
+        // $.get('{{Url("/design/edit")}}/' + id, function (data) {
+        $.get('./hopdong/capnhat/' + HD_MaHD, function(data) {
+            $("#body_edit").html(data);
+            // console.log(data);
+            // getDesignSuggest(id)
+        });
+        $('#editHopDong').modal('show');
+
+    }
+    $('#body_edit').submit(function(evt) {
+        evt.preventDefault();
+        var formData = new FormData(this);
+        var HD_MaHD = $("#HD_MaHD").val();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            //url: '{{Url("/design/update-post")}}',
+            url: './hopdong/update/' + HD_MaHD,
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                var successMessage = data.message;
+                if(successMessage){
+                    $('#editHopDong').modal('hide');
+                    window.location.href = './hopdong';
+                }
+                
+            },
+        });
+    });
 </script>
 
 @endsection

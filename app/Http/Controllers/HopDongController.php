@@ -6,7 +6,7 @@ use App\Exports\HDExport;
 use App\Models\HopDong;
 use App\Imports\HDImport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Session;
 use App\Http\Controllers\Controller;
 use App\Models\CoSoHaTang;
 use App\Models\Tram;
@@ -36,13 +36,13 @@ class HopDongController extends Controller
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs', 'request'), $hopdong);
             } else {
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
-                return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
+                return view('hopdong/hopdong', compact('title', 'breadcrumbs', 'request'), $hopdong);
             }
         } else {
             if (!empty($dv))
@@ -50,7 +50,7 @@ class HopDongController extends Controller
             else
                 $hopdong['hopdong'] = DB::table('hop_dong')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->paginate(7);
 
-            return view('hopdong/hopdong', compact('title', 'breadcrumbs','request'), $hopdong);
+            return view('hopdong/hopdong', compact('title', 'breadcrumbs', 'request'), $hopdong);
         }
     }
 
@@ -94,11 +94,13 @@ class HopDongController extends Controller
             'HD_HDScan' => $request->HD_HDScan,
         ]);
         if ($capnhathopdong) {
-            return redirect()->route('hopdong')->with('success', 'Cập nhật thành công');
+            Session::flash('success', 'Cập nhật thành công.');
+            return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']);
         }
 
-        return redirect()->route('hopdong')->with('success', 'Cập nhật không thành công, không được chỉnh sửa mã hợp đồng');
-    }
+        Session::flash('error', 'Cập nhật thât bại.');
+
+        return response()->json(['status' => 'error', 'message' => 'Cập nhật thât bại.']);    }
 
     public function import(Request $request)
     {
@@ -119,10 +121,10 @@ class HopDongController extends Controller
             $import = new HDImport;
             Excel::import($import, $path);
             // dd($import);
-            if($import->result){
+            if ($import->result) {
                 return redirect(route('import'))->with('success', 'import thành công');
-            }   else{
-                return redirect(route('import'))->with('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD) tại dòng '.$import->dong.'.');
+            } else {
+                return redirect(route('import'))->with('error', 'Dòng dữ liệu thiếu mã hợp đồng (HD_MaHD) tại dòng ' . $import->dong . '.');
             }
         } else {
             return redirect()->back()->withErrors($validator);
@@ -131,6 +133,6 @@ class HopDongController extends Controller
 
     public function export(Request $request)
     {
-        return Excel::download(new HDExport($request), 'HD-'.Carbon::now()->format('M j, Y H-i-s').'.xlsx');
+        return Excel::download(new HDExport($request), 'HD-' . Carbon::now()->format('M j, Y H-i-s') . '.xlsx');
     }
 }

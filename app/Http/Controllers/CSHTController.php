@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CoSoHaTang;
 use App\Models\Tram;
-
+use Session;
 class CSHTController extends Controller
 {
     public function index()
@@ -64,7 +64,8 @@ class CSHTController extends Controller
             'CSHT_TenCSHT' => $request->CSHT_TenCSHT
         ]);
         if ($suacsht) {
-            return redirect()->route('csht')->with('success', 'Sửa thành công');
+            Session::flash('success', 'Cập nhật thành công.');
+            return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']); 
         }
 
         return redirect()->route('csht')->with('success', 'Sửa không thành công, không được chỉnh sửa mã cơ sở hạ tầng');
