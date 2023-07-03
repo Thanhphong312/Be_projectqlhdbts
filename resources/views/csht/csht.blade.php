@@ -37,8 +37,8 @@
                     <tbody>
                         @foreach($cshts as $csht)
                         <tr>
-                            <td>{{$csht->CSHT_MaCSHT}}</td>
-                            <td>{{$csht->CSHT_TenCSHT}}</td>
+                            <td style="text-align:left">{{$csht->CSHT_MaCSHT}}</td>
+                            <td style="text-align:left">{{$csht->CSHT_TenCSHT}}</td>
                             <td>
                                 <form action="{{route('csht-xoa', $csht->CSHT_MaCSHT)}}" method="get">
                                     <a href="{{route('csht-chinhsua', $csht->CSHT_MaCSHT)}}" class="btn btn-primary me-md-3">

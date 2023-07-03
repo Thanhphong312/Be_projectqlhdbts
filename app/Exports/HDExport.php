@@ -64,6 +64,50 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
             ->getAlignment()
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
+        $sheet->getStyle('A2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getStyle('F2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('G2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('H2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('I2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('J2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('K2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
+
+        $sheet->getStyle('L2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getStyle('M2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getStyle('N2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
+        $sheet->getStyle('O2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
+            ->getAlignment()
+            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+
         return $sheet;
     }
 

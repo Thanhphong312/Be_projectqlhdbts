@@ -51,12 +51,12 @@
                         <tbody>
                             @foreach($trams as $tram)
                             <tr>
-                                <td>{{$tram->T_MaTram}}</td>
-                                <td>{{$tram->T_TenTram}}</td>
-                                <td>{{$tram->T_DiaChiTram}}</td>
-                                <td>{{$tram->T_TinhTrang}}</td>
-                                <td><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
-                                <td style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
+                                <td style="text-align:left">{{$tram->T_MaTram}}</td>
+                                <td style="text-align:left">{{$tram->T_TenTram}}</td>
+                                <td style="text-align:left">{{$tram->T_DiaChiTram}}</td>
+                                <td style="text-align:left">{{$tram->T_TinhTrang}}</td>
+                                <td style="text-align:left"><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
+                                <td style="text-align:left" style="width:100px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
                                 <td>
                                     <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
                                         <a href="{{route('tram-chinhsua', $tram->T_MaTram)}}" class="btn btn-primary me-md-3">
