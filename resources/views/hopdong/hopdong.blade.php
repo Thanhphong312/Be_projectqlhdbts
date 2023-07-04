@@ -92,7 +92,7 @@
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Tại ngân hàng</th>
                                             <th scope="col-6 col-md-4">Ngày ký HĐ</th>
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Ngày hết hạn</th>
-                                            <th scope="col-6 col-md-4">Giá thuê</th>
+                                            <th scope="col-6 col-md-4">Giá thuê (VNĐ)</th>
                                             <th scope="col-6 col-md-4" style="min-width: 150px">Mã trạm theo HĐ</th>
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Tên trạm</th>
                                             <th scope="col-6 col-md-4">Mã CSHT</th>
