@@ -20,7 +20,7 @@
             @include('partials.common.tieude')
             <!-- start modal ajax edit--->
             <div class="modal fade" id="editHopDong">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog ">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -36,7 +36,6 @@
                                 @csrf
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -57,6 +56,12 @@
                     }
                     @endphp
                     @if($quyens)
+                    <div class="text-left">
+                        <ul class="text-left">Chú thích:
+                            <li class="text-warning">Màu cam: Hợp đồng đã hết hạn</li>
+                            <li class="text-dark">Màu đen: Hợp đồng chưa hết hạn</li>
+                        </ul>
+                    </div>
                     <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">

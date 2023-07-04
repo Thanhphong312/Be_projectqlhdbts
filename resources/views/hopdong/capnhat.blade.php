@@ -1,13 +1,13 @@
 <!-- Content -->
-<div class="container col-md-8 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
         @foreach($capnhathopdong as $capnhat)
         <form method="post" action="{{route('hopdong-update', $capnhat->HD_MaHD)}}">
             @csrf
             <input required value="{{$capnhat->HD_MaHD}}" name="HD_MaHD" id="HD_MaHD" class="form-control" type="hidden">
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
                 <h5 class="text-center" id="side12">CẬP NHẬT HỢP ĐỒNG</h5>
-            </div>
+            </div> -->
             <div class="mb-3 text-left">
                 <label class="form-label">Mã hợp đồng</label>
                 <label style="cursor: not-allowed;" name="HD_MaHD" class="form-control">{{$capnhat->HD_MaHD}}</label>

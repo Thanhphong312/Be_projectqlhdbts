@@ -1,12 +1,12 @@
 @csrf
 
 <!-- Content -->
-<div class="container col-md-8 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
         @foreach($suatram as $sua)
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
                 <h5 class="text-center" id="side12">CHỈNH SỬA TRẠM</h5>
-            </div>
+            </div> -->
             <input required value="{{$sua->T_MaTram}}" name="T_MaTram" id="T_MaTram" class="form-control" type="hidden">
 
             <div class="mb-3">

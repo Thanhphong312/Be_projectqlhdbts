@@ -1,11 +1,11 @@
 <!-- Content -->
 @csrf
 
-<div class="container col-md-8 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <h5 class="text-center" id="side12">THÊM TRẠM</h5>
-        </div>
+        </div> -->
         <div class="mb-3">
             <label class="form-label">Mã trạm
                 <span id="colorIcon">*</span>

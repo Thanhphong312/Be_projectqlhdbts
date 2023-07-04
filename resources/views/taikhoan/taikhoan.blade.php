@@ -21,7 +21,7 @@
             @include('partials.common.tieude')
             <!-- start modal ajax edit, add--->
             <div class="modal fade" id="editTaiKhoan">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -36,12 +36,11 @@
                             <form id="body_edit" class="form-horizontal" method="post" enctype="multipart/form-data">
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="addTaiKhoan">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -57,7 +56,6 @@
                                 @csrf
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
