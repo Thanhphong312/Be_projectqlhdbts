@@ -1,10 +1,10 @@
 <!-- Content -->
-<div class="container col-md-8 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
         @csrf
-        <div class="row">
+        <!-- <div class="row">
             <h5 class="text-center" id="side12">THÊM CƠ SỞ HẠ TẦNG</h5>
-        </div>
+        </div> -->
         <div class="mb-3 text-left">
             <label class="form-label">Mã CSHT
                 <span id="colorIcon">*</span>

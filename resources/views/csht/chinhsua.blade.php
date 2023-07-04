@@ -1,11 +1,11 @@
 @csrf
 <!-- Content -->
-<div class="container col-md-5 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
         @foreach($suacsht as $sua)
-            <div class="row justify-content-center">
+            <!-- <div class="row justify-content-center">
                 <h5 class="text-center" id="side12">CHỈNH SỬA CƠ SỞ HẠ TẦNG</h5>
-            </div>
+            </div> -->
             <input required value="{{$sua->CSHT_MaCSHT}}" name="CSHT_MaCSHT" id="CSHT_MaCSHT" class="form-control" type="hidden">
 
             <div class="mb-3">

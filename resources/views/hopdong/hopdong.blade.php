@@ -20,7 +20,7 @@
             @include('partials.common.tieude')
             <!-- start modal ajax edit--->
             <div class="modal fade" id="editHopDong">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog ">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -36,7 +36,6 @@
                                 @csrf
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -56,15 +55,21 @@
                     $quyens = auth()->user()->quyennguoidungs()->where('Q_MaQ', 'Q1')->first();
                     }
                     @endphp
-                    @if($quyens)
-                    <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('start-import')}}" class="form d-flex justify-content-between align-items-center" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="text-left">
+                            <ul class="text-left">Chú thích:
+                                <li class="text-warning">Màu cam: Hợp đồng đã hết hạn</li>
+                                <li class="text-dark">Màu đen: Hợp đồng chưa hết hạn</li>
+                            </ul>
+                        </div>
+                        @if($quyens)
+                        <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                             <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                             <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
                         </div>
+                        @endif
                     </form>
-                    @endif
                     <form action="{{route('export')}}" class="form" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!--Export-->
@@ -182,9 +187,10 @@
     // $('#myModal').on('shown.bs.modal', function() {
     //     $('#myInput').trigger('focus')
     // })
-    $('.close').click(function(){
+    $('.close').click(function() {
         $('#editHopDong').modal('hide');
     });
+
     function capnhat_hopdong(HD_MaHD) {
         // $.get('{{Url("/design/edit")}}/' + id, function (data) {
         $.get('./hopdong/capnhat/' + HD_MaHD, function(data) {
@@ -210,11 +216,11 @@
             processData: false,
             success: function(data) {
                 var successMessage = data.message;
-                if(successMessage){
+                if (successMessage) {
                     $('#editHopDong').modal('hide');
                     window.location.href = './hopdong';
                 }
-                
+
             },
         });
     });

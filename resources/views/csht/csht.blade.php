@@ -21,7 +21,7 @@
             @include('partials.common.tieude')
             <!-- start modal ajax edit, add--->
             <div class="modal fade" id="editcsht">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -37,12 +37,11 @@
                                 @csrf
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="addcsht">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -57,7 +56,6 @@
                             <form method="POST" id="body_add" action="{{route('csht-store')}}" enctype="multipart/form-data">
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -65,9 +63,9 @@
             <!-- Content -->
             <div class="container">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
                     <button class="btn btn-success me-md-2 mt-1 mb-1" onclick=them_csht() type="button">
-                        <i class="fas fa-plus"></i> Thêm</button>
+                        <i class="fas fa-plus"></i> Thêm
+                    </button>
                 </div>
                 <table class="table table-bordered text-center">
                     <thead>

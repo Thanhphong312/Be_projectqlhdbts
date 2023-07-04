@@ -1,7 +1,7 @@
 <!-- Content -->
-<div class="container col-md-8 mt-2">
+<div class="container col-md-auto mt-2">
     <div class="alert alert-primary">
-        <h5 class="text-center" id="side12">SỬA TÀI KHOẢN</h5>
+        <!-- <h5 class="text-center" id="side12">SỬA TÀI KHOẢN</h5> -->
         <form method="post" action="{{route('taikhoan-chinhsua', $sua->id)}}" enctype="multipart/form-data">
             @csrf
             <div class="row justify-content-center">
@@ -21,7 +21,7 @@
                     </style>
                     <input required value="{{$sua->id}}" name="id" id="id" class="form-control" type="hidden">
 
-                    <div class="m-3 text-center">
+                    <div class="m-3 text-left">
                         <label class="form-label">Ảnh đại diện
                             <span id="colorIcon">*</span>
                         </label>
@@ -63,7 +63,7 @@
                         <input required name="ND_SDT" class="col-6 col-sm-6 form-control" value="{{$sua->ND_SDT}}"></input>
                     </div>
                     <div class="row justify-content-center m-3">
-                        <button type="submit" class="btn btn-success col-md-5" id="side123">Sửa</button>
+                        <button type="submit" class="btn btn-success col-md-5" id="side123">Chỉnh sửa</button>
                     </div>
                 </div>
             </div>

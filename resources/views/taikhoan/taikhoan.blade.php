@@ -21,7 +21,7 @@
             @include('partials.common.tieude')
             <!-- start modal ajax edit, add--->
             <div class="modal fade" id="editTaiKhoan">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -36,12 +36,11 @@
                             <form id="body_edit" class="form-horizontal" method="post" enctype="multipart/form-data">
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="modal fade" id="addTaiKhoan">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
@@ -55,6 +54,26 @@
                             <div class="alert alert-danger" style="display:none"></div>
                             <form method="POST" id="body_add" action="{{route('taikhoan-store')}}" enctype="multipart/form-data">
 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="hienthiTaiKhoan">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Chi Tiết Tài Khoản</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <form method="GET" id="body_hienthi"  enctype="multipart/form-data">
+                                @csrf
                             </form>
                         </div>
 
@@ -128,9 +147,9 @@
                                 <td style="text-align:left">{{$quyen}}</td>
                                 <td>
                                     <div class="d-flex ">
-                                        <a href="{{route('taikhoan-hienthi', $taikhoan->id)}}" class="btn btn-info me-md-3 m-1">
+                                        <buton type="submit" onclick=hienthi_taikhoan('{{$taikhoan->id}}') class="btn btn-info me-md-3 m-1">
                                             <i class="fas fa-eye"></i> Xem
-                                        </a>
+                                        </buton>
                                         @if($quyennd=='Q0')
                                         <button type="submit" onclick=capnhat_taikhoan({{$taikhoan->id}}) class="btn btn-primary me-md-3 m-1">
                                             <i class="fas fa-edit"></i> Sửa
@@ -171,6 +190,15 @@
             // getDesignSuggest(id)
         });
         $('#editTaiKhoan').modal('show');
+    }
+    function hienthi_taikhoan(id) {
+        // $.get('{{Url("/design/edit")}}/' + id, function (data) {
+        $.get('./taikhoan/hienthi/' + id, function(data) {
+            $("#body_hienthi").html(data);
+            // console.log(data);
+            // getDesignSuggest(id)
+        });
+        $('#hienthiTaiKhoan').modal('show');
     }
 
     function them_taikhoan() {
