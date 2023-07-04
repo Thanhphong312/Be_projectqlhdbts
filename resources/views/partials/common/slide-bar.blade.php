@@ -14,25 +14,25 @@
         @php
         $quyen=null;
         if(auth()->user()){
-            if(auth()->user()->quyennguoidungs()){
-                if(auth()->user()->quyennguoidungs()->first()){
-                    $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
-                }
-            }
+        if(auth()->user()->quyennguoidungs()){
+        if(auth()->user()->quyennguoidungs()->first()){
+        $quyen = auth()->user()->quyennguoidungs()->first()->Q_MaQ;
+        }
+        }
         }
         @endphp
         @if($quyen=='Q0'||$quyen=='Q1')
         <li class="{{mb_strtolower($title)=='trạm'?'active':''}}">
-            <a href="{{route('tram')}}" >Trạm</a>
+            <a href="{{route('tram')}}">Trạm</a>
         </li>
         @endif
         @if($quyen=='Q0')
 
 
         <li class="{{(mb_strtolower($title)=='cơ sở hạ tầng')?'active':''}}">
-            <a href="{{route('csht')}}" >Cơ sở hạ tầng</a>
+            <a href="{{route('csht')}}">Cơ sở hạ tầng</a>
         </li>
-        
+
         @else
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
             <a href="{{route('hopdong')}}" >Hợp đồng</a>
@@ -47,8 +47,9 @@
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
             <a href="{{route('thongke')}}">Báo cáo</a>
         </li>
-        <li>
-            <div class="justify-content-start btn-logout">
+        <!-- <li>
+            @if(Auth::check())
+            <div class="justify-content-start btn-logout mobile-only" id="logoutButtonMobile">
                 <a href="{{route('logout')}}">
                     <div class="input-group">
                         <input type="button" class="form-control btn-sm btn-light" value="Đăng xuất">
@@ -58,6 +59,21 @@
                     </div>
                 </a>
             </div>
-        </li>
+            @endif
+        </li> -->
     </ul>
 </nav>
+
+<script>
+    window.addEventListener('resize', () => {
+        const logoutButtonMobile = document.getElementById('logoutButtonMobile');
+
+        // Kiểm tra kích thước màn hình khi trang được tải
+        const isMobile = window.matchMedia('(min-width: 768px)').matches;
+
+        // Ẩn nút đăng xuất nếu là giao diện desktop
+        if (isMobile) {
+            logoutButtonMobile.style.display = 'none';
+        }
+    });
+</script>

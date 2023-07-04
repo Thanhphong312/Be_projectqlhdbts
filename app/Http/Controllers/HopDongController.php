@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Models\CoSoHaTang;
+use App\Models\PhuLuc;
 use App\Models\Tram;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -78,6 +79,23 @@ class HopDongController extends Controller
     public function update(Request $request)
     {
         // dd($request);
+        $filename = null;
+
+    if ($request->hasFile('HD_HDScan')) {
+        $file = $request->file('HD_HDScan');
+        $filename = $file->getClientOriginalName();
+        $file->move(public_path('HD_HDScan'), $filename);
+        $publicUrl = asset('HD_HDScan/' . $filename);
+        HopDong::where('HD_MaHD', $request->HD_MaHD)
+            ->update(['HD_HDScan' => 'HD_HDScan/' . $filename]);
+        $hopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->get();
+        $oldhopdong = $hopdong->toArray();
+        $oldhopdong[0]['noidung'] = 'Nội dung sửa đổi : HD_HDScan';
+        // dd($oldhopdong[0]);
+        $this->newPhuluc($oldhopdong[0]);
+    }
+    $capnhathopdong = "";
+    if ($filename !== null) {
         $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->update([
             'HD_MaHD' => $request->HD_MaHD,
             'HD_TenCTK' => $request->HD_TenCTK,
@@ -91,16 +109,33 @@ class HopDongController extends Controller
             'HD_MaCSHT' => $request->CSHT_MaCSHT,
             'HD_TenChuDauTu' => $request->HD_TenChuDauTu,
             'HD_NgayPhuLuc' => $request->HD_NgayPhuLuc,
-            'HD_HDScan' => $request->HD_HDScan,
+            'HD_HDScan' => 'HD_HDScan/' . $filename,
         ]);
-        if ($capnhathopdong) {
+    } else {
+        $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->update([
+            'HD_MaHD' => $request->HD_MaHD,
+            'HD_TenCTK' => $request->HD_TenCTK,
+            'HD_SoTaiKhoan' => $request->HD_SoTaiKhoan,
+            'HD_TenNH' => $request->HD_TenNH,
+            'HD_NgayDangKy' => $request->HD_NgayDangKy,
+            'HD_NgayHetHan' => $request->HD_NgayHetHan,
+            'HD_GiaHienTai' => $request->HD_GiaHienTai,
+            'T_MaTram' => $request->T_MaTram,
+            'T_TenTram' => $request->T_TenTram,
+            'HD_MaCSHT' => $request->CSHT_MaCSHT,
+            'HD_TenChuDauTu' => $request->HD_TenChuDauTu,
+            'HD_NgayPhuLuc' => $request->HD_NgayPhuLuc
+        ]);
+    }
+        if ($capnhathopdong!="") {
             Session::flash('success', 'Cập nhật thành công.');
             return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']);
+        }else{
+
+            Session::flash('error', 'Cập nhật thât bại.');
+            return response()->json(['status' => 'error', 'message' => 'Cập nhật thât bại.']);    }
         }
 
-        Session::flash('error', 'Cập nhật thât bại.');
-
-        return response()->json(['status' => 'error', 'message' => 'Cập nhật thât bại.']);    }
 
     public function import(Request $request)
     {
@@ -134,5 +169,27 @@ class HopDongController extends Controller
     public function export(Request $request)
     {
         return Excel::download(new HDExport($request), 'HD-' . Carbon::now()->format('M j, Y H-i-s') . '.xlsx');
+    }
+    public function newPhuluc($oldhopdong)
+    {
+        $phuluc = new PhuLuc();
+        $phuluc->HD_MaHD = $oldhopdong["HD_MaHD"];
+        $phuluc->ND_MaND = $oldhopdong["ND_MaND"];
+        $phuluc->T_MaTram = $oldhopdong["T_MaTram"];
+        $phuluc->DV_MaDV = $oldhopdong["DV_MaDV"];
+        $phuluc->HD_MaCSHT = $oldhopdong["HD_MaCSHT"];
+        $phuluc->T_TenTram = $oldhopdong["T_TenTram"];
+        $phuluc->HD_NgayDangKy = $oldhopdong["HD_NgayDangKy"];
+        $phuluc->HD_NgayHetHan = $oldhopdong["HD_NgayHetHan"];
+        $phuluc->HD_NgayPhuLuc = $oldhopdong["HD_NgayPhuLuc"];
+        $phuluc->HD_GiaGoc = $oldhopdong["HD_GiaGoc"];
+        $phuluc->HD_GiaHienTai = $oldhopdong["HD_GiaHienTai"];
+        $phuluc->HD_SoTaiKhoan = $oldhopdong["HD_SoTaiKhoan"];
+        $phuluc->HD_TenCTK = $oldhopdong["HD_TenCTK"];
+        $phuluc->HD_TenNH = $oldhopdong["HD_TenNH"];
+        $phuluc->HD_TenChuDauTu =  $oldhopdong["HD_TenChuDauTu"];
+        $phuluc->HD_HDScan = $oldhopdong["HD_HDScan"];
+        $phuluc->noidung = $oldhopdong["noidung"];
+        $phuluc->save();
     }
 }

@@ -83,7 +83,7 @@
             <a href="thongke" class="item-home d-flex align-items-center justify-content-center">
               <div>
                 <i class="fas fa-chart-line"></i>
-                <h4>Thống kê</h4>
+                <h4>Báo cáo</h4>
               </div>
             </a>
           </div>

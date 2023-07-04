@@ -26,12 +26,12 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
     {
         $hd = [];
         if ($this->request->has('exportall')) {
-            $HopDong = HopDong::orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->get();
+            $HopDong = HopDong::select('HD_MaHD','ND_MaND','T_MaTram','DV_MaDV','HD_MaCSHT','T_TenTram','HD_NgayDangKy','HD_NgayHetHan','HD_NgayPhuLuc','HD_GiaGoc','HD_GiaHienTai','HD_SoTaiKhoan','HD_TenCTK','HD_TenNH','HD_TenChuDauTu')->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->get();
         } else {
             foreach ($this->request->HD as $value) {
                 array_push($hd, $value);
             }
-            $HopDong = HopDong::wherein('HD_MaHD', $hd)->get();
+            $HopDong = HopDong::select('HD_MaHD','ND_MaND','T_MaTram','DV_MaDV','HD_MaCSHT','T_TenTram','HD_NgayDangKy','HD_NgayHetHan','HD_NgayPhuLuc','HD_GiaGoc','HD_GiaHienTai','HD_SoTaiKhoan','HD_TenCTK','HD_TenNH','HD_TenChuDauTu')->wherein('HD_MaHD', $hd)->get();
         }
 
         return view('HDexport', [
@@ -103,11 +103,6 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
         $sheet->getStyle('N2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
             ->getAlignment()
             ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-
-        $sheet->getStyle('O2:' . $sheet->getHighestColumn() . $sheet->getHighestRow())
-            ->getAlignment()
-            ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-
         return $sheet;
     }
 
@@ -115,7 +110,7 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
     {
         return [
             AfterSheet::class => function (AfterSheet $event) {
-                $event->sheet->getDelegate()->mergeCells('A1:O1');
+                $event->sheet->getDelegate()->mergeCells('A1:N1');
 
                 $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(40);
 
@@ -126,7 +121,7 @@ class HDExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithStyle
                     ->getColor()->setARGB('E31616');
 
 
-                $cellRange = 'A2:O2';
+                $cellRange = 'A2:N2';
                 $event->sheet->getDelegate()->getStyle($cellRange)
                     ->getFont()->setName('Time New Roman')
                     ->setBold(true)

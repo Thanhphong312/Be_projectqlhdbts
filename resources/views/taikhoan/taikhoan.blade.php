@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="modal fade" id="hienthiTaiKhoan">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">

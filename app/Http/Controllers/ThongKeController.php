@@ -61,17 +61,21 @@ class ThongKeController extends Controller
                         ->where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateTimeString())
                         ->where('HD_NgayDangKy', '<=', $month->lastOfMonth()->toDateTimeString())
                         ->get();
-                        // dd($hopdongs);
+                    // dd($hopdongs);
 
                     $sum = 0;
                     $listhopdong = null;
                     foreach ($hopdongs as $hopdong) {
                         // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
-                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
-                        } else {
-                            $listhopdong = $hopdong;
-                        }
+                        $listhopdong = $hopdong;
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth())->get();
+                    foreach ($phuluc as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        $listhopdong = $hopdong;
                         $sum += $listhopdong->HD_GiaHienTai;
                         array_push($thongkes, $listhopdong);
                     }
@@ -80,7 +84,7 @@ class ThongKeController extends Controller
                     $now = Carbon::now();
                     $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
                     // dd($donvi);
-                    $hopdongs = HopDong::where(function ($query) use ($user,$donvi) {
+                    $hopdongs = HopDong::where(function ($query) use ($user, $donvi) {
                         if (!empty($donvi)) {
                             $query->where('DV_MaDV', $donvi->DV_MaDV);
                         }
@@ -92,12 +96,16 @@ class ThongKeController extends Controller
                     $sum = 0;
                     $listhopdong = null;
                     foreach ($hopdongs as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
-                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
-                        } else {
-                            $listhopdong = $hopdong;
-                        }
+                        // dd($now->firstOfMonth()->toDateString());
+                        $listhopdong = $hopdong;
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $now->firstOfMonth()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $now->lastOfMonth()->toDateString())->get();
+                    foreach ($phuluc as $hopdong) {
+                        // dd($now->firstOfMonth()->toDateString());
+                        $listhopdong = $hopdong;
                         $sum += $listhopdong->HD_GiaHienTai;
                         array_push($thongkes, $listhopdong);
                     }
@@ -141,11 +149,16 @@ class ThongKeController extends Controller
                     $listhopdong = null;
                     foreach ($hopdongs as $hopdong) {
                         // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
-                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
-                        } else {
-                            $listhopdong = $hopdong;
-                        }
+
+                        $listhopdong = $hopdong;
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth()->toDateString())->get();
+                    foreach ($phuluc as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        $listhopdong = $hopdong;
                         $sum += $listhopdong->HD_GiaHienTai;
                         array_push($thongkes, $listhopdong);
                     }
@@ -164,12 +177,17 @@ class ThongKeController extends Controller
                     $sum = 0;
                     $listhopdong = null;
                     foreach ($hopdongs as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
-                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
-                        } else {
-                            $listhopdong = $hopdong;
-                        }
+                        // dd($now->firstOfYear()->toDateString());
+                        $listhopdong = $hopdong;
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString())->get();
+                    // dd($phuluc);
+                    foreach ($phuluc as $hopdong) {
+                        // dd($now->firstOfYear()->toDateString());
+                        $listhopdong = $hopdong;
                         $sum += $listhopdong->HD_GiaHienTai;
                         array_push($thongkes, $listhopdong);
                     }

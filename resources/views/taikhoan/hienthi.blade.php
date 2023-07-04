@@ -1,5 +1,5 @@
 @csrf
-            <div class="container col-md-5 mt-2">
+            <div class="container col-md-auto mt-2">
                 <div class="alert alert-primary">
                     
                     @foreach($hienthitaikhoan as $hienthi)

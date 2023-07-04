@@ -17,7 +17,6 @@
             <th>Tên Chủ Tài Khoản</th>
             <th>Tên Ngân Hàng</th>
             <th>Tên Chủ Đầu Tư</th>
-            <th>Hợp Đồng</th>
         </tr>
     </thead>
     <tbody>
@@ -37,7 +36,6 @@
             <td>{{ $HopDong->HD_TenCTK }}</td>
             <td>{{ $HopDong->HD_TenNH }}</td>
             <td>{{ $HopDong->HD_TenChuDauTu }}</td>
-            <td>{{ $HopDong->HD_HDScan }}</td>
         </tr>
         @endforeach
     </tbody>
