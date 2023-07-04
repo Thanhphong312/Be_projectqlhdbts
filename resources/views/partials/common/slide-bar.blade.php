@@ -75,7 +75,7 @@
 </nav>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('resize', () => {
         const logoutButtonMobile = document.getElementById('logoutButtonMobile');
 
         // Kiểm tra kích thước màn hình khi trang được tải

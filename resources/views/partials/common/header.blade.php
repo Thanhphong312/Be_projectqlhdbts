@@ -28,7 +28,7 @@
 </header>
 
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('resize', () => {
         const logoutButtonDesktop = document.getElementById('logoutButtonDesktop');
 
         // Kiểm tra kích thước màn hình khi trang được tải
