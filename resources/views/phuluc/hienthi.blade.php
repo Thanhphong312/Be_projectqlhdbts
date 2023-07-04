@@ -42,7 +42,7 @@
                                     }
                                 </style>
                                 <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Mã HĐ:</div>
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Mã hợp đồng:</div>
                                     <label name="ND_MaND" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_MaHD}}</label>
                                 </div>
                                 <div class="row mb-1">
@@ -69,12 +69,12 @@
 
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Ngày ký HĐ:</div>
-                                    <label name="HD_NgayDangKy" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_NgayDangKy}}</label>
+                                    <label name="HD_NgayDangKy" class="col-6 col-sm-6 text-view">{{\Carbon\Carbon::parse($hienthipl->HD_NgayDangKy)->format('d/m/Y')}}</label>
                                 </div>
 
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Ngày hết hạn:</div>
-                                    <label name="HD_NgayHetHan" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_NgayHetHan}}</label>
+                                    <label name="HD_NgayHetHan" class="col-6 col-sm-6 text-view">{{\Carbon\Carbon::parse($hienthipl->HD_NgayHetHan)->format('d/m/Y')}}</label>
                                 </div>
 
                                 <div class="row mb-1">
@@ -88,8 +88,8 @@
                                 </div>
 
                                 <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Giá thuê:</div>
-                                    <label name="HD_GiaHienTai" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_GiaHienTai}}</label>
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Giá gốc:</div>
+                                    <label name="HD_GiaGoc" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_GiaGoc}}</label>
                                 </div>
 
                                 <div class="row mb-1">
@@ -108,7 +108,7 @@
                                 </div>
 
                                 <div class="row mb-1">
-                                    <div style="cursor: default;" class="col-6 col-sm-6">Hợp đồng:</div>
+                                    <div style="cursor: default;" class="col-6 col-sm-6">Hợp đồng PDF:</div>
                                     <label name="HD_HDScan" class="col-6 col-sm-6 text-view">
                                         <textarea disabled="">{{$hienthipl->HD_HDScan}}</textarea>
                                     </label>
@@ -116,7 +116,7 @@
 
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Ngày phụ lục:</div>
-                                    <label name="HD_NgayPhuLuc" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_NgayPhuLuc}}</label>
+                                    <label name="HD_NgayPhuLuc" class="col-6 col-sm-6 text-view">{{\Carbon\Carbon::parse($hienthipl->HD_NgayPhuLuc)->format('d/m/Y')}}</label>
                                 </div>
                             </div>
                         </div>
