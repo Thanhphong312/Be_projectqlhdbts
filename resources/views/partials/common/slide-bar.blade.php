@@ -45,7 +45,7 @@
             <a href="{{route('taikhoan')}}">Tài khoản</a>
         </li>
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
-            <a href="{{route('thongke')}}">Thống kê</a>
+            <a href="{{route('thongke')}}">Báo cáo</a>
         </li>
         <li>
             <div class="justify-content-start btn-logout">

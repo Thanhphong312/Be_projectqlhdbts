@@ -8,6 +8,7 @@ use App\Models\HopDong;
 use App\Models\Tram;
 use Illuminate\Http\Request;
 use App\Models\Cabon;
+use App\Models\PhuLuc;
 use Carbon\Carbon;
 use Auth;
 
@@ -44,168 +45,137 @@ class ThongKeController extends Controller
             $donvi = $request->don_vi;
         }
 
-        $thongkes = [[]];
-        if ($request->type == 'tram') {
-            $name = "Doanh thu " . ((count($months) > 1) ? 'năm' : 'tháng ' . $months[0]) . ' ' . ((!empty($request->don_vi)) ? 'của đơn vị ' . $request->don_vi : '') . "theo trạm";
-            $thongkes[0]['name'] = "Trạm";
-            $thongkes[0]['data'] = [];
-            if (count($months) == 1) {
-                $firstmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->day;
-                $lastmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->addMonth()->subDay(1)->day;
-                while ($firstmonth <= $lastmonth) {
-                    $firstday = Carbon::create('2023', $months[0], $firstmonth, 0, 0, 0);
-                    $tram = Tram::where('T_TinhTrang', 1)->pluck('T_MaTram')->toArray();
+        $thongkes = [];
+        switch ($request->type) {
+            case 'taikhoan':
+                $user = Auth::user()->id;
+                if (count($months) == 1) {
+                    $month = Carbon::create('2023', $months[0],  1, 0, 0, 0);
                     $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($tram, $donvi) {
-                        if (!empty($tram)) {
-                            $query->whereIn('T_MaTram', $tram);
-                        }
+                    $hopdongs = HopDong::where(function ($query) use ($user, $donvi) {
                         if (!empty($donvi)) {
                             $query->where('DV_MaDV', $donvi->DV_MaDV);
                         }
-                    })
-                        ->where('created_at', '>=', $firstday->toDateString())
-                        ->where('created_at', '<', $firstday->addHours(24)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                    array_push($categories, $firstmonth);
-                    $firstmonth++;
-                }
-            } else {
-                $categories = $months;
-                foreach ($months as $month) {
-                    $firstmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                    // $lastmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                    // dd($lastmonth);
-                    $tram = Tram::where('T_TinhTrang', 1)->pluck('T_MaTram')->toArray();
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($tram, $donvi) {
-                        if (!empty($tram)) {
-                            $query->whereIn('T_MaTram', $tram);
-                        }
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
-                    })
-                        ->where('created_at', '>=', $firstmonth->toDateString())
-                        ->where('created_at', '<', $firstmonth->addMonth()->subDay(1)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                }
-            }
-            // dd($thongkes[0]['data']);
-        } else if ($request->type == 'hopdong') {
-            $name = "Doanh thu " . ((count($months) > 1) ? 'năm' : 'tháng ' . $months[0]) . ' ' . ((!empty($request->don_vi)) ? 'của đơn vị ' . $request->don_vi : '') . "theo họp đồng";
-            $thongkes[0]['name'] = "Hợp đồng";
-            $thongkes[0]['data'] = [];
-            if (count($months) == 1) {
-                $firstmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->day;
-                $lastmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->addMonth()->subDay(1)->day;
-                while ($firstmonth <= $lastmonth) {
-                    $firstday = Carbon::create('2023', $months[0], $firstmonth, 0, 0, 0);
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
-                    })
-                        ->where('created_at', '>=', $firstday->toDateString())
-                        ->where('created_at', '<', $firstday->addHours(24)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                    array_push($categories, $firstmonth);
-                    $firstmonth++;
-                }
-            } else {
-                $categories = $months;
-                foreach ($months as $month) {
-                    $firstmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
-                    })
-                        ->where('created_at', '>=', $firstmonth->toDateString())
-                        ->where('created_at', '<', $firstmonth->addMonth()->subDay(1)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                }
-            }
-        } else  if ($request->type == 'taikhoan') {
-            $thongkes[0]['data'] = [1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-            $name = "Doanh thu " . ((count($months) > 1) ? 'năm' : 'tháng ' . $months[0]) . ' ' . ((!empty($request->don_vi)) ? 'của đơn vị ' . $request->don_vi : '') . "theo tài khoản";
-            $thongkes[0]['name'] = "Tài khoản";
-            $thongkes[0]['data'] = [];
-            if (count($months) == 1) {
-                $firstmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->day;
-                $lastmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->addMonth()->subDay(1)->day;
-                while ($firstmonth <= $lastmonth) {
-                    $firstday = Carbon::create('2023', $months[0], $firstmonth, 0, 0, 0);
-                    $user = Auth::user()->id;
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($user, $donvi) {
                         $query->where('ND_MaND', $user);
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
                     })
-                        ->where('created_at', '>=', $firstday->toDateString())
-                        ->where('created_at', '<', $firstday->addHours(24)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                    array_push($categories, $firstmonth);
-                    $firstmonth++;
-                }
+                        ->where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateTimeString())
+                        ->where('HD_NgayDangKy', '<=', $month->lastOfMonth()->toDateTimeString())
+                        ->get();
+                        // dd($hopdongs);
 
-                // dd($thongkes);
-            } else {
-                $categories = $months;
-                foreach ($months as $month) {
-                    $firstmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                    // $lastmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                    // dd($lastmonth);
-                    $user = Auth::user()->id;
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($user, $donvi) {
-                        $query->where('ND_MaND', $user);
-
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                    $sum = 0;
+                    $listhopdong = null;
+                    foreach ($hopdongs as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
+                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
+                        } else {
+                            $listhopdong = $hopdong;
                         }
-                    })
-                        ->where('created_at', '>=', $firstmonth->toDateString())
-                        ->where('created_at', '<', $firstmonth->addMonth()->subDay(1)->toDateString())
-                        ->sum('HD_GiaHienTai');
-                    array_push($thongkes[0]['data'], $sum);
-                }
-            }
-        } else {
-            $name = "Doanh thu " . ((count($months) > 1) ? 'năm' : 'tháng ' . $months[0]) . ' ' . ((!empty($request->don_vi)) ? 'của đơn vị ' . $request->don_vi : '');
-            $thongkes[0]['name'] = "Doanh thu tháng";
-            $thongkes[0]['data'] = [];
-            $categories = $months;
-            foreach ($months as $month) {
-                $firstmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-                // $lastmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
-
-                $sum =  $tram = Tram::where('T_TinhTrang', 1)->pluck('T_MaTram')->toArray();
-                $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                $sum = HopDong::whereHas('tram', function ($query) use ($tram, $donvi) {
-                    if (!empty($tram)) {
-                        $query->whereIn('T_MaTram', $tram);
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
                     }
+                } else {
+                    // dd(Auth::user()->id);
+                    $now = Carbon::now();
+                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
+                    // dd($donvi);
+                    $hopdongs = HopDong::where(function ($query) use ($user,$donvi) {
+                        if (!empty($donvi)) {
+                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                        }
+                        $query->where('ND_MaND', $user);
+                    })
+                        ->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateTimeString())
+                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateTimeString())
+                        ->get();
+                    $sum = 0;
+                    $listhopdong = null;
+                    foreach ($hopdongs as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
+                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
+                        } else {
+                            $listhopdong = $hopdong;
+                        }
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                }
+                break;
+            case 'saphethan':
+                $sixmonth = Carbon::now()->addMonths(6);
+                $now = Carbon::now();
+                // dd($ngayhethan->toDateTimeString());
+                $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
+                $hopdongs = HopDong::where(function ($query) use ($donvi) {
                     if (!empty($donvi)) {
                         $query->where('DV_MaDV', $donvi->DV_MaDV);
                     }
                 })
-                    ->where('created_at', '>=', $firstmonth->toDateString())
-                    ->where('created_at', '<', $firstmonth->addMonth()->subDay(1)->toDateString())
-                    ->sum('HD_GiaHienTai');
-                array_push($thongkes[0]['data'], $sum);
-            }
+                    ->where('HD_NgayHetHan', '<=', $sixmonth->toDateString())
+                    ->where('HD_NgayHetHan', '>=', $now->toDateString())
+                    ->get();
+                $sum = 0;
+                $listhopdong = null;
+                foreach ($hopdongs as $hopdong) {
+                    $sum += $hopdong->HD_GiaHienTai;
+                    array_push($thongkes, $hopdong);
+                }
+                break;
+            default:
+                // dd(($request->type));
+                if (count($months) == 1) {
+                    $month = Carbon::create('2023', $months[0],  1, 0, 0, 0);
+                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
+                    $hopdongs = HopDong::where(function ($query) use ($donvi) {
+                        if (!empty($donvi)) {
+                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                        }
+                    })
+                        ->where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth()->toDateString())
+                        ->get();
+                    // dd($hopdongs);
+                    $sum = 0;
+                    $listhopdong = null;
+                    foreach ($hopdongs as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
+                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
+                        } else {
+                            $listhopdong = $hopdong;
+                        }
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                } else {
+                    $now = Carbon::now();
+                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
+                    $hopdongs = HopDong::where(function ($query) use ($donvi) {
+                        if (!empty($donvi)) {
+                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                        }
+                    })
+                        ->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString())
+                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString())
+                        ->get();
+                    // dd($hopdongs);
+                    $sum = 0;
+                    $listhopdong = null;
+                    foreach ($hopdongs as $hopdong) {
+                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
+                        if (PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first()) {
+                            $listhopdong = PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first();
+                        } else {
+                            $listhopdong = $hopdong;
+                        }
+                        $sum += $listhopdong->HD_GiaHienTai;
+                        array_push($thongkes, $listhopdong);
+                    }
+                }
+                break;
         }
-
-        return view('thongke/ajaxchart', compact('thongkes', 'categories', 'name'));
+        return view('thongke/ajaxchart', compact('thongkes', 'sum', 'request'));
     }
 }

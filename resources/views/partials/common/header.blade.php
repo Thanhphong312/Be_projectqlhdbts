@@ -5,7 +5,7 @@
                 <img src="http://haugiang.vnpt.vn/static/images/haugiang.png" alt="main_banner">
             </a>
             @if(Auth::check())
-            <div class="col-auto row d-flex justify-content-end align-items-end">
+            <div class="col-auto row d-flex justify-content-end align-items-end" id="hidden-mobile">
                 <div class="input-group" style="align-items: center;">
                     <img src="{{url((auth()->user()!=null)?auth()->user()->avatar:'')}}" alt="" width="32" height="32" class="rounded-circle">
                     <span class="p-2" style="color:white">{{(auth()->user()!=null)?auth()->user()->name:''}}</span>

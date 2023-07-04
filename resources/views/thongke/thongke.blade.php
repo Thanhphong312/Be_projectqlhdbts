@@ -8,17 +8,22 @@
 @endsection
 
 @section('content')
+<style>
+    #month option {
+  width: 150px; /* Set the width of the options */
+}
+</style>
 <div class="content-main">
 
     <!-- start body -->
     <div class="wrapper">
         <!-- Sidebar  -->
         @include('partials.common.slide-bar')
-        
+
         <!-- Page Content  -->
         <div id="content">
-        @include('partials.common.tieude')
-        
+            @include('partials.common.tieude')
+
             <!-- start filter -->
             <div class="fillter-statistic">
                 <form action="{{route('thongke')}}" method="get">
@@ -28,7 +33,7 @@
                                 <label for="inputPassword" class="col-sm-4 col-form-label">Tháng</label>
                                 <div class="col-sm-8">
                                     <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="month" name="month">
-                                        <option value="all">All</option>   
+                                        <option value="all">All</option>
                                         <option value="1" {{($request->month==1)?'selected':''}}>1</option>
                                         <option value="2" {{($request->month==2)?'selected':''}}>2</option>
                                         <option value="3" {{($request->month==3)?'selected':''}}>3</option>
@@ -52,14 +57,14 @@
                                     <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="don_vi" name="don_vi">
                                         <option value="all">All</option>
                                         @foreach($donvis as $donvi)
-                                            <option value="{{$donvi->DV_MaDV}}" {{($request->don_vi==$donvi->DV_MaDV)?'selected':''}}>{{$donvi->DV_TenDV}}</option>
+                                        <option value="{{$donvi->DV_MaDV}}" {{($request->don_vi==$donvi->DV_MaDV)?'selected':''}}>{{$donvi->DV_TenDV}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-2 p-2">
-                            <button type="submit" class="btn btn-primary">Thống kê</button>
+                            <button type="button" onclick=thongke() class="btn btn-primary">Thống kê</button>
                         </div>
                     </div>
                 </form>
@@ -69,20 +74,12 @@
             <!-- start thong ke -->
             <div class="container text-center ">
                 <div class="row d-flex justify-content-center p-2 gx-2">
-                    
-                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #b53f3f;" onclick=option('tram')>
+
+                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #b53f3f;" onclick=option('saphethan')>
                         <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-broadcast-tower"></i>
-                                <h4>Trạm</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-2 col-md-2 m-4 rounded-3 border border-dark " style="background-color: #b39839;" onclick=option('hopdong')>
-                        <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
-                            <div>
-                                <i class="fas fa-file-alt"></i>
-                                <h4>Hợp đồng</h4>
+                                <h4>Sắp hết hạng</h4>
                             </div>
                         </div>
                     </div>
@@ -111,38 +108,64 @@
 @section('JS')
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
+    var type = 'all';
+    var month = $("#month").val();
+    var donvi = $("#don_vi").val();
     $.ajax({
-            type: "get",
-            url: '{{route("ajaxthongke")}}',
-            data:{
-                month:"{{($request->month=='all')?'all':$request->month}}",
-                type:"{{($type=='all')?'all':$type}}",
-                don_vi:"{{($request->don_vi=='all')?'all':$request->don_vi}}"
-            },
-            success: function(data){
-                console.log(data);
-                $('#getchart').html(data);
-            },
-           
-        });
-    function option(thongke){
+        type: "get",
+        url: '{{route("ajaxthongke")}}',
+        data: {
+            month: month,
+            type: type,
+            don_vi: donvi
+        },
+        success: function(data) {
+            console.log(data);
+            $('#getchart').html(data);
+        },
+
+    });
+
+    function option(thongke) {
+        var month = $("#month").val();
+        var donvi = $("#don_vi").val();
+        type = thongke;
         $.ajax({
             type: "get",
             url: '{{route("ajaxthongke")}}',
-            data:{
-                month:"{{($request->month=='all')?'all':$request->month}}",
-                type:thongke,
-                don_vi:"{{($request->don_vi=='all')?'all':$request->don_vi}}"
+            data: {
+                month: month,
+                type: type,
+                don_vi: donvi
             },
-            success: function(data){
+            success: function(data) {
                 console.log(data);
                 $('#getchart').html(data);
             },
-           
+
+        });
+    }
+
+    function thongke() {
+        var month = $("#month").val();
+        var donvi = $("#don_vi").val();
+        $.ajax({
+            type: "get",
+            url: '{{route("ajaxthongke")}}',
+            data: {
+                month: month,
+                type: type,
+                don_vi: donvi
+            },
+            success: function(data) {
+                console.log(data);
+                $('#getchart').html(data);
+            },
+
         });
     }
 </script>
 <script type="text/javascript">
-    
+
 </script>
 @endsection
