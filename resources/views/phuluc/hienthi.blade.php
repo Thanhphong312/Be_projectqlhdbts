@@ -79,7 +79,7 @@
 
                                 <div class="row mb-1">
                                     <div style="cursor: default;" class="col-6 col-sm-6">Giá thuê:</div>
-                                    <label name="HD_GiaHienTai" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_GiaHienTai}}</label>
+                                    <label name="HD_GiaHienTai" class="col-6 col-sm-6 text-view">{{$hienthipl->HD_GiaHienTai}} VND</label>
                                 </div>
 
                                 <div class="row mb-1">

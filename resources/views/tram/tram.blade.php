@@ -85,7 +85,7 @@
                                 <th scope="col-6 col-md-4">Tên trạm</th>
                                 <th scope="col-6 col-md-4">Địa chỉ</th>
                                 <th scope="col-6 col-md-4">Tọa độ</th>
-                                <th scope="col-6 col-md-4">Đơn vị quản lý Trạm</th>
+                                <th scope="col-6 col-md-4" style="min-width:150px;"e>Đơn vị quản lý Trạm</th>
                                 <th scope="col-6 col-md-4">Tùy chỉnh</th>
                             </tr>
                         </thead>

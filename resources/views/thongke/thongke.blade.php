@@ -25,7 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4 p-2">
                             <div class="row form-group">
-                                <label for="inputPassword" class="col-sm-4 col-form-label">Thời gian</label>
+                                <label for="inputPassword" class="col-sm-4 col-form-label">Tháng</label>
                                 <div class="col-sm-8">
                                     <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="month" name="month">
                                         <option value="all">All</option>   

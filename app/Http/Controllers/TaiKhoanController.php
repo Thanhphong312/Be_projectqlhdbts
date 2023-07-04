@@ -121,7 +121,7 @@ class TaiKhoanController extends Controller
             'ND_SDT' => 'required|unique:users',
         ]);
         if ($validator->fails()) {
-            return redirect()->route('taikhoan-them')
+            return redirect()->route('taikhoan')
                 ->withErrors($validator);
         }
         // dd($request->file('avatar'));

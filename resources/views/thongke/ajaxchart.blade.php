@@ -7,8 +7,9 @@
             type: "line",
             stacked: false
         },
+
         dataLabels: {
-            enabled: false
+            enabled: true
         },
         colors: ["#b53f3f", "#b39839", "#155cbe", "#41b53f"],
         series: [@php foreach($thongkes as $thongke) {

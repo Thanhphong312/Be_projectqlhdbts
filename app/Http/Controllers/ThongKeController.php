@@ -9,6 +9,7 @@ use App\Models\Tram;
 use Illuminate\Http\Request;
 use App\Models\Cabon;
 use Carbon\Carbon;
+use Auth;
 
 class ThongKeController extends Controller
 {
@@ -141,12 +142,10 @@ class ThongKeController extends Controller
                 $lastmonth = Carbon::create('2023', $months[0],  1, 0, 0, 0)->addMonth()->subDay(1)->day;
                 while ($firstmonth <= $lastmonth) {
                     $firstday = Carbon::create('2023', $months[0], $firstmonth, 0, 0, 0);
-                    $users = Tram::where('T_TinhTrang', 1)->pluck('T_MaTram')->toArray();
+                    $user = Auth::user()->id;
                     $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($users, $donvi) {
-                        if (!empty($users)) {
-                            $query->whereIn('ND_MaND', $users);
-                        }
+                    $sum = HopDong::whereHas('tram', function ($query) use ($user, $donvi) {
+                        $query->where('ND_MaND', $user);
                         if (!empty($donvi)) {
                             $query->where('DV_MaDV', $donvi->DV_MaDV);
                         }
@@ -166,12 +165,11 @@ class ThongKeController extends Controller
                     $firstmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
                     // $lastmonth = Carbon::create('2023', $month,  1, 0, 0, 0);
                     // dd($lastmonth);
-                    $users = Tram::where('T_TinhTrang', 1)->pluck('T_MaTram')->toArray();
+                    $user = Auth::user()->id;
                     $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $sum = HopDong::whereHas('tram', function ($query) use ($users, $donvi) {
-                        if (!empty($users)) {
-                            $query->whereIn('T_MaTram', $users);
-                        }
+                    $sum = HopDong::whereHas('tram', function ($query) use ($user, $donvi) {
+                        $query->where('ND_MaND', $user);
+
                         if (!empty($donvi)) {
                             $query->where('DV_MaDV', $donvi->DV_MaDV);
                         }
@@ -206,11 +204,8 @@ class ThongKeController extends Controller
                     ->sum('HD_GiaHienTai');
                 array_push($thongkes[0]['data'], $sum);
             }
-            // dd($months);
-
         }
 
-        // dd($thongkes);
         return view('thongke/ajaxchart', compact('thongkes', 'categories', 'name'));
     }
 }

@@ -35,20 +35,10 @@
         
         @else
         <li class="{{mb_strtolower($title)=='hợp đồng'?'active':''}}">
-            <a href="#pageHopdong" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Hợp đồng</a>
-            <ul class="collapse list-unstyled" id="pageHopdong">
-                <li>
-                    <a href="{{route('hopdong')}}">Hợp đồng</a>
-                </li>
-            </ul>
+            <a href="{{route('hopdong')}}" >Hợp đồng</a>
         </li>
         <li class="{{mb_strtolower($title)=='phụ lục'?'active':''}}">
-            <a href="#pagePhuLuc" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Phụ Lục</a>
-            <ul class="collapse list-unstyled" id="pagePhuLuc">
-                <li>
-                    <a href="{{route('phuluc')}}">Phụ lục</a>
-                </li>
-            </ul>
+            <a href="{{route('phuluc')}}">Phụ Lục</a>
         </li>
         @endif
         <li class="{{mb_strtolower($title)=='tài khoản'?'active':''}}">

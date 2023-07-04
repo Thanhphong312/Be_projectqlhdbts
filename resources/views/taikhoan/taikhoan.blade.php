@@ -54,7 +54,7 @@
                         <div class="modal-body">
                             <div class="alert alert-danger" style="display:none"></div>
                             <form method="POST" id="body_add" action="{{route('taikhoan-store')}}" enctype="multipart/form-data">
-                                @csrf
+
                             </form>
                         </div>
 
