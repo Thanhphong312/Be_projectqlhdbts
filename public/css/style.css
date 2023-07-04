@@ -453,3 +453,25 @@ input.nosubmit {
     justify-content: center !important;
     margin: 10px !important;
 }
+
+/* Ẩn nút đăng xuất trên header */
+.desktop-only {
+    display: block;
+}
+
+/* Hiển thị nút đăng xuất trên sidebar */
+.mobile-only {
+    display: none;
+}
+
+/* Hiển thị nút đăng xuất trên header trên giao diện di động */
+@media (max-width: 767px) {
+    .desktop-only {
+        display: none;
+    }
+
+    /* Hiển thị nút đăng xuất trên sidebar trên giao diện di động */
+    .mobile-only {
+        display: block;
+    }
+}
