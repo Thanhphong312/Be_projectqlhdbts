@@ -56,15 +56,15 @@
                     }
                     @endphp
                     @if($quyens)
-                    <div class="text-left">
-                        <ul class="text-left">Chú thích:
-                            <li class="text-warning">Màu cam: Hợp đồng đã hết hạn</li>
-                            <li class="text-dark">Màu đen: Hợp đồng chưa hết hạn</li>
-                        </ul>
-                    </div>
-                    <form action="{{route('start-import')}}" class="form" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('start-import')}}" class="form d-flex justify-content-between align-items-center" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="text-left">
+                            <ul class="text-left">Chú thích:
+                                <li class="text-warning">Màu cam: Hợp đồng đã hết hạn</li>
+                                <li class="text-dark">Màu đen: Hợp đồng chưa hết hạn</li>
+                            </ul>
+                        </div>
+                        <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                             <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                             <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
                         </div>
@@ -155,6 +155,24 @@
                             {{ $hopdong->links() }}
                         </div>
                     </form>
+                    <!-- <div class="alert" style="text-align: center;">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Hướng dẫn sử dụng</button>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content" style="height: 100%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Hướng dẫn chi tiết</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe width="100%" height="500px" class="" src="https://docs.google.com/document/d/e/2PACX-1vRWb1Uq5c6C_cjv_ThdRwfrXjXuozhnauS36ba70nUZeGbd_YBpZItZhUjZkG21VXiAsX0a2gRFQi4c/pub?embedded=true" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
                 @endif
         </div>
@@ -169,9 +187,10 @@
     // $('#myModal').on('shown.bs.modal', function() {
     //     $('#myInput').trigger('focus')
     // })
-    $('.close').click(function(){
+    $('.close').click(function() {
         $('#editHopDong').modal('hide');
     });
+
     function capnhat_hopdong(HD_MaHD) {
         // $.get('{{Url("/design/edit")}}/' + id, function (data) {
         $.get('./hopdong/capnhat/' + HD_MaHD, function(data) {
@@ -197,11 +216,11 @@
             processData: false,
             success: function(data) {
                 var successMessage = data.message;
-                if(successMessage){
+                if (successMessage) {
                     $('#editHopDong').modal('hide');
                     window.location.href = './hopdong';
                 }
-                
+
             },
         });
     });
