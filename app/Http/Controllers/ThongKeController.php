@@ -20,7 +20,7 @@ class ThongKeController extends Controller
         $breadcrumbs = [
             [
                 'name' => 'Thống kê',
-                'link' => '/thongke'
+                'link' => './thongke'
             ]
         ];
         $donvis = DonVi::get();

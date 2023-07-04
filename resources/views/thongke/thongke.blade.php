@@ -10,8 +10,9 @@
 @section('content')
 <style>
     #month option {
-  width: 150px; /* Set the width of the options */
-}
+        width: 150px;
+        /* Set the width of the options */
+    }
 </style>
 <div class="content-main">
 
@@ -74,12 +75,11 @@
             <!-- start thong ke -->
             <div class="container text-center ">
                 <div class="row d-flex justify-content-center p-2 gx-2">
-
                     <div class="col-2 col-md-2 m-4 rounded-3 border border-dark" style="background-color: #b53f3f;" onclick=option('saphethan')>
                         <div style="cursor: pointer;" class="item-home d-flex align-items-center justify-content-center">
                             <div>
                                 <i class="fas fa-broadcast-tower"></i>
-                                <h4>Sắp hết hạng</h4>
+                                <h4>Sắp hết hạn</h4>
                             </div>
                         </div>
                     </div>
