@@ -57,7 +57,7 @@
         <li class="{{mb_strtolower($title)=='thống kê'?'active':''}}">
             <a href="{{route('thongke')}}">Thống kê</a>
         </li>
-        <li>
+        <!-- <li>
             @if(Auth::check())
             <div class="justify-content-start btn-logout mobile-only" id="logoutButtonMobile">
                 <a href="{{route('logout')}}">
@@ -70,7 +70,7 @@
                 </a>
             </div>
             @endif
-        </li>
+        </li> -->
     </ul>
 </nav>
 

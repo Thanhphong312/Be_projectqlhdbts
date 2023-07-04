@@ -78,6 +78,18 @@ class HopDongController extends Controller
     public function update(Request $request)
     {
         // dd($request);
+        $filename = null;
+
+    if ($request->hasFile('HD_HDScan')) {
+        $file = $request->file('HD_HDScan');
+        $filename = $file->getClientOriginalName();
+        $file->move(public_path('HD_HDScan'), $filename);
+        $publicUrl = asset('HD_HDScan/' . $filename);
+        HopDong::where('HD_MaHD', $request->HD_MaHD)
+            ->update(['HD_HDScan' => 'HD_HDScan/' . $filename]);
+    }
+    $capnhathopdong = "";
+    if ($filename !== null) {
         $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->update([
             'HD_MaHD' => $request->HD_MaHD,
             'HD_TenCTK' => $request->HD_TenCTK,
@@ -91,16 +103,33 @@ class HopDongController extends Controller
             'HD_MaCSHT' => $request->CSHT_MaCSHT,
             'HD_TenChuDauTu' => $request->HD_TenChuDauTu,
             'HD_NgayPhuLuc' => $request->HD_NgayPhuLuc,
-            'HD_HDScan' => $request->HD_HDScan,
+            'HD_HDScan' => 'HD_HDScan/' . $filename,
         ]);
-        if ($capnhathopdong) {
+    } else {
+        $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->update([
+            'HD_MaHD' => $request->HD_MaHD,
+            'HD_TenCTK' => $request->HD_TenCTK,
+            'HD_SoTaiKhoan' => $request->HD_SoTaiKhoan,
+            'HD_TenNH' => $request->HD_TenNH,
+            'HD_NgayDangKy' => $request->HD_NgayDangKy,
+            'HD_NgayHetHan' => $request->HD_NgayHetHan,
+            'HD_GiaHienTai' => $request->HD_GiaHienTai,
+            'T_MaTram' => $request->T_MaTram,
+            'T_TenTram' => $request->T_TenTram,
+            'HD_MaCSHT' => $request->CSHT_MaCSHT,
+            'HD_TenChuDauTu' => $request-> HD_TenChuDauTu,
+            ' HD_NgayPhuLuc'=>  $request -> HD_NgayPhuLuc
+        ]);
+    }
+        if ($capnhathopdong!="") {
             Session::flash('success', 'Cập nhật thành công.');
             return response()->json(['status' => 'success', 'message' => 'Cập nhật thành công.']);
+        }else{
+
+            Session::flash('error', 'Cập nhật thât bại.');
+            return response()->json(['status' => 'error', 'message' => 'Cập nhật thât bại.']);    }
         }
 
-        Session::flash('error', 'Cập nhật thât bại.');
-
-        return response()->json(['status' => 'error', 'message' => 'Cập nhật thât bại.']);    }
 
     public function import(Request $request)
     {

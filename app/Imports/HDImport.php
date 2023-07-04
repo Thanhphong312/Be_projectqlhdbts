@@ -47,15 +47,13 @@ class HDImport implements ToCollection, WithHeadingRow
                     $newhopdong['T_TenTram'] = $row["ten_tram"];
                     $newhopdong['HD_NgayDangKy'] = Carbon::createFromFormat('d/m/Y', $row["ngay_dang_ky"])->toDateString();
                     $newhopdong['HD_NgayHetHan'] = Carbon::createFromFormat('d/m/Y', $row["ngay_het_han"])->toDateString();
-                    $newhopdong['HD_NgayPhuLuc'] = Carbon::now()->toDateString();
+                    $newhopdong['HD_NgayPhuLuc'] = Carbon::createFromFormat('d/m/Y', $row["ngay_phu_luc"])->toDateString();
                     $newhopdong['HD_GiaGoc'] = $row["gia_goc"];
                     $newhopdong['HD_GiaHienTai'] = $row["gia_hien_tai"];
                     $newhopdong['HD_SoTaiKhoan'] = $row["so_tai_khoan"];
                     $newhopdong['HD_TenCTK'] = $row["ten_chu_tai_khoan"];
                     $newhopdong['HD_TenNH'] = $row["ten_ngan_hang"];
                     $newhopdong['HD_TenChuDauTu'] =  $row["ten_chu_dau_tu"];
-                    $newhopdong['HD_HDScan'] = str_replace('/file/d/', '/uc?export=download&id=', $row["hop_dong"]);
-                    $newhopdong['HD_HDScan'] = str_replace('/view?usp=sharing', '',  $newhopdong['HD_HDScan']);
                     $oldhopdong = $hopdong->toArray();
                     $result = array_diff_assoc($newhopdong, $oldhopdong);
                     // dd($result);
@@ -78,15 +76,13 @@ class HDImport implements ToCollection, WithHeadingRow
                         $hopdong->T_TenTram = $row["ten_tram"];
                         $hopdong->HD_NgayDangKy = Carbon::createFromFormat('d/m/Y', $row["ngay_dang_ky"])->toDateString();
                         $hopdong->HD_NgayHetHan = Carbon::createFromFormat('d/m/Y', $row["ngay_het_han"])->toDateString();
-                        $hopdong->HD_NgayPhuLuc = Carbon::now()->toDateString();
+                        $hopdong->HD_NgayPhuLuc = Carbon::createFromFormat('d/m/Y', $row["ngay_phu_luc"])->toDateString();
                         $hopdong->HD_GiaGoc = $row["gia_goc"];
                         $hopdong->HD_GiaHienTai = $row["gia_hien_tai"];
                         $hopdong->HD_SoTaiKhoan = $row["so_tai_khoan"];
                         $hopdong->HD_TenCTK = $row["ten_chu_tai_khoan"];
                         $hopdong->HD_TenNH = $row["ten_ngan_hang"];
                         $hopdong->HD_TenChuDauTu =  $row["ten_chu_dau_tu"];
-                        $hopdong->HD_HDScan = str_replace('/file/d/', '/uc?export=download&id=',  $row["hop_dong"]);
-                        $hopdong->HD_HDScan = str_replace('/view?usp=sharing', '', $hopdong->HD_HDScan);
                         $hopdong->save();
                 }
             }

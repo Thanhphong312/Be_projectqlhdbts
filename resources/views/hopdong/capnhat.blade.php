@@ -86,7 +86,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Hợp đồng Scan</label>
-                <input required value="{{$capnhat->HD_HDScan}}" name="HD_HDScan" class="form-control" type="text">
+                <input name="HD_HDScan" id="HD_HDScan" class="form-control" type="file>
             </div>
             <div class="mb-3 text-left">
                 <label class="form-label">Ngày phụ lục

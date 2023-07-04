@@ -97,7 +97,6 @@
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Tên trạm</th>
                                             <th scope="col-6 col-md-4">Mã CSHT</th>
                                             <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
-                                            <th scope="col-6 col-md-4">Hợp đồng</th>
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Thời hạn</th>
                                             <th scope="col-6 col-md-4" style="min-width: 120px;">Ngày phụ lục</th>
                                             <th scope="col-6 col-md-4">Tùy chỉnh</th>
@@ -135,7 +134,6 @@
                                                 <td style="text-align:left">{{$row->T_TenTram}}</td>
                                                 <td style="text-align:left"> {{$row->HD_MaCSHT}}</td>
                                                 <td style="text-align:left">{{$row->HD_TenChuDauTu}}</td>
-                                                <td style="text-align:left"><a href="{{$row->HD_HDScan}}">Hợp Đồng PDF</a></td>
                                                 <td>
                                                     @if ($diffInDays <= 0) Hết hạn @else {{$diffInDays}} {{$unit}} @endif </td>
                                                 <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
@@ -145,7 +143,7 @@
                                                         <i class="fas fa-edit"></i> Cập nhật
                                                     </a>
                                                     @endif
-                                                    <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">Download PDF</a>
+                                                    <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">File PDF</a>
                                                 </td>
                                                 </tr>
                                                 @endforeach
