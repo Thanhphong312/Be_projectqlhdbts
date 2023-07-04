@@ -1,28 +1,7 @@
-@extends('layouts.app')
-
-
-@section('page-title', $title)
-
-@section('message')
-@include('partials.messages')
-@endsection
-
-@section('content')
-<div class="content-main">
-    <!-- start body -->
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        @include('partials.common.slide-bar')
-
-        <!-- Page Content  -->
-        <div id="content">
-            <!-- Tieu de -->
-            @include('partials.common.tieude')
-
-            <!-- Content -->
+@csrf
             <div class="container col-md-5 mt-2">
                 <div class="alert alert-primary">
-                    <h5 class="text-center" id="side12">THÔNG TIN TÀI KHOẢN</h5>
+                    
                     @foreach($hienthitaikhoan as $hienthi)
                     <form method="post" action="{{route('taikhoan-hienthi', $hienthi->id)}}">
                         @csrf
@@ -75,12 +54,3 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-
-    </div>
-    <!-- end body -->
-</div>
-@endsection
-
-@section('JS')
-@endsection
