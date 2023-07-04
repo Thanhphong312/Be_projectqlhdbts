@@ -55,7 +55,6 @@
                     $quyens = auth()->user()->quyennguoidungs()->where('Q_MaQ', 'Q1')->first();
                     }
                     @endphp
-                    @if($quyens)
                     <form action="{{route('start-import')}}" class="form d-flex justify-content-between align-items-center" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="text-left">
@@ -64,12 +63,13 @@
                                 <li class="text-dark">Màu đen: Hợp đồng chưa hết hạn</li>
                             </ul>
                         </div>
+                        @if($quyens)
                         <div class="d-grid gap-3 d-md-flex justify-content-md-end">
                             <input type="file" name="file" id="file" class="btn btn-success me-md-2 mt-1 mb-1" />
                             <button type="submit" class="btn btn-success me-md-2 mt-1 mb-1">Import</button>
                         </div>
+                        @endif
                     </form>
-                    @endif
                     <form action="{{route('export')}}" class="form" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!--Export-->
