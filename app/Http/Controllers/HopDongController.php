@@ -84,10 +84,11 @@ class HopDongController extends Controller
     if ($request->hasFile('HD_HDScan')) {
         $file = $request->file('HD_HDScan');
         $filename = $file->getClientOriginalName();
-        $file->move(public_path('HD_HDScan'), $filename);
+        $file->move(public_path('HD_HDScan'), $request->HD_MaHD.'-'.Carbon::now()->format('M-j-Y-H-i-s').'-'.$filename);
         $publicUrl = asset('HD_HDScan/' . $filename);
+        // dd($publicUrl);
         HopDong::where('HD_MaHD', $request->HD_MaHD)
-            ->update(['HD_HDScan' => 'HD_HDScan/' . $filename]);
+            ->update(['HD_HDScan' => 'HD_HDScan/' . $request->HD_MaHD.'-'.Carbon::now()->format('M-j-Y-H-i-s').'-'.$filename]);
         $hopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->get();
         $oldhopdong = $hopdong->toArray();
         $oldhopdong[0]['noidung'] = 'Nội dung sửa đổi : HD_HDScan';
@@ -109,7 +110,7 @@ class HopDongController extends Controller
             'HD_MaCSHT' => $request->CSHT_MaCSHT,
             'HD_TenChuDauTu' => $request->HD_TenChuDauTu,
             'HD_NgayPhuLuc' => $request->HD_NgayPhuLuc,
-            'HD_HDScan' => 'HD_HDScan/' . $filename,
+            'HD_HDScan' => 'HD_HDScan/' .$request->HD_MaHD.'-'.Carbon::now()->format('M-j-Y-H-i-s').'-'. $filename,
         ]);
     } else {
         $capnhathopdong = HopDong::where('HD_MaHD', $request->HD_MaHD)->update([
