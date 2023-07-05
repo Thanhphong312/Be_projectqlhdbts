@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 29, 2023 lúc 02:29 AM
--- Phiên bản máy phục vụ: 10.4.27-MariaDB
--- Phiên bản PHP: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Jul 05, 2023 at 06:10 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlhdtvt`
+-- Database: `qlhdtvt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `co_so_ha_tang`
+-- Table structure for table `co_so_ha_tang`
 --
 
 CREATE TABLE `co_so_ha_tang` (
@@ -35,11 +35,12 @@ CREATE TABLE `co_so_ha_tang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `co_so_ha_tang`
+-- Dumping data for table `co_so_ha_tang`
 --
 
 INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updated_at`) VALUES
-('ABC', 'ABC', '2023-06-22 06:47:36', '2023-06-22 06:47:36'),
+('ABC', 'CCCCC', '2023-07-03 07:50:29', '2023-07-03 07:50:29'),
+('CCCCC', 'CCCCCC', '2023-07-04 01:17:09', '2023-07-04 01:17:09'),
 ('CSHT_HUG_00118', 'HUG001', NULL, NULL),
 ('CSHT_HUG_00119', 'HUG002', NULL, NULL),
 ('CSHT_HUG_00120', 'HUG003', NULL, NULL);
@@ -47,7 +48,7 @@ INSERT INTO `co_so_ha_tang` (`CSHT_MaCSHT`, `CSHT_TenCSHT`, `created_at`, `updat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_gia`
+-- Table structure for table `don_gia`
 --
 
 CREATE TABLE `don_gia` (
@@ -63,7 +64,7 @@ CREATE TABLE `don_gia` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `don_vi`
+-- Table structure for table `don_vi`
 --
 
 CREATE TABLE `don_vi` (
@@ -74,7 +75,7 @@ CREATE TABLE `don_vi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `don_vi`
+-- Dumping data for table `don_vi`
 --
 
 INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
@@ -84,7 +85,7 @@ INSERT INTO `don_vi` (`DV_MaDV`, `DV_TenDV`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `dvql_tram`
+-- Table structure for table `dvql_tram`
 --
 
 CREATE TABLE `dvql_tram` (
@@ -96,7 +97,7 @@ CREATE TABLE `dvql_tram` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `dvql_tram`
+-- Dumping data for table `dvql_tram`
 --
 
 INSERT INTO `dvql_tram` (`id`, `Ten_DV`, `Ten_NgQL`, `created_at`, `updated_at`) VALUES
@@ -106,7 +107,7 @@ INSERT INTO `dvql_tram` (`id`, `Ten_DV`, `Ten_NgQL`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -122,7 +123,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `file_hop_dong`
+-- Table structure for table `file_hop_dong`
 --
 
 CREATE TABLE `file_hop_dong` (
@@ -138,57 +139,48 @@ CREATE TABLE `file_hop_dong` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `hop_dong`
+-- Table structure for table `hop_dong`
 --
 
 CREATE TABLE `hop_dong` (
   `HD_MaHD` varchar(255) NOT NULL,
   `ND_MaND` bigint(20) UNSIGNED DEFAULT NULL,
-  `T_MaTram` varchar(255) DEFAULT NULL,
-  `DV_MaDV` varchar(255) DEFAULT NULL,
-  `HD_MaCSHT` varchar(255) DEFAULT NULL,
-  `T_TenTram` varchar(255) DEFAULT NULL,
-  `HD_NgayDangKy` date DEFAULT NULL,
-  `HD_NgayHetHan` date DEFAULT NULL,
-  `HD_NgayPhuLuc` date DEFAULT NULL,
-  `HD_GiaGoc` varchar(255) DEFAULT NULL,
-  `HD_GiaHienTai` varchar(255) DEFAULT NULL,
-  `HD_SoTaiKhoan` varchar(255) DEFAULT NULL,
-  `HD_TenCTK` varchar(255) DEFAULT NULL,
-  `HD_TenNH` varchar(255) DEFAULT NULL,
-  `HD_TenChuDauTu` varchar(255) DEFAULT NULL,
+  `T_MaTram` varchar(255) NOT NULL,
+  `DV_MaDV` varchar(255) NOT NULL,
+  `HD_MaCSHT` varchar(255) NOT NULL,
+  `T_TenTram` varchar(255) NOT NULL,
+  `HD_NgayDangKy` date NOT NULL,
+  `HD_NgayHetHan` date NOT NULL,
+  `HD_NgayPhuLuc` date NOT NULL,
+  `HD_GiaGoc` varchar(255) NOT NULL,
+  `HD_GiaHienTai` varchar(255) NOT NULL,
+  `HD_SoTaiKhoan` varchar(255) NOT NULL,
+  `HD_TenCTK` varchar(255) NOT NULL,
+  `HD_TenNH` varchar(255) NOT NULL,
+  `HD_TenChuDauTu` varchar(255) NOT NULL,
   `HD_HDScan` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `hop_dong`
+-- Dumping data for table `hop_dong`
 --
 
 INSERT INTO `hop_dong` (`HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
-('HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-22 06:25:46', '2023-06-27 03:15:04'),
-('HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-07-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD30', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:29:45', '2023-06-27 03:40:11'),
-('HD31', 15, 'TLM002', 'DV2', 'CCC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:38:17', '2023-06-27 05:28:45'),
-('HD32', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:23:45', '2023-06-27 05:28:44'),
-('HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '2023-06-22 06:25:46', '2023-06-22 06:43:27'),
-('HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-07-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '2023-06-22 06:25:46', '2023-06-22 06:43:27');
+('HD1', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-05-02', '2023-10-02', '2023-08-02', '20000000', '1200000', '321231aaa', 'NCT', 'BIDV CN Hậu Giang', 'NCT', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-07-04', '1000000', '22000000', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD3', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-08-01', '2023-08-27', '2023-07-04', '20000000', '1200000', '23152123aa', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhãaaa', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2023-07-01', '2026-06-30', '2023-07-04', '1000000', '1200000', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46'),
+('HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-04 08:54:42', '2023-07-05 04:09:46');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -198,7 +190,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -219,7 +211,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `nguoi_dung_don_vi`
+-- Table structure for table `nguoi_dung_don_vi`
 --
 
 CREATE TABLE `nguoi_dung_don_vi` (
@@ -231,17 +223,18 @@ CREATE TABLE `nguoi_dung_don_vi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `nguoi_dung_don_vi`
+-- Dumping data for table `nguoi_dung_don_vi`
 --
 
 INSERT INTO `nguoi_dung_don_vi` (`id`, `ND_MaND`, `DV_MaDV`, `created_at`, `updated_at`) VALUES
 (5, 15, 'DV2', '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
-(6, 16, 'DV1', '2023-06-12 20:02:42', '2023-06-12 20:02:42');
+(6, 16, 'DV1', '2023-06-12 20:02:42', '2023-06-12 20:02:42'),
+(8, 20, 'DV1', '2023-07-04 01:18:26', '2023-07-04 01:18:26');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_reset_tokens`
+-- Table structure for table `password_reset_tokens`
 --
 
 CREATE TABLE `password_reset_tokens` (
@@ -253,7 +246,7 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -272,7 +265,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `phu_luc`
+-- Table structure for table `phu_luc`
 --
 
 CREATE TABLE `phu_luc` (
@@ -293,50 +286,38 @@ CREATE TABLE `phu_luc` (
   `HD_TenCTK` varchar(255) NOT NULL,
   `HD_TenNH` varchar(255) NOT NULL,
   `HD_TenChuDauTu` varchar(255) NOT NULL,
-  `HD_HDScan` varchar(255) NOT NULL,
+  `HD_HDScan` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `phu_luc`
+-- Dumping data for table `phu_luc`
 --
 
 INSERT INTO `phu_luc` (`id`, `noidung`, `HD_MaHD`, `ND_MaND`, `T_MaTram`, `DV_MaDV`, `HD_MaCSHT`, `T_TenTram`, `HD_NgayDangKy`, `HD_NgayHetHan`, `HD_NgayPhuLuc`, `HD_GiaGoc`, `HD_GiaHienTai`, `HD_SoTaiKhoan`, `HD_TenCTK`, `HD_TenNH`, `HD_TenChuDauTu`, `HD_HDScan`, `created_at`, `updated_at`) VALUES
-(43, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-09-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(44, 'Nội dung sửa đổi : ', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(45, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-08-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '23152123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 3', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(46, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 4', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(47, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 5', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(48, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 6', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(49, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 7', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(50, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 8', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(51, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD9', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '32132123', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 9', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(52, 'Nội dung sửa đổi : HD_NgayHetHan', 'HD10', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321321321', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 10', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(53, 'Nội dung sửa đổi : ', 'HD11', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '2313211', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(54, 'Nội dung sửa đổi : ', 'HD12', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '321231', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(55, 'Nội dung sửa đổi : ', 'HD17', 15, 'TLM002', 'DV2', 'CSHT_HUG_00119', 'NCT', '2023-05-01', '2023-05-27', '2023-06-22', '20,000,000 VNĐ', '22,000,000 VNĐ', '5313515315', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', 'HD_Scan 2', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(56, 'Nội dung sửa đổi : ', 'HD18', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-07-01', '2026-06-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'HD_Scan 1', '2023-06-22 06:43:27', '2023-06-22 06:43:27'),
-(57, 'Nội dung sửa đổi : T_TenTram,HD_NgayDangKy,HD_NgayHetHan,HD_NgayPhuLuc,HD_GiaGoc,HD_GiaHienTai,HD_SoTaiKhoan,HD_TenCTK,HD_TenNH,HD_TenChuDauTu,HD_HDScan', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-09-01', '2026-07-30', '2023-06-22', '1,000,000 VNĐ', '1,200,000 VNĐ', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', 'https://drive.google.com/uc?export=download&id=1tcuekDYEf7Wh6rdFZZzoEcWoMZIXK95z/view?usp=drive_link', '2023-06-26 15:31:25', '2023-06-26 15:31:25'),
-(58, 'Nội dung sửa đổi : HD_NgayPhuLuc', 'HD1', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-26', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:15:03', '2023-06-27 03:15:03'),
-(59, 'Nội dung sửa đổi : T_MaTram,DV_MaDV', 'HD30', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:32:34', '2023-06-27 03:32:34'),
-(60, 'Nội dung sửa đổi : ', 'HD30', 15, 'TLM002', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:38:17', '2023-06-27 03:38:17'),
-(61, 'Nội dung sửa đổi : T_MaTram', 'HD30', 15, 'TLM002', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:40:11', '2023-06-27 03:40:11'),
-(62, 'Nội dung sửa đổi : T_MaTram', 'HD31', 15, 'TLM001', 'DV1', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 03:40:11', '2023-06-27 03:40:11'),
-(63, 'Nội dung sửa đổi : ', 'HD31', 15, 'TLM002', 'DV1', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:23:45', '2023-06-27 05:23:45'),
-(64, 'Nội dung sửa đổi : ', 'HD32', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:04', '2023-06-27 05:26:04'),
-(65, 'Nội dung sửa đổi : DV_MaDV', 'HD31', 15, 'TLM002', 'DV1', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:04', '2023-06-27 05:26:04'),
-(66, 'Nội dung sửa đổi : ', 'HD32', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:18', '2023-06-27 05:26:18'),
-(67, 'Nội dung sửa đổi : ', 'HD31', 15, 'TLM002', 'DV2', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:18', '2023-06-27 05:26:18'),
-(68, 'Nội dung sửa đổi : ', 'HD32', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:45', '2023-06-27 05:26:45'),
-(69, 'Nội dung sửa đổi : ', 'HD31', 15, 'TLM002', 'DV2', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:26:45', '2023-06-27 05:26:45'),
-(74, 'Nội dung sửa đổi : ', 'HD32', 15, 'TLM001', 'DV2', 'CSHT_HUG_00118', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-02', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:28:44', '2023-06-27 05:28:44'),
-(75, 'Nội dung sửa đổi : HD_MaCSHT', 'HD31', 15, 'TLM002', 'DV2', 'ABC', 'HUG', '2023-06-27', '2023-08-24', '2023-06-27', '20,000,000 VNĐ', '25,000,000 VNĐ', '321231', 'NCT', 'BIDV CN Hậu Giang', 'NCT', 'https://drive.google.com/uc?export=download&id=1e5KTSc8hMUJdrAh9AkDuGTzIfWx9pjHx', '2023-06-27 05:28:44', '2023-06-27 05:28:44');
+(165, 'Nội dung sửa đổi : HD_NgayDangKy,HD_NgayHetHan,HD_NgayPhuLuc', 'HD1', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-08-02', '2023-05-02', '2023-07-04', '20000000', '1200000', '321231aaa', 'NCT', 'BIDV CN Hậu Giang', 'NCT', NULL, '2023-07-04 09:35:34', '2023-07-04 09:35:34'),
+(166, 'Nội dung sửa đổi : ND_MaND', 'HD1', 13, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-05-02', '2023-10-02', '2023-08-02', '20000000', '1200000', '321231aaa', 'NCT', 'BIDV CN Hậu Giang', 'NCT', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(167, 'Nội dung sửa đổi : ND_MaND', 'HD2', 13, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-07-04', '1000000', '22000000', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(168, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-08-01', '2023-08-27', '2023-07-04', '20000000', '1200000', '23152123aa', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhãaaa', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(169, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(170, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(171, 'Nội dung sửa đổi : ND_MaND', 'HD6', 13, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2023-07-01', '2026-06-30', '2023-07-04', '1000000', '1200000', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(172, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(173, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:26', '2023-07-05 04:09:26'),
+(174, 'Nội dung sửa đổi : HD_TenCTK', 'HD1', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-05-02', '2023-10-02', '2023-08-02', '20000000', '1200000', '321231aaa', 'NCTccc', 'BIDV CN Hậu Giang', 'NCT', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(175, 'Nội dung sửa đổi : ', 'HD2', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2020-08-01', '2026-06-30', '2023-07-04', '1000000', '22000000', '564654546', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(176, 'Nội dung sửa đổi : ', 'HD3', 15, 'TLM001', 'DV2', 'ABC', 'Long_Binh_HUG', '2023-08-01', '2023-08-27', '2023-07-04', '20000000', '1200000', '23152123aa', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhãaaa', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(177, 'Nội dung sửa đổi : ', 'HD4', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '66323131', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(178, 'Nội dung sửa đổi : ', 'HD5', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '1200000', '65343521', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(179, 'Nội dung sửa đổi : ', 'HD6', 15, 'TLM001', 'DV1', 'CSHT_HUG_00118', 'Long_Binh_HUG', '2023-07-01', '2026-06-30', '2023-07-04', '1000000', '1200000', '5312322', 'Nguyễn Thị Huỳnh Cầm', 'ACB CN Hậu Giang', 'Nguyễn Thị Huỳnh Cầm', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(180, 'Nội dung sửa đổi : ', 'HD7', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32121312', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46'),
+(181, 'Nội dung sửa đổi : ', 'HD8', 15, 'TLM002', 'DV1', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', '2023-05-01', '2023-05-27', '2023-07-04', '20000000', '22000000', '32513221', 'Châu Thanh Nhã', 'BIDV CN Hậu Giang', 'Châu Thanh Nhã', NULL, '2023-07-05 04:09:46', '2023-07-05 04:09:46');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quyen`
+-- Table structure for table `quyen`
 --
 
 CREATE TABLE `quyen` (
@@ -347,7 +328,7 @@ CREATE TABLE `quyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quyen`
+-- Dumping data for table `quyen`
 --
 
 INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
@@ -358,7 +339,7 @@ INSERT INTO `quyen` (`Q_MaQ`, `Q_TenQ`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `quyen_nguoi_dung`
+-- Table structure for table `quyen_nguoi_dung`
 --
 
 CREATE TABLE `quyen_nguoi_dung` (
@@ -370,19 +351,20 @@ CREATE TABLE `quyen_nguoi_dung` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `quyen_nguoi_dung`
+-- Dumping data for table `quyen_nguoi_dung`
 --
 
 INSERT INTO `quyen_nguoi_dung` (`id`, `Q_MaQ`, `ND_MaND`, `created_at`, `updated_at`) VALUES
 (8, 'Q0', 13, NULL, NULL),
 (9, 'Q1', 15, '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
 (10, 'Q2', 14, NULL, NULL),
-(11, 'Q2', 16, '2023-06-12 20:02:42', '2023-06-12 20:02:42');
+(11, 'Q2', 16, '2023-06-12 20:02:42', '2023-06-12 20:02:42'),
+(14, 'Q0', 20, '2023-07-04 01:18:26', '2023-07-04 01:18:26');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tram`
+-- Table structure for table `tram`
 --
 
 CREATE TABLE `tram` (
@@ -398,18 +380,19 @@ CREATE TABLE `tram` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tram`
+-- Dumping data for table `tram`
 --
 
 INSERT INTO `tram` (`T_MaTram`, `CSHT_MaCSHT`, `T_TenTram`, `T_DiaChiTram`, `T_TinhTrang`, `toado`, `Ma_DVQL`, `created_at`, `updated_at`) VALUES
 ('TLM001', 'CSHT_HUG_00118', 'Long_Binh_HUG', 'Long Binh_Hau Giang', '1', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 2, NULL, '2023-06-12 07:46:23'),
 ('TLM002', 'CSHT_HUG_00119', 'Vi_Thuy_HUG', 'Vi Thuy_Hau Giang', '0', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL),
-('TLM003', 'CSHT_HUG_00120', 'Long_My_HUG', 'Long My_HUG', '0', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL);
+('TLM003', 'CSHT_HUG_00120', 'Long_My_HUG', 'Long My_HUG', '0', 'QFRP+P6 Vị Thanh, Hậu Giang, Việt Nam', 1, NULL, NULL),
+('tram-store', 'ABC', 'tram-storeaaaaaaaaaa', 'tram-store', 'Hoạt động', 'tram-store', 1, '2023-07-03 08:00:06', '2023-07-03 08:06:03');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -429,60 +412,61 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `ND_MaND`, `avatar`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
-(13, 'ND_01', '/avatar/admin.png', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123', NULL, NULL, NULL),
-(14, 'ND_02', 'avatar/kha.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$cfumoPM4MGyGhSs/dj.toOgRS6Tw5tdHcQk.DTsaxfUnI3Zq3ks.O', '1', NULL, '2023-06-12 19:03:39', '2023-06-19 20:38:09'),
+(13, 'ND_01', '/avatar/admin.png', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123', NULL, NULL, '2023-07-03 07:22:55'),
+(14, 'ND_02', 'avatar/kha.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$rw32JlvHdE1LpXPWtlOg1.EciCMLZXo4NzLSKJDEDGsn4dHmRxwJW', '1', NULL, '2023-06-12 19:03:39', '2023-07-05 04:08:39'),
 (15, 'ND_03', 'avatar/qpt.png', 'user2', 'Nam', 'CANTHO', 'user2@gmail.com', NULL, '$2y$10$2V79f.5RhaFoSACnEYGa9.1ictokDMCw1ubA.II8v.Rs1ZHaQOOVm', '2', NULL, '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
-(16, 'ND_04', 'avatar/doraemon.png', 'user3', 'Nu', 'Hà Nội', 'user3@gmail.com', NULL, '$2y$10$0wu31Ol1h/CuSyl4LsEsKeI66RNuBY74MRbn7DeYhWp8Pra2BgBPG', '3', NULL, '2023-06-12 20:02:42', '2023-06-12 20:02:42');
+(16, 'ND_04', 'avatar/images.png', 'user3', 'Nu', 'Hà Nội', 'user3@gmail.com', NULL, '$2y$10$0wu31Ol1h/CuSyl4LsEsKeI66RNuBY74MRbn7DeYhWp8Pra2BgBPG', '3', NULL, '2023-06-12 20:02:42', '2023-06-29 03:36:04'),
+(20, 'ND_05', 'avatar/iconctu.png', 'ND_05', 'Nam', 'ND_05', 'ND_05@gmail.com', NULL, '$2y$10$JRCsqNW8rGpJrDpblfe2oOR3VdyrTdHrd2PMi9wXGZ.qS8gw5Qw4W', 'ND_05', NULL, '2023-07-04 01:18:26', '2023-07-04 01:18:26');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `co_so_ha_tang`
+-- Indexes for table `co_so_ha_tang`
 --
 ALTER TABLE `co_so_ha_tang`
   ADD PRIMARY KEY (`CSHT_MaCSHT`);
 
 --
--- Chỉ mục cho bảng `don_gia`
+-- Indexes for table `don_gia`
 --
 ALTER TABLE `don_gia`
   ADD PRIMARY KEY (`DG_MaDG`),
   ADD KEY `don_gia_hd_mahd_foreign` (`HD_MaHD`);
 
 --
--- Chỉ mục cho bảng `don_vi`
+-- Indexes for table `don_vi`
 --
 ALTER TABLE `don_vi`
   ADD PRIMARY KEY (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `dvql_tram`
+-- Indexes for table `dvql_tram`
 --
 ALTER TABLE `dvql_tram`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Chỉ mục cho bảng `file_hop_dong`
+-- Indexes for table `file_hop_dong`
 --
 ALTER TABLE `file_hop_dong`
   ADD PRIMARY KEY (`F_MaFile`),
   ADD KEY `file_hop_dong_hd_mahd_foreign` (`HD_MaHD`);
 
 --
--- Chỉ mục cho bảng `hop_dong`
+-- Indexes for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
   ADD PRIMARY KEY (`HD_MaHD`),
@@ -491,13 +475,13 @@ ALTER TABLE `hop_dong`
   ADD KEY `hop_dong_dv_madv_foreign` (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `nguoi_dung_don_vi`
+-- Indexes for table `nguoi_dung_don_vi`
 --
 ALTER TABLE `nguoi_dung_don_vi`
   ADD PRIMARY KEY (`id`),
@@ -505,13 +489,13 @@ ALTER TABLE `nguoi_dung_don_vi`
   ADD KEY `nguoi_dung_don_vi_dv_madv_foreign` (`DV_MaDV`);
 
 --
--- Chỉ mục cho bảng `password_reset_tokens`
+-- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
--- Chỉ mục cho bảng `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -519,19 +503,19 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Chỉ mục cho bảng `phu_luc`
+-- Indexes for table `phu_luc`
 --
 ALTER TABLE `phu_luc`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `quyen`
+-- Indexes for table `quyen`
 --
 ALTER TABLE `quyen`
   ADD PRIMARY KEY (`Q_MaQ`);
 
 --
--- Chỉ mục cho bảng `quyen_nguoi_dung`
+-- Indexes for table `quyen_nguoi_dung`
 --
 ALTER TABLE `quyen_nguoi_dung`
   ADD PRIMARY KEY (`id`),
@@ -539,7 +523,7 @@ ALTER TABLE `quyen_nguoi_dung`
   ADD KEY `quyen_nguoi_dung_nd_mand_foreign` (`ND_MaND`);
 
 --
--- Chỉ mục cho bảng `tram`
+-- Indexes for table `tram`
 --
 ALTER TABLE `tram`
   ADD PRIMARY KEY (`T_MaTram`),
@@ -547,7 +531,7 @@ ALTER TABLE `tram`
   ADD KEY `tram_dvql_tram_foreign` (`Ma_DVQL`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -556,26 +540,44 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `ND_MaND` (`ND_MaND`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `dvql_tram`
+-- AUTO_INCREMENT for table `dvql_tram`
 --
 ALTER TABLE `dvql_tram`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `phu_luc`
+-- AUTO_INCREMENT for table `nguoi_dung_don_vi`
+--
+ALTER TABLE `nguoi_dung_don_vi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `phu_luc`
 --
 ALTER TABLE `phu_luc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+
+--
+-- AUTO_INCREMENT for table `quyen_nguoi_dung`
+--
+ALTER TABLE `quyen_nguoi_dung`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
