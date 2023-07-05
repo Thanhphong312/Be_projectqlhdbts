@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2023 at 04:16 PM
+-- Generation Time: Jul 05, 2023 at 04:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -422,7 +422,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `ND_MaND`, `avatar`, `name`, `ND_GioiTinh`, `ND_DiaChi`, `email`, `email_verified_at`, `password`, `ND_SDT`, `remember_token`, `created_at`, `updated_at`) VALUES
 (13, 'ND_01', '/avatar/admin.png', 'admin', 'Nam', 'Can Tho', 'admin@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '123', NULL, NULL, '2023-07-03 07:22:55'),
-(14, 'ND_02', 'avatar/kha.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$YzX7O1nQayboyc/jl7wSD.9MK7uZ2XrKJzDAB4Nx4l0ulaUDlRgQ6', '1', NULL, '2023-06-12 19:03:39', '2023-06-19 20:38:09'),
+(14, 'ND_02', 'avatar/kha.png', 'user1', 'Nam', 'CANTHO', 'user1@gmail.com', NULL, '$2y$10$BOaIHRnWm1WbiML2FX0l8ubXX7gYzqaAt1T3EjPBkWMR/UQuO5PVa', '1', NULL, '2023-06-12 19:03:39', '2023-07-05 14:26:09'),
 (15, 'ND_03', 'avatar/qpt.png', 'user2', 'Nam', 'CANTHO', 'user2@gmail.com', NULL, '$2y$10$2V79f.5RhaFoSACnEYGa9.1ictokDMCw1ubA.II8v.Rs1ZHaQOOVm', '2', NULL, '2023-06-12 19:05:10', '2023-06-12 19:05:10'),
 (16, 'ND_04', 'avatar/images.png', 'user3', 'Nu', 'Hà Nội', 'user3@gmail.com', NULL, '$2y$10$0wu31Ol1h/CuSyl4LsEsKeI66RNuBY74MRbn7DeYhWp8Pra2BgBPG', '3', NULL, '2023-06-12 20:02:42', '2023-06-29 03:36:04'),
 (20, 'ND_05', 'avatar/iconctu.png', 'user4', 'Nam', 'ND_05', 'user4@gmail.com', NULL, '$2y$10$wxEYMudb4dvlt3WzZcCJQOQCUdMcLHEQOzyEPtwXGT52kEZJVPL3G', 'ND_05', NULL, '2023-07-04 01:18:26', '2023-07-05 04:01:37');
