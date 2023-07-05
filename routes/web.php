@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/test', [testController::class, 'test'])->name('test');
     Route::get('/thongke', [ThongKeController::class, 'index'])->name('thongke');
     Route::get('/thongke/ajaxchart', [ThongKeController::class, 'ajax'])->name('ajaxthongke');
+    Route::post('/thongke/export', [ThongKeController::class, 'export'])->name('thongke-export');
 
     //tram
     Route::get('/tram', [TramController::class, 'index'])->name('tram');

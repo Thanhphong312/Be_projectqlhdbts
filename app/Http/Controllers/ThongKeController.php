@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BaoCaoExport;
 use App\Http\Controllers\Controller;
 use App\Models\DonVi;
 use App\Models\HopDong;
@@ -9,8 +10,13 @@ use App\Models\Tram;
 use Illuminate\Http\Request;
 use App\Models\Cabon;
 use App\Models\PhuLuc;
+use App\Models\User;
 use Carbon\Carbon;
 use Auth;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ThongKeController extends Controller
 {
@@ -27,103 +33,56 @@ class ThongKeController extends Controller
         $months = 'all';
         $type = 'all';
         $donvi = 'all';
-        return view('thongke/thongke', compact('title', 'breadcrumbs', 'donvis', 'request', 'type'));
+        $taikhoans = User::get();
+        return view('thongke/thongke', compact('title', 'breadcrumbs', 'donvis', 'request', 'type', 'taikhoans'));
     }
     public function ajax(Request $request)
     {
-        $months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-        $categories = [];
-        $type = "";
-        $name = "Doanh thu";
+        $month = 'all';
+        $year = 'all';
+        $nguoidung = "all"; 
+        $don_vi = "all";
+        $type = 'thongke';
         if ($request->month != 'all' && !empty($request->month)) {
-            $months = [$request->month];
+            $month = $request->month;
+        }
+        if ($request->year != 'all' && !empty($request->year)) {
+            $year = $request->year;
         }
         if ($request->type != 'all' && !empty($request->type)) {
             $type = $request->type;
         }
         if ($request->don_vi != 'all' && !empty($request->don_vi)) {
-            $donvi = $request->don_vi;
+            $don_vi = $request->don_vi;
+        }
+        if ($request->nguoidung != 'all' && !empty($request->nguoidung)) {
+            $nguoidung = $request->nguoidung;
         }
 
         $thongkes = [];
         switch ($request->type) {
-            case 'taikhoan':
-                $user = Auth::user()->id;
-                if (count($months) == 1) {
-                    $month = Carbon::create('2023', $months[0],  1, 0, 0, 0);
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $hopdongs = HopDong::where(function ($query) use ($user, $donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
-                        $query->where('ND_MaND', $user);
-                    })
-                        ->where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateTimeString())
-                        ->where('HD_NgayDangKy', '<=', $month->lastOfMonth()->toDateTimeString())
-                        ->get();
-                    // dd($hopdongs);
-
-                    $sum = 0;
-                    $listhopdong = null;
-                    foreach ($hopdongs as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
-                    }
-                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth())->get();
-                    foreach ($phuluc as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
-                    }
-                } else {
-                    // dd(Auth::user()->id);
-                    $now = Carbon::now();
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    // dd($donvi);
-                    $hopdongs = HopDong::where(function ($query) use ($user, $donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
-                        }
-                        $query->where('ND_MaND', $user);
-                    })
-                        ->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateTimeString())
-                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateTimeString())
-                        ->get();
-                    $sum = 0;
-                    $listhopdong = null;
-                    foreach ($hopdongs as $hopdong) {
-                        // dd($now->firstOfMonth()->toDateString());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
-                    }
-                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $now->firstOfMonth()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $now->lastOfMonth()->toDateString())->get();
-                    foreach ($phuluc as $hopdong) {
-                        // dd($now->firstOfMonth()->toDateString());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
-                    }
-                }
-                break;
             case 'saphethan':
-                $sixmonth = Carbon::now()->addMonths(6);
+                $user = Auth::user();
+                $sixmonth = Carbon::now()->addMonth(6);
                 $now = Carbon::now();
-                // dd($ngayhethan->toDateTimeString());
+                $year = Carbon::now()->year;
                 $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                $hopdongs = HopDong::where(function ($query) use ($donvi) {
-                    if (!empty($donvi)) {
-                        $query->where('DV_MaDV', $donvi->DV_MaDV);
+                $hopdongs = HopDong::where(function ($query) use ($request, $user, $don_vi) {
+                    if ($don_vi!="all") {
+                        $query->where('DV_MaDV', $don_vi);
+                    }
+                    if ($user->quyennguoidungs->first()->Q_MaQ == 'Q1') {
+                        $query->where('ND_MaND', $user->id);
+                    }
+                    if ($request->nguoidung != 'all' && !empty($request->nguoidung)) {
+                        $query->where('ND_MaND', $request->nguoidung);
                     }
                 })
-                    ->where('HD_NgayHetHan', '<=', $sixmonth->toDateString())
                     ->where('HD_NgayHetHan', '>=', $now->toDateString())
+                    ->where('HD_NgayHetHan', '<=', $sixmonth->toDateString())
                     ->get();
+                // dd($hopdongs);
+// 
                 $sum = 0;
                 $listhopdong = null;
                 foreach ($hopdongs as $hopdong) {
@@ -133,67 +92,95 @@ class ThongKeController extends Controller
                 break;
             default:
                 // dd(($request->type));
-                if (count($months) == 1) {
-                    $month = Carbon::create('2023', $months[0],  1, 0, 0, 0);
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $hopdongs = HopDong::where(function ($query) use ($donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                $user = Auth::user();
+                $now = "";
+                if($year!='all'){
+                    if($month=='all'){
+                        $now = Carbon::create($year, 1,  1, 0, 0, 0);
+                    }else{
+                        $now = Carbon::create($year, $month,  1, 0, 0, 0);
+                    }
+                }
+                // dd($now);
+                // if()
+                $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
+                $hopdongs = HopDong::where(function ($query) use ($request, $now, $user, $don_vi) {
+                    if ($don_vi!="all") {
+                        $query->where('DV_MaDV', $don_vi);
+                    }
+                    if ($user->quyennguoidungs->first()->Q_MaQ == 'Q1') {
+                        $query->where('ND_MaND', $user->id);
+                    }
+                    if ($request->nguoidung != 'all' && !empty($request->nguoidung)) {
+                        $query->where('ND_MaND', $request->nguoidung);
+                    }
+                    if ($request->year != 'all') {
+                        if ($request->month == 'all') {
+                            $query->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString());
+                            $query->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString());
+                        } else {
+                            $query->where('HD_NgayDangKy', '>=', $now->firstOfMonth()->toDateString());
+                            $query->where('HD_NgayDangKy', '<', $now->lastOfMonth()->toDateString());
                         }
-                    })
-                        ->where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth()->toDateString())
-                        ->get();
-                    // dd($hopdongs);
-                    $sum = 0;
-                    $listhopdong = null;
-                    foreach ($hopdongs as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
                     }
-                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $month->firstOfMonth()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $month->lastOfMonth()->toDateString())->get();
-                    foreach ($phuluc as $hopdong) {
-                        // dd(PhuLuc::where('HD_MaHD', $hopdong->HD_MaHD)->first());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
+                })->get();
+                // dd($hopdongs);
+                $sum = 0;
+                $listhopdong = null;
+                foreach ($hopdongs as $hopdong) {
+                    // dd($now->firstOfYear()->toDateString());
+                    $listhopdong = $hopdong;
+                    $sum += $listhopdong->HD_GiaHienTai;
+                    array_push($thongkes, $listhopdong);
+                }
+                $phuluc = PhuLuc::where(function ($query) use ($request, $now, $user, $don_vi) {
+                    if ($don_vi!="all") {
+                        $query->where('DV_MaDV', $don_vi);
                     }
-                } else {
-                    $now = Carbon::now();
-                    $donvi = DonVi::where('DV_MaDV', $request->don_vi)->first();
-                    $hopdongs = HopDong::where(function ($query) use ($donvi) {
-                        if (!empty($donvi)) {
-                            $query->where('DV_MaDV', $donvi->DV_MaDV);
+                    if ($user->quyennguoidungs->first()->Q_MaQ == 'Q1') {
+                        $query->where('ND_MaND', $user->id);
+                    }
+                    if ($request->nguoidung != 'all' && !empty($request->nguoidung)) {
+                        $query->where('ND_MaND', $request->nguoidung);
+                    }
+                    if ($request->year != 'all') {
+                        if ($request->month == 'all') {
+                            $query->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString());
+                            $query->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString());
+                        } else {
+                            $query->where('HD_NgayDangKy', '>=', $now->firstOfMonth()->toDateString());
+                            $query->where('HD_NgayDangKy', '<', $now->lastOfMonth()->toDateString());
                         }
-                    })
-                        ->where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString())
-                        ->get();
-                    // dd($hopdongs);
-                    $sum = 0;
-                    $listhopdong = null;
-                    foreach ($hopdongs as $hopdong) {
-                        // dd($now->firstOfYear()->toDateString());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
                     }
-                    $phuluc = PhuLuc::where('HD_NgayDangKy', '>=', $now->firstOfYear()->toDateString())
-                        ->where('HD_NgayDangKy', '<', $now->lastOfYear()->toDateString())->get();
-                    // dd($phuluc);
-                    foreach ($phuluc as $hopdong) {
-                        // dd($now->firstOfYear()->toDateString());
-                        $listhopdong = $hopdong;
-                        $sum += $listhopdong->HD_GiaHienTai;
-                        array_push($thongkes, $listhopdong);
-                    }
+                })->get();
+                // dd($phuluc);
+                foreach ($phuluc as $hopdong) {
+                    // dd($now->firstOfYear()->toDateString());
+                    $listhopdong = $hopdong;
+                    $sum += $listhopdong->HD_GiaHienTai;
+                    array_push($thongkes, $listhopdong);
                 }
                 break;
         }
-        return view('thongke/ajaxchart', compact('thongkes', 'sum', 'request'));
+        $collection = new Collection($thongkes);
+
+        // Define the number of items per page
+        $perPage = 5;
+        $page = (!empty($request->page))?$request->page:1;
+        // Get the current page from the query string or set a default value
+        $currentPage = request()->get('page', $page);
+
+        // Slice the collection based on the current page and the number of items per page
+        $currentPageItems = $collection->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        // Create a new LengthAwarePaginator instance
+        $paginator = new LengthAwarePaginator($currentPageItems, count($collection), $perPage, $currentPage);
+        // dd($thongkes);
+        $paginator->withPath('./thongke?year='.$year.'&month='.$month.'&donvi='.$don_vi.'&nguoidung='.$nguoidung.'&type='.$type);
+        return view('thongke/ajaxchart', compact('paginator', 'sum', 'request','thongkes'));
+    }
+    public function export(Request $request)
+    {
+        return Excel::download(new BaoCaoExport($request), 'Baocao-' . Carbon::now()->format('M j, Y H-i-s') . '.xlsx');
     }
 }

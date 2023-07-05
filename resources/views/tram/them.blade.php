@@ -55,8 +55,8 @@
                 <span id="colorIcon">*</span>
             </label>
             <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="tt" name="tt">
-                <option value="Hoạt động">Hoạt động</option>
-                <option value="Ngưng hoạt động">Ngưng hoạt động</option>
+                <option value="1">Hoạt dộng</option>
+                <option value="0">Ngưng hoạt dộng</option>
             </select>
         </div>
         <div class="row justify-content-center">

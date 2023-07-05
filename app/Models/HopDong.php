@@ -52,7 +52,7 @@ class HopDong extends Model
     }
     public function nguoidung()
     {
-        return $this->hasOne(nguoidung::class, 'id', 'ND_MaND');
+        return $this->hasOne(User::class, 'id', 'ND_MaND');
     }
     public function phulucs(){
         return $this->hasMany(PhuLuc::class, 'HD_MaHD', 'HD_MaHD');
