@@ -36,12 +36,14 @@ class HopDongController extends Controller
                     ->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('HD_TenCTK', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs', 'request'), $hopdong);
             } else {
                 $hopdong['hopdong'] = DB::table('hop_dong')->where('HD_MaHD', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('HD_MaCSHT', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_TenTram', 'LIKE', '%' . $request->get('search') . '%')
+                    ->orwhere('HD_TenCTK', 'LIKE', '%' . $request->get('search') . '%')
                     ->orwhere('T_MaTram', 'LIKE', '%' . $request->get('search') . '%')->paginate(7);
                 return view('hopdong/hopdong', compact('title', 'breadcrumbs', 'request'), $hopdong);
             }

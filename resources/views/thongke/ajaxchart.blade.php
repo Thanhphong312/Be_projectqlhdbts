@@ -5,7 +5,7 @@
             <div style="float: left;">
                 <ul class="text-left">Báo cáo tổng:
                     <li class="text-dark">Tổng hợp đồng: {{count($thongkes)}} hợp đồng</li>
-                    <li class="text-dark">Tổng doanh thu: {{$sum}} VNĐ</li>
+                    <li class="text-dark">Tổng giá trị hợp đồng: {{$sum}} VNĐ</li>
                 </ul>
             </div>
             <div style="float: right;">
@@ -34,7 +34,7 @@
                             <th scope="col-6 col-md-4">Tên chủ đầu tư</th>
                             <th scope="col-6 col-md-4" style="min-width: 120px;">Thời hạn</th>
                             <th scope="col-6 col-md-4" style="min-width: 120px;">Ngày phụ lục</th>
-                            <th scope="col-6 col-md-4" style="min-width: 120px;">Tùy chỉnh</th>
+                            <th scope="col-6 col-md-4" style="min-width: 120px;"></th>
                         </tr>
                     </thead>
                     <tbody>

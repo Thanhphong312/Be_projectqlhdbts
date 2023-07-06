@@ -85,7 +85,7 @@
                                         <td style="text-align:right">{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                                         <td>
                                             <a href="{{route('phuluc-hienthi', $row->id)}}" class="btn btn-secondary me-md-3">Chi tiết</a>
-                                            <a class="btn btn-secondary me-md-3" href="{{ $row->HD_HDScan }}">Download PDF</a>
+                                            <a class="btn btn-secondary me-md-3" href="">Phu Luc PDF</a>
                                         </td>
                                     </tr>
                                     @endforeach

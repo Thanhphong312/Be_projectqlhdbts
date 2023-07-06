@@ -25,7 +25,7 @@ class ThongKeController extends Controller
         $title = 'Thống kê';
         $breadcrumbs = [
             [
-                'name' => 'Thống kê',
+                'name' => 'Báo cáo',
                 'link' => './thongke'
             ]
         ];
@@ -39,7 +39,7 @@ class ThongKeController extends Controller
     public function ajax(Request $request)
     {
         $month = 'all';
-        $year = 'all';
+        $year = Carbon::now()->year;
         $nguoidung = "all"; 
         $don_vi = "all";
         $type = 'thongke';
@@ -165,7 +165,7 @@ class ThongKeController extends Controller
         $collection = new Collection($thongkes);
 
         // Define the number of items per page
-        $perPage = 5;
+        $perPage = 10;
         $page = (!empty($request->page))?$request->page:1;
         // Get the current page from the query string or set a default value
         $currentPage = request()->get('page', $page);
@@ -181,6 +181,7 @@ class ThongKeController extends Controller
     }
     public function export(Request $request)
     {
+        // dd($request);
         return Excel::download(new BaoCaoExport($request), 'Baocao-' . Carbon::now()->format('M j, Y H-i-s') . '.xlsx');
     }
 }

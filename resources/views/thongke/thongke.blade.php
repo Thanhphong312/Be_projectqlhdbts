@@ -39,11 +39,13 @@
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Năm</label>
                                     <div class="col-sm-8">
                                         <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="year" name="year">
-                                            <option value="all" {{($request->year=='all')?'selected':''}}>All</option>
                                             @php
                                             $yearstart = \Carbon\Carbon::now()->subYear(5);
                                             $yearend = \Carbon\Carbon::now()->addYear(2);
+                                            $now = \Carbon\Carbon::now();
                                             @endphp
+                                            <option value="{{$now->year}}" {{($request->year==$now->year)?'selected':''}}>{{$now->year}}</option>
+                                            
                                             @for($i = $yearstart ; $i<$yearend ; $i->addYear(1))
                                                 <option value="{{$i->year}}" {{($request->year==$i->year)?'selected':''}}>{{$i->year}}</option>
 
@@ -57,7 +59,7 @@
                                     <label for="inputPassword" class="col-sm-4 col-form-label">Tháng</label>
                                     <div class="col-sm-8">
                                         <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="month" name="month" disabled>
-                                            <option value="all" {{($request->month=='all')?'selected':''}}>All</option>
+                                            <option value="{{$now->month}}" {{($request->month==$now->month)?'selected':''}}>{{$now->month}}</option>
                                             <option value="1" {{($request->month==1)?'selected':''}}>1</option>
                                             <option value="2" {{($request->month==2)?'selected':''}}>2</option>
                                             <option value="3" {{($request->month==3)?'selected':''}}>3</option>
@@ -87,23 +89,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @if(Auth::user()->quyennguoidungs->first()->Q_MaQ!='Q1')
-                            <div class="col-md-4 p-2">
-                                <div class="row form-group">
-                                    <label for="inputPassword" class="col-sm-6 col-form-label">Người dùng</label>
-                                    <div class="col-sm-6">
-                                        <select style="cursor: pointer;" class="form-control" aria-label="Default select example" id="nguoidung" name="nguoidung">
-                                            <option value="all">All</option>
-                                            @foreach($taikhoans as $taikhoan)
-                                            @if($taikhoan->quyennguoidungs->first()->Q_MaQ=='Q1')
-                                            <option value="{{$taikhoan->id}}">{{$taikhoan->name}}</option>
-                                            @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
                         </div>
                         <div class="row col-3 p-2 justify-content-right">
                             <div class="col-sm-6">
@@ -196,9 +181,9 @@
         var month = $("#month").val();
         var donvi = $("#don_vi").val();
         var nguoidung = $("#nguoidung").val();
-        $("#year").val('all');
+        $("#year").val('{{$now->year}}');
         $("#year").prop("disabled", true);
-        $("#month").val('all');
+        $("#month").val('{{$now->month}}');
         $("#month").prop("disabled", true);
 
 

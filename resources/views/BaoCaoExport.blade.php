@@ -22,9 +22,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($HopDong as $HopDong)
+        @foreach($HopDong as $row)
         @php
-        $ngayhethan = \Carbon\Carbon::parse($HopDong->HD_NgayHetHan);
+        $ngayhethan = \Carbon\Carbon::parse($row->HD_NgayHetHan);
         $now = \Carbon\Carbon::now();
         $diffInDays = 0;
         if($ngayhethan>$now){
@@ -34,22 +34,22 @@
         }
         @endphp
         <tr>
-            <td>{{ $HopDong->HD_MaHD }}</td>
-            <td>{{ $HopDong->HD_TenCTK }}</td>
-            <td>{{ $HopDong->ND_MaND }}</td>
-            <td>{{ $HopDong->HD_SoTaiKhoan }}</td>
-            <td>{{ $HopDong->DV_MaDV}}</td>
-            <td>{{ $HopDong->HD_TenNH }}</td>
-            <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayDangKy)->format('d/m/Y')}}</td>
-            <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayHetHan)->format('d/m/Y')}}</td>
-            <td>{{ $HopDong->HD_GiaHienTai }} </td>
-            <td>{{ $HopDong->T_MaTram }} </td>
-            <td>{{ $HopDong->T_TenTram }} </td>
-            <td>{{ $HopDong->HD_MaCSHT }}</td>
-            <td>{{ $HopDong->HD_TenChuDauTu }}</td>
-            <td>{{ $HopDong->HD_HDScan }} </td>
+            <td>{{ $row->HD_MaHD }}</td>
+            <td>{{ $row->HD_TenCTK }}</td>
+            <td>{{ $row->ND_MaND }}</td>
+            <td>{{ $row->HD_SoTaiKhoan }}</td>
+            <td>{{ $row->DV_MaDV}}</td>
+            <td>{{ $row->HD_TenNH }}</td>
+            <td>{{\Carbon\Carbon::parse($row->HD_NgayDangKy)->format('d/m/Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($row->HD_NgayHetHan)->format('d/m/Y')}}</td>
+            <td>{{ $row->HD_GiaHienTai }} </td>
+            <td>{{ $row->T_MaTram }} </td>
+            <td>{{ $row->T_TenTram }} </td>
+            <td>{{ $row->HD_MaCSHT }}</td>
+            <td>{{ $row->HD_TenChuDauTu }}</td>
+            <td>{{ $row->HD_HDScan }} </td>
             <td>{{ $diffInDays}} </td>
-            <td>{{\Carbon\Carbon::parse($HopDong->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
+            <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
         </tr>
         @endforeach
     </tbody>

@@ -27,7 +27,7 @@ class BaoCaoExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithS
     public function view(): View
     {
         $hd = [];
-        // dd($this->request->type['HD15']);
+        // dd($this->request->HD);
         if ($this->request->has('HD')) {
             foreach ($this->request->HD as $key => $value) {
                 if ($this->request->type[$key] == 'hop_dong') {
@@ -48,7 +48,7 @@ class BaoCaoExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithS
                         'HD_TenNH',
                         'HD_TenChuDauTu',
                         'HD_HDScan',
-                    )->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->get();
+                    )->where('HD_MaHD',$value)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->first();
                 } else {
                     $HopDong = PhuLuc::select(
                         'HD_MaHD',
@@ -67,14 +67,14 @@ class BaoCaoExport implements FromView, ShouldAutoSize, WithDefaultStyles, WithS
                         'HD_TenNH',
                         'HD_TenChuDauTu',
                         'HD_HDScan',
-                    )->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->get();
+                    )->where('HD_MaHD',$value)->orderByRaw("CAST(SUBSTR(HD_MaHD, 3) AS UNSIGNED)")->first();
                 }
                 array_push($hd, $HopDong);
             }
         }
         // dd($hd);
         return view('BaoCaoExport', [
-            'HopDong' => $HopDong
+            'HopDong' => $hd
         ]);
     }
 
