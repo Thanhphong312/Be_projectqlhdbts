@@ -84,7 +84,10 @@
                                 <th scope="col-6 col-md-4">Địa chỉ</th>
                                 <th scope="col-6 col-md-4">Tọa độ</th>
                                 <th scope="col-6 col-md-4" style="min-width:150px;"e>Đơn vị quản lý Trạm</th>
+                                @if($quyen=='Q0')
+
                                 <th scope="col-6 col-md-4">Tùy chỉnh</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -95,6 +98,8 @@
                                 <td style="text-align: left;">{{$tram->T_DiaChiTram}}</td>
                                 <td style="text-align: left;"><textarea cols="40" rows="3" disabled>{{$tram->toado}}</textarea> </td>
                                 <td style="text-align: left; width:500px">{{($tram->dvqltram())?$tram->dvqltram()->first()->Ten_DV:""}}</td>
+                                @if($quyen=='Q0')
+
                                 <td>
                                     <form action="{{route('tram-xoa', $tram->T_MaTram)}}" method="get">
                                         <button type="button" onclick=capnhat_tram('{{$tram->T_MaTram}}') class="btn btn-primary me-md-3">
@@ -105,6 +110,7 @@
                                         </button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>

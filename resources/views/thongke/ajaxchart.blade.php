@@ -50,7 +50,16 @@
                         }
                         $name = (\App\Models\User::where('id',$row->ND_MaND)->first())?\App\Models\User::where('id',$row->ND_MaND)->first()->name:'';
                         $donvi = (\App\Models\Donvi::where('DV_MaDV',$row->DV_MaDV)->first())?\App\Models\Donvi::where('DV_MaDV',$row->DV_MaDV)->first()->DV_TenDV:'';
-                        @endphp
+                        if ($diffInDays < 31) {
+                             $unit="ngày" ; 
+                        } elseif ($diffInDays < 365) {
+                             $diffInDays=round($diffInDays / 30);
+                              $unit="tháng" ; 
+                        } else { 
+                            $diffInDays=round($diffInDays / 365); 
+                            $unit="năm" ; 
+                        } 
+                        @endphp 
                          <tr style="color:{{($row->getTable()=='phu_luc')?'green':'';}}">
                             <input type="hidden" value="{{$row->HD_MaHD}}" name="HD[{{$row->HD_MaHD}}]">
                             <input type="hidden" value="{{$row->getTable()}}" name="type[{{$row->HD_MaHD}}]">
@@ -68,7 +77,7 @@
                             <td style="text-align:left"> {{$row->HD_MaCSHT}}</td>
                             <td style="text-align:left">{{$row->HD_TenChuDauTu}}</td>
                             <td>
-                                {{$diffInDays}}
+                            @if ($diffInDays <= 0) Hết hạn @else {{$diffInDays}} {{$unit}} @endif
                             </td>
                             <td>{{\Carbon\Carbon::parse($row->HD_NgayPhuLuc)->format('d/m/Y')}}</td>
                             <td>
