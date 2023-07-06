@@ -161,6 +161,9 @@
     var nguoidung = $("#nguoidung").val();
     @if($request->type) $("#cancel").css("display", "block");
     @endif
+    if($("#year").val()!='all'){
+        $("#month").prop("disabled", false);  
+    }
     $("#year").change(function() {
         var value = $(this).val();
         if (value == 'all') {
@@ -182,7 +185,6 @@
             page: {{(!empty($request->page)) ? $request->page: 1}}
         },
         success: function(data) {
-            console.log(data);
             $('#gettable').html(data);
         },
 
